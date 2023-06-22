@@ -1,0 +1,81 @@
+context:
+  domain: nic2004:52110
+  country: IND
+  city: std:079
+  action: on_select
+  core_version: 1.1.0
+  bap_id: jiomart-buyer.ondcz5.de
+  bpp_id: ondcpreprod.marico.in
+  transaction_id: bc2ce300-3801-4fbc-9a6e-06eeb040d7c6
+  message_id: e22ae74a-3d4d-43c5-b4d0-c26c5811c45c
+  timestamp: 2023-05-08T05:27:34.614Z
+  ttl: PT30S
+message:
+  order:
+    provider:
+      id: ondcpreprod.marico.in
+    items:
+      - fulfillment_id: "1"
+        id: MANS110
+      - fulfillment_id: "1"
+        id: "8901088135054"
+    fulfillments:
+      - id: "1"
+        "@ondc/org/provider_name": Marico
+        tracking: false
+        "@ondc/org/category": Express Delivery
+        "@ondc/org/TAT": P4D
+        state:
+          descriptor:
+            code: Non-serviceable
+    quote:
+      price:
+        currency: INR
+        value: "782"
+      breakup:
+        - "@ondc/org/item_id": MANS110
+          "@ondc/org/item_quantity":
+            count: 1
+          title: Saffola Immuniveda Kadha Mix- 80g (20 Sachets x 4g )  + Saffola Honey
+            250g
+          "@ondc/org/title_type": item
+          price:
+            currency: INR
+            value: "263"
+          item:
+            quantity:
+              available:
+                count: "2"
+              maximum:
+                count: "3"
+            price:
+              currency: INR
+              value: "263"
+        - "@ondc/org/item_id": "8901088135054"
+          "@ondc/org/item_quantity":
+            count: 1
+          title: Saffola Aura Extra Virgin Olive Oil, 500ml
+          "@ondc/org/title_type": item
+          price:
+            currency: INR
+            value: "519"
+          item:
+            quantity:
+              available:
+                count: "2"
+              maximum:
+                count: "3"
+            price:
+              currency: INR
+              value: "519"
+        - title: Delivery Charges
+          price:
+            currency: INR
+            value: "0.00"
+          "@ondc/org/item_id": "1"
+          "@ondc/org/title_type": delivery
+      ttl: PT30S
+error:
+  type: DOMAIN-ERROR
+  code: "30010"
+  message: Location Serviceability Error

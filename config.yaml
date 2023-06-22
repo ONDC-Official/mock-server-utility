@@ -1,0 +1,59 @@
+server:
+  type: BPP
+  port: 5500
+  sync_mode: false
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  search:
+    schema:
+      $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/search.json"
+    callbacks:
+      $ref: "./callbacks/on_search.yaml"
+  # select:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/select.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_select.yaml"
+  # init:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/init.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_init.yaml"
+  # confirm:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/confirm.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_confirm.yaml"
+  # update:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/update.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_update.yaml"
+  # track:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/track.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_track.yaml"
+  # support:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/support.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_support.yaml"
+  # status:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/status.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_status.yaml"
+  # rating:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/rating.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_raiting.yaml"
+  # cancel:
+  #   schema:
+  #     $ref: "https://raw.githubusercontent.com/abhinavv245/Json-store/main/schemas/Retail/cancel.json"
+  #   callbacks:
+  #     $ref: "./callbacks/on_cancel.yaml"

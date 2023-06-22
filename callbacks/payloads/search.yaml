@@ -1,0 +1,14 @@
+context:
+  domain: nic2004:52110
+  country: IND
+  city: std:079
+  action: "{{action}}"
+  core_version: 1.1.0
+  bap_id: jiomart-buyer.ondcz5.de
+  bpp_uri: "{{bpp_uri}}"
+  bap_uri: "{{bap_uri}}"
+  bpp_id: ondcpreprod.marico.in
+  transaction_id: "{{txn_id}}"
+  message_id: "{{msg_id}}"
+  timestamp: "{{tmstmp}}"
+  ttl: PT30S

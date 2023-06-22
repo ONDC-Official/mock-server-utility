@@ -1,0 +1,12 @@
+{
+  "message": {
+    "ack": {
+      "status": "NACK"
+    }
+  },
+  "error": {
+    "code": "346001",
+    "path": "string",
+    "message": "Schema validation error"
+  }
+}
