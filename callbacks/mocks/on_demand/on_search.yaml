@@ -4,11 +4,14 @@ context:
   timestamp: "{{tmstmp}}"
   bap_id: "http://example-bap"
   bap_uri: "{{bap_uri}}"
+  bpp_id: "http://example-bpp"
+  bpp_uri: "{{bpp_uri}}"
   transaction_id: "{{txn_id}}"
   message_id: "{{msg_id}}"
   city: "{{city_code}}"
   action: "{{action}}"
   core_version: 0.9.4
+  ttl: PT30S
    message:
     catalog:
       bpp/descriptor:
@@ -120,3 +123,5 @@ context:
             - id: '1'
               type: "{{type}}"
               collected_by: "{{provider}}"
+
+              

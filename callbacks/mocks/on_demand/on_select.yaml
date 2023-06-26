@@ -1,26 +1,26 @@
  context:
     country: IND
-    bpp_uri:  "{{bpp_uri}}"
-    domain: nic2004:60221
+    bpp_uri: "{{bpp_uri}}"
+    domain: ONDCTRV10
     timestamp: '2023-03-23T04:48:53Z'
-    bap_id: "http://example-bap"
-    bpp_id: "http://example-bpp"
-    transaction_id: "{{txn_id}}"
+    bap_id: "example-bap.com"
+    bpp_id: "example-bpp.com"
     message_id: "{{msg_id}}"
+    transaction_id: "{{tmstmp}}"
     city: std:080
     core_version: 0.9.4
     action: "{{action}}"
     bap_uri: "{{bap_uri}}"
-    message:
+    ttl: PT30S
     order:
-      id: 7751bd26-3fdc-47ca-9b64-e998dc5abe68
       provider:
         id: e8542642-0f4a-454c-9a9f-f46110c367a3
         descriptor:
           name: Raghavendra J
       items:
-        - id: "{{}}"
-            name: "{{name}}"
+        - id: 5777a0bf-9a08-49aa-a97d-1e5561a9622e
+          descriptor:
+            name: "{{item_id}}"
             code: RIDE
           tags:
             groups/1/descriptor/name: Daytime Charges
@@ -66,7 +66,7 @@
           fulfillment_id: fb5c84d4-1b59-4b9d-96b5-9d79107432c5
           payment_id: '1'
       quote:
-        value: '81'
+        value: '76'
         currency: INR
         breakup:
           - title: Base Fare
@@ -77,16 +77,13 @@
             price:
               value: '56'
               currency: INR
-          - title: CGST @ 5%
-            price:
-              value: '2.5'
-              currency: INR
-          - title: SGST @ 5%
-            price:
-              value: '2.5'
-              currency: INR
+        ttl: P200S
       fulfillment:
         id: fulf_5cf064d5-4c0a-42d3-b73d-5f19a6f7468e
+        state:
+          descriptor:
+            name: Found drivers
+            code: AGENTS_FOUND
         start:
           location:
             gps: 13.008935, 77.6444085
@@ -119,21 +116,3 @@
           rating: '5'
         vehicle:
           category: AUTO_RICKSHAW
-        customer:
-          person:
-            name: John Doe
-            phone: +91-9897867564
-            tags:
-              groups/1/descriptor/name: Localization
-              groups/1/descriptor/code: localization
-              groups/1/display: false
-              groups/1/list/1/descriptor/code: lang
-              groups/1/list/1/descriptor/name: Language
-              groups/1/list/1/value: en
-      payment:
-        id: 7f7896dd-787e-4a0b-8675-e9e6fe93bb8f
-        type: "{{payment_type}}"
-        params:
-          amount: '81'
-          currency: INR
-          transaction_status: NOT-PAID

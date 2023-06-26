@@ -1,17 +1,19 @@
  context:
     country: IND
-    bpp_uri: "{{bpp_uri}}"
+    bpp_uri:  "{{bpp_uri}}"
     domain: ONDCTRV10
-    timestamp: '2023-03-23T04:48:53Z'
+    timestamp: "{{tmstmp}}"
     bap_id: "example-bap.com"
     bpp_id: "example-bpp.com"
+    transaction_id: "{{txn_id}}"
     message_id: "{{msg_id}}"
-    transaction_id: "{{tmstmp}}"
     city: std:080
     core_version: 0.9.4
     action: "{{action}}"
     bap_uri: "{{bap_uri}}"
+  message:
     order:
+      id: 7751bd26-3fdc-47ca-9b64-e998dc5abe68
       provider:
         id: e8542642-0f4a-454c-9a9f-f46110c367a3
         descriptor:
@@ -65,7 +67,7 @@
           fulfillment_id: fb5c84d4-1b59-4b9d-96b5-9d79107432c5
           payment_id: '1'
       quote:
-        value: '76'
+        value: '81'
         currency: INR
         breakup:
           - title: Base Fare
@@ -76,14 +78,24 @@
             price:
               value: '56'
               currency: INR
-        ttl: P200S
+          - title: CGST @ 5%
+            price:
+              value: '2.5'
+              currency: INR
+          - title: SGST @ 5%
+            price:
+              value: '2.5'
+              currency: INR
       fulfillment:
         id: fulf_5cf064d5-4c0a-42d3-b73d-5f19a6f7468e
         state:
           descriptor:
-            name: Found drivers
-            code: AGENTS_FOUND
+            code: DRIVER_EN_ROUTE
+            name: Driver is on the way
         start:
+          authorization:
+            type: OTP
+            token: '234234'
           location:
             gps: 13.008935, 77.6444085
             address:
@@ -111,7 +123,27 @@
               street: Chikkanna Garden
         agent:
           name: RAGHAVENDRA J
+          phone: +91-98978675645
           rateable: true
           rating: '5'
         vehicle:
           category: AUTO_RICKSHAW
+          registration: KA01JG1231
+        customer:
+          person:
+            name: John Doe
+            phone: +91-9897867564
+            tags:
+              groups/1/descriptor/name: Localization
+              groups/1/descriptor/code: localization
+              groups/1/display: false
+              groups/1/list/1/descriptor/code: lang
+              groups/1/list/1/descriptor/name: Language
+              groups/1/list/1/value: en
+      payment:
+        id: 7f7896dd-787e-4a0b-8675-e9e6fe93bb8f
+        type: "{{payment_type}}"
+        params:
+          amount: '81'
+          currency: INR
+          transaction_status: "Completed"

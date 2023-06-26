@@ -1,17 +1,17 @@
  context:
     country: IND
     bpp_uri:  "{{bpp_uri}}"
-    domain: ONDCTRV10
-    timestamp: "{{tmstmp}}"
-    bap_id: "example-bap.com"
-    bpp_id: "example-bpp.com"
+    domain: nic2004:60221
+    timestamp: '2023-03-23T04:48:53Z'
+    bap_id: "http://example-bap"
+    bpp_id: "http://example-bpp"
     transaction_id: "{{txn_id}}"
     message_id: "{{msg_id}}"
     city: std:080
     core_version: 0.9.4
     action: "{{action}}"
     bap_uri: "{{bap_uri}}"
-  message:
+    message:
     order:
       id: 7751bd26-3fdc-47ca-9b64-e998dc5abe68
       provider:
@@ -19,9 +19,8 @@
         descriptor:
           name: Raghavendra J
       items:
-        - id: 5777a0bf-9a08-49aa-a97d-1e5561a9622e
-          descriptor:
-            name: Auto Ride
+        - id: "{{item_id}}"
+            name: "{{item_name}}"
             code: RIDE
           tags:
             groups/1/descriptor/name: Daytime Charges
@@ -88,14 +87,7 @@
               currency: INR
       fulfillment:
         id: fulf_5cf064d5-4c0a-42d3-b73d-5f19a6f7468e
-        state:
-          descriptor:
-            code: DRIVER_EN_ROUTE
-            name: Driver is on the way
         start:
-          authorization:
-            type: OTP
-            token: '234234'
           location:
             gps: 13.008935, 77.6444085
             address:
@@ -123,12 +115,10 @@
               street: Chikkanna Garden
         agent:
           name: RAGHAVENDRA J
-          phone: +91-98978675645
           rateable: true
           rating: '5'
         vehicle:
           category: AUTO_RICKSHAW
-          registration: KA01JG1231
         customer:
           person:
             name: John Doe
@@ -146,4 +136,4 @@
         params:
           amount: '81'
           currency: INR
-          transaction_status: "{{transaction_status}}"
+          transaction_status: NOT-PAID
