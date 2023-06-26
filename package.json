@@ -20,6 +20,7 @@
     "logger": "^0.0.1",
     "mongoose": "^7.0.3",
     "node-yaml-config": "^1.0.0",
+    "ondc-crypto-sdk-nodejs": "^1.0.2",
     "uuid": "^9.0.0",
     "winston": "^3.8.2",
     "winston-daily-rotate-file": "^4.7.1",

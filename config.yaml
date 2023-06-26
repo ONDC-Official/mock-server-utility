@@ -1,6 +1,10 @@
 server:
   type: BPP
   port: 5500
+  subscriber_id: mock-api-service
+  ukId: 584
+  privatekey: Ja5vLAEBp018sp62BAOlH6TzsbYuUxjkAIfRvJNcp0FA3M0hYhr/aNWbSt1r1jzqyIct/rlILvDT3lvDa45AjA==
+  publickey: QNzNIWIa/2jVm0rda9Y86siHLf65SC7w095bw2uOQIw=
   sync_mode: false
 log:
   level: DEBUG

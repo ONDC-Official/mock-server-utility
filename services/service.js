@@ -1,6 +1,14 @@
-const { buildTemplate } = require("../utils/utils");
-const ack = require("../callbacks/payloads/ack.json");
-const nack = require("../callbacks/payloads/nack.json");
+const { buildTemplate, getPublicKey } = require("../utils/utils");
+const {
+  createAuthorizationHeader,
+  isSignatureValid,
+} = require("ondc-crypto-sdk-nodejs");
+const {
+  ack,
+  signNack,
+  schemaNack,
+  invalidNack,
+} = require("../callbacks/payloads/acknowledgement");
 const logger = require("../utils/logger");
 const config = require("../utils/config");
 const { validateSchema } = require("./validation");
@@ -14,6 +22,21 @@ const onRequest = async (req, res) => {
   try {
     const { api } = req.params;
     const server = config.getServer();
+
+    const headers = req.headers;
+    const public_key = await getPublicKey(headers, server.type);
+    logger.info(`Public key retrieved from registry : ${public_key}`);
+    //Validate the request source against the registry
+    const isValidSource = await isSignatureValid({
+      header: headers.authorization, // The Authorisation header sent by other network participants
+      body: req.body,
+      publicKey: public_key,
+    });
+    if (!isValidSource) {
+      logger.error("Signature not verified");
+      return res.json(signNack);
+    }
+    logger.error("Signature verified");
     //getting the callback url from config file
     let callbackConfig;
     let context;
@@ -26,7 +49,7 @@ const onRequest = async (req, res) => {
       callbackConfig = paths[api].callbacks?.default;
     } else {
       logger.error("Invalid Request");
-      return res.json(nack);
+      return res.json(invalidNack);
     }
     logger.info(`received a request from ${req.url} at ${new Date()}`);
 
@@ -52,13 +75,25 @@ const onRequest = async (req, res) => {
           trigger(context, callbackConfig, data);
         }
       }
+
+      const reqObj = context.req_body;
+      //create response header
+      const header = await createAuthorizationHeader({
+        message: { context: reqObj.context, message: reqObj.message },
+        privateKey: server.privatekey,
+        bapId: server.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
+        bapUniqueKeyId: server.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
+      });
+
+      res.setHeader("Authorization", header);
+
       return res.json(ack);
     } else {
-      return res.json(nack);
+      return res.json(schemaNack);
     }
   } catch (error) {
     logger.error("ERROR!!", error);
-    console.trace(error)
+    console.trace(error);
   }
 };
 
