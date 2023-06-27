@@ -1,0 +1,31 @@
+server:
+  type: REGISTRY
+  port: 3000
+  sync_mode: true
+security:
+  verify_sign: false
+  generate_sign: false
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file_registry.log
+path:
+  lookup:
+    schema:
+      type: object
+    callbacks:
+      default:
+        payload:
+          template:
+            data:
+              $ref: "./registy/lookup_res.yaml"
+  health:
+    schema:
+      type: object
+    callbacks:
+      default:
+        payload:
+          template:
+            data:
+              $ref: "./registy/health.yaml"
+

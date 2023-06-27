@@ -7,10 +7,13 @@ const ajv = new Ajv({
 const addFormats = require("ajv-formats");
 addFormats(ajv);
 require("ajv-errors")(ajv);
-const logger = require("../utils/logger");
+const log = require("../utils/logger");
 //schema validation
 
+var logger;
+
 const validateSchema = async (context) => {
+  logger = log.init()
   console.log(`inside schema validation service for ${context.req_body}`);
   try {
     const validate = ajv.compile(context.apiConfig.schema);

@@ -4,19 +4,25 @@ const fs = require('fs');
 const yaml = require('yaml');
 const $RefParser = require('json-schema-ref-parser');
 
-const filePath = "./config.yaml";
-const yamlString = fs.readFileSync(filePath, 'utf8');
-const yamlObject = yaml.parse(yamlString);
-let config= yamlObject;
-$RefParser.dereference(yamlObject)
-  .then((schema) => {
-    config = schema;
-    const resolvedYamlString = yaml.stringify(schema);
-    // console.log("Config Read: \n", resolvedYamlString);
-  })
-  .catch((error) => {
-    console.error('Error parsing schema:', error);
-  });
+var config;
+
+async function loadConfig(filePath) {
+  
+    // const filePath = "./config.yaml";
+    const yamlString = fs.readFileSync(filePath, 'utf8');
+    const yamlObject = yaml.parse(yamlString);
+    // config = yamlObject;
+    config = await $RefParser.dereference(yamlObject);
+  
+}
+
+function getConfig(){
+  if (!config){
+    loadConfig("./config.yaml")
+  }
+  return config
+}
+
 function getServer(){
     const server=config.server;
     return server;
@@ -31,4 +37,4 @@ function getLog (){
 }
 
 module.exports={
- getServer ,getPaths,getLog}
+ getServer ,getPaths,getLog, loadConfig, getConfig}

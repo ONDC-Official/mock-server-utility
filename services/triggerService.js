@@ -1,10 +1,13 @@
 const config = require("../utils/config");
-const logger = require("../utils/logger");
+const log = require("../utils/logger");
 const axios= require('axios')
 
 //getting path object from config file
 
+var logger;
+
 const trigger = (context, config ,data) => {
+  logger = log.init()
   let uri = context.response_uri
   let api = config.callback;
   let delay = config.delay

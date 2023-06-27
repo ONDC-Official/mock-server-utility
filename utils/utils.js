@@ -9,7 +9,7 @@ const { response } = require("express");
 //we are getting the schemas from a url but we can get it from a local file as well
 
 const resolveTemplate = (context, template, values) => {
-  return template.replace(/\{\{(\w+)\}\}/g, (match, key) => {
+  return template.replace(/\+\+(\w+)\+\+/g, (match, key) => {
     var value = values[key];
     if (value && value["operation"]) {
       value = operator.evaluateOperation(context, value["operation"]);
@@ -47,9 +47,9 @@ const extractSubscriberId = (header) => {
   return null; // Subscriber ID not found
 };
 
-const getPublicKey = async (header, serverType) => {
+const getPublicKey = async (lookupUri, header) => {
   try {
-    let lookupUri = "https://preprod.registry.ondc.org/ondc/lookup";
+    // let lookupUri = "https://preprod.registry.ondc.org/ondc/lookup";
     const extractSubscriberIdukId = extractSubscriberId(header);
     const subscriberId = extractSubscriberIdukId.subscriberID;
     const ukId = extractSubscriberIdukId.uniquePublicKeyID;
@@ -66,7 +66,6 @@ const getPublicKey = async (header, serverType) => {
 
     return publicKey;
   } catch (error) {
-    logger.error("ERROR!- No network participant found in registry", error);
     console.trace(error);
   }
 };

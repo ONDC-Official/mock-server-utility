@@ -1,7 +1,0 @@
-default:
-  callback: on_init
-  uri:
-    $ref: "./operations/req_body.yaml#/bap_uri"
-  delay: 300
-  payload:
-    $ref: "./template/on_init.yaml"
