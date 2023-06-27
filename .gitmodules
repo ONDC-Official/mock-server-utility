@@ -1,0 +1,4 @@
+[submodule "instruction_set"]
+	path = instruction_set
+	url = https://github.com/92shreyansh/ondc-mock-instructions.git
+	branch = master
