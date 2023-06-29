@@ -13,7 +13,6 @@ async function loadConfig(filePath) {
     const yamlObject = yaml.parse(yamlString);
     // config = yamlObject;
     config = await $RefParser.dereference(yamlObject);
-  
 }
 
 function getConfig(){

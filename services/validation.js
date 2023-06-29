@@ -14,17 +14,17 @@ var logger;
 
 const validateSchema = async (context) => {
   logger = log.init()
-  console.log(`inside schema validation service for ${context.req_body}`);
+  logger.info(`Inside schema validation service for ${context?.req_body?.context?.action} api`);
   try {
     const validate = ajv.compile(context.apiConfig.schema);
     const valid = validate(context.req_body);
     if (!valid) {
       let error_list = validate.errors;
       logger.error(JSON.stringify(formatted_error(error_list)));
-      console.log("Schema validation : FAIL");
+      logger.error("Schema validation : FAIL");
       return false;
     } else {
-      console.log("Schema validation : SUCCESS");
+      logger.info("Schema validation : SUCCESS");
       return true;
     }
   } catch (error) {

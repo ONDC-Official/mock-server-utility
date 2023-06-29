@@ -8,7 +8,7 @@ const {
   signNack,
   schemaNack,
   invalidNack,
-} = require("../on_demand/payloads/acknowledgement");
+} = require("../utils/acknowledgement");
 const log = require("../utils/logger");
 const config = require("../utils/config");
 const { validateSchema } = require("./validation");
@@ -36,8 +36,9 @@ const onRequest = async (req, res) => {
     const { api } = req.params;
     if(security.verify_sign){
       const headers = req.headers;
-      const public_key = await getPublicKey(security.lookup_uri, headers);
-      logger.info(`Public key retrieved from registry : ${public_key}`);
+      // const public_key = await getPublicKey(security.lookup_uri, headers);
+      // logger.info(`Public key retrieved from registry : ${public_key}`);
+      const public_key=security.publickey;
       //Validate the request source against the registry
       const isValidSource = await isSignatureValid({
         header: headers.authorization, // The Authorisation header sent by other network participants
@@ -48,8 +49,9 @@ const onRequest = async (req, res) => {
         logger.error("Signature not verified");
         return res.json(signNack);
       }
+      logger.info("Signature verified");
     }
-    logger.error("Signature verified");
+   
     //getting the callback url from config file
     let callbackConfig;
     let context;
@@ -59,24 +61,24 @@ const onRequest = async (req, res) => {
         req_body: req.body,
         apiConfig: paths[api],
       };
-      callbackConfig = paths[api].callbacks?.default;
+      callbackConfig = paths[api]?.callbacks?.default;
     } else {
       logger.error("Invalid Request");
       return res.json(invalidNack);
     }
-    logger.info(`received a request from ${req.url} at ${new Date()}`);
+    logger.info(`Received a request from ${req.url} at ${new Date()}`);
 
     //validating schema for the request received
     
-    console.log(`Validating ${api} request`);
+    logger.info(`Validating ${api} request`);
     if (await validateSchema(context)) {
       
       //triggering the subsequent request
-      payloadConfig = callbackConfig.payload;
+      payloadConfig = callbackConfig?.payload;
       if (payloadConfig != null) {
         let data = "";
         if (payloadConfig["template"]) {
-          data = buildTemplate(context, callbackConfig.payload?.template);
+          data = buildTemplate(context, callbackConfig?.payload?.template);
         }
         if(security.generate_sign){
           //create response header
@@ -90,11 +92,11 @@ const onRequest = async (req, res) => {
           res.setHeader("Authorization", header);
         }
         if (server.sync_mode) {
-          return res.json(data);
+          return res.json(data.value);
         } else {
           context.response_uri = resolveObject(context, callbackConfig.uri);
-          console.log(`callback for this request: ${callbackConfig.callback}`);
-          trigger(context, callbackConfig, data);
+          logger.info(`callback for this request: ${callbackConfig.callback}`);
+          trigger(context, callbackConfig, data.value);
         }
       }
       return res.json(ack);

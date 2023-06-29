@@ -1,6 +1,6 @@
 const { createLogger, format, transports } = require('winston');
 require('winston-daily-rotate-file');
-const { combine, timestamp, printf } = format;
+const { combine, timestamp, printf,colorize } = format;
 const config = require("./config");
 
 var logger;
@@ -14,14 +14,15 @@ function init() {
 
 function getLogger() {
   const myFormat = printf(({ level, message, timestamp }) => {
-    return `${timestamp} [${level}]: ${message}`;
+    return `[${timestamp}] [${level}]: ${message}`;
   });
   const log = config.getLog();
   logger = createLogger({
     level: log,
     format: combine(
       timestamp(),
-      myFormat
+      colorize(),
+      myFormat 
     ),
     transports: [
       new transports.Console({

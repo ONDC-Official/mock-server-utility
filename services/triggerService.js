@@ -12,14 +12,14 @@ const trigger = (context, config ,data) => {
   let api = config.callback;
   let delay = config.delay
     try {
-      console.log("inside trigger service");
+      logger.info("Inside trigger service");
       setTimeout(() => {
         axios
           .post(`${uri + api}`, data)
           .then((response) => {
            
             logger.info(
-              `triggered ${uri}${api} at ${new Date()} and received ${response.data}`
+              `Triggered ${uri}${api} at ${new Date()} and received ${response.data}`
             );
           })
           .catch(function (error) {
