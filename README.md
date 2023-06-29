@@ -31,21 +31,44 @@ git submodule update
 
 ### How to add new Instruction Set
 
-> Make one folder inside instruction set (Lets say public-transit)
+Clone the ONDC Mocker Instruction repository
+
+```bash
+  git clone https://github.com/92shreyansh/ondc-mock-instructions.git
+```
+
+> Make one folder (Lets say public-transit)
 
 > Create 3 folder inside it.
     1. public_transit (It will contain operations,payload,template)
     2. schema (It will contain schema's for all API contracts)
     3. public-transit.yaml
 
+> In ondc-mock-server, to sync the code for intruction set always run command 
+
+```bash
+git submodule update
+
+```
+
 ### Steps to run 
 
+Copy the folder you want to run (For eg: If we want to run on_demand then copy on_demand folder,schema folder and on_demand.yaml to base level where our package.json lies)
+
+Change the name of your file in Dockerfile (by default ./on_demand.yaml would run)
+
 Start Docker Desktop application.
+
 Run “docker build -t ondc .” in your terminal or in your vs studio terminal ensure that you are in the project path.
+
 Run “docker run -dp 5500:5500 ondc” to start the container with port 5500.
+
 You would be able to hit any api now.
+
 To stop the container you need container id for this run docker ps and copy the container id in which image ondc. Then run “docker stop <container_id>“
+
 To remove the container run “docker rm <container_id>”
+
 To delete an image run “docker rmi -f ondc”
 
 ### How we can test
@@ -70,17 +93,9 @@ To delete an image run “docker rmi -f ondc”
 | on_cancel.json                              |
 | track.json                                  |
 | on_track.json                               |
-| on_status_pending.json (Pending)            |
-| on_status_picked.json (Order-picked-up)     |
-| on_status_delivered.json (Order-delivered)  |
+| on_status  |
 | update.json                                 |
-| update_billing.json (Refund)                |
-| on_update_initiated.json (Return_Initiated) |
-| on_update_approved.json (Return_Approved)   |
-| on_update_picked.json (Return_Picked)       |
-| on_update_delivered.json (Return_Delivered) |
-| on_update_liquidated.json (Liquidated)      |
-| on_update_rejected.json (Return_Rejected)   |
+| on_update  |
 | support.json                                |
 | on_support.json                             |
 
