@@ -1,0 +1,7 @@
+default:
+  callback: on_search
+  uri:
+    $ref: "./operations/req_body.yaml#/bap_uri"
+  delay: 300
+  payload:
+    $ref: "./template/on_search.yaml"

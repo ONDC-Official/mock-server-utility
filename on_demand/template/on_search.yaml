@@ -1,0 +1,38 @@
+template:
+  data:
+    $ref: "../payloads/on_search.yaml"
+  dict:
+    bpp_uri: http://localhost:5500/
+    bpp_id: localhost:5500
+    bpp_name: Test Name
+    provider_name: Nama yatri
+    number: 9483292144x
+    item_id: HR26DQ5551
+    item_name: Auto Ricksha
+    price: 350INR
+    payment_type: ON-FULLFILMENT
+    collected_by: BPP
+    city_code: 
+      $ref: "../operations/req_body.yaml#/context_city"
+    bap_id:
+      $ref: "../operations/req_body.yaml#/bap_id"
+    bap_uri:
+      $ref: "../operations/req_body.yaml#/bap_uri"
+    txn_id:
+      $ref: "../operations/req_body.yaml#/transaction_id"
+    msg_id:
+      $ref: "../operations/req_body.yaml#/message_id"
+    timestamp:
+      operation:
+        type: GENERATE_TIMESTAMP
+    start_gps:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.intent.fulfillment.start.location.gps"
+    end_gps:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.intent.fulfillment.end.location.gps"
+
