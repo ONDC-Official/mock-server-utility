@@ -1,19 +1,9 @@
-const { buildTemplate, getPublicKey } = require("../utils/utils");
-const {
-  createAuthorizationHeader,
-  isSignatureValid,
-} = require("ondc-crypto-sdk-nodejs");
-const {
-  ack,
-  signNack,
-  schemaNack,
-  invalidNack,
-} = require("../utils/acknowledgement");
+const { getPublicKey } = require("../utils/utils");
+const { isSignatureValid } = require("ondc-crypto-sdk-nodejs");
+const { signNack, invalidNack } = require("../utils/acknowledgement");
 const log = require("../utils/logger");
 const config = require("../utils/config");
-const { validateSchema } = require("./validation");
-const { trigger } = require("./triggerService");
-const operator = require("../operator/util.js");
+const { validateRequest } = require("./validation");
 
 //getting path object from config file
 
@@ -21,24 +11,23 @@ var paths;
 var props;
 var security;
 var logger;
-var server
+var server;
 
 const onRequest = async (req, res) => {
-  if(paths==undefined){
-    logger = log.init()
-    props = config.getConfig()
-    security = props.security
-    server = props.server
-    paths = props.path
-    logger.debug("security", security)
+  if (paths == undefined) {
+    logger = log.init();
+    props = config.getConfig();
+    security = props.security;
+    server = props.server;
+    paths = props.path;
   }
   try {
     const { api } = req.params;
-    if(security.verify_sign){
+    if (security.verify_sign) {
       const headers = req.headers;
       // const public_key = await getPublicKey(security.lookup_uri, headers);
       // logger.info(`Public key retrieved from registry : ${public_key}`);
-      const public_key=security.publickey;
+      const public_key = security.publickey;
       //Validate the request source against the registry
       const isValidSource = await isSignatureValid({
         header: headers.authorization, // The Authorisation header sent by other network participants
@@ -51,7 +40,7 @@ const onRequest = async (req, res) => {
       }
       logger.info("Signature verified");
     }
-   
+
     //getting the callback url from config file
     let callbackConfig;
     let context;
@@ -67,55 +56,12 @@ const onRequest = async (req, res) => {
       return res.json(invalidNack);
     }
     logger.info(`Received a request from ${req.url} at ${new Date()}`);
-
-    //validating schema for the request received
-    
     logger.info(`Validating ${api} request`);
-    if (await validateSchema(context)) {
-      
-      //triggering the subsequent request
-      payloadConfig = callbackConfig?.payload;
-      if (payloadConfig != null) {
-        let data = "";
-        if (payloadConfig["template"]) {
-          data = buildTemplate(context, callbackConfig?.payload?.template);
-        }
-        if(security.generate_sign){
-          //create response header
-          const header = await createAuthorizationHeader({
-            message: data,
-            privateKey: security.privatekey,
-            bapId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
-            bapUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
-          });
-    
-          res.setHeader("Authorization", header);
-        }
-        if (server.sync_mode) {
-          return res.json(data.value);
-        } else {
-          context.response_uri = resolveObject(context, callbackConfig.uri);
-          logger.info(`callback for this request: ${callbackConfig.callback}`);
-          trigger(context, callbackConfig, data.value);
-        }
-      }
-      return res.json(ack);
-    } else {
-      return res.json(schemaNack);
-    }
+    await validateRequest(context, callbackConfig, res, security, server);
   } catch (error) {
     logger.error("ERROR!!", error);
     console.trace(error);
   }
 };
-
-function resolveObject(context, obj) {
-  if (obj["operation"]) {
-    return operator.evaluateOperation(context, obj["operation"]);
-  } else if (obj["value"]) {
-    return obj["value"];
-  }
-  return obj;
-}
 
 module.exports = { onRequest };
