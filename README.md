@@ -47,7 +47,8 @@ Clone the ONDC Mocker Instruction repository
 > In ondc-mock-server, to sync the code for intruction set always run command 
 
 ```bash
-git submodule update
+
+git submodule foreach git pull origin master
 
 ```
 
