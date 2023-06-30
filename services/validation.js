@@ -66,11 +66,11 @@ const validateRequest = async (
         res.setHeader("Authorization", header);
       }
       if (server.sync_mode) {
-        return res.json(data.value);
+        return res.json(data);
       } else {
         context.response_uri = resolveObject(context, callbackConfig.uri);
         logger.info(`callback for this request: ${callbackConfig.callback}`);
-        trigger(context, callbackConfig, data.value);
+        trigger(context, callbackConfig, data);
       }
       return res.json(ack);
     } else {
