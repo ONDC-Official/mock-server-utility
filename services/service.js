@@ -1,9 +1,8 @@
 const { getPublicKey } = require("../utils/utils");
-const { isSignatureValid } = require("ondc-crypto-sdk-nodejs");
-const { signNack, invalidNack } = require("../utils/acknowledgement");
+const {  signNack,invalidNack } = require("../utils/acknowledgement");
 const log = require("../utils/logger");
 const config = require("../utils/config");
-const { validateRequest } = require("./validation");
+const { validateRequest, verifyHeader } = require("./validation");
 
 //getting path object from config file
 
@@ -24,22 +23,13 @@ const onRequest = async (req, res) => {
   try {
     const { api } = req.params;
     if (security.verify_sign) {
-      const headers = req.headers;
-      // const public_key = await getPublicKey(security.lookup_uri, headers);
-      // logger.info(`Public key retrieved from registry : ${public_key}`);
-      const public_key = security.publickey;
-      //Validate the request source against the registry
-      const isValidSource = await isSignatureValid({
-        header: headers.authorization, // The Authorisation header sent by other network participants
-        body: req.body,
-        publicKey: public_key,
-      });
-      if (!isValidSource) {
-        logger.error("Signature not verified");
-        return res.json(signNack);
-      }
-      logger.info("Signature verified");
-    }
+      if (!await verifyHeader(req, security, res)){
+        // Handle the case when signature is not verified
+        res.status(400).json(signNack);
+        logger.error("Authorization header not verified");
+        return; // Make sure to return to exit the function
+    } 
+  }
 
     //getting the callback url from config file
     let callbackConfig;

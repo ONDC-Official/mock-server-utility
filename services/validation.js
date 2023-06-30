@@ -4,7 +4,10 @@ const ajv = new Ajv({
   allErrors: true,
   strict: "log",
 });
-const { createAuthorizationHeader } = require("ondc-crypto-sdk-nodejs");
+const {
+  createAuthorizationHeader,
+  isSignatureValid,
+} = require("ondc-crypto-sdk-nodejs");
 const { buildTemplate } = require("../utils/utils");
 const { trigger } = require("./triggerService");
 const { ack, schemaNack } = require("../utils/acknowledgement");
@@ -46,6 +49,7 @@ const validateRequest = async (
   security,
   server
 ) => {
+  logger = log.init();
   if (await validateSchema(context)) {
     //triggering the subsequent request
     payloadConfig = callbackConfig?.payload;
@@ -69,7 +73,7 @@ const validateRequest = async (
         return res.json(data);
       } else {
         context.response_uri = resolveObject(context, callbackConfig.uri);
-        logger.info(`callback for this request: ${callbackConfig.callback}`);
+        logger.info(`Callback for this request: ${callbackConfig.callback}`);
         trigger(context, callbackConfig, data);
       }
       return res.json(ack);
@@ -79,6 +83,24 @@ const validateRequest = async (
   }
 };
 
+const verifyHeader = async (req, security, res) => {
+  logger = log.init();
+  const headers = req.headers;
+  // const public_key = await getPublicKey(security.lookup_uri, headers);
+  // logger.info(`Public key retrieved from registry : ${public_key}`);
+  const public_key = security.publickey;
+  //Validate the request source against the registry
+  const isValidSource = await isSignatureValid({
+    header: headers.authorization, // The Authorisation header sent by other network participants
+    body: req.body,
+    publicKey: public_key,
+  });
+  if (!isValidSource) {
+    return false;
+  }
+  logger.info("Authorization header verified");
+  return true;
+};
 function resolveObject(context, obj) {
   if (obj["operation"]) {
     return operator.evaluateOperation(context, obj["operation"]);
@@ -88,4 +110,4 @@ function resolveObject(context, obj) {
   return obj;
 }
 
-module.exports = { validateSchema, validateRequest };
+module.exports = { validateSchema, validateRequest, verifyHeader };
