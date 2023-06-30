@@ -77,11 +77,13 @@ const validateRequest = async (
         trigger(context, callbackConfig, data);
       }
       return res.json(ack);
-    } else {
+    } 
+  }
+  else {
       return res.json(schemaNack);
     }
   }
-};
+
 
 const verifyHeader = async (req, security) => {
   logger = log.init();
