@@ -18,9 +18,7 @@ const trigger = (context, config, data) => {
         .post(`${uri + api}`, data)
         .then((response) => {
           logger.info(
-            `Triggered ${uri}${api} at ${new Date()} and received ${
-              response.data
-            }`
+            `Triggered ${api} response at ${uri}${api}`
           );
         })
         .catch(function (error) {

@@ -22,8 +22,9 @@ const onRequest = async (req, res) => {
   }
   try {
     const { api } = req.params;
+    logger.info(`Received ${req.url} api request`);
     if (security.verify_sign) {
-      if (!await verifyHeader(req, security, res)){
+      if (!await verifyHeader(req, security)){
         // Handle the case when signature is not verified
         res.status(400).json(signNack);
         logger.error("Authorization header not verified");
@@ -45,7 +46,7 @@ const onRequest = async (req, res) => {
       logger.error("Invalid Request");
       return res.json(invalidNack);
     }
-    logger.info(`Received a request from ${req.url} at ${new Date()}`);
+    
     logger.info(`Validating ${api} request`);
     await validateRequest(context, callbackConfig, res, security, server);
   } catch (error) {

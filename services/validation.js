@@ -83,7 +83,7 @@ const validateRequest = async (
   }
 };
 
-const verifyHeader = async (req, security, res) => {
+const verifyHeader = async (req, security) => {
   logger = log.init();
   const headers = req.headers;
   // const public_key = await getPublicKey(security.lookup_uri, headers);

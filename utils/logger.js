@@ -42,4 +42,4 @@ function getLogger() {
 
 
 
-module.exports = { logger, init };
+module.exports = {init};
