@@ -1,4 +1,5 @@
 const {Output} = require("./schema.js")
+const crypto = require('crypto');
 
 class Operator {
     constructor(context) {

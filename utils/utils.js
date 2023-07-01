@@ -1,29 +1,44 @@
-const logger = require("../utils/logger");
-const fs = require("fs");
+const { init } = require("./logger");
 const yaml = require("js-yaml");
 const axios = require("axios");
-const config = require("../utils/config");
 const operator = require("../operator/util.js");
-const { response } = require("express");
 
 //we are getting the schemas from a url but we can get it from a local file as well
 
 const resolveTemplate = (context, template, values) => {
+  init();
   return template.replace(/\+\+(\w+)\+\+/g, (match, key) => {
-    var value = values[key];
-    if (value && value["operation"]) {
-      value = operator.evaluateOperation(context, value["operation"]);
+    try {
+      var value = values[key];
+      if (value && value["operation"]) {
+        value = operator.evaluateOperation(context, value["operation"]);
+      }
+    } catch (error) {
+      logger.error(
+        `Unable to resolve ${context?.apiConfig?.callbacks?.default?.callback} api response,`,
+        error
+      );
+      console.trace(error);
     }
     return value !== undefined ? value : match;
   });
 };
 
 const buildTemplate = (context, templateConfig) => {
-  const template = yaml.dump(templateConfig.data);
-  const template_dict = templateConfig.dict;
-  let response = resolveTemplate(context, template, template_dict);
-  response = yaml.load(response);
-  return response;
+  init();
+  try {
+    const template = yaml.dump(templateConfig.data);
+    const template_dict = templateConfig.dict;
+    let response = resolveTemplate(context, template, template_dict);
+    response = yaml.load(response);
+
+    return response;
+  } catch (error) {
+    logger.error(
+      `Unable to build response ${context?.apiConfig?.callbacks?.default?.callback} api response,`,
+      error
+    );
+  }
 };
 
 const extractSubscriberId = (header) => {
