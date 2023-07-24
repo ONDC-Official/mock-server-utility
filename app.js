@@ -254,10 +254,17 @@ async function createInstructionSet(file) {
           await traverseSchema(paths, `${folderPath}`, "default", baseDefault);
         }
       }
-      if (configFile === instuctionSet) {
-        const file = `${folderPath}/${configFile}.yaml`;
-        startUp(file);
-      }
+      //un-comment if server has to run from same instruction set
+      // if (configFile === instuctionSet) {
+      //   const file = `${folderPath}/${configFile}.yaml`;
+      //   startUp(file);
+      // }
+      
+    }
+    if (args[0]) {
+      const path = args[0];
+      const file = `./${path}/${path}.yaml`;
+      startUp(file);
     }
   } catch (error) {
     console.log("Error in createInstructionSet()", error);
