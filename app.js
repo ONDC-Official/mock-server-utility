@@ -20,22 +20,11 @@ const {
 } = require("./utils/constants");
 
 
-const postmanCollection = new Collection({
-  info: {
-    // Name of the collection
-    name: "Mock Server API",
-  },
-  // Requests in this collection
-  item: [],
-});
-
-
 const args = process.argv.slice(2);
 var configFile = args[0];
 if (!configFile || configFile == "") {
   configFile = "./config.yaml";
 }
-console.log('configFile', configFile)
 
 async function baseYMLFile(file) {
   try {
@@ -79,6 +68,12 @@ async function traverseExamples(
   generateCollection
 ) {
   let paths = {};
+  let postmanCollection = new Collection({
+    info: {
+      name: "Mock Server API",
+    },
+    item: [],
+  });
   for (const example of Object.keys(exampleSet)) {
     const { examples } = exampleSet[example];
     const path = `${folderRef}/${example}.yaml`;
@@ -112,8 +107,8 @@ async function traverseExamples(
       //generateYaml(path, examples[0]?.value);
     }
   }
-  if (postmanCollection) {
-    generatePostmanCollecion(postmanCollection);
+  if (postmanCollection && generateCollection) {
+    generatePostmanCollecion(postmanCollection, generateCollection);
   }
 
   //creating on-demand.yaml here
@@ -171,7 +166,7 @@ async function createCollectionItem(requestName, requestPayload) {
   }));
 }
 
-function createRequestHeader(){
+function createRequestHeader() {
   // This string will be parsed to create header
   const rawHeaderString =
     "Authorization:\nContent-Type:application/json\ncache-control:no-cache\n";
@@ -181,11 +176,11 @@ function createRequestHeader(){
   return rawHeaders.map((h) => new Header(h));
 }
 
-async function generatePostmanCollecion(postmanCollection) {
+async function generatePostmanCollecion(postmanCollection, generateCollection) {
   const collectionJSON = postmanCollection.toJSON();
   try {
     fs.writeFileSync(
-      `${configFile}_collection.json`,
+      `${generateCollection}_collection.json`,
       JSON.stringify(collectionJSON)
     );
   } catch (error) {
@@ -195,16 +190,14 @@ async function generatePostmanCollecion(postmanCollection) {
 
 var folderPath;
 async function createInstructionSet(file) {
-  console.log(111)
   try {
     const buildFile = await baseYMLFile(file);
     const examples = buildFile["x-examples"];
     const paths = buildFile["paths"];
-    console.log('configFile',configFile)
     //check entered build.yaml has on-demand exist or not
-    if (examples.hasOwnProperty(configFile)) {
-      const { example_set: exampleSet } = examples[configFile];
-      folderPath = `./${configFile}`;
+    for (const instuctionSet of Object.keys(examples)) {
+      const { example_set: exampleSet } = examples[instuctionSet];
+      folderPath = `./${instuctionSet}`;
       //remove previous directory on every run
       fs.rmSync(folderPath, { recursive: true, force: true });
       fs.mkdirSync(folderPath, {
@@ -217,7 +210,7 @@ async function createInstructionSet(file) {
 
         if (path === 0) {
           //payloads
-          const generateCollection = true;
+          const generateCollection = instuctionSet;
           await traverseExamples(
             exampleSet,
             `${folderPath}/${SUB_INSTRUCTION_FOLDERS[path]}`,
@@ -253,7 +246,7 @@ async function createInstructionSet(file) {
           //config file
           await traverseExamples(
             exampleSet,
-            `${folderPath}/${configFile}.yaml`,
+            `${folderPath}/${instuctionSet}.yaml`,
             exampleConfig
           );
         } else {
@@ -261,10 +254,10 @@ async function createInstructionSet(file) {
           await traverseSchema(paths, `${folderPath}`, "default", baseDefault);
         }
       }
-      const file = `${folderPath}/${configFile}.yaml`;
-      startUp(file);
-    } else {
-      throw `${configFile} instruction set not found`;
+      if (configFile === instuctionSet) {
+        const file = `${folderPath}/${configFile}.yaml`;
+        startUp(file);
+      }
     }
   } catch (error) {
     console.log("Error in createInstructionSet()", error);
