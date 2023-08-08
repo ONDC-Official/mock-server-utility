@@ -1,6 +1,7 @@
 const express = require("express");
 const log = require("./utils/logger");
 const app = express();
+var https = require('https');
 const config = require("./utils/config.js");
 const router = require("./routes/route");
 
@@ -155,7 +156,7 @@ async function createCollectionItem(requestName, requestPayload) {
     name: `${requestName}`,
     request: {
       header: createRequestHeader(),
-      url: `http://localhost:5500/${requestName}`,
+      url: `https://localhost:5500/${requestName}`,
       method: "POST",
       body: {
         mode: "raw",
@@ -275,11 +276,18 @@ async function createInstructionSet(file) {
 async function startUp(file) {
   await config.loadConfig(file);
   const server = config.getServer();
+  var options = {
+    key: fs.readFileSync('./client-key.pem'),
+    cert: fs.readFileSync('./client-cert.pem')
+  };
   app.use(express.json());
   const logger = log.init();
-  app.listen(server.port, () => {
+  https.createServer(options, app).listen(server.port, () => {
     logger.info(`This app is running on port number : ${server.port}`);
   });
+  // app.listen(server.port, () => {
+  //   logger.info(`This app is running on port number : ${server.port}`);
+  // });
   app.use(router);
 }
 
