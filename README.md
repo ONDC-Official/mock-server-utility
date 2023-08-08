@@ -11,94 +11,37 @@ The mock server as name suggested is designed to test mock api's for developers 
 
 ## Installation
 
-Clone the ONDC Mocker Server repository
+Clone the ONDC Mock Server repository
 
 ```bash
   git clone https://github.com/92shreyansh/ondc-mock-server.git
 ```
 
-Git repository contain submodules (instruction_set) that must be fetched. For this run the following commands :
-
-```bash
-git submodule init
-
-```
-
-```bash
-git submodule update
-
-```
 
 ### How to add new Instruction Set
 
-Clone the ONDC Mocker Instruction repository
+- Add bulild.yaml file inside the build folder. From this build file the instruction sets(like on-demand, public-transit etc) will be created along with their postman-collections. 
 
+- Run 
+    ```bash
+    node app.js
+    ```
+    This will create the instructions sets folder depedning upon the yaml file
+- If you want to run a server for an existing instruction-set or want to create & run new instruction-set 
 ```bash
-  git clone https://github.com/92shreyansh/ondc-mock-instructions.git
-```
+    node app.js <instruction-set-name>
+```   
 
-> Make one folder (Lets say public-transit)
-
-> Create 3 folder inside it.
-    1. public_transit (It will contain operations,payload,template)
-    2. schema (It will contain schema's for all API contracts)
-    3. public-transit.yaml
-
-> In ondc-mock-server, to sync the code for intruction set always run command 
-
-```bash
-
-git submodule foreach git pull origin master
-
-```
-
-### Steps to run 
-
-Copy the folder you want to run (For eg: If we want to run on_demand then copy on_demand folder,schema folder and on_demand.yaml to base level where our package.json lies)
-
-Change the name of your file in Dockerfile (by default ./on_demand.yaml would run)
-
-Start Docker Desktop application.
-
-Run “docker build -t ondc .” in your terminal or in your vs studio terminal ensure that you are in the project path.
-
-Run “docker run -dp 5500:5500 ondc” to start the container with port 5500.
-
-You would be able to hit any api now.
-
-To stop the container you need container id for this run docker ps and copy the container id in which image ondc. Then run “docker stop <container_id>“
-
-To remove the container run “docker rm <container_id>”
-
-To delete an image run “docker rmi -f ondc”
 
 ### How we can test
 
-> There must be a separate payload for every API.
+- Import the postman-collection, This collection already has the payload set-up for the each end-point.
+- Default this will run on port 5500, you can change this from ``` 
+yaml-templates/exampleConfig.yaml```
 
-> All the payloads should be named in the correct format as mentioned in the table below.
 
 > The utility validates all the payloads as documented in the [API Contract](https://drive.google.com/file/d/1Z0eT1PZ8_tthEyxli8bLs-B9oCYAZIS0/view).
 
-| Payloads (Correct Format)                   |
-| ------------------------------------------- |
-| search.json                                 |
-| on_search.json                              |
-| select.json                                 |
-| on_select.json                              |
-| init.json                                   |
-| on_init.json                                |
-| confirm.json                                |
-| on_confirm.json                             |
-| cancel.json                                 |
-| on_cancel.json                              |
-| track.json                                  |
-| on_track.json                               |
-| on_status  |
-| update.json                                 |
-| on_update  |
-| support.json                                |
-| on_support.json                             |
 
 There are two type of responses we can get for each payload - Sync and Async
 1. Sync Response :
