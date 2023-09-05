@@ -11,6 +11,7 @@ var props;
 var security;
 var logger;
 var server;
+const matchText = 'form/' 
 
 const onRequest = async (req, res) => {
   if (paths == undefined) {
@@ -21,7 +22,11 @@ const onRequest = async (req, res) => {
     paths = props.path;
   }
   try {
-    const { api } = req.params;
+    const isFormFound = req.params['0']?.match(matchText);
+    let api = req.params['0']
+    if(isFormFound){
+      api = req.params['0'].replace(/\//g, '_');
+    }
     logger.info(`Received ${req.url} api request`);
     if (security.verify_sign) {
       if (!await verifyHeader(req, security)){
@@ -48,7 +53,7 @@ const onRequest = async (req, res) => {
     }
     
     logger.info(`Validating ${api} request`);
-    await validateRequest(context, callbackConfig, res, security, server);
+    await validateRequest(context, callbackConfig, res, security, server, isFormFound);
   } catch (error) {
     logger.error("ERROR!!", error);
     console.trace(error);
