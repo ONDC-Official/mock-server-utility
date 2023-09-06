@@ -47,10 +47,11 @@ const validateRequest = async (
   callbackConfig,
   res,
   security,
-  server
+  server,
+  isFormFound
 ) => {
   logger = log.init();
-  if (await validateSchema(context)) {
+  if (isFormFound ||  await validateSchema(context)) {
     //triggering the subsequent request
     payloadConfig = callbackConfig?.payload;
     if (payloadConfig != null) {
@@ -70,7 +71,8 @@ const validateRequest = async (
         res.setHeader("Authorization", header);
       }
       if (server.sync_mode) {
-        return res.json(data);
+        return isFormFound ? res.send(payloadConfig) : res.json(data);
+        // return res.json(data);
       } else {
         context.response_uri = resolveObject(context, callbackConfig.uri);
         logger.info(`Callback for this request: ${callbackConfig.callback}`);

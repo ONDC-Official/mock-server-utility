@@ -26,7 +26,7 @@ var configFile = args[0];
 if (!configFile || configFile == "") {
   configFile = "./config.yaml";
 }
-
+const matchText = 'form/' 
 async function baseYMLFile(file) {
   try {
     const schema = await $RefParser.dereference(file);
@@ -39,13 +39,18 @@ async function baseYMLFile(file) {
 createInstructionSet(buildYamlFile);
 
 async function generateYaml(path, data, isJSON) {
-  if (typeof data === "string" || isJSON) {
-    if (isJSON) {
-      data = JSON.stringify(data);
+  try{
+    if (typeof data === "string" || isJSON) {
+      if (isJSON) {
+        data = JSON.stringify(data);
+      }
+      return fs.writeFileSync(path, data);
     }
-    return fs.writeFileSync(path, data);
+    fs.writeFileSync(path, yaml.dump(data));
+  }catch(error){
+    console.log('Error[generateYaml]', error)
   }
-  fs.writeFileSync(path, yaml.dump(data));
+  
 }
 
 async function addHandleBars(path, examples) {
@@ -75,11 +80,15 @@ async function traverseExamples(
     },
     item: [],
   });
-  for (const example of Object.keys(exampleSet)) {
+  for (let example of Object.keys(exampleSet)) {
     const { examples } = exampleSet[example];
-    const path = `${folderRef}/${example}.yaml`;
+    let path = `${folderRef}/${example}.yaml`;
+    const isForm = example.match(matchText);
     //creating paths for on-demand.yaml here
     if (templateFile) {
+      if(isForm){
+        example = example.replace(/\//g, '_');
+      }
       let pathObject = { [example]: "" };
 
       const baseObject = {
@@ -92,14 +101,25 @@ async function traverseExamples(
           $ref: `${folderPath.substring()}/${example}.yaml`,
         },
       };
-      pathObject[example] = baseObject;
-      paths = { ...paths, ...pathObject };
+
+      //for forms schema is not required in root config file.
+      if(isForm){
+        delete baseObject.schema
+      }
+        pathObject[example] = baseObject;
+        paths = { ...paths, ...pathObject };
+      
     } else {
+      if(isForm){
+        const replacedString = example.replace(/\//g, '_');
+        path = `${folderRef}/${replacedString}.yaml`;
+      }
       //read payloads & create postman collection
       if (generateCollection) {
         buildCollectionItems = await createCollectionItem(
           example,
-          examples[0]?.value
+          examples[0]?.value,
+          method = example.match(matchText)? "GET": "POST"
         );
         postmanCollection.items.add(postmanRequest);
       }
@@ -122,22 +142,43 @@ async function traverseExamples(
     generateYaml(folderRef, readConfigTemplate);
   }
 }
-async function traverseSchema(exampleSet, folderRef, type, templateSchema) {
-  for (const schema of Object.keys(exampleSet)) {
-    let schemas =
-      exampleSet[schema]["post"]["requestBody"]["content"]["application/json"][
-        "schema"
-      ];
-    const path = `${folderRef}/${schema}`;
+async function traverseSchema(exampleSet, folderRef, type, templateSchema, formsData) {
+    for (let schema of Object.keys(formsData)) {
+      let schemas;
+      schema = `/${schema}`
+  
+      const isFormFound = schema.match(matchText);
+      if((type === "template" || !type) && isFormFound) {
+        continue
+      }
+      if(!isFormFound){
+        schemas =
+        exampleSet[schema]["post"]["requestBody"]["content"]["application/json"][
+          "schema"
+        ];
+      }
+      let path;
+      let removeExtraChar = schema.substring(1);
+    if(isFormFound){
+      //convert file name from form/personal-info to form_personal-info
+      const replacedString = removeExtraChar.replace(/\//g, '_');
+      path = `${folderRef}/${replacedString}`;
+    }else{
+      path = `${folderRef}/${schema}`;
+    }
+    
     if (type) {
       const readTemplateFile = fs.readFileSync(templateSchema, "utf-8");
       let template = Handlebars.compile(readTemplateFile);
       let data = {};
-      const removeExtraChar = schema.substring(1);
-      if (template_paths.hasOwnProperty(removeExtraChar)) {
+      if (template_paths.hasOwnProperty(removeExtraChar) || isFormFound) {
         if (type === "default") {
           data.callback = `${template_paths[removeExtraChar]}`;
-          data.payload = template_paths[removeExtraChar]
+          if(isFormFound){
+            removeExtraChar = removeExtraChar.replace(/\//g, '_');
+          }
+          data.payload = isFormFound ? `./payloads/${removeExtraChar}.yaml`:
+          template_paths[removeExtraChar]
             ? `./template/${template_paths[removeExtraChar]}.yaml`
             : "";
         } else {
@@ -151,13 +192,13 @@ async function traverseSchema(exampleSet, folderRef, type, templateSchema) {
     }
   }
 }
-async function createCollectionItem(requestName, requestPayload) {
+async function createCollectionItem(requestName, requestPayload, method) {
   return (postmanRequest = new Item({
     name: `${requestName}`,
     request: {
       header: createRequestHeader(),
       url: `https://localhost:5500/${requestName}`,
-      method: "POST",
+      method: method,
       body: {
         mode: "raw",
         raw: JSON.stringify(requestPayload),
@@ -230,18 +271,22 @@ async function createInstructionSet(file) {
             readOperationsTemplate
           );
         } else if (path === 2) {
-          //template
+          //template floder
           await traverseSchema(
             paths,
             `${folderPath}/${SUB_INSTRUCTION_FOLDERS[path]}`,
             "template",
-            baseTemplate
+            baseTemplate,
+            exampleSet
           );
         } else if (path === 3) {
-          //schema
+          //schema folder
           await traverseSchema(
             paths,
-            `${folderPath}/${SUB_INSTRUCTION_FOLDERS[path]}`
+            `${folderPath}/${SUB_INSTRUCTION_FOLDERS[path]}`,
+            null,
+            null,
+            exampleSet
           );
         } else if (path === 4) {
           //config file
@@ -251,8 +296,8 @@ async function createInstructionSet(file) {
             exampleConfig
           );
         } else {
-          //create files at on-demand root
-          await traverseSchema(paths, `${folderPath}`, "default", baseDefault);
+          //creating files at on-demand root with callback & payload
+          await traverseSchema(paths, `${folderPath}`, "default", baseDefault, exampleSet);
         }
       }
       //un-comment if server has to run from same instruction set
