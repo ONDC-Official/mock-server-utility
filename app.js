@@ -233,6 +233,14 @@ async function generatePostmanCollecion(postmanCollection, generateCollection) {
 var folderPath;
 async function createInstructionSet(file) {
   try {
+      if (args[0]) {
+
+      const path = args[0];
+      const file = `./${path}/${path}.yaml`;
+
+      startUp(file);
+    }
+    else{
     const buildFile = await baseYMLFile(file);
     const examples = buildFile["x-examples"];
     const paths = buildFile["paths"];
@@ -300,6 +308,7 @@ async function createInstructionSet(file) {
           await traverseSchema(paths, `${folderPath}`, "default", baseDefault, exampleSet);
         }
       }
+      console.log("yaml generated from build.yaml")
       //un-comment if server has to run from same instruction set
       // if (configFile === instuctionSet) {
       //   const file = `${folderPath}/${configFile}.yaml`;
@@ -307,11 +316,7 @@ async function createInstructionSet(file) {
       // }
       
     }
-    if (args[0]) {
-      const path = args[0];
-      const file = `./${path}/${path}.yaml`;
-      startUp(file);
-    }
+  }
   } catch (error) {
     console.log("Error in createInstructionSet()", error);
   }
