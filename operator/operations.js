@@ -1,5 +1,6 @@
 const {Output} = require("./schema.js")
 const crypto = require('crypto');
+const {Input} = require("./schema.js")
 
 class Operator {
     constructor(context) {
@@ -54,4 +55,44 @@ class ReadOperation extends Operator{
     }
 }
 
-module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation}
+class EqualOperation extends Operator{
+    __process() {
+        let flag = 0
+        const value = this?.readValue(this?.input?.value[0]?.operation?.input)
+        if(this?.input?.value?.includes(value)){
+            flag = 1
+        }
+        this.output = new Output(flag);
+        return this;
+    }
+
+
+    readValue(readValue) {
+        const read = new ReadOperation(this.context)
+        read.input = new Input(this.context, readValue)
+        return read.getOutput().getValue()
+    }
+}
+
+class AndOrOperation extends Operator{
+    __process(){
+        this.output = new Output(this.match(this.input.value))
+        return this
+    }
+
+    match(input){
+        if(input.length){
+            let result = input.map(element => {
+                if(element?.operation?.type =='EQUAL'){
+                    const EQUAL = new EqualOperation(this.context)
+                    EQUAL.input = new Input(this.context,element?.operation?.input)
+                    return EQUAL.getOutput().getValue()
+                }
+            });
+            if(this.input.type=='AND')return result.includes(0)?false:true
+            else if(this.input.type == 'OR') return result.includes(1)?true:false     
+        }
+    }
+}
+
+module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation, EqualOperation, AndOrOperation}
