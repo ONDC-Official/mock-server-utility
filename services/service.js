@@ -1,4 +1,4 @@
-const { getPublicKey } = require("../utils/utils");
+const { getPublicKey,dynamicReponse } = require("../utils/utils");
 const {  signNack,invalidNack } = require("../utils/acknowledgement");
 const log = require("../utils/logger");
 const config = require("../utils/config");
@@ -46,7 +46,7 @@ const onRequest = async (req, res) => {
         req_body: req.body,
         apiConfig: paths[api],
       };
-      callbackConfig = paths[api]?.callbacks?.default;
+      callbackConfig = dynamicReponse(context)
     } else {
       logger.error("Invalid Request");
       return res.json(invalidNack);
