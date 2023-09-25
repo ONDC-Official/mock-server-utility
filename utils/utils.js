@@ -113,9 +113,28 @@ const formatted_error = (errors) => {
   return error_json;
 };
 
+const dynamicReponse = (context) =>{
+  const callback = context?.apiConfig?.callbacks
+    if(Object.keys(callback).length>1){
+      for (const payloads in callback ){
+        if(payloads != "default"){
+
+          const result = operator.evaluateOperation(context, callback[payloads].condition?.operation)
+          if(result)
+          {
+            return callback[payloads]
+          }   
+        } 
+      }
+    }
+    return callback['default']
+
+}
+
 module.exports = {
   resolveTemplate,
   buildTemplate,
   getPublicKey,
   formatted_error,
+  dynamicReponse
 };

@@ -15,11 +15,12 @@ class IOElement{
 
 class Input extends IOElement {
 
-    constructor(context, config){
+    constructor(context, config,type){
         super();
         this.context = context
         this.operation = config.operation
         this.value = config.value
+        this.type = type
         this.__process();
     }
 
