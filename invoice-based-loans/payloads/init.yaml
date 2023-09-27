@@ -1,0 +1,25 @@
+context:
+  domain: '{{domain}}'
+  location:
+    country:
+      code: IND
+  version: 2.0.0
+  action: init
+  bap_uri: '{{bap_uri}}'
+  bap_id: credit-protocol.becknprotocol.io
+  bpp_id: bpp.credit.icicibank.io
+  bpp_uri: '{{bpp_uri}}'
+  transaction_id: '{{transaction_id}}'
+  message_id: '{{msg_id}}'
+  ttl: PT10M
+  timestamp: '2023-05-25T05:23:03.443Z'
+message:
+  order:
+    provider:
+      id: '1'
+    items:
+      - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+        xinput:
+          form_response:
+            status: true
+            submission_id: 6a7fcff4-76b0-4dd8-923e-04269d107c1c
