@@ -325,6 +325,7 @@ async function createInstructionSet(file) {
 //After instuctionSet completion, read response here
 async function startUp(file) {
   await config.loadConfig(file);
+
   const server = config.getServer();
   var options = {
     key: fs.readFileSync('./client-key.pem'),

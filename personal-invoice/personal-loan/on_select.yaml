@@ -1,0 +1,7 @@
+default:
+  callback: "init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/init.yaml"

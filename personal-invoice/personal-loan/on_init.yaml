@@ -1,0 +1,7 @@
+default:
+  callback: "confirm"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/confirm.yaml"
