@@ -21,68 +21,68 @@ path:
       $ref: ./personal-invoice/default/schema/search.yaml
     callbacks:
       $ref: ./personal-invoice/search.yaml
-#   on_search:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_search.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_search.yaml
-#   select:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/select.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/select.yaml
-#   on_select:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_select.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_select.yaml
-#   init:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/init.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/init.yaml
-#   on_init:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_init.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_init.yaml
-#   confirm:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/confirm.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/confirm.yaml
-#   on_confirm:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_confirm.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_confirm.yaml
-#   update:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/update.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/update.yaml
-#   on_update:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_update.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_update.yaml
-#   status:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/status.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/status.yaml
-#   on_status:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_status.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_status.yaml
-#   support:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/support.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/support.yaml
-#   on_support:
-#     schema:
-#       $ref: ./personal-invoice/default/schema/on_support.yaml
-#     callbacks:
-#       $ref: ./personal-invoice/default/on_support.yaml
+  on_search:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_search.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_search.yaml
+  select:
+    schema:
+      $ref: ./personal-invoice/default/schema/select.yaml
+    callbacks:
+      $ref: ./personal-invoice/select.yaml
+  on_select:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_select.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_select.yaml
+  init:
+    schema:
+      $ref: ./personal-invoice/default/schema/init.yaml
+    callbacks:
+      $ref: ./personal-invoice/init.yaml
+  on_init:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_init.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_init.yaml
+  confirm:
+    schema:
+      $ref: ./personal-invoice/default/schema/confirm.yaml
+    callbacks:
+      $ref: ./personal-invoice/confirm.yaml
+  on_confirm:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_confirm.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_confirm.yaml
+  update:
+    schema:
+      $ref: ./personal-invoice/default/schema/update.yaml
+    callbacks:
+      $ref: ./personal-invoice/update.yaml
+  on_update:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_update.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_update.yaml
+  status:
+    schema:
+      $ref: ./personal-invoice/default/schema/status.yaml
+    callbacks:
+      $ref: ./personal-invoice/status.yaml
+  on_status:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_status.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_status.yaml
+  support:
+    schema:
+      $ref: ./personal-invoice/default/schema/support.yaml
+    callbacks:
+      $ref: ./personal-invoice/support.yaml
+  on_support:
+    schema:
+      $ref: ./personal-invoice/default/schema/on_support.yaml
+    callbacks:
+      $ref: ./personal-invoice/default/on_support.yaml

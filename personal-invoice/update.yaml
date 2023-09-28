@@ -1,0 +1,46 @@
+default:
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/on_update.yaml"
+
+personal-loan:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check update message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order.id"
+          - "1"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_update.yaml"
+
+invoice-based-loans:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check update message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order.id"
+          - "12"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_update.yaml"
+

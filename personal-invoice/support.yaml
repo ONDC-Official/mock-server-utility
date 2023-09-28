@@ -1,0 +1,46 @@
+default:
+  callback: "on_support"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/on_support.yaml"
+
+personal-loan:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check support message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.support.order_id"
+          - "1"
+  callback: "on_support"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_support.yaml"
+
+invoice-based-loans:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check support message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.support.order_id"
+          - "12"
+  callback: "on_support"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_support.yaml"
+

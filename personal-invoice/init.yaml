@@ -1,10 +1,10 @@
 default:
-  callback: "on_search"
+  callback: "on_init"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/on_search.yaml"
+    $ref: "./default/template/on_init.yaml"
 
 personal-loan:
   condition:
@@ -16,14 +16,14 @@ personal-loan:
           - operation:
               type: READ
               input:
-                value: "req_body.message.intent.category.descriptor.code"
-          - personal-loan
-  callback: "on_search"
+                value: "req_body.message.order.items.0.id"
+          - "123"
+  callback: "on_init"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_search.yaml"
+    $ref: "./personal-loan/template/on_init.yaml"
 
 invoice-based-loans:
   condition:
@@ -35,12 +35,12 @@ invoice-based-loans:
           - operation:
               type: READ
               input:
-                value: "req_body.message.intent.category.descriptor.code"
-          - invoice-based-loan
-  callback: "on_search"
+                value: "req_body.message.order.items.0.id"
+          - 1234
+  callback: "on_init"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_search.yaml"
+    $ref: "./invoice-based-loans/template/on_init.yaml"
 

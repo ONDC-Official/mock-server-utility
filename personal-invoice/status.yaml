@@ -1,0 +1,46 @@
+default:
+  callback: "on_status"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/on_status.yaml"
+
+personal-loan:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check status message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order_id"
+          - "1"
+  callback: "on_status"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_status.yaml"
+
+invoice-based-loans:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check status message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order_id"
+          - "12"
+  callback: "on_status"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_status.yaml"
+

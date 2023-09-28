@@ -3,5 +3,5 @@ default:
   uri:
     $ref: ""
   delay: 300
-  # payload:
-  #   $ref: "./template/select.yaml"
+  payload:
+    $ref: "./template/select.yaml"
