@@ -60,6 +60,7 @@ class EqualOperation extends Operator{
         let flag = 0
         const value = this?.readValue(this?.input?.value[0]?.operation?.input)
         if(this?.input?.value?.includes(value)){
+            console.log(value,"Value")
             flag = 1
         }
         this.output = new Output(flag);
@@ -86,9 +87,12 @@ class AndOrOperation extends Operator{
                 if(element?.operation?.type =='EQUAL'){
                     const EQUAL = new EqualOperation(this.context)
                     EQUAL.input = new Input(this.context,element?.operation?.input)
-                    return EQUAL.getOutput().getValue()
+                    const result  = EQUAL.getOutput().getValue()
+                    console.log(result,"result")
+                    return result
                 }
             });
+
             if(this.input.type=='AND')return result.includes(0)?false:true
             else if(this.input.type == 'OR') return result.includes(1)?true:false     
         }

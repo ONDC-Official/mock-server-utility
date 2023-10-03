@@ -1,0 +1,88 @@
+server:
+  type: BAP/BPP
+  port: 5500
+  sync_mode: true
+security:
+  verify_sign: false
+  lookup_uri: http://localhost:3000/lookup
+  generate_sign: true
+  subscriber_id: mock-api-service
+  ukId: 584
+  publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
+  privatekey: >-
+    dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  search:
+    schema:
+      $ref: ./loan/default/schema/search.yaml
+    callbacks:
+      $ref: ./loan/search.yaml
+  on_search:
+    schema:
+      $ref: ./loan/default/schema/on_search.yaml
+    callbacks:
+      $ref: ./loan/default/on_search.yaml
+  select:
+    schema:
+      $ref: ./loan/default/schema/select.yaml
+    callbacks:
+      $ref: ./loan/select.yaml
+  on_select:
+    schema:
+      $ref: ./loan/default/schema/on_select.yaml
+    callbacks:
+      $ref: ./loan/default/on_select.yaml
+  init:
+    schema:
+      $ref: ./loan/default/schema/init.yaml
+    callbacks:
+      $ref: ./loan/init.yaml
+  on_init:
+    schema:
+      $ref: ./loan/default/schema/on_init.yaml
+    callbacks:
+      $ref: ./loan/default/on_init.yaml
+  confirm:
+    schema:
+      $ref: ./loan/default/schema/confirm.yaml
+    callbacks:
+      $ref: ./loan/confirm.yaml
+  on_confirm:
+    schema:
+      $ref: ./loan/default/schema/on_confirm.yaml
+    callbacks:
+      $ref: ./loan/default/on_confirm.yaml
+  update:
+    schema:
+      $ref: ./loan/default/schema/update.yaml
+    callbacks:
+      $ref: ./loan/update.yaml
+  on_update:
+    schema:
+      $ref: ./loan/default/schema/on_update.yaml
+    callbacks:
+      $ref: ./loan/default/on_update.yaml
+  status:
+    schema:
+      $ref: ./loan/default/schema/status.yaml
+    callbacks:
+      $ref: ./loan/status.yaml
+  on_status:
+    schema:
+      $ref: ./loan/default/schema/on_status.yaml
+    callbacks:
+      $ref: ./loan/default/on_status.yaml
+  support:
+    schema:
+      $ref: ./loan/default/schema/support.yaml
+    callbacks:
+      $ref: ./loan/support.yaml
+  on_support:
+    schema:
+      $ref: ./loan/default/schema/on_support.yaml
+    callbacks:
+      $ref: ./loan/default/on_support.yaml

@@ -1,0 +1,179 @@
+default:
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/on_select.yaml"
+
+
+personal-loan-form1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_personal-loan"
+
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_select_form1.yaml"
+
+personal-loan-form2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_personal-loan"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "cc9aa874-fcf9-4497-aa1d-33419134f9a2"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_select_form2.yaml"
+
+
+#invoice based on select responses
+invoice-based-loans_on_select1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_invoice-based-loan"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+          
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_select_1.yaml"
+
+invoice-based-loans_on_select2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_invoice-based-loan"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+          
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_select_2.yaml"
+
+invoice-based-loans_on_select3:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_invoice-based-loan"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "242ea230-2b57-4126-bd21-5929325de465"
+          
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_select_3.yaml"
