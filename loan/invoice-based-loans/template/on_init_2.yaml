@@ -1,6 +1,6 @@
 template:
     data:
-      $ref: "../payloads/on_init.yaml"
+      $ref: "../payloads/on_init_2.yaml"
     dict:
       bpp_uri: http://localhost:5500/
       bpp_id: localhost:5500

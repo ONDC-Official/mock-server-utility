@@ -31,7 +31,7 @@ personal-loan_1:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863af"
+                    - "73ef9742-c17d-4c4e-92e3-b057960863a1"
  
   callback: "on_init"
   uri:
@@ -65,7 +65,7 @@ personal-loan_2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863af"
+                    - "73ef9742-c17d-4c4e-92e3-b057960863a2"
  
   callback: "on_init"
   uri:
@@ -74,22 +74,106 @@ personal-loan_2:
   payload:
     $ref: "./personal-loan/template/on_init_2.yaml"
 
-# invoice-based-loans:
-#   condition:
-#     operation:
-#       type: EQUAL
-#       title: Check search message code
-#       input:
-#         value:
-#           - operation:
-#               type: READ
-#               input:
-#                 value: "req_body.message.order.items.0.id"
-#           - 1234
-#   callback: "on_init"
-#   uri:
-#     $ref: ""
-#   delay: 300
-#   payload:
-#     $ref: "./invoice-based-loans/template/on_init.yaml"
+
+invoice-based-loans_1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "73ef9742-c17d-4c4e-92e3-b057960863a1"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_init_1.yaml"
+
+invoice-based-loans_2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "73ef9742-c17d-4c4e-92e3-b057960863a2"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_init_2.yaml"
+
+invoice-based-loans_3:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "73ef9742-c17d-4c4e-92e3-b057960863a3"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_init_3.yaml"
 
