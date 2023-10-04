@@ -1147,6 +1147,7 @@ properties:
                               type: string
                             descriptor: *ref_4
                             price: *ref_27
+                            quantity: *ref_24
                       cancellation_terms:
                         description: Cancellation terms of this item
                         type: array
@@ -1277,6 +1278,7 @@ properties:
                                       type: string
                                       enum:
                                         - text/html
+                                        - application/html
                                         - application/xml
                                     resubmit:
                                       type: boolean
@@ -1289,8 +1291,7 @@ properties:
                                   properties:
                                     status:
                                       description: Contains the status of form submission.
-                                      type: boolean
-                                      default: true
+                                      type: string
                                     signature:
                                       type: string
                                     submission_id:
