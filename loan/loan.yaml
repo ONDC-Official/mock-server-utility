@@ -119,4 +119,33 @@ path:
 
     #After that invoice based  
   
-  
+  form_invoice_Org-form:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_invoice_Org-form.yaml
+  form_submission_invoice_Org-form:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_submission_invoice_Org-form.yaml
+  form_loan-amount:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_loan-amount.yaml
+  form_submission_loan-amount:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_submission_loan-amount.yaml
+  form_individual-kyc:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_individual-kyc.yaml
+  form_submission_individual-kyc:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml
+  form_account-details:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_account-details.yaml
+  form_submission_account-details:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_submission_account-details.yaml
+  form_loan-agreements:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_loan-agreements.yaml
+  form_submission_loan-agreements:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_submission_loan-agreements.yaml
