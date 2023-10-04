@@ -27,11 +27,11 @@ message:
     items:
       - id: '{{item_id}}'
         descriptor:
-          code: invoice-based-loan / based per loan
+          code: INVOICE_BASED_LOAN
           name: "Invoice Based Loan Offer: INR 2,00,000"
         price:
           currency: INR
-          value: "441800"
+          value: '231800'
         tags:
           - descriptor:
               code: loan-info
@@ -83,14 +83,14 @@ message:
             index:
               min: 0
               cur: 1
-              max: 2
+              max: 1
             headings:
-              - Financial Information
               - Set Loan Amount
               - Individual KYC
           form:
+            id: F03
             mime_type: text/html
-            url: https://6vs8xnx5i7.icicibank.co.in/individual-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f
+            url: https://6vs8xnx5i7.icicibank.co.in/individual-kyc/xinput/formid/F03
             resubmit: false
             multiple_sumbissions: false
           required: true
@@ -98,15 +98,15 @@ message:
       id: b469bb12-9f67-4898-8f39-ea7816f54289
       price:
         currency: INR
-        value: "441800"
+        value: "231800"
       breakup:
         - title: Principal
           price:
-            value: "400000"
+            value: "200000"
             currency: INR
         - title: Interest
           price:
-            value: "40000"
+            value: "30000"
             currency: INR
         - title: Processing fee
           price:
