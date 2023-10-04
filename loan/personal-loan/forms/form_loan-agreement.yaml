@@ -4,4 +4,4 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./payloads/form_loan-agreement.yaml"
+    $ref: "../payloads/form_loan-agreement.yaml"

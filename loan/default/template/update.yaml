@@ -2,7 +2,7 @@ template:
     data:
       $ref: "../payloads/update.yaml"
     dict:
-      bpp_uri: http://localhost:5500/
+      bpp_uri: https://fis-seller-staging.ondc.org/
       bpp_id: localhost:5500
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"

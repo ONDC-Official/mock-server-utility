@@ -1,0 +1,50 @@
+services:
+  mock-server:
+    container_name: mock-server
+    restart: always
+    build: .
+    ports:
+      - 5500:5500
+    networks:
+      - mock_network
+
+
+  subscribe:
+    container_name: subscribe
+    restart: always
+    build: ./subscribe
+    ports:
+      - 3000:3000
+    networks:
+      - mock_network
+
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbotcontainer
+  #   volumes:
+  #     - ./certificates:/etc/letsencrypt
+  #     - ./static:/usr/share/nginx/html/
+  #   command: certonly --webroot --webroot-path=/usr/share/nginx/html -d fis-seller-staging.ondc.org --agree-tos --email mohd.ahsasn@thewitslab.com --no-eff-email --keep-until-expiring --force-renewal --keep
+  #   networks:
+  #     - mock_network
+
+  nginx:
+    container_name: nginxservicecontainer
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certificates:/etc/nginx/ssl/
+      - ./static:/usr/share/nginx/html/
+    networks:
+      - mock_network
+
+
+
+
+
+networks:
+  mock_network:
+    name: mock_network

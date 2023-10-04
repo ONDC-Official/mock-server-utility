@@ -2,7 +2,7 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND1
   version: 2.0.0
   action: on_search
   bap_id: credit-protocol.becknprotocol.io
@@ -91,7 +91,7 @@ message:
                 id: d097c2f5-cb8d-42fe-900e-dfecdede16fb
                 mime_type: text/html
                 url: >-
-                  https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/a23f2fdfbbb8ac402bf259d75
+                  {{bpp_uri}}form/personal-loan/personal-info
                 resubmit: false
                 multiple_sumbissions: false
               required: true

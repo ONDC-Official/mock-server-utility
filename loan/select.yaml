@@ -33,7 +33,7 @@ personal-loan-form1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                  - "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+                  - "form1_submissionid"
   callback: "on_select"
   uri:
     $ref: ""
@@ -66,7 +66,7 @@ personal-loan-form2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "cc9aa874-fcf9-4497-aa1d-33419134f9a2"
+                    - "form2_submissionid"
   callback: "on_select"
   uri:
     $ref: ""
@@ -101,7 +101,7 @@ invoice-based-loans_on_select1:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+                    - "form1_submissionid"
           
   callback: "on_select"
   uri:
@@ -135,7 +135,7 @@ invoice-based-loans_on_select2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "c844d5f4-29c3-4398-b594-8b4716ef5dbf"
+                    - "form2_submissionid"
           
   callback: "on_select"
   uri:
@@ -169,7 +169,7 @@ invoice-based-loans_on_select3:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "242ea230-2b57-4126-bd21-5929325de465"
+                    - "form3_submissionid"
           
   callback: "on_select"
   uri:

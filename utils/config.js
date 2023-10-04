@@ -10,11 +10,8 @@ async function loadConfig(filePath) {
   // const filePath = "./config.yaml";
   const yamlString = fs.readFileSync(filePath, "utf8");
   const yamlObject = yaml.parse(yamlString);
-
   // config = yamlObject;
-  // console.log(yamlObject.path)
   config = await $RefParser.dereference(yamlObject);
-
 }
 
 function getConfig() {

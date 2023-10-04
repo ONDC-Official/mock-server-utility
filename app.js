@@ -2,6 +2,9 @@ const express = require("express");
 const log = require("./utils/logger");
 const app = express();
 var https = require('https');
+var http = require('http');
+
+
 const config = require("./utils/config.js");
 const router = require("./routes/route");
 
@@ -325,7 +328,6 @@ async function createInstructionSet(file) {
 //After instuctionSet completion, read response here
 async function startUp(file) {
   await config.loadConfig(file);
-
   const server = config.getServer();
   var options = {
     key: fs.readFileSync('./client-key.pem'),
@@ -333,7 +335,11 @@ async function startUp(file) {
   };
   app.use(express.json());
   const logger = log.init();
-  https.createServer(options, app).listen(server.port, () => {
+  // https.createServer(options, app).listen(server.port, () => {
+  //   logger.info(`This app is running on port number : ${server.port}`);
+  // });
+  
+    http.createServer( options,app).listen(server.port, () => {
     logger.info(`This app is running on port number : ${server.port}`);
   });
   // app.listen(server.port, () => {

@@ -60,7 +60,6 @@ class EqualOperation extends Operator{
         let flag = 0
         const value = this?.readValue(this?.input?.value[0]?.operation?.input)
         if(this?.input?.value?.includes(value)){
-            console.log(value,"Value")
             flag = 1
         }
         this.output = new Output(flag);
