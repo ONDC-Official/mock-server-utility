@@ -31,7 +31,7 @@ personal-loan_1:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863a1"
+                    - "form1_submissionid"
  
   callback: "on_init"
   uri:
@@ -65,7 +65,7 @@ personal-loan_2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863a2"
+                    - "form2_submissionid"
  
   callback: "on_init"
   uri:
@@ -100,7 +100,7 @@ invoice-based-loans_1:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863a1"
+                    - "form1_submissionid"
 
   callback: "on_init"
   uri:
@@ -134,7 +134,7 @@ invoice-based-loans_2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863a2"
+                    - "form2_submissionid"
 
   callback: "on_init"
   uri:
@@ -168,7 +168,7 @@ invoice-based-loans_3:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "73ef9742-c17d-4c4e-92e3-b057960863a3"
+                    - "form3_submissionid"
 
   callback: "on_init"
   uri:

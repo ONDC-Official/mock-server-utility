@@ -319,14 +319,12 @@ properties:
   message:
     type: object
     properties:
-      order_id:
+      ref_id:
         type: string
         description: >-
           Human-readable ID of the order. This is generated at the BPP layer.
           The BPP can either generate order id within its system or forward the
           order ID created at the provider level.
-    required:
-      - order_id
 required:
   - context
   - message
