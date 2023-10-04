@@ -89,8 +89,9 @@ message:
               - Loan Agreement
           form:
             mime_type: text/html
-            url: https://6vs8xnx5i7.icicibank.co.in/loan-agreement/xinput/formid/a23f2fdfbbb8ac402bfd54f
-            resubmit: false
+            url: >-
+               {{bpp_uri}}form/personal-loan/loan-agreement
+            resubmit: false 
             multiple_sumbissions: false
           required: true
     quote:

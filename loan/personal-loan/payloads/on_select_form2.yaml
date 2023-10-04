@@ -89,7 +89,8 @@ message:
               - Know your Customer
           form:
             mime_type: text/html
-            url: https://6vs8xnx5i7.icicibank.co.in/loans-kyc/xinput/formid/a23f2fdfbbb8ac402bfd54f
+            url: >-
+             {{bpp_uri}}form/personal-loan/kyc
             resubmit: false
             multiple_sumbissions: false
           required: true
