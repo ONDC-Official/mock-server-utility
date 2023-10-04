@@ -30,12 +30,12 @@ message:
         categories:
           - id: '101123'
             descriptor:
-              code: personal-loan
+              code: PERSONAL_LOAN
               name: Personal Loan
         items:
           - id: '{{item_id}}'
             descriptor:
-              code: personal-loan
+              code: PERSONAL_LOAN
               name: Personal Loan
             category_ids:
               - '101123'

@@ -27,7 +27,7 @@ message:
     items:
       - id: '{{item_id}}'
         descriptor:
-          code: personal-loan
+          code: PERSONAL-LOAN
           name: Personal Loan
         price:
           currency: INR
