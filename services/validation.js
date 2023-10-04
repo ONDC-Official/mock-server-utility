@@ -70,7 +70,7 @@ const validateRequest = async (
 
         res.setHeader("Authorization", header);
       }
-      if (server.sync_mode) {
+      if (callbackConfig.callback === "undefined"|| server.sync_mode) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);
       } else {

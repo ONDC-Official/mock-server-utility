@@ -86,3 +86,33 @@ path:
       $ref: ./invoice-based-loans/schema/on_support.yaml
     callbacks:
       $ref: ./invoice-based-loans/on_support.yaml
+  form_invoice_Org-form:
+    callbacks:
+      $ref: ./invoice-based-loans/form_invoice_Org-form.yaml
+  form_submission_invoice_Org-form:
+    callbacks:
+      $ref: ./invoice-based-loans/form_submission_invoice_Org-form.yaml
+  form_loan-amount:
+    callbacks:
+      $ref: ./invoice-based-loans/form_loan-amount.yaml
+  form_submission_loan-amount:
+    callbacks:
+      $ref: ./invoice-based-loans/form_submission_loan-amount.yaml
+  form_individual-kyc:
+    callbacks:
+      $ref: ./invoice-based-loans/form_individual-kyc.yaml
+  form_submission_individual-kyc:
+    callbacks:
+      $ref: ./invoice-based-loans/form_submission_individual-kyc.yaml
+  form_account-details:
+    callbacks:
+      $ref: ./invoice-based-loans/form_account-details.yaml
+  form_submission_account-details:
+    callbacks:
+      $ref: ./invoice-based-loans/form_submission_account-details.yaml
+  form_loan-agreements:
+    callbacks:
+      $ref: ./invoice-based-loans/form_loan-agreements.yaml
+  form_submission_loan-agreements:
+    callbacks:
+      $ref: ./invoice-based-loans/form_submission_loan-agreements.yaml

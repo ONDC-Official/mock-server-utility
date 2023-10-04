@@ -1195,6 +1195,7 @@ properties:
                                     type: string
                                   descriptor: *ref_4
                                   price: *ref_24
+                                  quantity: *ref_21
                             cancellation_terms:
                               description: Cancellation terms of this item
                               type: array
@@ -1330,6 +1331,7 @@ properties:
                                             type: string
                                             enum:
                                               - text/html
+                                              - application/html
                                               - application/xml
                                           resubmit:
                                             type: boolean
@@ -1344,8 +1346,7 @@ properties:
                                         properties:
                                           status:
                                             description: Contains the status of form submission.
-                                            type: boolean
-                                            default: true
+                                            type: string
                                           signature:
                                             type: string
                                           submission_id:
@@ -1646,6 +1647,32 @@ properties:
                 description: Cancellation terms of this item
                 type: array
                 items: *ref_32
+              documents:
+                type: array
+                items:
+                  description: Documnents associated to the order
+                  type: object
+                  additionalProperties: false
+                  properties:
+                    descriptor: *ref_4
+                    mime_type:
+                      description: >-
+                        This field indicates the nature and format of the form
+                        received by querying the url. MIME types are defined and
+                        standardized in IETF's RFC 6838.
+                      type: string
+                      enum:
+                        - text/html
+                        - application/html
+                        - application/xml
+                        - application/pdf
+                    url:
+                      description: >-
+                        The URL from where the form can be fetched. The content
+                        fetched from the url must be processed as per the
+                        mime_type specified in this object.
+                      type: string
+                      format: uri
               refund_terms:
                 description: Refund terms of this item
                 type: array
@@ -1671,7 +1698,6 @@ properties:
                       id:
                         description: ID of the quote.
                         type: string
-                        format: uuid
                       price:
                         description: The total quoted price
                         allOf:
