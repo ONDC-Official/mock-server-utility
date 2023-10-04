@@ -27,7 +27,7 @@ message:
         short_desc: ICICI Bank Ltd
         long_desc: ICICI Bank Ltd, India.
     items:
-      - id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+      - id: '{{item_id}}'
         descriptor:
           code: invoice-based-loan / based per loan
           name: 'Invoice Based Loan Offer: INR 2,00,000'

@@ -15,7 +15,7 @@ context:
   bpp_uri: '{{bpp_uri}}'
 message:
   support:
-    order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+    order_id: '{{item_id}}'
     phone: 1800 1080
     email: customer.care@icicibank.com
     url: https://www.icicibank.com/helpdesk

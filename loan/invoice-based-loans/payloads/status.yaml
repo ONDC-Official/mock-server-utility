@@ -14,4 +14,4 @@ context:
   bpp_id: bpp.credit.icicibank.io
   bpp_uri: '{{bpp_uri}}'
 message:
-  order_id: 66b7b9bad166-4a3f-ada6-ca063dc9d321
+  order_id: '{{item_id}}'
