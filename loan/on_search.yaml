@@ -1,0 +1,7 @@
+default:
+  callback: "select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/select.yaml"

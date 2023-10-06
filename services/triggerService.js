@@ -8,14 +8,14 @@ var logger;
 
 const trigger = (context, config, data) => {
   logger = log.init();
-  let uri = context.response_uri;
+  let uri = context.req_body.context.bap_uri
   let api = config.callback;
   let delay = config.delay;
   try {
     logger.info("Inside trigger service");
     setTimeout(() => {
       axios
-        .post(`${uri + api}`, data)
+        .post(`${uri+api}`, data)
         .then((response) => {
           logger.info(
             `Triggered ${api} response at ${uri}${api}`
