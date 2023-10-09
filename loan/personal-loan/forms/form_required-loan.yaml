@@ -1,0 +1,7 @@
+default:
+  callback: "undefined"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "../payloads/form_required-loan.yaml"
