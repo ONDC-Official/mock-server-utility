@@ -10,7 +10,7 @@ security:
   ukId: 27baa06d-f90a-486c-85e5-cc621b787f04
   publickey: oyakwnKpteF5v0m6ndqQ3o2FPyWmQ+YNhpEqI/CsZ1k=
   privatekey: >-
-    hP89y8SCZYmgYAPj7f+EXvYjQPIFBnHERbkdqvMkvxCjJqTCcqm14Xm/Sbqd2pDejYU/JaZD5g2GkSoj8KxnWQ==
+  
 log:
   level: DEBUG
   output_type: file
