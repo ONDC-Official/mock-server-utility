@@ -1,0 +1,26 @@
+default:
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/on_search.yaml"
+
+personal-loan:
+  condition:
+        - operation:
+          type: EQUAL
+          title: Check search message code 
+          input:
+            value:
+              - operation:
+                  type: READ
+                  input:
+                    value: “req_body.message.intent.category.descriptor.code
+              - personal-loan
+  callback: “on_search”
+  uri:
+    $ref: “”
+  delay: 300
+  payload:
+    $ref: "./template/on_search.yaml"

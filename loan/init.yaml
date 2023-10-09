@@ -1,0 +1,179 @@
+default:
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/on_init.yaml"
+
+personal-loan_1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_personal-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+ 
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_init_1.yaml"
+
+personal-loan_2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_personal-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form2_submissionid"
+ 
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./personal-loan/template/on_init_2.yaml"
+
+
+invoice-based-loans_1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_init_1.yaml"
+
+invoice-based-loans_2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form2_submissionid"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_init_2.yaml"
+
+invoice-based-loans_3:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form3_submissionid"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_init_3.yaml"
+

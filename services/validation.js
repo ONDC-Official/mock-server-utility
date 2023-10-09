@@ -8,7 +8,7 @@ const {
   createAuthorizationHeader,
   isSignatureValid,
 } = require("ondc-crypto-sdk-nodejs");
-const { buildTemplate } = require("../utils/utils");
+const { buildTemplate,getPublicKey } = require("../utils/utils");
 const { trigger } = require("./triggerService");
 const { ack, schemaNack } = require("../utils/acknowledgement");
 const operator = require("../operator/util.js");
@@ -70,7 +70,7 @@ const validateRequest = async (
 
         res.setHeader("Authorization", header);
       }
-      if (server.sync_mode) {
+      if (callbackConfig.callback === "undefined"|| server.sync_mode) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);
       } else {
@@ -90,9 +90,9 @@ const validateRequest = async (
 const verifyHeader = async (req, security) => {
   logger = log.init();
   const headers = req.headers;
-  // const public_key = await getPublicKey(security.lookup_uri, headers);
+  const public_key = await getPublicKey(security.lookup_uri, headers);
   // logger.info(`Public key retrieved from registry : ${public_key}`);
-  const public_key = security.publickey;
+  // const public_key = security.publickey;
   //Validate the request source against the registry
   const isValidSource = await isSignatureValid({
     header: headers.authorization, // The Authorisation header sent by other network participants
