@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/submission/loan-amount">
+  <form action="/form/invoice-loan/submission/loan-amount" method="post">
     <label for="requestAmount">Requested Loan Amount</label>
     <input type="text" id="requestAmount" name="requestAmount" />
     <label for="requestTerm">Requested Loan Term</label>

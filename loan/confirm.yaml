@@ -17,7 +17,7 @@ personal-loan:
               type: READ
               input:
                 value: "req_body.message.order.items.0.id"
-          - "1234"
+          - "item_id_1_personal-loan"
   callback: "on_confirm"
   uri:
     $ref: ""
@@ -36,7 +36,7 @@ invoice-based-loans:
               type: READ
               input:
                 value: "req_body.message.order.items.0.id"
-          - "12345"
+          - "item_id_1_invoice-based-loan"
   callback: "on_confirm"
   uri:
     $ref: ""

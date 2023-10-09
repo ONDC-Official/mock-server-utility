@@ -33,7 +33,7 @@ message:
               code: INVOICE_BASED_LOAN
               name: Invoice based loan
         items:
-          - id: '{{item_id}}'
+          - id: 'item_id_1_invoice-based-loan'
             descriptor:
               code: INVOICE_BASED_LOAN
               name: Invoice based Loan
@@ -90,7 +90,8 @@ message:
               form:
                 id: F01
                 mime_type: text/html
-                url: https://6vs8xnx5i7.icicibank.co.in/loans/xinput/formid/F01
+                url: >-
+                 {{bpp_uri}}form/invoice-loan/org-form
                 resubmit: false
                 multiple_sumbissions: false
               required: true

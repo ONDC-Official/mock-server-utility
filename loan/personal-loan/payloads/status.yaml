@@ -14,4 +14,4 @@ context:
   bpp_id: bpp.credit.icicibank.io
   bpp_uri: '{{bpp_uri}}'
 message:
-  order_id: '{{item_id}}'
+  order_id: order_id_1_personal-loan

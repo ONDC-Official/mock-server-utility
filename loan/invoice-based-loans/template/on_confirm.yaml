@@ -30,5 +30,10 @@ template:
         operation:
           type: READ
           input:
-            value: "req_body.context.message_id"     
+            value: "req_body.context.message_id"  
+      item_id:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.items.0.id"    
   

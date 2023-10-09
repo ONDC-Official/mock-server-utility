@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/submission/invoice-based">
+  <form action="/form/invoice-loan/submission/org-form" method="post">
     <label for="udyamNumber">UDYAM Number</label>
     <input type="text" id="udyamNumber" name="udyamNumber" />
     <label for="mobNo">Contact Number</label>

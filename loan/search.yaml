@@ -36,7 +36,7 @@ invoice-based-loans:
               type: READ
               input:
                 value: "req_body.message.intent.category.descriptor.code"
-          - invoice-based-loan
+          - INVOICE_BASED_LOAN
   callback: "on_search"
   uri:
     $ref: ""

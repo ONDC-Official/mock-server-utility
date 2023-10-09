@@ -22,7 +22,7 @@ personal-loan-form1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item1_personal-loan"
+                  - "item_id_1_personal-loan"
 
           - operation:
               type: EQUAL
@@ -56,7 +56,7 @@ personal-loan-form2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item1_personal-loan"
+                  - "item_id_1_personal-loan"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -91,7 +91,7 @@ invoice-based-loans_on_select1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item1_invoice-based-loan"
+                  - "item_id_1_invoice-based-loan"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -125,7 +125,7 @@ invoice-based-loans_on_select2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item1_invoice-based-loan"
+                  - "item_id_1_invoice-based-loan"
           - operation:
                 type: EQUAL
                 title: Check search message code

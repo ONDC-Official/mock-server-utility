@@ -33,7 +33,7 @@ message:
               code: PERSONAL_LOAN
               name: Personal Loan
         items:
-          - id: '{{item_id}}'
+          - id: "item_id_1_personal-loan"
             descriptor:
               code: PERSONAL_LOAN
               name: Personal Loan

@@ -15,7 +15,7 @@ context:
   timestamp: '2023-05-25T05:23:03.443Z'
 message:
   order:
-    id: 66B7AEDF45
+    id: order_id_1_invoice-based-loan
     provider:
       id: '1'
       descriptor:

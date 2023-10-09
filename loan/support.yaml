@@ -17,13 +17,13 @@ personal-loan:
               type: READ
               input:
                 value: "req_body.message.support.order_id"
-          - "1"
+          - "order_id_1_personal-loan"
   callback: "on_support"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_support.yaml"
+    $ref: "./personal-loan/template/on_support_1.yaml"
 
 invoice-based-loans:
   condition:
@@ -36,11 +36,11 @@ invoice-based-loans:
               type: READ
               input:
                 value: "req_body.message.support.order_id"
-          - "12"
+          - "order_id_1_invoice-based-loan"
   callback: "on_support"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_support.yaml"
+    $ref: "./invoice-based-loans/template/on_support_1.yaml"
 

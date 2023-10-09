@@ -1,9 +1,9 @@
 server:
   type: BAP/BPP
   port: 5500
-  sync_mode: false
+  sync_mode: true
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
   generate_sign: true
   subscriber_id: fis-seller-staging.ondc.org
@@ -136,7 +136,13 @@ path:
       $ref: ./loan/invoice-based-loans/forms/form_individual-kyc.yaml
   form_invoice-loan_submission_individual-kyc:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml
+      $ref: ./loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml    
+  form_invoice-loan_kyc-info:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_kyc-info.yaml   
+  form_invoice-loan_submission_kyc-info:
+    callbacks:
+      $ref: ./loan/invoice-based-loans/forms/form_submission_kyc-info.yaml
   form_invoice-loan_account-details:
     callbacks:
       $ref: ./loan/invoice-based-loans/forms/form_account-details.yaml

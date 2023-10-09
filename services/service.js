@@ -28,7 +28,6 @@ const onRequest = async (req, res) => {
       api = req.params['0'].replace(/\//g, '_');
     }
     logger.info(`Received ${req.url} api request`);
-
     if (security.verify_sign && !isFormFound) {
       if (!await verifyHeader(req, security)){
         // Handle the case when signature is not verified

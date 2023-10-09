@@ -18,7 +18,7 @@ message:
     provider:
       id: '1'
     items:
-      - id: '{{item_id}}'
+      - id: item_id_1_personal-loan
         xinput:
           form_response:
             status: SUCCESS

@@ -8,8 +8,8 @@
 </head>
 
 <body>
-  <form action="/form/submission/account-details">
-    <label for="accHolderName">Account Holder Name</label>
+  <form action="/form/invoice-loan/submission/account-details" method="post">
+    <label for="accHolderName">Account Holder Name helloworld</label>
     <input type="text" id="accHolderName" name="accHolderName" />
     <label for="accNo">Bank Account Number</label>
     <input type="text" id="accNo" name="accNo" />

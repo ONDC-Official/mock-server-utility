@@ -6,7 +6,7 @@ default:
   payload:
     $ref: "./default/template/on_update.yaml"
 
-personal-loan:
+personal-loan1:
   condition:
     operation:
       type: EQUAL
@@ -17,15 +17,15 @@ personal-loan:
               type: READ
               input:
                 value: "req_body.message.order.id"
-          - "1"
+          - "order_id_1_personal-loan"
   callback: "on_update"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_update.yaml"
+    $ref: "./personal-loan/template/on_update_1.yaml"
 
-invoice-based-loans:
+personal-loan2:
   condition:
     operation:
       type: EQUAL
@@ -36,11 +36,69 @@ invoice-based-loans:
               type: READ
               input:
                 value: "req_body.message.order.id"
-          - "12"
+          - "order_id_2_personal-loan"
   callback: "on_update"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_update.yaml"
+    $ref: "./personal-loan/template/on_update_2.yaml"    
+
+
+invoice-based-loans1:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check update message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order.id"
+          - "order_id_1_invoice-based-loan"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_update_1.yaml"
+
+invoice-based-loans2:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check update message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order.id"
+          - "order_id_2_invoice-based-loan"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_update_2.yaml"
+
+invoice-based-loans3:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check update message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order.id"
+          - "order_id_3_invoice-based-loan"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./invoice-based-loans/template/on_update_3.yaml"
 

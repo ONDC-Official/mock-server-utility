@@ -90,7 +90,8 @@ message:
           form:
             id: F02
             mime_type: text/html
-            url: https://6vs8xnx5i7.icicibank.co.in/individual-kyc/xinput/formid/F02
+            url: >-
+              {{bpp-url}}form/invoice-loan/loan-amount
             resubmit: false
             multiple_sumbissions: false
           required: true
