@@ -11,6 +11,9 @@ const trigger = (context, config, data) => {
   let uri = context.req_body.context.bap_uri
   let api = config.callback;
   let delay = config.delay;
+  if(uri[uri.length-1]!="/"){ //"add / if not exists in bap uri"
+    uri=uri+"/"
+  }
   try {
     logger.info("Inside trigger service");
     setTimeout(() => {
