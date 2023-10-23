@@ -87,7 +87,6 @@ class AndOrOperation extends Operator{
                     const EQUAL = new EqualOperation(this.context)
                     EQUAL.input = new Input(this.context,element?.operation?.input)
                     const result  = EQUAL.getOutput().getValue()
-                    console.log(result,"result")
                     return result
                 }
             });
