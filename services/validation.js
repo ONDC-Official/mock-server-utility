@@ -77,7 +77,7 @@ const validateRequest = async (
       } else {
         context.response_uri = resolveObject(context, callbackConfig.uri);
         logger.info(`Callback for this request: ${callbackConfig.callback}`);
-        trigger(context, callbackConfig, data);
+        trigger(context, callbackConfig, data,security);
       }
       return res.json(ack);
     } 
