@@ -23,12 +23,13 @@ const onRequest = async (req, res) => {
   }
   try {
     const isFormFound = req.params['0']?.match(matchText);
+
     let api = req.params['0']
     if(isFormFound){
       api = req.params['0'].replace(/\//g, '_');
     }
     logger.info(`Received ${req.url} api request`);
-    if (security.verify_sign) {
+    if (security.verify_sign && !isFormFound) {
       if (!await verifyHeader(req, security)){
         // Handle the case when signature is not verified
         res.status(400).json(signNack);

@@ -8,7 +8,7 @@ const {
   createAuthorizationHeader,
   isSignatureValid,
 } = require("ondc-crypto-sdk-nodejs");
-const { buildTemplate } = require("../utils/utils");
+const { buildTemplate,getPublicKey } = require("../utils/utils");
 const { trigger } = require("./triggerService");
 const { ack, schemaNack } = require("../utils/acknowledgement");
 const operator = require("../operator/util.js");
@@ -32,13 +32,14 @@ const validateSchema = async (context) => {
       let error_list = validate.errors;
       logger.error(JSON.stringify(formatted_error(error_list)));
       logger.error("Schema validation : FAIL");
+      logger.error(context?.req_body?.context?.transaction_id)
       return false;
     } else {
       logger.info("Schema validation : SUCCESS");
       return true;
     }
   } catch (error) {
-    logger.error(error);
+        logger.error(error);
   }
 };
 
@@ -70,13 +71,13 @@ const validateRequest = async (
 
         res.setHeader("Authorization", header);
       }
-      if (server.sync_mode) {
+      if (callbackConfig.callback === "undefined"|| server.sync_mode) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);
       } else {
         context.response_uri = resolveObject(context, callbackConfig.uri);
         logger.info(`Callback for this request: ${callbackConfig.callback}`);
-        trigger(context, callbackConfig, data);
+        trigger(context, callbackConfig, data,security);
       }
       return res.json(ack);
     } 
@@ -90,9 +91,9 @@ const validateRequest = async (
 const verifyHeader = async (req, security) => {
   logger = log.init();
   const headers = req.headers;
-  // const public_key = await getPublicKey(security.lookup_uri, headers);
+  const public_key = await getPublicKey(security.lookup_uri, headers);
   // logger.info(`Public key retrieved from registry : ${public_key}`);
-  const public_key = security.publickey;
+  // const public_key = security.publickey;
   //Validate the request source against the registry
   const isValidSource = await isSignatureValid({
     header: headers.authorization, // The Authorisation header sent by other network participants
