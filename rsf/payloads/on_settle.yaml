@@ -22,8 +22,8 @@ message:
         curr_type: INR
         error_code: ''
         error_message: ''
-        settlement_id: LcQnCmN9HUJl9J
-        settlement_reference_no: LcQnCo6vNoHJMS
+        settlement_id: '{{settlement_id1}}'
+        settlement_reference_no: '{{random_uuid}}'
       - state: '01'
         amount:
           value: '750'
@@ -31,8 +31,8 @@ message:
         curr_type: INR
         error_code: ''
         error_message: ''
-        settlement_id: LcQnCmOvqKTOea
-        settlement_reference_no: LcQnCo72PIAPFp
+        settlement_id: '{{settlement_id2}}'
+        settlement_reference_no: '{{random_uuid}}'
       - state: '01'
         amount:
           value: '950'
@@ -40,8 +40,8 @@ message:
         curr_type: INR
         error_code: ''
         error_message: ''
-        settlement_id: LcQnCmQabISUjv
-        settlement_reference_no: LcQnCo73hwPmr2
+        settlement_id: '{{settlement_id3}}'
+        settlement_reference_no: '{{random_uuid}}'
       - state: '01'
         amount:
           value: '750'
@@ -49,5 +49,14 @@ message:
         curr_type: INR
         error_code: ''
         error_message: ''
-        settlement_id: LcQnCmRuHoPSxZ
-        settlement_reference_no: LcQnCo74ECYABS
+        settlement_id: '{{settlement_id4}}'
+        settlement_reference_no: '{{random_uuid}}'
+      - state: '01'
+        amount:
+          value: '750'
+          currency: INR
+        curr_type: INR
+        error_code: ''
+        error_message: ''
+        settlement_id: '{{settlement_id5}}'
+        settlement_reference_no: '{{random_uuid}}'

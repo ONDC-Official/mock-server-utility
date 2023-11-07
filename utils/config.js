@@ -7,12 +7,12 @@ const $RefParser = require("json-schema-ref-parser");
 var config;
 
 async function loadConfig(filePath) {
-  // const filePath = "./config.yaml";
+    // const filePath = "./config.yaml";
   const yamlString = fs.readFileSync(filePath, "utf8");
   const yamlObject = yaml.parse(yamlString);
   // config = yamlObject;
   config = await $RefParser.dereference(yamlObject);
-}
+  }
 
 function getConfig() {
   if (!config) {
@@ -31,7 +31,7 @@ function getPaths() {
 }
 
 function getLog() {
-  return config.log;
+  return config?.log;
 }
 
 module.exports = {

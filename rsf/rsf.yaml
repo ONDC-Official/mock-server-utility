@@ -20,49 +20,43 @@ path:
   collector_recon:
     schema:
       type: object
-      # $ref: ./rfs/schema/collector_recon.yaml
+      # $ref: ./rsf/schema/collector_recon.yaml
     callbacks:
-      $ref: ./rfs/collector_recon.yaml
+      $ref: ./rsf/collector_recon.yaml
   settle:
     schema:
-      type: object
-      # $ref: ./rfs/schema/settle.yaml
+      # type: object
+      $ref: ./rsf/schema/settle.yaml
     callbacks:
-      $ref: ./rfs/settle.yaml
-  on_settle:
-    schema:
-      type: object
-      # $ref: ./rfs/schema/on_settle.yaml
-    callbacks:
-      $ref: ./rfs/on_settle.yaml
+      $ref: ./rsf/settle.yaml
   receiver_recon:
     schema:
-      type: object
-      # $ref: ./rfs/schema/receiver_recon.yaml
+      # type: object
+      $ref: ./rsf/schema/receiver_recon.yaml
     callbacks:
-      $ref: ./rfs/receiver_recon.yaml
+      $ref: ./rsf/receiver_recon.yaml
   on_receiver_recon:
     schema:
-      type: object
-      # $ref: ./rfs/schema/on_receiver_recon.yaml
+      # type: object
+      $ref: ./rsf/schema/on_receiver_recon.yaml
     callbacks:
-      $ref: ./rfs/on_receiver_recon.yaml
+      $ref: ./rsf/on_receiver_recon.yaml
   on_collector_recon:
     schema: 
       type: object
-      # $ref: ./rfs/schema/on_collector_recon.yaml
+      # $ref: ./rsf/schema/on_collector_recon.yaml
     callbacks:
-      $ref: ./rfs/on_collector_recon.yaml
+      $ref: ./rsf/on_collector_recon.yaml
   recon_status:
     schema:
       type: object
-      # $ref: ./rfs/schema/recon_status.yaml
+      # $ref: ./rsf/schema/recon_status.yaml
     callbacks:
-      $ref: ./rfs/recon_status.yaml
+      $ref: ./rsf/recon_status.yaml
   on_recon_status:
     schema:
       type: object
-      # $ref: ./rfs/schema/on_recon_status.yaml
+      # $ref: ./rsf/schema/on_recon_status.yaml
     callbacks:
-      $ref: ./rfs/on_recon_status.yaml   
+      $ref: ./rsf/on_recon_status.yaml   
   

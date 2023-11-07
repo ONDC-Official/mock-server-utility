@@ -30,5 +30,31 @@ template:
         operation:
           type: READ
           input:
-            value: "req_body.context.message_id"     
-  
+            value: "req_body.context.message_id"
+      random_uuid:
+        $ref: "../operations/req_body.yaml#/random_uuid"
+      settlement_id1:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.0.settlement_id"
+      settlement_id2:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.1.settlement_id"
+      settlement_id3:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.2.settlement_id"
+      settlement_id4:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.3.settlement_id"
+      settlement_id5:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.4.settlement_id"

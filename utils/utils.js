@@ -1,8 +1,8 @@
-const { init } = require("./logger");
+const {init} = require("./logger");
 const yaml = require("js-yaml");
 const axios = require("axios");
 const operator = require("../operator/util.js");
-
+const logger = init()
 //we are getting the schemas from a url but we can get it from a local file as well
 
 const resolveTemplate = (context, template, values) => {
@@ -15,8 +15,8 @@ const resolveTemplate = (context, template, values) => {
       }
     } catch (error) {
       logger.error(
-        `Unable to resolve ${context?.apiConfig?.callbacks?.default?.callback} api response,`,
-        error
+      `Unable to resolve ${context?.apiConfig?.callbacks?.default?.callback} api response,`,
+      error
       );
       console.trace(error);
     }
@@ -35,8 +35,8 @@ const buildTemplate = (context, templateConfig) => {
     return response;
   } catch (error) {
     logger.error(
-      `Unable to build response ${context?.apiConfig?.callbacks?.default?.callback} api response,`,
-      error
+    `Unable to build response ${context?.apiConfig?.callbacks?.default?.callback} api response,`,
+    error
     );
   }
 };

@@ -1,0 +1,109 @@
+template:
+    data:
+      $ref: "../payloads/on_receiver_recon.yaml"
+    dict:
+      bpp_uri: http://localhost:5500/
+      bpp_id: localhost:5500
+      city_code: 
+        $ref: "../operations/req_body.yaml#/context_city"
+      bap_id:
+        $ref: "../operations/req_body.yaml#/bap_id"
+      bap_uri:
+        $ref: "../operations/req_body.yaml#/bap_uri"
+      txn_id:
+        $ref: "../operations/req_body.yaml#/transaction_id"
+      msg_id:
+        operation:
+          type: GENERATE_UUID
+          input:
+            value: "req_body.context.message_id"
+      timestamp:
+        operation:
+          type: GENERATE_TIMESTAMP
+      country: 
+        $ref: "../operations/req_body.yaml#/context_country"
+      domain: 
+        $ref: "../operations/req_body.yaml#/context_domain"
+      transaction_id: 
+        $ref: "../operations/req_body.yaml#/context_transaction_id"
+      message_id:
+        operation:
+          type: READ
+          input:
+            value: "req_body.context.message_id"   
+      id1:
+        $ref: "../operations/on_receiver_recon.yaml#/id1"     
+      id2:
+        $ref: "../operations/on_receiver_recon.yaml#/id2"     
+      id3:
+        $ref: "../operations/on_receiver_recon.yaml#/id3"     
+      id4:
+        $ref: "../operations/on_receiver_recon.yaml#/id4"     
+      id5:
+        $ref: "../operations/on_receiver_recon.yaml#/id5"  
+#----------------- 
+      settlement_id1:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_id1"   
+      settlement_id2:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_id2"   
+      settlement_id3:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_id3"   
+      settlement_id4:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_id4"   
+      settlement_id5:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_id5"
+#-----------------   
+      receiver_app_id1:
+        $ref: "../operations/on_receiver_recon.yaml#/receiver_app_id1"   
+      receiver_app_id2:
+        $ref: "../operations/on_receiver_recon.yaml#/receiver_app_id2"   
+      receiver_app_id3:
+        $ref: "../operations/on_receiver_recon.yaml#/receiver_app_id3"   
+      receiver_app_id4:
+        $ref: "../operations/on_receiver_recon.yaml#/receiver_app_id4"   
+      receiver_app_id5:
+        $ref: "../operations/on_receiver_recon.yaml#/receiver_app_id5"  
+#-----------------  
+      settlement_reference_no1:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_reference_no1"   
+      settlement_reference_no2:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_reference_no2"   
+      settlement_reference_no3:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_reference_no3"   
+      settlement_reference_no4:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_reference_no4"   
+      settlement_reference_no5:
+        $ref: "../operations/on_receiver_recon.yaml#/settlement_reference_no5" 
+#-----------------   
+      collector_app_id1:
+        $ref: "../operations/on_receiver_recon.yaml#/collector_app_id1"   
+      collector_app_id2:
+        $ref: "../operations/on_receiver_recon.yaml#/collector_app_id2"   
+      collector_app_id3:
+        $ref: "../operations/on_receiver_recon.yaml#/collector_app_id3"   
+      collector_app_id4:
+        $ref: "../operations/on_receiver_recon.yaml#/collector_app_id4"   
+      collector_app_id5:
+        $ref: "../operations/on_receiver_recon.yaml#/collector_app_id5"  
+      counterparty_recon_status1:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_recon_status1"   
+      counterparty_recon_status2:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_recon_status2"  
+      counterparty_recon_status3:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_recon_status3"  
+      counterparty_recon_status4:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_recon_status4"  
+      counterparty_recon_status5:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_recon_status5"   
+      counterparty_diff_amount1:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_diff_amount1"  
+      counterparty_diff_amount2:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_diff_amount2"  
+      counterparty_diff_amount3:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_diff_amount3"  
+      counterparty_diff_amount4:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_diff_amount4"  
+      counterparty_diff_amount5:
+        $ref: "../operations/on_receiver_recon.yaml#/counterparty_diff_amount5"
+        
+  

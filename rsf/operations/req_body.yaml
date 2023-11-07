@@ -37,4 +37,10 @@ context_transaction_id:
   operation:
     type: READ
     input:
-      value: "req_body.context.transaction_id"      
+      value: "req_body.context.transaction_id"    
+random_uuid:
+  operation:
+    type: "GENERATE_UUID" 
+    input:
+      value: "req_body.context.message_id"
+
