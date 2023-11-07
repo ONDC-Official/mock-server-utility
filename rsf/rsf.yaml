@@ -4,7 +4,7 @@ server:
   sync_mode: false
 security:
   verify_sign: true
-  lookup_uri: http://localhost:3000/lookup
+  lookup_uri: https://staging.registry.ondc.org/lookup
   generate_sign: true
   subscriber_id: mock-api-service
   ukId: 584
