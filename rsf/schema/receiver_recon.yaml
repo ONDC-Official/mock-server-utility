@@ -65,6 +65,7 @@ properties:
         description: >-
           The duration in ISO8601 format after timestamp for which this message
           holds valid
+    additionalProperties: false
     required:
       - domain
       - action
@@ -144,8 +145,10 @@ properties:
                         3d_render:
                           type: string
                           format: uri
+                      additionalProperties: false
                     address:
                       type: string
+                  additionalProperties: false
                   required:
                     - name
                     - address
@@ -187,8 +190,7 @@ properties:
                           pattern: '[+-]?([0-9]*[.])?[0-9]+'
                         currency:
                           type: string
-                      additionalProperties:
-                        type: string
+                      additionalProperties: false
                       required:
                         - currency
                         - amount
@@ -416,6 +418,7 @@ properties:
                   type: string
                   format: date-time
                   example: 2022-10-28T10:34:58.472Z
+              additionalProperties: false
               required:
                 - id
                 - settlement_id
@@ -425,22 +428,5 @@ properties:
                 
 required:
   - context
-  # - message.orderbook.orders.id
-  # - message.orderbook.orders.invoice_no
-  # - message.orderbook.orders.collector_app_id
-  # - message.orderbook.orders.receiver_app_id
-  # - message.orderbook.orders.state
-  # - message.orderbook.orders.transaction_id
-  # - message.orderbook.orders.provider
-  # - message.orderbook.orders.payment
-  # - message.orderbook.orders.payerdetails
-  # - message.orderbook.orders.settlement_reason_code
-  # - message.orderbook.orders.created_at
-  # - message.orderbook.orders.updated_at
-  # - message.orderbook.orders.withholding_tax_gst
-  # - message.orderbook.orders.withholding_tax_tds
-  # - message.orderbook.orders.deduction_by_collector
-  # - message.orderbook.orders.order_recon_status
-  # - message.orderbook.orders.settlement_id
-  # - message.orderbook.orders.settlement_reference_no
-  # - message.orderbook.orders.recon_status
+  - message
+

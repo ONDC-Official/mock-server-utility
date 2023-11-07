@@ -185,8 +185,7 @@ properties:
                           pattern: '[+-]?([0-9]*[.])?[0-9]+'
                         currency:
                           type: string
-                      additionalProperties:
-                        type: string
+                      additionalProperties: false
                       required:
                         - currency
                     type:
@@ -243,6 +242,7 @@ properties:
                               items:
                                 type: string
                                 format: date-time
+                  additionalProperties: false
                 withholding_tax_gst: &ref_2
                   description: Describes the price of an item. Allows for domain extension.
                   type: object
@@ -417,11 +417,4 @@ properties:
 
 required:
   - context
-  - message.orderbook.orders.invoice_no
-  # - message.orderbook.orders.collector_app_id
-  # - message.orderbook.orders.receiver_app_id
-  # - message.orderbook.orders.transaction_id
-  # - message.orderbook.orders.settlement_id
-  # - message.orderbook.orders.settlement_reference_no
-  # - message.orderbook.orders.recon_status
-  # - message.orderbook.orders.order_recon_status
+  - message
