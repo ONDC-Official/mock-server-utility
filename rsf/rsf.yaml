@@ -1,9 +1,9 @@
 server:
   type: BAP/BPP
   port: 5500
-  sync_mode: true
+  sync_mode: false
 security:
-  verify_sign: false
+  verify_sign: true
   lookup_uri: http://localhost:3000/lookup
   generate_sign: true
   subscriber_id: mock-api-service

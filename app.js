@@ -2,6 +2,7 @@ const express = require("express");
 const log = require("./utils/logger");
 const app = express();
 var https = require('https');
+const http = require("http")
 const config = require("./utils/config.js");
 const router = require("./routes/route");
 
@@ -332,7 +333,7 @@ async function startUp(file) {
   };
   app.use(express.json());
   const logger = log.init();
-  https.createServer(options, app).listen(server.port, () => {
+  http.createServer(options, app).listen(server.port, () => {
     logger.info(`This app is running on port number : ${server.port}`);
   });
   // app.listen(server.port, () => {
