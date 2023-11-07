@@ -7,6 +7,8 @@ properties:
       domain:
         description: Describes the domain of an object
         type: string
+        enum: 
+          - ONDC:NTS10
       country:
         type: string
         description: Country code as per ISO 3166-1 and ISO 3166-2 format
