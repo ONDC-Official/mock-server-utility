@@ -3,8 +3,6 @@ context:
   location:
     country:
       code: IND
-    city:
-      code: '{{city_code}}'
   version: 2.0.0
   action: on_search
   bap_id: credit-protocol.becknprotocol.io

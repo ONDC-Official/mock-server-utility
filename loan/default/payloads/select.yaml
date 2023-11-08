@@ -3,8 +3,6 @@ context:
   location:
     country:
       code: IND
-    city:
-      code: '{{city_code}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{msg_id}}'
   action: select

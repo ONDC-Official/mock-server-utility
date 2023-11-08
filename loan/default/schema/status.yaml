@@ -285,7 +285,6 @@ properties:
               related to an ongoing transaction despite being unaware of the
               user active on the BAP.
             type: string
-            format: uuid
           message_id:
             description: >-
               This is a unique value which persists during a request / callback

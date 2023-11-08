@@ -38,7 +38,7 @@ personal-loan_1:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_init_1.yaml"
+    $ref: "./loan/personal-loan/template/on_init_1.yaml"
 
 personal-loan_2:
   condition:
@@ -72,7 +72,7 @@ personal-loan_2:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_init_2.yaml"
+    $ref: "./loan/personal-loan/template/on_init_2.yaml"
 
 
 invoice-based-loans_1:
@@ -107,7 +107,7 @@ invoice-based-loans_1:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_init_1.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_init_1.yaml"
 
 invoice-based-loans_2:
   condition:
@@ -141,7 +141,7 @@ invoice-based-loans_2:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_init_2.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_init_2.yaml"
 
 invoice-based-loans_3:
   condition:
@@ -175,5 +175,43 @@ invoice-based-loans_3:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_init_3.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_init_3.yaml"
+
+
+
+
+marine-based-insurance:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MARINE-INSURANCE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+          
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/marine-insurance/template/on_init.yaml"         
+
 

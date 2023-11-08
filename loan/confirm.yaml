@@ -23,7 +23,7 @@ personal-loan:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_confirm.yaml"
+    $ref: "./loan/personal-loan/template/on_confirm.yaml"
 
 invoice-based-loans:
   condition:
@@ -42,5 +42,27 @@ invoice-based-loans:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_confirm.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_confirm.yaml"
+
+marine-insurance:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check search message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.intent.category.descriptor.code"
+          - PERSONAL_LOAN
+  callback: "on_confirm"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/marine-insurance/template/on_confirm.yaml"    
+
+
+
 

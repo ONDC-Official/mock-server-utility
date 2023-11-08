@@ -3,14 +3,14 @@ server:
   port: 5500
   sync_mode: true
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
-  generate_sign: true
+  generate_sign: false
   subscriber_id: fis-seller-staging.ondc.org
   ukId: 27baa06d-f90a-486c-85e5-cc621b787f04
   publickey: oyakwnKpteF5v0m6ndqQ3o2FPyWmQ+YNhpEqI/CsZ1k=
   privatekey: >-
-  
+    
 log:
   level: DEBUG
   output_type: file
@@ -88,70 +88,95 @@ path:
       $ref: ./loan/default/on_support.yaml
   form_personal-loan_personal-info:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_personal-info.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_personal-info.yaml
   form_personal-loan_submission_personal-info:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_submission_personal-info.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_submission_personal-info.yaml
   form_personal-loan_required-loan:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_required-loan.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_required-loan.yaml
   form_personal-loan_submission_required-loan:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_submission_required-loan.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_submission_required-loan.yaml
   form_personal-loan_kyc:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_KYC.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_KYC.yaml
   form_personal-loan_submission_kyc:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_submission_KYC.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_submission_KYC.yaml
   form_personal-loan_bank-account-mandate:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_bank-account-mandate.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_bank-account-mandate.yaml
   form_personal-loan_submission_bank-account-mandate:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_submission_bank-account-mandate.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_submission_bank-account-mandate.yaml
   form_personal-loan_loan-agreement:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_loan-agreement.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_loan-agreement.yaml
   form_personal-loan_submission_loan-agreement:
     callbacks:
-      $ref: ./loan/personal-loan/forms/form_submission_loan-agreement.yaml
+      $ref: ./loan/loan/personal-loan/forms/form_submission_loan-agreement.yaml
 
 # invoice based  
   
   form_invoice-loan_org-form:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_invoice_Org-form.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_invoice_Org-form.yaml
   form_invoice-loan_submission_org-form:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_invoice_Org-form.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_submission_invoice_Org-form.yaml
   form_invoice-loan_loan-amount:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_loan-amount.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_loan-amount.yaml
   form_invoice-loan_submission_loan-amount:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_loan-amount.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_submission_loan-amount.yaml
   form_invoice-loan_individual-kyc:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_individual-kyc.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_individual-kyc.yaml
   form_invoice-loan_submission_individual-kyc:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml    
+      $ref: ./loan/loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml    
   form_invoice-loan_kyc-info:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_kyc-info.yaml   
+      $ref: ./loan/loan/invoice-based-loans/forms/form_kyc-info.yaml   
   form_invoice-loan_submission_kyc-info:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_kyc-info.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_submission_kyc-info.yaml
   form_invoice-loan_account-details:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_account-details.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_account-details.yaml
   form_invoice-loan_submission_account-details:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_account-details.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_submission_account-details.yaml
   form_invoice-loan_loan-agreements:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_loan-agreements.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_loan-agreements.yaml
   form_invoice-loan_submission_loan-agreements:
     callbacks:
-      $ref: ./loan/invoice-based-loans/forms/form_submission_loan-agreements.yaml
+      $ref: ./loan/loan/invoice-based-loans/forms/form_submission_loan-agreements.yaml
+
+
+                                                                               
+
+
+
+ # insurence/marine-insurance      
+  form_marine_fetch_personal-info:
+    callbacks:
+      $ref: ./loan/insurance/marine-insurance/forms/marine_fetch_personal-info.yaml
+  form_marine_fetch_personal_submission-info:
+    callbacks:
+      $ref: ./loan/insurance/marine-insurance/forms/marine_fetch_personal_submission-info.yaml
+  form_marine_additional-info:
+    callbacks:
+      $ref: ./loan/insurance/marine-insurance/forms/marine_additional-info.yaml
+  form_marine_additional_submission-info:
+    callbacks:
+      $ref: ./loan/insurance/marine-insurance/forms/marine_additional_submission-info.yaml      
+  form_marine_aadhar_kyc:
+    callbacks:
+      $ref: ./loan/insurance/marine-insurance/forms/marine_aadhar_kyc.yaml    
+  form_marine_aadhar_submission_kyc:
+    callbacks:
+      $ref: ./loan/insurance/marine-insurance/forms/marine_aadhar_submission_kyc.yaml     

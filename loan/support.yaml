@@ -23,7 +23,7 @@ personal-loan:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_support_1.yaml"
+    $ref: "./loan/personal-loan/template/on_support_1.yaml"
 
 invoice-based-loans:
   condition:
@@ -42,5 +42,5 @@ invoice-based-loans:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_support_1.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_support_1.yaml"
 

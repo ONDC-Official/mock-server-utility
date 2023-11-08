@@ -23,7 +23,7 @@ personal-loan-1:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./personal-loan/template/on_status.yaml"
+    $ref: "./loan/personal-loan/template/on_status.yaml"
 
 invoice-based-loans1:
   condition:
@@ -42,7 +42,7 @@ invoice-based-loans1:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_status_1.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_status_1.yaml"
 
 invoice-based-loans2:
   condition:
@@ -61,7 +61,7 @@ invoice-based-loans2:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_status_2.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_status_2.yaml"
 
 invoice-based-loans3:
   condition:
@@ -80,7 +80,7 @@ invoice-based-loans3:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_status_3.yaml"
+    $ref: "./loan/invoice-based-loans/template/on_status_3.yaml"
 
 invoice-based-loans4:
   condition:
@@ -99,4 +99,4 @@ invoice-based-loans4:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./invoice-based-loans/template/on_status_4.yaml"    
+    $ref: "./loan/invoice-based-loans/template/on_status_4.yaml"    
