@@ -2,8 +2,8 @@ template:
     data:
       $ref: "../payloads/settle.yaml"
     dict:
-      bpp_uri: http://localhost:5500/
-      bpp_id: localhost:5500
+      bpp_uri: https://rsf-mock-service.ondc.org/
+      bpp_id: rsf-mock-service.ondc.org
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
       bap_id:

@@ -3,7 +3,7 @@ context:
   city: '*'
   action: on_receiver_recon
   bap_id: abc.collectorapp.com
-  bpp_id: api.razorpay.com
+  bpp_id: rsf-mock-service.ondc.org
   domain: '{{domain}}'
   bap_uri: '{{bap_uri}}'
   bpp_uri: '{{bpp_uri}}'
