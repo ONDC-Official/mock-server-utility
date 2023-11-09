@@ -157,6 +157,68 @@ path:
       $ref: ./loan/loan/invoice-based-loans/forms/form_submission_loan-agreements.yaml
 
 
+# insurence/health-insurance      
+  form_fetch_personal-info:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_personal-info.yaml
+  form_fetch_personal-info-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_personal-info-submission.yaml
+  form_fetch_family-info:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_family-info.yaml
+  form_fetch_family-info-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_family-info-submission.yaml
+  form_fetch_PED:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_PED.yaml
+  form_fetch_PED-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_PED-submission.yaml
+  form_fetch_PAN_DOB:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_PAN_DOB.yaml
+  form_fetch_PAN_DOB-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_PAN_DOB-submission.yaml
+  form_fetch_EKYC:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_EKYC.yaml
+  form_fetch_EKYC-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_EKYC-submission.yaml
+  form_fetch_buyer-info:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_buyer-info.yaml
+  form_fetch_buyer-info-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_buyer-info-submission.yaml
+  form_fetch_insured_personal-detali:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_insured_personal-detali.yaml
+  form_fetch_insured_personal-detali-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_insured_personal-detali-submission.yaml
+  form_fetch_medical-info:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_medical-info.yaml
+  form_fetch_medical-info-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_medical-info-submission.yaml
+  form_fetch_manual-review:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_manual-review.yaml
+  form_fetch_manual-review-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_manual-review-submission.yaml
+  form_fetch_nominee-details:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_nominee-details.yaml
+  form_fetch_nominee-details-submission:
+    callbacks:
+      $ref: ./loan/insurance/health-insurance/forms/fetch_nominee-details-submission.yaml
+  
                                                                                
 
 

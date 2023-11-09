@@ -1,0 +1,25 @@
+context:
+  action: update
+  bap_id: fis.test.bap.io
+  bap_uri: '{{bap_uri}}'
+  bpp_id: fis.test.bpp.io
+  bpp_uri: '{{bpp_uri}}'
+  domain: '{{domain}}'
+  location:
+    country:
+      code: IND
+    city:
+      code: '*'
+  message_id: '{{msg_id}}'
+  timestamp: '2023-07-24T05:42:54.121Z'
+  transaction_id: '{{transaction_id}}'
+  ttl: PT50M
+  version: 2.0.0
+message:
+  update_target: order.fulfillments[0].customer.contact.phone
+  order:
+    id: O1
+    fulfillments:
+      - customer:
+          contact:
+            phone: +91-9667788867

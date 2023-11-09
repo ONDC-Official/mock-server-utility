@@ -1,0 +1,7 @@
+default:
+  callback: "undefined"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "../payloads/maual-review_form.yaml"

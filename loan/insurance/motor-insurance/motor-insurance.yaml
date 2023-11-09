@@ -1,0 +1,63 @@
+server:
+  type: BAP/BPP
+  port: 5500
+  sync_mode: true
+security:
+  verify_sign: false
+  lookup_uri: http://localhost:3000/lookup
+  generate_sign: true
+  subscriber_id: mock-api-service
+  ukId: 584
+  publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
+  privatekey: >-
+    dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  search:
+    schema:
+      $ref: ./motor-insurance/schema/search.yaml
+    callbacks:
+      $ref: ./motor-insurance/search.yaml
+  on_search:
+    schema:
+      $ref: ./motor-insurance/schema/on_search.yaml
+    callbacks:
+      $ref: ./motor-insurance/on_search.yaml
+  select:
+    schema:
+      $ref: ./motor-insurance/schema/select.yaml
+    callbacks:
+      $ref: ./motor-insurance/select.yaml
+  on_select:
+    schema:
+      $ref: ./motor-insurance/schema/on_select.yaml
+    callbacks:
+      $ref: ./motor-insurance/on_select.yaml
+  init:
+    schema:
+      $ref: ./motor-insurance/schema/init.yaml
+    callbacks:
+      $ref: ./motor-insurance/init.yaml
+  on_init:
+    schema:
+      $ref: ./motor-insurance/schema/on_init.yaml
+    callbacks:
+      $ref: ./motor-insurance/on_init.yaml
+  confirm:
+    schema:
+      $ref: ./motor-insurance/schema/confirm.yaml
+    callbacks:
+      $ref: ./motor-insurance/confirm.yaml
+  on_confirm:
+    schema:
+      $ref: ./motor-insurance/schema/on_confirm.yaml
+    callbacks:
+      $ref: ./motor-insurance/on_confirm.yaml
+  on_update:
+    schema:
+      $ref: ./motor-insurance/schema/on_update.yaml
+    callbacks:
+      $ref: ./motor-insurance/on_update.yaml

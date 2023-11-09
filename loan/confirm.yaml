@@ -44,25 +44,60 @@ invoice-based-loans:
   payload:
     $ref: "./loan/invoice-based-loans/template/on_confirm.yaml"
 
-marine-insurance:
+health-based-insurance:
   condition:
-    operation:
-      type: EQUAL
-      title: Check search message code
-      input:
-        value:
+      operation:
+        type: AND
+        input:
+          value:
           - operation:
-              type: READ
+              type: EQUAL
+              title: Check search message code
               input:
-                value: "req_body.message.intent.category.descriptor.code"
-          - PERSONAL_LOAN
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_HEALTH-INSURANCE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+          
   callback: "on_confirm"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/marine-insurance/template/on_confirm.yaml"    
+    $ref: "./insurance/health-insurance/template/on_confirm.yaml"     
 
 
-
-
+marine-based-insurance:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MARINE-INSURANCE"
+  callback: "on_confirm"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/health-insurance/template/on_confirm.yaml"     

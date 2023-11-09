@@ -44,6 +44,24 @@ invoice-based-loans:
   payload:
     $ref: "./loan/invoice-based-loans/template/on_search.yaml"
 
+health-based-insurance:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check search message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.intent.category.descriptor.code"
+          - HEALTH_INSURANCE
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/health-insurance/template/on_search.yaml"    
 
 marine-based-insurance:
   condition:
