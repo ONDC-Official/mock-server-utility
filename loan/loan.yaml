@@ -155,6 +155,9 @@ path:
   form_invoice-loan_submission_loan-agreements:
     callbacks:
       $ref: ./loan/loan/invoice-based-loans/forms/form_submission_loan-agreements.yaml
+  form_invoice-loan_emandate:
+    callbacks:
+      $ref: ./loan/loan/invoice-based-loans/forms/form_init_emandate.yaml
 
 
 # insurence/health-insurance      
@@ -242,3 +245,48 @@ path:
   form_marine_aadhar_submission_kyc:
     callbacks:
       $ref: ./loan/insurance/marine-insurance/forms/marine_aadhar_submission_kyc.yaml     
+
+
+ # insurence/motor-insurance      
+  form_fetch_vehicle_details:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/fetch_vehicle_details.yaml 
+  form_fetch_vehicle_details_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/fetch_vehicle_details_submission.yaml       
+  form_vehicle-detail_renewal:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/vehicle-detail_renewal.yaml 
+  form_vehicle-detail_renewal_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/vehicle-detail_renewal_submission.yaml        
+  form_maual-review_form:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/maual-review_form.yaml  
+  form_maual-review_form_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/maual-review_form_submission.yaml        
+  form_Pan_Dob_details:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/Pan_Dob_details.yaml  
+  form_Pan_Dob_details_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/Pan_Dob_details_submission.yaml       
+  form_EKYC_form:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/EKYC_form.yaml 
+  form_EKYC_form_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/EKYC_form_submission.yaml        
+  form_vehicle-info_form:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/vehicle-info_form.yaml
+  form_vehicle-info_form_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/vehicle-info_form_submission.yaml        
+  form_insured_personal_details:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/insured_personal_details.yaml       
+  form_insured_personal_details_submission:
+    callbacks:
+      $ref: ./loan/insurance/motor-insurance/forms/insured_personal_details_submission.yaml 

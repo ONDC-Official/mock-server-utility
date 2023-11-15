@@ -82,3 +82,21 @@ marine-based-insurance:
   payload:
     $ref: "./insurance/marine-insurance/template/on_search.yaml"  
 
+motor-based-insurance:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check search message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.intent.category.descriptor.code"
+          - MOTOR_INSURANCE
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/motor-insurance/template/on_search.yaml"      

@@ -1,6 +1,6 @@
 template:
     data:
-      $ref: "../payloads/on_status.yaml"
+      $ref: "../payloads/on_select_3.yaml"
     dict:
       bpp_uri: https://fis-seller-staging.ondc.org/
       bpp_id: localhost:5500

@@ -79,7 +79,7 @@ health-based-insurance:
     $ref: "./insurance/health-insurance/template/on_confirm.yaml"     
 
 
-marine-based-insurance:
+motor-based-insurance:
   condition:
       operation:
         type: AND
@@ -94,10 +94,21 @@ marine-based-insurance:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MARINE-INSURANCE"
+                  - "ITEM_ID_1_MOTOR-INSURANCE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+          
   callback: "on_confirm"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/health-insurance/template/on_confirm.yaml"     
+    $ref: "./insurance/motor-insurance/template/on_confirm.yaml"                           

@@ -1,9 +1,9 @@
 template:
     data:
-      $ref: "../payloads/on_status.yaml"
+      $ref: "../payloads/on_select_form3.yaml"
     dict:
       bpp_uri: https://fis-seller-staging.ondc.org/
-      bpp_id: localhost:5500
+      bpp_id: fis-seller-staging.ondc.org
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
       bap_id:
@@ -20,8 +20,9 @@ template:
       timestamp:
         operation:
           type: GENERATE_TIMESTAMP
-      country: 
-        $ref: "../operations/req_body.yaml#/context_country"
+      country: 123j
+        # $ref: "../operations/req_body.yaml#/context_country"
+
       domain: 
         $ref: "../operations/req_body.yaml#/context_domain"
       transaction_id: 
@@ -30,5 +31,12 @@ template:
         operation:
           type: READ
           input:
-            value: "req_body.context.message_id"     
+            value: "req_body.context.message_id"    
+      item_id:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.items.0.id"     
   
+
+

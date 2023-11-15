@@ -32,6 +32,16 @@ personal-loan_1:
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
                     - "form1_submissionid"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "SUCCESS"           
  
   callback: "on_init"
   uri:
@@ -66,7 +76,16 @@ personal-loan_2:
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
                     - "form2_submissionid"
- 
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "SUCCESS"    
   callback: "on_init"
   uri:
     $ref: ""
@@ -74,6 +93,49 @@ personal-loan_2:
   payload:
     $ref: "./loan/personal-loan/template/on_init_2.yaml"
 
+personal-loan_3:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_personal-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "SUCCESS"           
+ 
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan/template/on_init_3.yaml"
 
 invoice-based-loans_1:
   condition:
@@ -176,6 +238,40 @@ invoice-based-loans_3:
   delay: 300
   payload:
     $ref: "./loan/invoice-based-loans/template/on_init_3.yaml"
+
+invoice-based-loans_4:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "item_id_1_invoice-based-loan"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form4_submissionid"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/invoice-based-loans/template/on_init_4.yaml"
 
 health-based-insurance1:
   condition:
@@ -385,3 +481,70 @@ marine-based-insurance:
     $ref: "./insurance/marine-insurance/template/on_init.yaml"         
 
 
+motor-based-insurance1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MOTOR-INSURANCE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+          
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/motor-insurance/template/on_init1.yaml"         
+
+motor-based-insurance2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MOTOR-INSURANCE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form2_submissionid"
+          
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/motor-insurance/template/on_init2.yaml"         

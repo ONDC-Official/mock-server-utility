@@ -6,10 +6,10 @@ context:
     city:
       code: '{{city_code}}'
   version: 2.0.0
-  action: on_status
+  action: on_update
   bap_uri: '{{bap_uri}}'
   bap_id: credit-protocol.becknprotocol.io
-  bpp_id: fis-seller-staging.ondc.org
+  bpp_id: bpp.credit.icicibank.io
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{msg_id}}'
@@ -17,7 +17,7 @@ context:
   timestamp: '2023-05-25T05:23:03.443Z'
 message:
   order:
-    id: '{{order_id}}'
+    id: 66B7AEDF45
     provider:
       id: '1'
       descriptor:
@@ -29,7 +29,7 @@ message:
         short_desc: ICICI Bank Ltd
         long_desc: ICICI Bank Ltd, India.
     items:
-      - id: "item_id_4_invoice-based-loan"
+      - id: '{{item_id}}'
         descriptor:
           code: INVOICE_BASED_LOAN
           name: 'Invoice Based Loan Offer: INR 2,00,000'
@@ -75,7 +75,6 @@ message:
                   short_desc: Delayed payments penalty
                 value: 5%
               - descriptor:
-                  code: TNC_LINK
                   name: Terms & Conditions
                   short_desc: Terms and Conditions
                 value: https://icicibank.com/loan/tnc.html
@@ -112,7 +111,7 @@ message:
               email: alpha.manufacturinofficialg@gmail.com
         state:
           descriptor:
-            name: Loan Disbursed
+            name: Loan application updated
     payments:
       - url: https://emandate.icicibank.in
         params:
@@ -120,10 +119,9 @@ message:
           currency: INR
         status: NOT-PAID
         time:
-          label: Installment 1
           range:
             start: '2023-06-01T00:00:00.000Z'
-            end: '2023-06-30T23:59:59.999Z'
+            end: '2023-06-30T00:23:59.999Z'
         collected_by: BPP
         tags:
           - descriptor:
@@ -170,16 +168,15 @@ message:
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '400'
+                value: '46360'
       - params:
           amount: '46360'
           currency: INR
         status: NOT-PAID
         time:
-          label: Installment 2
           range:
             start: '2023-07-01T00:00:00.000Z'
-            end: '2023-07-31T23:59:59.999Z'
+            end: '2023-07-31T00:23:59.999'
         collected_by: BPP
         tags:
           - descriptor:
@@ -226,16 +223,15 @@ message:
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '400'
+                value: '46360'
       - params:
           amount: '46360'
           currency: INR
         status: NOT-PAID
         time:
-          label: Installment 3
           range:
             start: '2023-08-01T00:00:00.000Z'
-            end: '2023-08-31T23:59:59.999Z'
+            end: '2023-08-31T00:23:59.999'
         collected_by: BPP
         tags:
           - descriptor:
@@ -282,16 +278,15 @@ message:
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '400'
+                value: '46360'
       - params:
           amount: '46360'
           currency: INR
         status: NOT-PAID
         time:
-          label: Installment 4
           range:
             start: '2023-09-01T00:00:00.000Z'
-            end: '2023-09-30T23:59:59.999Z'
+            end: '2023-09-30T00:23:59.999Z'
         collected_by: BPP
         tags:
           - descriptor:
@@ -338,16 +333,15 @@ message:
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '400'
+                value: '46360'
       - params:
           amount: '46360'
           currency: INR
         status: NOT-PAID
         time:
-          label: Installment 5
           range:
             start: '2023-10-01T00:00:00.000Z'
-            end: '2023-10-31T23:59:59.999Z'
+            end: '2023-10-31T00:23:59.999'
         collected_by: BPP
         tags:
           - descriptor:
@@ -394,7 +388,7 @@ message:
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '400'
+                value: '46360'
     cancellation_terms:
       - fulfillment_state:
           descriptor:
