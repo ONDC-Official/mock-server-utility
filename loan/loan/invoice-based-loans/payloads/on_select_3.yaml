@@ -93,7 +93,7 @@ message:
             id: F03
             mime_type: text/html
             url: >-
-              {{bpp_url}}form/invoice-loan/individual-kyc
+              '{{bpp_url}}form/invoice-loan/individual-kyc'
             resubmit: false
             multiple_sumbissions: false
           required: true
