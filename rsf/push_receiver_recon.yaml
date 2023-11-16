@@ -1,5 +1,5 @@
 default:
-  callback: "receiver_recon_dummy"
+  callback: "receiver_recon"
   uri:
     $ref: ""
   delay: 300
