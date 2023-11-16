@@ -94,7 +94,8 @@ message:
         form:
           id: F05
           mime_type: application/html
-          url: https://bpp.credit.becknprotocol.org/xinput/emandate/F05
+          url: >-
+                     {{bpp_uri}}form/render
           resubmit: false
           multiple_sumbissions: false
         required: true

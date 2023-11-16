@@ -116,6 +116,12 @@ path:
   form_personal-loan_submission_loan-agreement:
     callbacks:
       $ref: ./loan/loan/personal-loan/forms/form_submission_loan-agreement.yaml
+  form_render:
+    callbacks:
+      $ref: ./loan/loan/personal-loan/forms/form_render.yaml    
+  form_render_submission:
+    callbacks:
+      $ref: ./loan/loan/personal-loan/forms/form_render_submission.yaml        
 
 # invoice based  
   

@@ -95,7 +95,7 @@ message:
           id: F04
           mime_type: text/html
           url: >-
-              '{{bpp_uri}}form/personal-loan/bank-account-mandate'
+                    {{bpp_uri}}form/personal-loan/bank-account-mandate
           resubmit: false
           multiple_sumbissions: false
         required: true
