@@ -6,7 +6,7 @@ context:
   bap_id: abc.collectorapp.com
   bpp_id: rsf-mock-service.ondc.org
   domain: ONDC:NTS10
-  bap_uri: https://0933-103-243-52-154.ngrok-free.app
+  bap_uri: https://yourcallbackurl/
   bpp_uri: https://rsf-mock-service.ondc.org/
   country: IND
   timestamp: '2023-04-12T09:45:56.385Z'
