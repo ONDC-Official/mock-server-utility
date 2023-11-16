@@ -3,7 +3,7 @@ template:
       $ref: "../payloads/on_init4.yaml"
     dict:
       bpp_uri: https://localhost:5500/
-      bpp_id: localhost:5500
+      bpp_id: fis-seller-staging.ondc.org
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
       bap_id:
