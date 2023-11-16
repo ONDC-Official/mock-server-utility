@@ -1,0 +1,7 @@
+default:
+  callback: "receiver_recon_dummy"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/push_receiver_recon.yaml"

@@ -1,17 +1,18 @@
+---
 context:
-  ttl: P3D
-  city: '*'
+  ttl: P2D
+  city: "*"
   action: receiver_recon
   bap_id: abc.collectorapp.com
   bpp_id: rsf-mock-service.ondc.org
-  domain: '{{domain}}'
-  bap_uri: '{{bap_uri}}'
-  bpp_uri: '{{bpp_uri}}'
+  domain: ONDC:NTS10
+  bap_uri: https://0933-103-243-52-154.ngrok-free.app
+  bpp_uri: https://rsf-mock-service.ondc.org/
   country: IND
-  timestamp: '2023-04-11T12:44:56.399Z'
-  message_id: '{{msg_id}}'
+  timestamp: '2023-04-12T09:45:56.385Z'
+  message_id: 54bd80f2-d849-11ed-870f-acde48001122
   core_version: 1.0.0
-  transaction_id: '{{transaction_id}}'
+  transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
 message:
   orderbook:
     orders:

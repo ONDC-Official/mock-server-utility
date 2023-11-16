@@ -59,4 +59,8 @@ path:
       # $ref: ./rsf/schema/on_recon_status.yaml
     callbacks:
       $ref: ./rsf/on_recon_status.yaml   
-  
+  push_receiver_recon:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./rsf/push_receiver_recon.yaml   
