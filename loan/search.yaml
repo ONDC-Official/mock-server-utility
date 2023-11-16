@@ -6,6 +6,7 @@ default:
   payload:
     $ref: "./default/template/on_search.yaml"
 
+
 personal-loan:
   condition:
     operation:

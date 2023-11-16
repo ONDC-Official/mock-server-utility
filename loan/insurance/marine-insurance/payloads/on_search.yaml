@@ -6,7 +6,7 @@ context:
     city:
       code: '*'
   action: on_search
-  bap_id: fis.test.bap.io
+  bap_id:  '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
