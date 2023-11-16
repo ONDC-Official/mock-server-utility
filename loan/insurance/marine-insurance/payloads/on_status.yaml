@@ -2,7 +2,7 @@ context:
   action: on_status
   bap_id: fis.test.bap.io
   bap_uri: '{{bap_uri}}'
-  bpp_id: fis.test.bpp.io
+  bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
   domain: '{{domain}}'
   location:
@@ -106,7 +106,7 @@ message:
             end: '2023-07-30T15:44:19.166Z'
             start: '2023-07-01T15:44:19.166Z'
         type: PRE-ORDER
-        url: https://payment.fis.test.bpp.io
+        url: https://payment. '{{bpp_id}}'
         tags:
           - descriptor:
               code: SETTLEMENT_DETAILS

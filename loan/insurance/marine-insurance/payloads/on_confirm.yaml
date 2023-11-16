@@ -8,7 +8,7 @@ context:
   action: on_confirm
   bap_id: fis.test.bap.io
   bap_uri: '{{bap_uri}}'
-  bpp_id: fis.test.bpp.io
+  bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
   message_id: '{{msg_id}}'
   timestamp: '2023-07-22T15:01:17.694Z'
@@ -97,7 +97,7 @@ message:
           range:
             end: '2023-07-30T15:44:19.166Z'
             start: '2023-07-01T15:44:19.166Z'
-        url: https://payment.fis.test.bpp.io
+        url: https://payment. '{{bpp_id}}'
         tags:
           - descriptor:
               code: SETTLEMENT_DETAILS
