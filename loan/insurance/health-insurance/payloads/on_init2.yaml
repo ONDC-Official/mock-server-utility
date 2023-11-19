@@ -87,7 +87,7 @@ message:
             id: FO6
             mime_type: text/html
             url: >-
-              {{bpp_uri}}form/fetch/insured/personal-detali
+              {{bpp_uri}}form/fetch/insured/personal-detail
             resubmit: true
             multiple_sumbissions: false
           required: true
