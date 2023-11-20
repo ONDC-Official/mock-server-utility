@@ -18,121 +18,119 @@ context:
 message:
   order:
     fulfillments:
-      - state:
-          descriptor:
-            code: PROCESSING
-        id: F1
-    items:
-      - id: I1
-        category_ids:
-          - C3
-          - C4
-          - C5
-          - C6
+    - state:
         descriptor:
-          name: 2-Wheeler 3rd Party Motor Insurance
-          short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
-        price:
-          value: '11531'
-        tags:
-          - descriptor:
-              code: GENERAL_INFO
-            list:
-              - value: PERSONAL_ACCIDENT_COVER
-              - value: DEPRECIATION_COVER
-              - value: ROAD_SIDE_ASSISTANCE
-              - value: CONSUMABLES_COVER
-              - value: ELECTRICAL_ACCESSORIES_COVER
-              - value: NON_ELECTRICAL_ACCESSORIES_COVER
-              - value: ENGINE_COVER
-              - value: EXTERNAL_CNG_OR_LPG_COVER
-              - value: KEY_COVER
-              - value: PERSONAL_BAGGAGE_COVER
-              - value: TYRE_COVER
-              - value: RETURN_TO_INVOICE
-              - value: PER_DAY_CASH
-          - descriptor:
-              code: VAHAN_DETAILS
-              name: Vahan Details
-            list:
-              - descriptor:
-                  code: MODEL
-                value: X100
-              - descriptor:
-                  code: MAKE
-                value: BMX
-              - descriptor:
-                  code: FUEL_TYPE
-                value: Petrol
-              - descriptor:
-                  code: VARIANT
-                value: ZX
-              - descriptor:
-                  code: REGISTERED_CITY
-                value: Bangalore
-              - descriptor:
-                  code: REGISTERED_DATE
-                value: '2022-01-13'
-              - descriptor:
-                  code: CHASSIS_NUMBER
-                value: nvuwi3n23io90
-              - descriptor:
-                  code: ENGINE_NUMBER
-                value: 98vd98e32
-              - descriptor:
-                  code: PREVIOUS_POLICY_NUMBER
-                value: f5f90d6e8f924
-              - descriptor:
-                  code: PREVIOUS_INSURER
-                value: XYZ
-              - descriptor:
-                  code: PREVIOUS_POLICY_END_DATE
-                value: '2022-01-02'
-        fulfillment_ids:
-          - F1
-        time:
-          duration: P1Y
-          label: TENURE
-        xinput:
-          head:
-            descriptor:
-              name: PAN & DOB
-            index:
-              min: 0
-              cur: 1
-              max: 2
-            headings:
-              - Manual Review
-              - PAN & DOB
-              - Know your Customer
-          form:
-            id: FO5
-            mime_type: text/html
-            url: >-
+          code: PROCESSING
+      id: F1
+    items:
+    - id: I1
+      category_ids:
+      - C3
+      - C4
+      - C5
+      - C6
+      descriptor:
+        name: 2-Wheeler 3rd Party Motor Insurance
+        short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
+      price:
+        value: '11531'
+      tags:
+      - descriptor:
+          code: GENERAL_INFO
+        list:
+        - value: PERSONAL_ACCIDENT_COVER
+        - value: DEPRECIATION_COVER
+        - value: ROAD_SIDE_ASSISTANCE
+        - value: CONSUMABLES_COVER
+        - value: ELECTRICAL_ACCESSORIES_COVER
+        - value: NON_ELECTRICAL_ACCESSORIES_COVER
+        - value: ENGINE_COVER
+        - value: EXTERNAL_CNG_OR_LPG_COVER
+        - value: KEY_COVER
+        - value: PERSONAL_BAGGAGE_COVER
+        - value: TYRE_COVER
+        - value: RETURN_TO_INVOICE
+        - value: PER_DAY_CASH
+      - descriptor:
+          code: VAHAN_DETAILS
+          name: Vahan Details
+        list:
+        - descriptor:
+            code: MODEL
+          value: X100
+        - descriptor:
+            code: MAKE
+          value: BMX
+        - descriptor:
+            code: FUEL_TYPE
+          value: Petrol
+        - descriptor:
+            code: VARIANT
+          value: ZX
+        - descriptor:
+            code: REGISTERED_CITY
+          value: Bangalore
+        - descriptor:
+            code: REGISTERED_DATE
+          value: '2022-01-13'
+        - descriptor:
+            code: CHASSIS_NUMBER
+          value: nvuwi3n23io90
+        - descriptor:
+            code: ENGINE_NUMBER
+          value: 98vd98e32
+        - descriptor:
+            code: PREVIOUS_POLICY_NUMBER
+          value: f5f90d6e8f924
+        - descriptor:
+            code: PREVIOUS_INSURER
+          value: XYZ
+        - descriptor:
+            code: PREVIOUS_POLICY_END_DATE
+          value: '2022-01-02'
+      fulfillment_ids:
+      - F1
+      time:
+        duration: P1Y
+        label: TENURE
+      xinput:
+        head:
+          descriptor:
+            name: PAN & DOB
+          index:
+            min: 0
+            cur: 2
+            max: 2
+          headings:
+          - Manual Review
+          - PAN & DOB
+          - Know your Customer
+        form:
+          id: FO4
+          mime_type: text/html
+          url: >-
              {{bpp_uri}}form/EKYC/form
-            resubmit: false
-            multiple_sumbissions: false
-          required: true
-        add_ons:
-          - id: A1
-            price:
-              currency: INR
-              value: '974'
-            quantity:
-              selected:
-                count: 1
-            descriptor:
-              name: Consumables Cover
+          resubmit: false
+          multiple_sumbissions: false
+        required: true
+      add_ons:
+      - id: A1
+        price:
+          currency: INR
+          value: '974'
+        quantity:
+          selected:
+            count: 1
+        descriptor:
+          name: Consumables Cover
     provider:
       descriptor:
-        long_desc: >-
-          ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
+        long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
           Motor, Marine etc
         name: ABC Insurance Ltd.
         short_desc: 'ABC Insurance Ltd. India '
         images:
-          - url: >-
-              https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
+        - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
       id: P1
     quote:
       id: Q1
@@ -140,14 +138,14 @@ message:
         currency: INR
         value: '12505'
       breakup:
-        - price:
-            value: '3634'
-          title: Basic OD
-        - price:
-            value: '7897'
-          title: Basic TP
-        - title: Add On
-          item:
-            id: A1
-          price:
-            value: '974'
+      - price:
+          value: '3634'
+        title: Basic OD
+      - price:
+          value: '7897'
+        title: Basic TP
+      - title: Add On
+        item:
+          id: A1
+        price:
+          value: '974'

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Redirection</title>
+</head>
+<body>
+    <h2>Form Redirection</h2>
+    <form action="/form/manual-review/form/submission" method="POST">
+        <p>This will be redirected to a different HTML page when you submit the form.</p>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

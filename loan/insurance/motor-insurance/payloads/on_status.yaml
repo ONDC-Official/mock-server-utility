@@ -1,21 +1,26 @@
 context:
-  action: on_select
-  bap_id:  '{{bap_id}}'
+  action: on_status
+  bap_id: fis.test.bap.io
   bap_uri: '{{bap_uri}}'
-  bpp_id:  '{{bpp_id}}'
+  bpp_id: fis.test.bpp.io
   bpp_uri: '{{bpp_uri}}'
   domain: '{{domain}}'
   location:
     country:
       code: IND
-    city:
-      code: '*'
   message_id: '{{msg_id}}'
   timestamp: '2023-07-22T15:03:18.179Z'
   transaction_id: '{{transaction_id}}'
   ttl: PT24H
   version: 2.0.0
 message:
+  fulfillments:
+  - state:
+      descriptor:
+        code: INSPECTION_SUCCESSFUL
+        name: Inspection Successful
+        short_desc: Insepction for motor insurance is successful
+    id: F1
   order:
     items:
     - id: I1
@@ -86,26 +91,12 @@ message:
       time:
         duration: P1Y
         label: TENURE
+      fulfillment_ids:
+      - F1
       xinput:
-        head:
-          descriptor:
-            name: PAN & DOB
-          index:
-            min: 0
-            cur: 0
-            max: 2
-          headings:
-          - Manual Review
-          - PAN & DOB
-          - Know your Customer
-        form:
-          id: FO3
-          mime_type: application/html
-          url: >-
-             {{bpp_uri}}form/maual-review/form
-          resubmit: false
-          multiple_sumbissions: false
-        required: true
+        form_response:
+          status: FORM_PROCESSED
+          submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
       add_ons:
       - id: A1
         price:

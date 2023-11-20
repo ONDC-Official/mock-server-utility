@@ -113,11 +113,31 @@ health-based-insurance:
           - operation:
               type: READ
               input:
-                value: "req_body.context.transaction_id"
-          - "TRANSACTION_ID_1_HEALTH_INSURANCE"
+                value: "req_body.message.ref_id"
+          - "HEALTH4ee-d892-400f-bbe6-479a43b4448a"
   callback: "on_status"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/health-insurance/template/on_status.yaml"                      
+    $ref: "./insurance/health-insurance/template/on_status.yaml" 
+
+
+motor-based-insurance:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check search message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.ref_id"
+          - "MOTOR4ee-d892-400f-bbe6-479a43b4448a"
+  callback: "on_status"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/motor-insurance/template/on_status.yaml"                             
