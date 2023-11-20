@@ -102,7 +102,7 @@ message:
           id: FO3
           mime_type: application/html
           url: >-
-             {{bpp_uri}}form/maual-review/form
+             {{bpp_uri}}form/manual-review/form
           resubmit: false
           multiple_sumbissions: false
         required: true
