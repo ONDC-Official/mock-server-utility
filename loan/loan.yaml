@@ -266,12 +266,12 @@ path:
   form_vehicle-detail_renewal_submission:
     callbacks:
       $ref: ./loan/insurance/motor-insurance/forms/vehicle-detail_renewal_submission.yaml        
-  form_maual-review_form:
+  form_manual-review_form:
     callbacks:
-      $ref: ./loan/insurance/motor-insurance/forms/maual-review_form.yaml  
-  form_maual-review_form_submission:
+      $ref: ./loan/insurance/motor-insurance/forms/manual-review_form.yaml  
+  form_manual-review_form_submission:
     callbacks:
-      $ref: ./loan/insurance/motor-insurance/forms/maual-review_form_submission.yaml        
+      $ref: ./loan/insurance/motor-insurance/forms/manual-review_form_submission.yaml        
   form_Pan_Dob_details:
     callbacks:
       $ref: ./loan/insurance/motor-insurance/forms/Pan_Dob_details.yaml  
