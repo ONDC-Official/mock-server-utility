@@ -10,7 +10,7 @@ context:
       code: IND
     city:
       code: '*'
-  message_id: '{{msg_id}}'
+  message_id: '{{message_id}}'
   timestamp: '2023-07-24T05:41:20.401Z'
   transaction_id: '{{transaction_id}}'
   ttl: PT24H

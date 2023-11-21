@@ -8,7 +8,7 @@ context:
   location:
     country:
       code: IND
-  message_id: '{{msg_id}}'
+  message_id: '{{message_id}}'
   timestamp: '2023-07-22T15:03:18.179Z'
   transaction_id: '{{transaction_id}}'
   ttl: PT24H

@@ -10,7 +10,7 @@ context:
   bap_id: credit-protocol.becknprotocol.io
   bap_uri: '{{bap_uri}}'
   transaction_id: '{{transaction_id}}'
-  message_id: '{{msg_id}}'
+  message_id: '{{message_id}}'
   ttl: PT30M
   timestamp: '2023-05-25T05:23:03.443Z'
   bpp_id: fis-seller-staging.ondc.org

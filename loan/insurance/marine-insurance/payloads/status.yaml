@@ -10,7 +10,7 @@ context:
   bap_uri: '{{bap_uri}}'
   bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
-  message_id: '{{msg_id}}'
+  message_id: '{{message_id}}'
   timestamp: '2023-07-22T15:01:17.694Z'
   transaction_id: '{{transaction_id}}'
   ttl: PT24M
