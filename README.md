@@ -33,7 +33,7 @@ Run the server
 
 ### How we can test
 
-- Import the postman-collection, This collection already has the payload set-up for the each end-point.
+- Import the postman-collection located at root folder, This collection already has the payload set-up for the each end-point.
 - Default this will run on port 5500, you can change this from ``` 
 rsf/rsf.yaml```
 
