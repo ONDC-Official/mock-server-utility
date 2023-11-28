@@ -128,6 +128,6 @@ There are two type of responses we can get for each payload - Sync and Async
 in async mode you will receive a callback at your bapuri/on_method as response
 
 3. Use case :
- > Collector will do /settle -> /on_settle , /receiver_recon -> on_receiver_recon deployed_url =  https://rsf-mock-service.ondc.org/settle , https://rsf-mock-service.ondc.org/receiver_recon
- > Receiver will do /push_receiver_recon to receive /receiver_recon on the bap_uri provided in payload deployed_url https://rsf-mock-service.ondc.org/push_receiver_recon
+  1) Collector will do /settle -> /on_settle , /receiver_recon -> on_receiver_recon deployed_url =  https://rsf-mock-service.ondc.org/settle , https://rsf-mock-service.ondc.org/receiver_recon
+  2) Receiver will do /push_receiver_recon to receive /receiver_recon on the bap_uri provided in payload deployed_url https://rsf-mock-service.ondc.org/push_receiver_recon
 
