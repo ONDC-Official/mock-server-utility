@@ -131,3 +131,6 @@ in async mode you will receive a callback at your bapuri/on_method as response
   1) Collector will do /settle -> /on_settle , /receiver_recon -> on_receiver_recon deployed_url =  https://rsf-mock-service.ondc.org/settle , https://rsf-mock-service.ondc.org/receiver_recon
   2) Receiver will do /push_receiver_recon to receive /receiver_recon on the bap_uri provided in payload deployed_url https://rsf-mock-service.ondc.org/push_receiver_recon
 
+4. Points to remember (for mock server stubs only)
+  1) settle call expects 5 settlements objects to work properly
+  2) receiver recon expects 5 orders objects to work properly and recon status is calculated based on amount provided in params i.e less than 500 = 02 , more than 500 = 03 and equal to 500 = 01
