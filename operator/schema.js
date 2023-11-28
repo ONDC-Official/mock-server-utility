@@ -1,3 +1,5 @@
+const evaluateOperation = require("./util")
+
 class IOElement{
     context;
     operation;

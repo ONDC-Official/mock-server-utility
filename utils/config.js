@@ -31,7 +31,7 @@ function getPaths() {
 }
 
 function getLog() {
-  return config.log;
+  return config?.log;
 }
 
 module.exports = {

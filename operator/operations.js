@@ -86,15 +86,55 @@ class AndOrOperation extends Operator{
                 if(element?.operation?.type =='EQUAL'){
                     const EQUAL = new EqualOperation(this.context)
                     EQUAL.input = new Input(this.context,element?.operation?.input)
-                    const result  = EQUAL.getOutput().getValue()
-                    return result
+                    return EQUAL.getOutput().getValue()
                 }
             });
-
             if(this.input.type=='AND')return result.includes(0)?false:true
             else if(this.input.type == 'OR') return result.includes(1)?true:false     
         }
     }
 }
 
-module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation, EqualOperation, AndOrOperation}
+class equalReturn extends Operator{
+    __process(){
+        this.output = new Output(this.match(this.input.value))
+        return this
+    }
+
+    match(input){
+        for(let i = 0 ;i < input.length ; i++){
+            if(input[i].operation.type=="EQUAL"){
+                const EQUAL = new EqualOperation(this.context)
+                EQUAL.input = new Input(this.context,input[i]?.operation?.input)
+                if(EQUAL.getOutput().getValue()){
+                    return input[i]?.operation?.input.value[2]
+                }
+            }else{
+                const GREATERLESSTHAN = new greaterORlessthan(this.context)
+                GREATERLESSTHAN.input = new Input(this.context,input[i]?.operation?.input,input[i].operation.type)
+                if(GREATERLESSTHAN.getOutput().getValue()){
+                    return input[i]?.operation?.input.value[2]
+                }
+            }
+        }
+    }
+}
+
+class greaterORlessthan extends Operator{
+    __process(){
+        this.output = new Output(this.match(this.input.value))
+        return this
+    }
+    match(){
+        const value = parseInt(this?.readValue(this?.input?.value[0]?.operation?.input))
+        this.input.value[1]=parseInt(this?.input?.value[1])
+        return this.input.type ==="GREATERTHAN"&&value>this?.input?.value[1]?1:this.input.type ==="LESSTHAN"&&value<this?.input?.value[1]?1:0
+    }
+    readValue(readValue) {
+        const read = new ReadOperation(this.context)
+        read.input = new Input(this.context, readValue)
+        return read.getOutput().getValue()
+    }
+}
+
+module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation, EqualOperation, AndOrOperation, equalReturn}

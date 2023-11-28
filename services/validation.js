@@ -83,6 +83,7 @@ const validateRequest = async (
     } 
   }
   else {
+      schemaNack.error.path = JSON.stringify(error_list)
       return res.json(schemaNack);
     }
   }

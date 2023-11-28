@@ -1,4 +1,4 @@
-const {GenerateUuidOperation, ReadOperation, GenerateTmpstmpOperation ,EqualOperation, AndOrOperation} = require("./operations.js")
+const {GenerateUuidOperation, ReadOperation, GenerateTmpstmpOperation ,EqualOperation, AndOrOperation, equalReturn} = require("./operations.js")
 const {Input} = require("./schema.js")
 function evaluateOperation(context, op) {
     var opt = __getOperation(context, op.type)
@@ -25,6 +25,8 @@ function __getOperation(context, op){
             return new EqualOperation(context)
         case "AND": case "OR" :
             return new AndOrOperation(context)
+        case "EQUALRETURN":
+            return new equalReturn(context)
     }
 }
 
