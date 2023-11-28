@@ -18,18 +18,18 @@ Clone the ONDC Mock Server repository
   git clone https://github.com/92shreyansh/ondc-mock-server.git
 ```
 
-```shell
-npm install
-```
-
-this will install all dependencies
-
+To install dependencies
 
 ```shell
-node app rsf
+  npm install
 ```
 
-this will start the server at default port 5500
+Run the server
+
+```shell
+  node app rsf
+```
+
 
 ### How we can test
 
@@ -43,10 +43,10 @@ rsf/rsf.yaml```
 
 There are two type of responses we can get for each payload - Sync and Async
 1. Sync Response :
- > For sync respone, we should have sync_mode (in respective yaml file for eg : on_demand.yaml) as true
- > Also we can set verify_sign as false (in respective yaml file for eg : on_demand.yaml) if we dont want to send the signatures in header
+ > For sync respone, we should have sync_mode (in respective yaml file for eg : rsf.yaml) as true
+ > Also we can set verify_sign as false (in respective yaml file for eg : rsf.yaml) if we dont want to send the signatures in header
  > Url to hit is - http://localhost:5500/receiver_recon
- > It will give response for search as on_receiver_recon, settle as on_settle and so on.
+ > It will give response for on_receiver_recon as on_receiver_recon, settle as on_settle and so on.
  > For eg: If we will have payload for receiver_recon as 
  ```json
 {
@@ -619,7 +619,7 @@ There are two type of responses we can get for each payload - Sync and Async
  > Also we can set verify_sign as false (in respective yaml file for eg : rsf.yaml) if we dont want to send the signatures in header
 > Url to hit is - http://localhost:5500/receiver_recon
  > It will give response as Ack and Nack based upon schema validates or not
- > For eg: If we will have payload for search as
+ > For eg: If we will have payload for receiver_recon as
  ```json
 {
   "context": {
@@ -1075,4 +1075,4 @@ There are two type of responses we can get for each payload - Sync and Async
     }
 }
 ```
-in async mode you will receive a callback at your bapuri/method as response
+in async mode you will receive a callback at your bapuri/on_method as response
