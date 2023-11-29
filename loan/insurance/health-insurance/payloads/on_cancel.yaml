@@ -34,7 +34,7 @@ message:
         descriptor:
           name: ABC Individaul Health Insurance Policy
           short_desc: ABC Individaul Health Insurance Class A with custom addon
-        id: I1
+        id: "ITEM_ID_1_HEALTH-INSURANCE"
         price:
           value: '1000'
         tags:

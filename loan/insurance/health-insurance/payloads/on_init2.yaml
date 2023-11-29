@@ -30,7 +30,7 @@ message:
         descriptor:
           name: Health Gain Plus Individual
           short_desc: ABC Individaul Health Insurance Class A with custom addon
-        id: I1
+        id: "{{item_id1}}"
         tags:
           - descriptor:
               name: General Information
