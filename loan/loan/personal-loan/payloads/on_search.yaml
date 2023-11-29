@@ -35,7 +35,7 @@ message:
           code: PERSONAL_LOAN
           name: Personal Loan
       items:
-      - id: ITEM_ID_PERSONAL_LOAN
+      - id: ITEM_ID_1_PERSONAL-LOAN
         descriptor:
           code: PERSONAL_LOAN
           name: Personal Loan

@@ -28,7 +28,7 @@ message:
         short_desc: ICICI Bank Ltd
         long_desc: ICICI Bank Ltd, India.
     items:
-    - id: ITEM_ID_PERSONAL_LOAN
+    - id: '{{item_id1}}'
       tags:
       - descriptor:
           code: CONSENT_INFO

@@ -30,7 +30,7 @@ message:
         short_desc: ICICI Bank Ltd
         long_desc: ICICI Bank Ltd, India.
     items:
-      - id: item_id_1_personal-loan
+      - id: ITEM_ID_1_PERSONAL-LOAN
         descriptor:
           code: PERSONAL_LOAN
           name: Personal Loan

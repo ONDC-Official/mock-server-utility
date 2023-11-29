@@ -21,7 +21,7 @@ personal-loan_1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_personal-loan"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code
@@ -65,7 +65,7 @@ personal-loan_2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_personal-loan"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code
@@ -108,7 +108,7 @@ personal-loan_3:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_personal-loan"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code

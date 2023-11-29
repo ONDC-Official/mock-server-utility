@@ -31,7 +31,7 @@ template:
           type: READ
           input:
             value: "req_body.context.message_id"    
-      item_id:
+      item_id1:
         operation:
           type: READ
           input:

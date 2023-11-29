@@ -22,7 +22,7 @@ personal-loan-form1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_personal-loan"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
 
           - operation:
               type: EQUAL
@@ -67,7 +67,7 @@ personal-loan-form2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_personal-loan"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -110,7 +110,7 @@ personal-loan-form3:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_personal-loan"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -120,17 +120,7 @@ personal-loan-form3:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.items.0.xinput.form_response.status"
-                  - "SUCCESS"                 
+                    - "form2_submissionid"              
   callback: "on_select"
   uri:
     $ref: ""
