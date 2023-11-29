@@ -78,16 +78,17 @@ personal-loan-form2:
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
                     - "form1_submissionid"
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.items.0.xinput.form_response.status"
-                  - "APPROVED"                
+          # - operation:
+          #     type: EQUAL
+          #     title: Check search message code
+          #     input:
+          #       value:
+          #         - operation:
+          #             type: READ
+          #             input:
+          #               value: "req_body.message.order.items.0.xinput.form_response.status"
+          #         - "APPROVED"                
+
   callback: "on_select"
   uri:
     $ref: ""
