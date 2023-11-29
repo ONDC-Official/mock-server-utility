@@ -1,0 +1,511 @@
+id1:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.0.id"
+id2:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.1.id"
+id3:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.2.id"
+id4:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.3.id"
+id5:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.4.id"
+#-----------------
+settlement_id1:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.0.settlement_id"
+settlement_id2:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.1.settlement_id"
+settlement_id3:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.2.settlement_id"
+settlement_id4:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.3.settlement_id"
+settlement_id5:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.4.settlement_id"
+#-----------------
+receiver_app_id1:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.0.receiver_app_id"
+receiver_app_id2:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.1.receiver_app_id"
+receiver_app_id3:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.2.receiver_app_id"
+receiver_app_id4:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.3.receiver_app_id"
+receiver_app_id5:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.4.receiver_app_id"
+#-----------------
+collector_app_id1:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.0.collector_app_id"
+collector_app_id2:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.1.collector_app_id"
+collector_app_id3:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.2.collector_app_id"
+collector_app_id4:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.3.collector_app_id"
+collector_app_id5:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.4.collector_app_id"
+#-----------------
+settlement_reference_no1:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.0.settlement_reference_no"
+settlement_reference_no2:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.1.settlement_reference_no"
+settlement_reference_no3:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.2.settlement_reference_no"
+settlement_reference_no4:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.3.settlement_reference_no"
+settlement_reference_no5:
+  operation:
+    type: READ
+    input:
+      value: "req_body.message.orderbook.orders.4.settlement_reference_no"
+#-----------------
+counterparty_recon_status1:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.0.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "01" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.0.payment.params.amount"
+                  - "500" 
+                  - "03"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.0.payment.params.amount"
+                  - "500"
+                  - "02"
+counterparty_recon_status2:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.1.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "01" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.1.payment.params.amount"
+                  - "500" 
+                  - "03"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.1.payment.params.amount"
+                  - "500"
+                  - "02"
+counterparty_recon_status3:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.2.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "01" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.2.payment.params.amount"
+                  - "500" 
+                  - "03"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.2.payment.params.amount"
+                  - "500"
+                  - "02"
+counterparty_recon_status4:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.3.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "01" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.3.payment.params.amount"
+                  - "500" 
+                  - "03"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.3.payment.params.amount"
+                  - "500"
+                  - "02"
+counterparty_recon_status5:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.4.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "01" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.4.payment.params.amount"
+                  - "500" 
+                  - "03"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.4.payment.params.amount"
+                  - "500"
+                  - "02"
+#-----------------
+counterparty_diff_amount1:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.0.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "0" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.0.payment.params.amount"
+                  - "500" 
+                  - "10"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.0.payment.params.amount"
+                  - "500"
+                  - "10"
+counterparty_diff_amount2:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.1.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "0" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.1.payment.params.amount"
+                  - "500" 
+                  - "10"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.1.payment.params.amount"
+                  - "500"
+                  - "10"
+counterparty_diff_amount3:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.2.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "0" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.2.payment.params.amount"
+                  - "500" 
+                  - "10"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.2.payment.params.amount"
+                  - "500"
+                  - "10" 
+counterparty_diff_amount4:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.3.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "0" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.3.payment.params.amount"
+                  - "500" 
+                  - "10"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.3.payment.params.amount"
+                  - "500"
+                  - "10"
+counterparty_diff_amount5:
+  operation:
+    type: EQUALRETURN
+    input:
+      value: 
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.4.payment.params.amount"  #value to be compared
+                  - "500"  #greater than value
+                  - "0" #value if success
+          - operation:
+              type: GREATERTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.4.payment.params.amount"
+                  - "500" 
+                  - "10"
+          - operation:
+              type: LESSTHAN
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.orderbook.orders.4.payment.params.amount"
+                  - "500"
+                  - "10"

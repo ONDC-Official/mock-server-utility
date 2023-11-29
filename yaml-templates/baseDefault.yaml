@@ -1,0 +1,7 @@
+default:
+  callback: "{{callback}}"
+  uri:
+    $ref: "{{uri}}"
+  delay: 300
+  payload:
+    $ref: "{{payload}}"

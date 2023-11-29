@@ -1,0 +1,62 @@
+context:
+  ttl: P3D
+  city: '*'
+  action: on_settle
+  bap_id: abc.collectorapp.com
+  bpp_id: rsf-mock-service.ondc.org
+  domain: '{{domain}}'
+  bap_uri: '{{bap_uri}}'
+  bpp_uri: '{{bpp_uri}}'
+  country: IND
+  timestamp: '2023-04-11T12:44:56.399Z'
+  message_id: '{{msg_id}}'
+  core_version: 1.0.0
+  transaction_id: '{{transaction_id}}'
+message:
+  settlement:
+    settlements:
+      - state: '01'
+        amount:
+          value: '790'
+          currency: INR
+        curr_type: INR
+        error_code: ''
+        error_message: ''
+        settlement_id: '{{settlement_id1}}'
+        settlement_reference_no: '{{random_uuid}}'
+      - state: '01'
+        amount:
+          value: '750'
+          currency: INR
+        curr_type: INR
+        error_code: ''
+        error_message: ''
+        settlement_id: '{{settlement_id2}}'
+        settlement_reference_no: '{{random_uuid}}'
+      - state: '01'
+        amount:
+          value: '950'
+          currency: INR
+        curr_type: INR
+        error_code: ''
+        error_message: ''
+        settlement_id: '{{settlement_id3}}'
+        settlement_reference_no: '{{random_uuid}}'
+      - state: '01'
+        amount:
+          value: '750'
+          currency: INR
+        curr_type: INR
+        error_code: ''
+        error_message: ''
+        settlement_id: '{{settlement_id4}}'
+        settlement_reference_no: '{{random_uuid}}'
+      - state: '01'
+        amount:
+          value: '750'
+          currency: INR
+        curr_type: INR
+        error_code: ''
+        error_message: ''
+        settlement_id: '{{settlement_id5}}'
+        settlement_reference_no: '{{random_uuid}}'
