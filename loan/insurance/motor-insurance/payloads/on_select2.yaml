@@ -23,7 +23,7 @@ message:
             code: PROCESSING
         id: F1
     items:
-      - id: I1
+      - id: '{{item_id1}}'
         category_ids:
           - C3
           - C4

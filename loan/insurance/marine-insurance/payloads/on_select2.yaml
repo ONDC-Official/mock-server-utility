@@ -56,7 +56,7 @@ message:
                   name: Invoice date
                   code: INVOICE_DATE
                 value: '2023-06-21'
-        id: I1
+        id: '{{item_id1}}'
         xinput:
           head:
             descriptor:

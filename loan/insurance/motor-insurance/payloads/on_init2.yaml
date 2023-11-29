@@ -31,7 +31,7 @@ message:
     items:
       - fulfillment_ids:
           - F1
-        id: I1
+        id: '{{item_id1}}'
         category_ids:
           - C3
           - C4

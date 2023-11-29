@@ -51,7 +51,7 @@ message:
           short_desc: ABC Marine Insurance Class A
         fulfillment_ids:
           - FULFILMENT_ID
-        id: I1
+        id: '{{item_id1}}'
         price:
           value: '1000'
         time:
