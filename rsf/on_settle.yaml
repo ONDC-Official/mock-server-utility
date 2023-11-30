@@ -1,0 +1,7 @@
+default:
+  callback: "settle"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/settle.yaml"

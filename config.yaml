@@ -1,0 +1,117 @@
+server:
+  type: BPP 
+  port: 5500 
+  sync_mode: true
+security:
+  verify_sign: false
+  lookup_uri: "http://localhost:3000/lookup"
+  generate_sign: true
+  subscriber_id: mock-api-service
+  ukId: 584
+  publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
+  privatekey: dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  sign:
+    schema:
+      type: object
+    callbacks:
+      default:
+        payload:
+          template:
+            data:
+              $ref: "./on_demand/search.yaml"
+  search:
+    schema:
+      $ref: "./schema/search.json"
+    callbacks:
+      $ref: "./on_demand/search.yaml"
+  select:
+    schema:
+      $ref: "./schema/select.json"
+    callbacks:
+      $ref: "./on_demand/select.yaml"
+  init:
+    schema:
+      $ref: "./schema/init.json"
+    callbacks:
+      $ref: "./on_demand/init.yaml"
+  confirm:
+    schema:
+      $ref: "./schema/confirm.json"
+    callbacks:
+      $ref: "./on_demand/confirm.yaml"
+  status:
+    schema:
+      $ref: "./schema/status.json"
+    callbacks:
+      $ref: "./on_demand/status.yaml"
+  update:
+    schema:
+      $ref: "./schema/update.json"
+    callbacks:
+      $ref: "./on_demand/update.yaml"
+  support:
+    schema:
+      $ref: "./schema/support.json"
+    callbacks:
+      $ref: "./on_demand/support.yaml"
+  track:
+    schema:
+      $ref: "./schema/track.json"
+    callbacks:
+      $ref: "./on_demand/track.yaml"
+  rating:
+    schema:
+      $ref: "./schema/rating.json"
+    callbacks:
+      $ref: "./on_demand/rating.yaml"
+  on_search:
+    schema:
+      $ref: "./schema/on_search.json"
+    callbacks:
+      $ref: "./on_demand/on_search.yaml"
+  on_select:
+    schema:
+      $ref: "./schema/on_select.json"
+    callbacks:
+      $ref: "./on_demand/on_select.yaml"
+  on_init:
+    schema:
+      $ref: "./schema/on_init.json"
+    callbacks:
+      $ref: "./on_demand/on_init.yaml"
+  on_confirm:
+    schema:
+      $ref: "./schema/on_confirm.json"
+    callbacks:
+      $ref: 
+  on_status:
+    schema:
+      $ref: "./schema/on_status.json"
+    callbacks:
+      $ref: 
+  on_update:
+    schema:
+      $ref: "./schema/on_update.json"
+    callbacks:
+      $ref: 
+  on_track:
+    schema:
+      $ref: "./schema/on_track.json"
+    callbacks:
+      $ref: 
+  on_support:
+    schema:
+      $ref: "./schema/on_support.json"
+    callbacks:
+      $ref: 
+  on_rating:
+    schema:
+      $ref: "./schema/on_rating.json"
+    callbacks:
+      $ref: 
+ 
