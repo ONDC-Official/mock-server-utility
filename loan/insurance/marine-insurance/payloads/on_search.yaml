@@ -37,6 +37,7 @@ message:
         items:
           - category_ids:
               - C1
+            id: ITEM_ID_1_MARINE-INSURANCE
             tags:
               - descriptor:
                   name: General Information
