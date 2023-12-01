@@ -1,0 +1,4 @@
+template:
+    data:
+      $ref: "../payloads/receiver_recon_dummy.yaml"
+    

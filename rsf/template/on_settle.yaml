@@ -1,0 +1,60 @@
+template:
+    data:
+      $ref: "../payloads/on_settle.yaml"
+    dict:
+      bpp_uri: https://rsf-mock-service.ondc.org/
+      bpp_id: rsf-mock-service.ondc.org
+      city_code: 
+        $ref: "../operations/req_body.yaml#/context_city"
+      bap_id:
+        $ref: "../operations/req_body.yaml#/bap_id"
+      bap_uri:
+        $ref: "../operations/req_body.yaml#/bap_uri"
+      txn_id:
+        $ref: "../operations/req_body.yaml#/transaction_id"
+      msg_id:
+        operation:
+          type: GENERATE_UUID
+          input:
+            value: "req_body.context.message_id"
+      timestamp:
+        operation:
+          type: GENERATE_TIMESTAMP
+      country: 
+        $ref: "../operations/req_body.yaml#/context_country"
+      domain: 
+        $ref: "../operations/req_body.yaml#/context_domain"
+      transaction_id: 
+        $ref: "../operations/req_body.yaml#/context_transaction_id"
+      message_id:
+        operation:
+          type: READ
+          input:
+            value: "req_body.context.message_id"
+      random_uuid:
+        $ref: "../operations/req_body.yaml#/random_uuid"
+      settlement_id1:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.0.settlement_id"
+      settlement_id2:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.1.settlement_id"
+      settlement_id3:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.2.settlement_id"
+      settlement_id4:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.3.settlement_id"
+      settlement_id5:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.settlement.settlements.4.settlement_id"

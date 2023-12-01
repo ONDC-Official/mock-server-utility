@@ -1,0 +1,1394 @@
+---
+openapi: 3.0.0
+info:
+  title: Reconciliation and Settlement for RSP
+  description: RSP API Specification
+  version: 0.4.0-Draft
+security:
+  - SubscriberAuth: []
+paths:
+  /collector_recon:
+    post:
+      tags:
+        - RSP
+      description: Reconciliation of payment for order book - called by collector
+      requestBody:
+        description: Collector (i.e. buyer or seller app who collects payment from the
+          buyer) sends order book to RSP for payment reconciliation and
+          settlement
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    orderbook:
+                      $ref: "#/components/schemas/OrderBook"
+              required:
+                - context
+                - message.orderbook.orders.id
+                - message.orderbook.orders.invoice_no
+                - message.orderbook.orders.collector_app_id
+                - message.orderbook.orders.receiver_app_id
+                - message.orderbook.orders.receiver_app_uri
+                - message.orderbook.orders.state
+                - message.orderbook.orders.provider
+                - message.orderbook.orders.payment
+                - message.orderbook.orders.payerdetails
+                - message.orderbook.orders.settlement_reason_code
+                - message.orderbook.orders.created_at
+                - message.orderbook.orders.updated_at
+                - message.orderbook.orders.withholding_tax_gst
+                - message.orderbook.orders.withholding_tax_tds
+                - message.orderbook.orders.deduction_by_collector
+                - message.orderbook.orders.order_recon_status
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /on_collector_recon:
+    post:
+      tags:
+        - Collector
+      description: Payment reconciliation and settlement status for Order Book
+      requestBody:
+        description: Updating reconciliation and settlement status for Order Book
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    orderbook:
+                      $ref: "#/components/schemas/OrderBook"
+              required:
+                - context
+                - message.orderbook.orders.id
+                - message.orderbook.orders.invoice_no
+                - message.orderbook.orders.collector_app_id
+                - message.orderbook.orders.receiver_app_id
+                - message.orderbook.orders.transaction_id
+                - message.orderbook.orders.settlement_id
+                - message.orderbook.orders.settlement_reference_no
+                - message.orderbook.orders.recon_status
+                - message.orderbook.orders.order_recon_status
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /recon_status:
+    post:
+      tags:
+        - RSP
+      description: Get the Status of Reconcillation & Settlement.
+      requestBody:
+        description: Collector (i.e. buyer or seller app who collects payment from the
+          buyer) sends API request to get the /recon status of the corresponding
+          order/txn.
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    reconstatus:
+                      $ref: "#/components/schemas/reconstatus"
+              required:
+                - context
+                - message.reconstatus.transaction_id
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /on_recon_status:
+    post:
+      tags:
+        - Collector
+      description: Status of Reconcillation & Settlement
+      requestBody:
+        description: Posting the Status of Reconciliation & Settlement to Collector
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    orderbook:
+                      $ref: "#/components/schemas/OrderBook"
+              required:
+                - context
+                - message.orderbook.orders.id
+                - message.orderbook.orders.invoice_no
+                - message.orderbook.orders.collector_app_id
+                - message.orderbook.orders.receiver_app_id
+                - message.orderbook.orders.transaction_id
+                - message.orderbook.orders.settlement_id
+                - message.orderbook.orders.settlement_reference_no
+                - message.orderbook.orders.recon_status
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /on_settle:
+    post:
+      tags:
+        - RSP
+      description: Settlement status for payments to different receivers (buyer or
+        seller app that will receive money from the collector)
+      requestBody:
+        description: Settlement Agency responding to RSP with settlement state
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    settlement:
+                      $ref: "#/components/schemas/Settlement"
+              required:
+                - context
+                - message.settlement.settlements.settlement_id
+                - message.settlement.settlements.state
+                - message.settlement.settlements.settlement_reference_no
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /receiver_recon:
+    post:
+      tags:
+        - Receiver
+      description: Reconciliation of payment for order book - called by RSP
+      requestBody:
+        description: RSP send /recon to Receiver (i.e. buyer or seller app who receives
+          payment).
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    orderbook:
+                      $ref: "#/components/schemas/OrderBook"
+              required:
+                - context
+                - message.orderbook.orders.id
+                - message.orderbook.orders.invoice_no
+                - message.orderbook.orders.collector_app_id
+                - message.orderbook.orders.receiver_app_id
+                - message.orderbook.orders.state
+                - message.orderbook.orders.transaction_id
+                - message.orderbook.orders.provider
+                - message.orderbook.orders.payment
+                - message.orderbook.orders.payerdetails
+                - message.orderbook.orders.settlement_reason_code
+                - message.orderbook.orders.created_at
+                - message.orderbook.orders.updated_at
+                - message.orderbook.orders.withholding_tax_gst
+                - message.orderbook.orders.withholding_tax_tds
+                - message.orderbook.orders.deduction_by_collector
+                - message.orderbook.orders.order_recon_status
+                - message.orderbook.orders.settlement_id
+                - message.orderbook.orders.settlement_reference_no
+                - message.orderbook.orders.recon_status
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /on_receiver_recon:
+    post:
+      tags:
+        - RSP
+      description: Payment reconciliation and settlement status for Order Book from Receiver
+      requestBody:
+        description: Updating reconciliation and settlement status for Order Book
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    orderbook:
+                      $ref: "#/components/schemas/OrderBook"
+              required:
+                - context
+                - message.orderbook.orders.id
+                - message.orderbook.orders.invoice_no
+                - message.orderbook.orders.collector_app_id
+                - message.orderbook.orders.receiver_app_id
+                - message.orderbook.orders.transaction_id
+                - message.orderbook.orders.settlement_id
+                - message.orderbook.orders.settlement_reference_no
+                - message.orderbook.orders.recon_status
+                - message.orderbook.orders.order_recon_status
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+  /settle:
+    post:
+      tags:
+        - SettlementAgency
+      description: settlement of payment for different receivers - called by RSP
+      requestBody:
+        description: RSP advising settlement agency to settle receiver payments
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                context:
+                  $ref: ./beckncore.yaml#/components/schemas/Context
+                message:
+                  type: object
+                  properties:
+                    settlement:
+                      $ref: "#/components/schemas/Settlement"
+              required:
+                - context
+                - message.settlement.settlements.collector_app_id
+                - message.settlement.settlements.receiver_app_id
+                - message.settlement.settlements.payer_name
+                - message.settlement.settlements.payer_address
+                - message.settlement.settlements.payer_account_no
+                - message.settlement.settlements.payer_bank_code
+                - message.settlement.settlements.curr_type
+                - message.settlement.settlements.amount
+                - message.settlement.settlements.timestamp
+                - message.settlement.settlements.payee_name
+                - message.settlement.settlements.payee_address
+                - message.settlement.settlements.payee_account_no
+                - message.settlement.settlements.payee_bank_code
+                - message.settlement.settlements.payment_type
+                - message.settlement.settlements.purpose_code
+                - message.settlement.settlements.payee_account_type
+                - message.settlement.settlements.settlement_id
+      responses:
+        "200":
+          description: Acknowledgement of message received
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: object
+                    properties:
+                      ack:
+                        $ref: ./beckncore.yaml#/components/schemas/Ack
+                    required:
+                      - ack
+                  error:
+                    $ref: ./beckncore.yaml#/components/schemas/Error
+                required:
+                  - message
+
+x-examples:
+  b2b:
+    summary: B2B
+    description: 'B2B '
+    example_set:
+      receiver_recon:
+        examples:
+          - summary: search_by_item
+            description: Search By Item
+            value:
+              context:
+                ttl: P2D
+                city: "*"
+                action: receiver_recon
+                bap_id: api.razorpay.com
+                bpp_id: abc.receiverapp.com
+                domain: nic2004:12345
+                bap_uri: https://api.razorpay.com/rsp
+                bpp_uri: https://abc.receiverapp.com
+                country: IND
+                timestamp: '2023-04-12T09:45:56.383Z'
+                message_id: 54bd80f2-d849-11ed-870f-acde48001122
+                core_version: 1.0.0
+                transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+              message:
+                orderbook:
+                  orders:
+                  - id: 17d1b97b-276a-4321-144e-b1021539ba6d
+                    state: Completed
+                    payment:
+                      uri: abcdd/fff
+                      type: ON-ORDER
+                      params:
+                        amount: '501'
+                        currency: INR
+                        transaction_id: 3df395a9
+                        transaction_status: PAID
+                      status: PAID
+                      tl_method: http/get
+                      collected_by: BAP
+                      "@ondc/org/return_window": P6D
+                      "@ondc/org/settlement_basis": Collection
+                      "@ondc/org/settlement_window": P10D
+                      "@ondc/org/settlement_details":
+                      - bank_name: ICICI
+                        branch_name: Chennai
+                        upi_address: success@upi
+                        settlement_type: neft
+                        beneficiary_name: Itemcraze Solutions Pvt. Ltd
+                        settlement_phase: sale-amount
+                        settlement_amount: '790'
+                        settlement_status: PAID
+                        beneficiary_address: Chennai
+                        settlement_ifsc_code: ICIC0006609
+                        settlement_reference: LcQnCo6vNoHJMS
+                        settlement_timestamp: '2023-04-12T09:35:56.383Z'
+                        settlement_counterparty: buyer-app
+                        settlement_bank_account_no: '99679007677676'
+                      "@ondc/org/withholding_amount": '0'
+                      "@ondc/org/collected_by_status": Assert
+                      "@ondc/org/return_window_status": Assert
+                      "@ondc/org/settlement_basis_status": Assert
+                      "@ondc/org/settlement_window_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_type": Amount
+                      "@ondc/org/withholding_amount_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_amount": '0'
+                    provider:
+                      name:
+                        code: 18275-ONDC-1
+                        name: Fast forward frieght
+                      address: kormangala
+                    created_at: '2023-04-11T12:44:56.399Z'
+                    invoice_no: 2023/XYZ/12346-3
+                    updated_at: '2023-04-12T09:35:56.383Z'
+                    payerdetails:
+                      payer_name: Itemzoo company Pvt. Ltd
+                      payer_address: Bengaluru
+                      payer_bank_code: HDFC0000000
+                      payer_account_no: '509424924294248'
+                      payer_virtual_payment_address: 80abc@abctMh2h
+                    recon_status: '01'
+                    settlement_id: LcQnCmN9HUJl9J
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    receiver_app_uri: https://abc.receiverapp.com
+                    withholding_tax_gst:
+                      value: '0'
+                      currency: INR
+                    withholding_tax_tds:
+                      value: '0'
+                      currency: INR
+                    deduction_by_collector:
+                      value: '0'
+                      currency: INR
+                    settlement_reason_code: '01'
+                    settlement_reference_no: LcQnCo6vNoHJMS
+                    order_recon_status: '01'
+                  - id: 17d1b97b-276a-4321-984e-b1021538ba5d
+                    state: Completed
+                    payment:
+                      uri: abcdd/fff
+                      type: ON-ORDER
+                      params:
+                        amount: '500'
+                        currency: INR
+                        transaction_id: 3df395a9
+                        transaction_status: PAID
+                      status: PAID
+                      tl_method: http/get
+                      collected_by: BAP
+                      "@ondc/org/return_window": P6D
+                      "@ondc/org/settlement_basis": Collection
+                      "@ondc/org/settlement_window": P10D
+                      "@ondc/org/settlement_details":
+                      - bank_name: ICICI
+                        branch_name: Chennai
+                        upi_address: success@upi
+                        settlement_type: neft
+                        beneficiary_name: Itemcraze Solutions Pvt. Ltd
+                        settlement_phase: sale-amount
+                        settlement_amount: '750'
+                        settlement_status: PAID
+                        beneficiary_address: Chennai
+                        settlement_ifsc_code: ICIC0006609
+                        settlement_reference: LcQnCo72PIAPFp
+                        settlement_timestamp: '2023-04-12T09:35:56.383Z'
+                        settlement_counterparty: buyer-app
+                        settlement_bank_account_no: '99679007677676'
+                      "@ondc/org/withholding_amount": '0'
+                      "@ondc/org/collected_by_status": Assert
+                      "@ondc/org/return_window_status": Assert
+                      "@ondc/org/settlement_basis_status": Assert
+                      "@ondc/org/settlement_window_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_type": Amount
+                      "@ondc/org/withholding_amount_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_amount": '0'
+                    provider:
+                      name:
+                        code: 18275-ONDC-1
+                        name: Fast forward frieght
+                      address: kormangala
+                    created_at: '2023-04-11T12:44:56.399Z'
+                    invoice_no: 2023/XYZ/12345-21
+                    updated_at: '2023-04-12T09:35:56.383Z'
+                    payerdetails:
+                      payer_name: Itemzoo company Pvt. Ltd
+                      payer_address: Bengaluru
+                      payer_bank_code: HDFC0000000
+                      payer_account_no: '509424924294248'
+                      payer_virtual_payment_address: 80abc@abctMh2h
+                    recon_status: '01'
+                    settlement_id: LcQnCmOvqKTOea
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    receiver_app_uri: https://abc.receiverapp.com
+                    withholding_tax_gst:
+                      value: '0'
+                      currency: INR
+                    withholding_tax_tds:
+                      value: '0'
+                      currency: INR
+                    deduction_by_collector:
+                      value: '0'
+                      currency: INR
+                    settlement_reason_code: '01'
+                    settlement_reference_no: LcQnCo72PIAPFp
+                    order_recon_status: '01'
+                  - id: 17d1b97b-276a-4321-984e-b1021539ba5d
+                    state: Completed
+                    payment:
+                      uri: abcdd/fff
+                      type: ON-ORDER
+                      params:
+                        amount: '950'
+                        currency: INR
+                        transaction_id: 3df395a9
+                        transaction_status: PAID
+                      status: PAID
+                      tl_method: http/get
+                      collected_by: BAP
+                      "@ondc/org/return_window": P6D
+                      "@ondc/org/settlement_basis": Collection
+                      "@ondc/org/settlement_window": P10D
+                      "@ondc/org/settlement_details":
+                      - bank_name: ICICI
+                        branch_name: Chennai
+                        upi_address: success@upi
+                        settlement_type: neft
+                        beneficiary_name: Itemcraze Solutions Pvt. Ltd
+                        settlement_phase: sale-amount
+                        settlement_amount: '950'
+                        settlement_status: PAID
+                        beneficiary_address: Chennai
+                        settlement_ifsc_code: ICIC0006609
+                        settlement_reference: LcQnCo73hwPmr2
+                        settlement_timestamp: '2023-04-12T09:35:56.383Z'
+                        settlement_counterparty: buyer-app
+                        settlement_bank_account_no: '99679007677676'
+                      "@ondc/org/withholding_amount": '0'
+                      "@ondc/org/collected_by_status": Assert
+                      "@ondc/org/return_window_status": Assert
+                      "@ondc/org/settlement_basis_status": Assert
+                      "@ondc/org/settlement_window_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_type": Amount
+                      "@ondc/org/withholding_amount_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_amount": '0'
+                    provider:
+                      name:
+                        code: 18275-ONDC-1
+                        name: Fast forward frieght
+                      address: kormanagala
+                    created_at: '2023-04-11T12:44:56.399Z'
+                    invoice_no: 2023/XYZ/12345-2
+                    updated_at: '2023-04-12T09:35:56.383Z'
+                    payerdetails:
+                      payer_name: Itemzoo company Pvt. Ltd
+                      payer_address: Bengaluru
+                      payer_bank_code: HDFC0000000
+                      payer_account_no: '509424924294248'
+                      payer_virtual_payment_address: 80abc@abctMh2h
+                    recon_status: '01'
+                    settlement_id: LcQnCmQabISUjv
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    receiver_app_uri: https://abc.receiverapp.com
+                    withholding_tax_gst:
+                      value: '0'
+                      currency: INR
+                    withholding_tax_tds:
+                      value: '0'
+                      currency: INR
+                    deduction_by_collector:
+                      value: '0'
+                      currency: INR
+                    settlement_reason_code: '01'
+                    settlement_reference_no: LcQnCo73hwPmr2
+                    order_recon_status: '01'
+                  - id: 6e641c61-69c3-419c-9c65-2f8b892063a2
+                    state: Completed
+                    payment:
+                      uri: abcdd/fff
+                      type: ON-ORDER
+                      params:
+                        amount: '750'
+                        currency: INR
+                        transaction_id: 4df395a9
+                        transaction_status: PAID
+                      status: PAID
+                      tl_method: http/get
+                      collected_by: BAP
+                      "@ondc/org/return_window": P6D
+                      "@ondc/org/settlement_basis": Collection
+                      "@ondc/org/settlement_window": P10D
+                      "@ondc/org/settlement_details":
+                      - bank_name: ICICI
+                        branch_name: Chennai
+                        upi_address: success@upi
+                        settlement_type: neft
+                        beneficiary_name: Itemcraze Solutions Pvt. Ltd
+                        settlement_phase: sale-amount
+                        settlement_amount: '750'
+                        settlement_status: PAID
+                        beneficiary_address: Chennai
+                        settlement_ifsc_code: ICIC0006609
+                        settlement_reference: LcQnCo74ECYABS
+                        settlement_timestamp: '2023-04-12T09:35:56.383Z'
+                        settlement_counterparty: buyer-app
+                        settlement_bank_account_no: '99679007677676'
+                      "@ondc/org/withholding_amount": '0'
+                      "@ondc/org/collected_by_status": Assert
+                      "@ondc/org/return_window_status": Assert
+                      "@ondc/org/settlement_basis_status": Assert
+                      "@ondc/org/settlement_window_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_type": Amount
+                      "@ondc/org/withholding_amount_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_amount": '0'
+                    provider:
+                      name:
+                        code: 18375-ONDC-1
+                        name: Convenicore
+                      address: Kormangala
+                    created_at: '2023-04-11T12:44:56.399Z'
+                    invoice_no: 2023/XYZ/12346-20
+                    updated_at: '2023-04-12T09:35:56.383Z'
+                    payerdetails:
+                      payer_name: Itemzoo Pvt. Ltd
+                      payer_address: Bengaluru
+                      payer_bank_code: HDFC0000000
+                      payer_account_no: '509424924294248'
+                      payer_virtual_payment_address: 80abc@abctMh2h
+                    recon_status: '01'
+                    settlement_id: LcQnCmRuHoPSxZ
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    receiver_app_uri: https://abc.receiverapp.com
+                    withholding_tax_gst:
+                      value: '0'
+                      currency: INR
+                    withholding_tax_tds:
+                      value: '0'
+                      currency: INR
+                    deduction_by_collector:
+                      value: '0'
+                      currency: INR
+                    settlement_reason_code: '01'
+                    settlement_reference_no: LcQnCo74ECYABS
+                    order_recon_status: '01'
+                  - id: 6e641c61-69c3-419c-9c65-2f8b892063a2
+                    state: Completed
+                    payment:
+                      uri: abcdd/fff
+                      type: ON-ORDER
+                      params:
+                        amount: '750'
+                        currency: INR
+                        transaction_id: 4df395a9
+                        transaction_status: PAID
+                      status: PAID
+                      tl_method: http/get
+                      collected_by: BAP
+                      "@ondc/org/return_window": P6D
+                      "@ondc/org/settlement_basis": Collection
+                      "@ondc/org/settlement_window": P10D
+                      "@ondc/org/settlement_details":
+                      - bank_name: ICICI
+                        branch_name: Chennai
+                        upi_address: success@upi
+                        settlement_type: neft
+                        beneficiary_name: Itemcraze Solutions Pvt. Ltd
+                        settlement_phase: sale-amount
+                        settlement_amount: '750'
+                        settlement_status: PAID
+                        beneficiary_address: Chennai
+                        settlement_ifsc_code: ICIC0006609
+                        settlement_reference: LcQnCo74ECYABS
+                        settlement_timestamp: '2023-04-12T09:35:56.383Z'
+                        settlement_counterparty: buyer-app
+                        settlement_bank_account_no: '99679007677676'
+                      "@ondc/org/withholding_amount": '0'
+                      "@ondc/org/collected_by_status": Assert
+                      "@ondc/org/return_window_status": Assert
+                      "@ondc/org/settlement_basis_status": Assert
+                      "@ondc/org/settlement_window_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_type": Amount
+                      "@ondc/org/withholding_amount_status": Assert
+                      "@ondc/org/buyer_app_finder_fee_amount": '0'
+                    provider:
+                      name:
+                        code: 18375-ONDC-1
+                        name: Convenicore
+                      address: Kormangala
+                    created_at: '2023-04-11T12:44:56.399Z'
+                    invoice_no: 2023/XYZ/12346-20
+                    updated_at: '2023-04-12T09:35:56.383Z'
+                    payerdetails:
+                      payer_name: Itemzoo Pvt. Ltd
+                      payer_address: Bengaluru
+                      payer_bank_code: HDFC0000000
+                      payer_account_no: '509424924294248'
+                      payer_virtual_payment_address: 80abc@abctMh2h
+                    recon_status: '01'
+                    settlement_id: LcQnCmRuHoPSxZ
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    receiver_app_uri: https://abc.receiverapp.com
+                    withholding_tax_gst:
+                      value: '0'
+                      currency: INR
+                    withholding_tax_tds:
+                      value: '0'
+                      currency: INR
+                    deduction_by_collector:
+                      value: '0'
+                      currency: INR
+                    settlement_reason_code: '01'
+                    settlement_reference_no: LcQnCo74ECYABS
+                    order_recon_status: '01'
+      settle:
+        examples:
+          - summary: search_by_item
+            description: Search By Item
+            value:
+              context:
+                ttl: P2D
+                city: "*"
+                action: settle
+                bap_id: api.razorpay.com
+                bpp_id: abc.sa.com
+                domain: nic2004:12345
+                bap_uri: https://api.razorpay.com/rsp
+                bpp_uri: https://abc.sa.com
+                country: IND
+                timestamp: '2023-04-11T14:44:58.383Z'
+                message_id: 54b6a08e-d849-11ed-870f-acde48001122
+                core_version: 1.0.0
+                transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120026
+              message:
+                settlement:
+                  settlements:
+                  - amount:
+                      value: '790'
+                      currency: INR
+                    remarks:
+                      code: ''
+                      name: ''
+                    curr_type: INR
+                    timestamp: '2023-04-11T14:44:58.383Z'
+                    payee_name: Itemcraze Solutions Pvt. Ltd
+                    payer_name: Itemzoo company Pvt. Ltd
+                    payment_type: '02'
+                    purpose_code: '02'
+                    payee_address: Chennai
+                    payer_address: Bengaluru
+                    settlement_id: LcQnCmN9HUJl9F
+                    payee_bank_code: ICIC0006609
+                    payer_bank_code: HDFC0000000
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    payee_account_no: '99679007677676'
+                    payer_account_no: '509424924294248'
+                    payee_account_type: '01'
+                  - amount:
+                      value: '750'
+                      currency: INR
+                    remarks:
+                      code: ''
+                      name: ''
+                    curr_type: INR
+                    timestamp: '2023-04-11T14:44:58.383Z'
+                    payee_name: Itemcraze Solutions Pvt. Ltd
+                    payer_name: Itemzoo company Pvt. Ltd
+                    payment_type: '02'
+                    purpose_code: '02'
+                    payee_address: Chennai
+                    payer_address: Bengaluru
+                    settlement_id: LcQnCmOvqKTOea
+                    payee_bank_code: ICIC0006609
+                    payer_bank_code: HDFC0000000
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    payee_account_no: '99679007677676'
+                    payer_account_no: '509424924294248'
+                    payee_account_type: '01'
+                  - amount:
+                      value: '950'
+                      currency: INR
+                    remarks:
+                      code: ''
+                      name: ''
+                    curr_type: INR
+                    timestamp: '2023-04-11T14:44:58.383Z'
+                    payee_name: Itemcraze Solutions Pvt. Ltd
+                    payer_name: Itemzoo company Pvt. Ltd
+                    payment_type: '02'
+                    purpose_code: '02'
+                    payee_address: Chennai
+                    payer_address: Bengaluru
+                    settlement_id: LcQnCmQabISUjv
+                    payee_bank_code: ICIC0006609
+                    payer_bank_code: HDFC0000000
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    payee_account_no: '99679007677676'
+                    payer_account_no: '509424924294248'
+                    payee_account_type: '01'
+                  - amount:
+                      value: '750'
+                      currency: INR
+                    remarks:
+                      code: ''
+                      name: ''
+                    curr_type: INR
+                    timestamp: '2023-04-11T14:44:58.383Z'
+                    payee_name: Itemcraze Solutions Pvt. Ltd
+                    payer_name: Itemzoo Pvt. Ltd
+                    payment_type: '02'
+                    purpose_code: '02'
+                    payee_address: Chennai
+                    payer_address: Bengaluru
+                    settlement_id: LcQnCmRuHoPSxZ
+                    payee_bank_code: ICIC0006609
+                    payer_bank_code: HDFC0000000
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    payee_account_no: '99679007677676'
+                    payer_account_no: '509424924294248'
+                    payee_account_type: '01'
+      on_receiver_recon:
+        examples:
+          - summary: search_by_item
+            description: Search By Item
+            value:
+              context:
+                ttl: P3D
+                city: "*"
+                action: on_receiver_recon
+                bap_id: abc.collectorapp.com
+                bpp_id: api.razorpay.com
+                domain: ONDC:NTS10
+                bap_uri: https://api.razorpay.com/rsp
+                bpp_uri: http://localhost:5500/
+                country: IND
+                timestamp: '2023-04-11T12:44:56.399Z'
+                message_id: c3eff12f-9ac8-49f0-8569-14429249c9bf
+                core_version: 1.0.0
+                transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+              message:
+                orderbook:
+                  orders:
+                  - id: 17d1b97b-276a-4321-144e-b1021539ba6d
+                    message:
+                      code: ''
+                      name: ''
+                    invoice_no: 2023/XYZ/12346-3
+                    settlement_id: LcQnCmN9HUJl9J
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    order_recon_status: '02'
+                    settlement_reference_no: LcQnCo6vNoHJMS
+                    counterparty_diff_amount:
+                      value: '700'
+                      currency: INR
+                    counterparty_recon_status: '03'
+                  - id: 17d1b97b-276a-4321-984e-b1021538ba5d
+                    message:
+                      code: ''
+                      name: ''
+                    invoice_no: 2023/XYZ/12345-21
+                    settlement_id: LcQnCmOvqKTOea
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    order_recon_status: '02'
+                    settlement_reference_no: LcQnCo72PIAPFp
+                    counterparty_diff_amount:
+                      value: '0'
+                      currency: INR
+                    counterparty_recon_status: '01'
+                  - id: 17d1b97b-276a-4321-984e-b1021539ba5d
+                    message:
+                      code: ''
+                      name: ''
+                    invoice_no: 2023/XYZ/12345-2
+                    settlement_id: LcQnCmQabISUjv
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    order_recon_status: '02'
+                    settlement_reference_no: LcQnCo73hwPmr2
+                    counterparty_diff_amount:
+                      value: '700'
+                      currency: ''
+                    counterparty_recon_status: '03'
+                  - id: 6e641c61-69c3-419c-9c65-2f8b892063a2
+                    message:
+                      code: ''
+                      name: ''
+                    invoice_no: 2023/XYZ/12346-20
+                    settlement_id: LcQnCmRuHoPSxZ
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    order_recon_status: '02'
+                    settlement_reference_no: LcQnCo74ECYABS
+                    counterparty_diff_amount:
+                      value: '700'
+                      currency: INR
+                    counterparty_recon_status: '03'
+                  - id: 6e641c61-69c3-419c-9c65-2f8b892063a2
+                    message:
+                      code: ''
+                      name: ''
+                    invoice_no: 2023/XYZ/12346-20
+                    settlement_id: LcQnCmRuHoPSxZ
+                    transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
+                    receiver_app_id: abc.receiverapp.com
+                    collector_app_id: abc.collectorapp.com
+                    order_recon_status: '02'
+                    settlement_reference_no: LcQnCo74ECYABS
+                    counterparty_diff_amount:
+                      value: '700'
+                      currency: INR
+                    counterparty_recon_status: '03'
+                            
+components:
+  securitySchemes:
+    SubscriberAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+      description: "Signature of message body using Collector or Receiver subscriber's
+        signing public key. <br/><br/>Format:<br/><br/><code>Authorization :
+        Signature
+        keyId=\"{subscriber_id}|{unique_key_id}|{algorithm}\",algorithm=\"ed255\
+        19\",created=\"1606970629\",expires=\"1607030629\",headers=\"(created)
+        (expires) digest\",signature=\"Base64(signing string)\"</code>"
+  schemas:
+    OrderBook:
+      description: Describes the payment and settlement contract for an order
+      type: object
+      properties:
+        orders:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+                description: Order id
+                example: K106403902112759
+              invoice_no:
+                type: string
+                description: Invoice Number of the Order
+                example: 2022/XYZ/12345-2
+              collector_app_id:
+                type: string
+                example: abc.collectorapp.com
+              receiver_app_id:
+                type: string
+                example: abc.receiverapp.com
+              receiver_app_uri:
+                type: string
+                example: https://abc.receiverapp.com
+              state:
+                type: string
+                description: Order state
+                example: Delivered
+              provider:
+                $ref: "#/components/schemas/Provider"
+              payment:
+                $ref: ./ondccore.yaml#/components/schemas/Payment
+              withholding_tax_gst:
+                $ref: ./beckncore.yaml#/components/schemas/Price
+              withholding_tax_tds:
+                $ref: ./beckncore.yaml#/components/schemas/Price
+              deduction_by_collector:
+                $ref: ./beckncore.yaml#/components/schemas/Price
+              order_recon_status:
+                type: string
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+              payerdetails:
+                $ref: "#/components/schemas/payerdetails"
+              settlement_reason_code:
+                type: string
+                description: Reason code for settlement
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+                  - "04"
+                  - "05"
+              correction:
+                $ref: "#/components/schemas/Correction"
+              transaction_id:
+                type: string
+                description: Unique identifier for transaction
+                example: 6baa811a-6cbe-4ad3-94e9-cbf96aaff343
+              settlement_id:
+                type: string
+                description: Unique identifier for each settlement
+                example: "121313"
+              settlement_reference_no:
+                type: string
+                description: Reference number, in case of successful settlement
+                example: "3718683618631"
+              recon_status:
+                type: string
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+                  - "04"
+              diff_amount:
+                $ref: ./beckncore.yaml#/components/schemas/Price
+              counterparty_recon_status:
+                type: string
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+                  - "04"
+              counterparty_diff_amount:
+                $ref: ./beckncore.yaml#/components/schemas/Price
+              message:
+                $ref: ./beckncore.yaml#/components/schemas/Descriptor
+              created_at:
+                type: string
+                format: date-time
+                example: 2022-10-28T10:34:58.472Z
+              updated_at:
+                type: string
+                format: date-time
+                example: 2022-10-28T10:34:58.472Z
+    reconstatus:
+      description: Describe the request body for recon_status Endpoint
+      type: object
+      properties:
+        transaction_id:
+          type: string
+          description: Unique identifier for transaction
+          example: 3df395a9-c196-4678-a4d1-5eaf4f7df8dc
+      required:
+        - transaction_id
+    Provider:
+      description: Provider for Order
+      type: object
+      properties:
+        name:
+          $ref: ./beckncore.yaml#/components/schemas/Provider/properties/descriptor
+        address:
+          type: string
+          # $ref: ./beckncore.yaml#/components/schemas/Address/properties/full
+      required:
+        - name
+        - address
+    Settlement:
+      description: Settlement details
+      type: object
+      properties:
+        settlements:
+          type: array
+          items:
+            type: object
+            properties:
+              collector_app_id:
+                type: string
+                description: Subscriber Id of the Payer
+                example: abc.collectorapp.com
+              receiver_app_id:
+                type: string
+                description: Subscriber Id of the Payee
+                example: abc.receiverapp.com
+              payer_name:
+                type: string
+                description: Payer name
+                example: Example1 company Pvt. Ltd
+              payer_address:
+                type: string
+                # $ref: ./beckncore.yaml#/components/schemas/Address/properties/full
+              payer_account_no:
+                type: string
+                description: Debit Account Number of the client, used when client maintains
+                  multiple debit accounts with bank
+                example: 509424924294248
+              payer_bank_code:
+                type: string
+                description: Bank Code of Payee e.g. IFSC code
+                example: “HDFC0000000”
+              payer_virtual_payment_address:
+                type: string
+                pattern: ^([a-zA-Z0-9]{2,10})@([a-zA-Z0-9]{2,10})
+                example: 80abc@abctMh2h
+              curr_type:
+                $ref: ./beckncore.yaml#/components/schemas/Price/properties/currency
+              amount:
+                $ref: ./beckncore.yaml#/components/schemas/Price
+              timestamp:
+                type: string
+                format: date-time
+                example: 2022-10-18T16:14:40.396Z
+              payee_name:
+                type: string
+                description: Payee name
+                example: A to Z Printing Solutions Pvt. Ltd
+              payee_address:
+                type: string
+                # $ref: ./beckncore.yaml#/components/schemas/Address/properties/full
+              payee_account_no:
+                type: string
+                description: Account number of the beneficiary which is to be credited. Without
+                  special charcters and can be alpha numeric
+                example: "99679007677676"
+              payee_bank_code:
+                type: string
+                description: Bank Code of Payee e.g. IFSC code
+                example: HDFC900008
+              payee_virtual_payment_address:
+                type: string
+                pattern: ^([a-zA-Z0-9]{2,10})@([a-zA-Z0-9]{2,10})
+                example: payee@upi
+              payment_type:
+                description: Payment type allocated by the bank
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+                  - "04"
+                  - "05"
+              purpose_code:
+                type: string
+                maxLength: 10
+                description: For RTGS / IFT transaction it should contain CMS and for NEFT it
+                  should be OTH
+                enum:
+                  - "01"
+                  - "02"
+              payee_account_type:
+                type: string
+                description: Type of Beneficiary Account
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+              remarks:
+                $ref: ./beckncore.yaml#/components/schemas/Descriptor
+              settlement_id:
+                type: string
+                description: Unique identifier for each settlement
+                example: "121313"
+              state:
+                type: string
+                description: settlement state
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+              prev_settlement_reference_no:
+                type: array
+                description: Array of all previous UTR references against which settlement for
+                  this order was done
+                example:
+                  - 1234ABCD
+                  - 2345qwer
+                items:
+                  type: string
+              settlement_reference_no:
+                type: string
+                description: Reference number, incase of successful settlement
+                example: "3718683618631"
+              error_code:
+                type: string
+                description: Error Message Code, to be provided by bank. Only required if
+                  settlement_status = 03
+                enum:
+                  - "01"
+                  - "02"
+                  - "03"
+                  - "04"
+              error_message:
+                type: string
+                description: Message for error on settlement. Only required if settlement_status
+                  = "03"
+                example: Account not active or not found
+            required:
+              - collector_app_id
+              - receiver_app_id
+              - payer_name
+              - payer_address
+              - payer_account_no
+              - payer_bank_code
+              - curr_type
+              - amount
+              - timestamp
+              - payee_name
+              - payee_address
+              - payee_account_no
+              - payee_bank_code
+              - payment_type
+              - purpose_code
+              - payee_account_type
+              - settlement_id
+              - state
+              - settlement_reference_no
+    payerdetails:
+      description: Payer details
+      type: object
+      properties:
+        payer_name:
+          type: string
+          description: Payer name
+          example: Example1 company Pvt. Ltd
+        payer_address:
+          type: string
+          # $ref: ./beckncore.yaml#/components/schemas/Address/properties/full
+        payer_account_no:
+          type: string
+          description: Debit Account Number of the client, used when client maintains
+            multiple debit accounts with bank
+          example: 509424924294248
+        payer_bank_code:
+          type: string
+          description: Bank Code of Payee e.g. IFSC code
+          example: “HDFC0000000”
+        payer_virtual_payment_address:
+          type: string
+          pattern: ^([a-zA-Z0-9]{2,10})@([a-zA-Z0-9]{2,10})
+          example: 80abc@abctMh2h
+      required:
+        - payer_name
+        - payer_address
+        - payer_account_no
+        - payer_bank_code
+    Correction:
+      description: Correction, which will be added to OrderBook after dispute resolution
+      type: object
+      properties:
+        issue_initiator_ref:
+          type: string
+          description: CRM ID or Ticket Number of Grievance or Issue Initiator
+          example: 1243242GQT$
+        issue_responder_ref:
+          type: string
+          description: CRM ID or Ticket Number No. of Grievance or Issue Responder
+          example: 122424HGYG98
+        issue_type:
+          type: string
+          description: Type of Issue
+          enum:
+            - "01"
+            - "02"
+            - "03"
+        issue_subtype:
+          type: string
+          description: Subtype of Issue
+          enum:
+            - "01"
+            - "02"
+            - "03"
+            - "04"
+            - "05"
+        order_id:
+          type: string
+          description: Original Order ID
+          example: K106403902112759
+        order_amount:
+          $ref: ./beckncore.yaml#/components/schemas/Price
+        order_correction_amount:
+          $ref: ./beckncore.yaml#/components/schemas/Price
+        order_state:
+          type: string
+          description: Order State
+          example: Delivered
+        previous_settled_amount:
+          $ref: ./beckncore.yaml#/components/schemas/Price
+        settlement_id:
+          type: string
+          description: Unique identifier for each settlement
+          example: "121313"
+        settlement_reference_no:
+          type: string
+          description: Reference number, in case of successful settlement
+          example: "3718683618631"
+        prev_settlement_reference_no:
+          type: array
+          description: Array of all previous UTR references against which Correction
+            settlement for this order was done
+          example:
+            - 1234ABCD
+            - 2345qwer
+          items:
+            type: string
+        recon_status:
+          type: string
+          enum:
+            - "01"
+            - "02"
+            - "03"
+            - "04"
+        diff_amount:
+          $ref: ./beckncore.yaml#/components/schemas/Price
+        message:
+          $ref: ./beckncore.yaml#/components/schemas/Descriptor
+
+servers:
+  # Added by API Auto Mocking Plugin
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/ONDC/ONDC-Protocol-RSP/0.3.0-draft

@@ -1,0 +1,20 @@
+type: object
+properties:
+  context:
+    description: Describes a beckn message context
+    type: object
+    properties:
+      bap_id:
+        type: string
+        description: >-
+          Unique id of the BAP. By default it is the fully qualified domain name
+          of the BAP
+      bap_uri:
+        type: string
+        format: uri
+        description: >-
+          URI of the BAP for accepting callbacks. Must have the same domain name
+          as the bap_id
+    required:
+      - bap_id
+      - bap_uri
