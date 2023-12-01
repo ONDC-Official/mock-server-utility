@@ -2,11 +2,21 @@
 
 ### Purpose
 
-The ONDC Mock Server is a tool specifically designed to test ONDC APIs, based on the model implementation by ONDC.
+The ONDC Mock Server is a tool specifically designed to test network integration, based on ONDC model implementation
 
 ### Technologies Used
 
 - [[node.js](https://nodejs.org/en/)]
+
+You can install the RSF mock server on your local system and run it as a service using the following steps:
+
+1. Setup on Local System:
+   - Install the RSF mock server on your local machine.
+
+2. Running as a Service:
+   - Configure the RSF mock server to run as a service for seamless operation.
+
+The following instructions will guide you through the process of both local installation and running the mock server as a service.
 
 ## Installation (Local Server)
 
@@ -150,8 +160,12 @@ Response
   > Deployed URL: https://rsf-mock-service.ondc.org/push_receiver_recon
 - The receiver is expected to respond with an on_receiver_recon callback
 
-### Points to remember (for mock server stubs only)
+### Considerations (for mock server stubs only)
 
 1. The settle call expects 5 settlement objects to function properly.
 2. The receiver recon expects 5 order objects to function properly.
-3. To mock the recon status, provide a placeholder settlement amount in the orders in an order book (e.g., less than 500 = 02 (Overpaid), more than 500 = 03 (Underpaid), and equal to 500 = 01 (Paid)).
+3. To mock the "recon_status" attribute, provide a placeholder settlement amount in the orders in an order book (e.g., less than 500 = 02 (Overpaid), more than 500 = 03 (Underpaid), and equal to 500 = 01 (Paid)).
+
+> Community contributions are welcomed to enhance this utility for future releases.
+> If you encounter any issues, a new issue report can be created on our [GitHub issue board](https://github.com/ONDC-Official/mock-server-utility/issues).
+
