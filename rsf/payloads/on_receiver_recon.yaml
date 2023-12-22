@@ -58,7 +58,7 @@ message:
         settlement_reference_no: '{{settlement_reference_no3}}'
         counterparty_diff_amount:
           value: '{{counterparty_diff_amount3}}'
-          currency: ''
+          currency: INR
         counterparty_recon_status: '{{counterparty_recon_status3}}'
       - id: '{{id4}}'
         message:
