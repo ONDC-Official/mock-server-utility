@@ -75,19 +75,19 @@
 			"response": []
 		},
 		{
-			"name": "on_receiver_recon",
+			"name": "push_receiver_recon",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "Your_Ondc_Signature",
+						"value": "Signature keyId=\"fis-buyer-staging.ondc.org|585|ed25519\",algorithm=\"ed25519\",created=\"1700119966\",expires=\"1700123566\",headers=\"(created) (expires) digest\",signature=\"I0+qT6xL28nZuhZwfJ/1lI1TudtR/m8ES4/RxxY0kn8W4JyOfnV0bYqCikVCLCpmkDti6WFLP4nH2L2YZZ2lAg==\"",
 						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"context\": {\n        \"ttl\": \"P3D\",\n        \"city\": \"*\",\n        \"action\": \"on_receiver_recon\",\n        \"bap_id\": \"abc.collectorapp.com\",\n        \"bpp_id\": \"api.razorpay.com\",\n        \"domain\": \"ONDC:NTS10\",\n        \"bap_uri\": \"https://api.razorpay.com/rsp\",\n        \"bpp_uri\": \"http://localhost:5500/\",\n        \"country\": \"IND\",\n        \"timestamp\": \"2023-04-11T12:44:56.399Z\",\n        \"message_id\": \"c3eff12f-9ac8-49f0-8569-14429249c9bf\",\n        \"core_version\": \"1.0.0\",\n        \"transaction_id\": \"5fbdd03c-d54d-11ed-afa1-0242ad120025\"\n    },\n    \"message\": {\n        \"orderbook\": {\n            \"orders\": [\n                {\n                    \"id\": \"17d1b97b-276a-4321-144e-b1021539ba6d\",\n                    \"message\": {\n                        \"code\": \"\",\n                        \"name\": \"\"\n                    },\n                    \"invoice_no\": \"2023/XYZ/12346-3\",\n                    \"settlement_id\": \"LcQnCmN9HUJl9J\",\n                    \"transaction_id\": \"5fbdd03c-d54d-11ed-afa1-0242ad120025\",\n                    \"receiver_app_id\": \"abc.receiverapp.com\",\n                    \"collector_app_id\": \"abc.collectorapp.com\",\n                    \"order_recon_status\": \"02\",\n                    \"settlement_reference_no\": \"LcQnCo6vNoHJMS\",\n                    \"counterparty_diff_amount\": {\n                        \"value\": \"700\",\n                        \"currency\": \"INR\"\n                    },\n                    \"counterparty_recon_status\": \"03\"\n                },\n                {\n                     \"recon_status\":\"01\",\n                    \"id\": \"17d1b97b-276a-4321-984e-b1021538ba5d\",\n                    \"message\": {\n                        \"code\": \"\",\n                        \"name\": \"\"\n                    },\n                    \"invoice_no\": \"2023/XYZ/12345-21\",\n                    \"settlement_id\": \"LcQnCmOvqKTOea\",\n                    \"transaction_id\": \"5fbdd03c-d54d-11ed-afa1-0242ad120025\",\n                    \"receiver_app_id\": \"abc.receiverapp.com\",\n                    \"collector_app_id\": \"abc.collectorapp.com\",\n                    \"order_recon_status\": \"02\",\n                    \"settlement_reference_no\": \"LcQnCo72PIAPFp\",\n                    \"counterparty_diff_amount\": {\n                        \"value\": \"0\",\n                        \"currency\": \"INR\"\n                    },\n                    \"counterparty_recon_status\": \"01\"\n                },\n                {\n                     \"recon_status\":\"01\",\n                    \"id\": \"17d1b97b-276a-4321-984e-b1021539ba5d\",\n                    \"message\": {\n                        \"code\": \"\",\n                        \"name\": \"\"\n                    },\n                    \"invoice_no\": \"2023/XYZ/12345-2\",\n                    \"settlement_id\": \"LcQnCmQabISUjv\",\n                    \"transaction_id\": \"5fbdd03c-d54d-11ed-afa1-0242ad120025\",\n                    \"receiver_app_id\": \"abc.receiverapp.com\",\n                    \"collector_app_id\": \"abc.collectorapp.com\",\n                    \"order_recon_status\": \"02\",\n                    \"settlement_reference_no\": \"LcQnCo73hwPmr2\",\n                    \"counterparty_diff_amount\": {\n                        \"value\": \"700\",\n                        \"currency\": \"\"\n                    },\n                    \"counterparty_recon_status\": \"03\"\n                },\n                {\n                     \"recon_status\":\"02\",\n                    \"id\": \"6e641c61-69c3-419c-9c65-2f8b892063a2\",\n                    \"message\": {\n                        \"code\": \"\",\n                        \"name\": \"\"\n                    },\n                    \"invoice_no\": \"2023/XYZ/12346-20\",\n                    \"settlement_id\": \"LcQnCmRuHoPSxZ\",\n                    \"transaction_id\": \"5fbdd03c-d54d-11ed-afa1-0242ad120025\",\n                    \"receiver_app_id\": \"abc.receiverapp.com\",\n                    \"collector_app_id\": \"abc.collectorapp.com\",\n                    \"order_recon_status\": \"02\",\n                    \"settlement_reference_no\": \"LcQnCo74ECYABS\",\n                    \"counterparty_diff_amount\": {\n                        \"value\": \"700\",\n                        \"currency\": \"INR\"\n                    },\n                    \"counterparty_recon_status\": \"03\"\n                },\n                {\n                     \"recon_status\":\"01\",\n                    \"id\": \"6e641c61-69c3-419c-9c65-2f8b892063a2\",\n                    \"message\": {\n                        \"code\": \"\",\n                        \"name\": \"\"\n                    },\n                    \"invoice_no\": \"2023/XYZ/12346-20\",\n                    \"settlement_id\": \"LcQnCmRuHoPSxZ\",\n                    \"transaction_id\": \"5fbdd03c-d54d-11ed-afa1-0242ad120025\",\n                    \"receiver_app_id\": \"abc.receiverapp.com\",\n                    \"collector_app_id\": \"abc.collectorapp.com\",\n                    \"order_recon_status\": \"02\",\n                    \"settlement_reference_no\": \"LcQnCo74ECYABS\",\n                    \"counterparty_diff_amount\": {\n                        \"value\": \"700\",\n                        \"currency\": \"INR\"\n                    },\n                    \"counterparty_recon_status\": \"03\"\n                }\n            ]\n        }\n    }\n}",
+					"raw": "{\n    \"context\":{\n        \"bap_uri\":\"https://0933-103-243-52-154.ngrok-free.app\",\n        \"bap_id\":\"rsf-mock-service.ondc.org\"\n    }\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -95,14 +95,15 @@
 					}
 				},
 				"url": {
-					"raw": "https://localhost:5500/on_receiver_recon",
+					"raw": "https://rsf-mock-service.ondc.org/push_receiver_recon",
 					"protocol": "https",
 					"host": [
-						"localhost"
+						"rsf-mock-service",
+						"ondc",
+						"org"
 					],
-					"port": "5500",
 					"path": [
-						"on_receiver_recon"
+						"push_receiver_recon"
 					]
 				}
 			},
