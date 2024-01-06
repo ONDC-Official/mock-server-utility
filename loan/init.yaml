@@ -548,3 +548,27 @@ motor-based-insurance2:
   delay: 300
   payload:
     $ref: "./insurance/motor-insurance/template/on_init2.yaml"         
+
+mutual-funds-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MUTUAL-FUNDS"
+          
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./investment/mutual-funds/template/on_init.yaml"         

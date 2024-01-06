@@ -141,3 +141,24 @@ motor-based-insurance:
   delay: 300
   payload:
     $ref: "./insurance/motor-insurance/template/on_status.yaml"                             
+
+
+mutual-funds-1:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check search message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order_id"
+          - "MUTUAL_FUNDS_ORDERID"
+  callback: "on_status"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./investment/mutual-funds/template/on_status.yaml"    
+

@@ -52,7 +52,7 @@ const validateRequest = async (
   isFormFound
 ) => {
   logger = log.init();
-  if (isFormFound ||  await validateSchema(context)) {
+  if (isFormFound ||  await validateSchema(context)) { //if validation passes or isformtrue then onlysend response otherwise send error
     //triggering the subsequent request
     payloadConfig = callbackConfig?.payload;
     if (payloadConfig != null) {

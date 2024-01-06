@@ -22,13 +22,13 @@ const onRequest = async (req, res) => {
     paths = props.path;
   }
   try {
-    const isFormFound = req.params['0']?.match(matchText);
+    const isFormFound = req.params['0']?.match(matchText); //true if incoming request else false
     let api = req.params['0']
     if(isFormFound){
-      api = req.params['0'].replace(/\//g, '_');
+      api = req.params['0'].replace(/\//g, '_'); 
     }
     logger.info(`Received ${req.url} api request`);
-    if (security.verify_sign && !isFormFound) {
+    if (security.verify_sign && !isFormFound) { //don't check header if form is around
       if (!await verifyHeader(req, security)){
         // Handle the case when signature is not verified
         res.status(400).json(signNack);

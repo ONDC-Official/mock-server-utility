@@ -1,0 +1,31 @@
+context:
+  domain: '{{domain}}'
+  location:
+    country:
+      code: IND
+  transaction_id: '{{transaction_id}}'
+  message_id: '{{msg_id}}'
+  action: update
+  timestamp: '2023-05-25T05:23:03.443Z'
+  version: 2.0.0
+  bap_uri: '{{bap_uri}}'
+  bap_id: mutual-fund-protocol.becknprotocol.io
+  ttl: PT10M
+  bpp_id: stockwiz.com
+  bpp_uri: '{{bpp_uri}}'
+message:
+  update_target: ''
+  order:
+    id: O1
+    provider:
+      id: P1
+    items:
+      - id: ITEM_ID_1_MUTUAL-FUNDS
+        category_ids:
+          - C1
+        fulfillment_ids:
+          - F1
+          - F2
+        xinput:
+          form_response:
+            submission_id: 09c020de-2020-493a-b0b8-e68076fc54e3

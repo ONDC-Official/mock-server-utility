@@ -1,11 +1,11 @@
 server:
   type: BAP/BPP
   port: 5500
-  sync_mode: true
+  sync_mode: false
 security:
-  verify_sign: false
+  verify_sign: true
   lookup_uri: https://staging.registry.ondc.org/lookup
-  generate_sign: false
+  generate_sign: true
   subscriber_id: fis-seller-staging.ondc.org
   ukId: 27baa06d-f90a-486c-85e5-cc621b787f04
   publickey: oyakwnKpteF5v0m6ndqQ3o2FPyWmQ+YNhpEqI/CsZ1k=
@@ -296,3 +296,29 @@ path:
   form_insured_personal_details_submission:
     callbacks:
       $ref: ./loan/insurance/motor-insurance/forms/insured_personal_details_submission.yaml 
+
+# mutual funds forms
+  form_sip-setup: #select1-form1
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/select-form1.yaml
+  form_submission_sip-setup: 
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/select-form1-submission.yaml
+  form_lumpsumpsetup: #select1-form2
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/select-form2.yaml
+  form_lumpsumpsetup_submission:
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/select-form2.yaml
+  form_get-payment-info:
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/select2-form.yaml
+  form_submission_get-payment-info:
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/select2-form-submission.yaml
+  form_fund-agreement:
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/init-mutual-fund-agreement.yaml
+  form_submission_fund-agreement:
+    callbacks:
+      $ref: ./loan/investment/mutual-funds/forms/init-submission-mutual-fund-agreement.yaml

@@ -588,3 +588,73 @@ motor-based-insurance4:
   delay: 300
   payload:
     $ref: "./insurance/motor-insurance/template/on_select3.yaml"     
+
+
+# INVESTMENT
+mutual-funds-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MUTUAL-FUNDS"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "undefined"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./investment/mutual-funds/template/on_select-1.yaml"     
+
+
+mutual-funds-2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_MUTUAL-FUNDS"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "F01_SUBMISSION_ID"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./investment/mutual-funds/template/on_select-2.yaml"     
+

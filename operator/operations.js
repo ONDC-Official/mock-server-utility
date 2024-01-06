@@ -58,7 +58,8 @@ class ReadOperation extends Operator{
 class EqualOperation extends Operator{
     __process() {
         let flag = 0
-        const value = this?.readValue(this?.input?.value[0]?.operation?.input)
+        let value = this?.readValue(this?.input?.value[0]?.operation?.input)
+        if(value==undefined)value='undefined' //handle cases where value is not present
         if(this?.input?.value?.includes(value)){
             flag = 1
         }
@@ -137,4 +138,18 @@ class greaterORlessthan extends Operator{
     }
 }
 
-module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation, EqualOperation, AndOrOperation, equalReturn}
+class stringifybase64 extends Operator{
+    __process(){
+        this.output = new Output(this.stringify())
+        return this
+    }
+
+    stringify(){
+        let response = JSON.stringify(this.context.req_body)
+        response = Buffer.from(response, 'utf-8').toString('base64'); //convert to base64
+        return response
+    }
+}
+
+
+module.exports={GenerateUuidOperation, GenerateTmpstmpOperation, ReadOperation, EqualOperation, AndOrOperation, equalReturn,stringifybase64}

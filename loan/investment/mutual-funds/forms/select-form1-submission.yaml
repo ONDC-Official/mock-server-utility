@@ -1,0 +1,6 @@
+default:
+  callback: "undefined"
+  uri:
+    $ref: ""
+  delay: 300
+  payload: '{submission_id:F01_SUBMISSION_ID}'
