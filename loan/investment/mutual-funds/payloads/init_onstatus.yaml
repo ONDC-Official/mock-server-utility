@@ -3,6 +3,8 @@ context:
   location:
     country:
       code: IND
+    city:
+      code: '*'
   version: 2.0.0
   action: on_status
   bap_id: mutual-fund-protocol.becknprotocol.io
@@ -11,7 +13,7 @@ context:
   message_id: '{{msg_id}}'
   ttl: PT30M
   timestamp: '2023-05-25T05:23:03.443Z'
-  bpp_id: stockwiz.com
+  bpp_id: fis-seller-staging.ondc.org
   bpp_uri: '{{bpp_uri}}'
 message:
   order:
