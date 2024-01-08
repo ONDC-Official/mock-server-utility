@@ -49,10 +49,21 @@ const validateRequest = async (
   res,
   security,
   server,
-  isFormFound
+  isFormFound,
+  flag //true for not sending responses
 ) => {
   logger = log.init();
   if (isFormFound ||  await validateSchema(context)) { //if validation passes or isformtrue then onlysend response otherwise send error
+    
+    if(Array.isArray(callbackConfig.callback)){
+        let callback = callbackConfig.callback
+
+        for (let i = 0 ; i < callback.length ; i++){
+          validateRequest(context,{...callbackConfig,...{callback:callback[i]},...{payload:callbackConfig.payload[i]}},res,security,server,isFormFound,i===0?false:true)
+        }
+        return
+    }
+
     //triggering the subsequent request
     payloadConfig = callbackConfig?.payload;
     if (payloadConfig != null) {
@@ -71,7 +82,7 @@ const validateRequest = async (
 
         res.setHeader("Authorization", header);
       }
-      if (callbackConfig.callback === "undefined"|| server.sync_mode) {
+      if (callbackConfig.callback === "undefined"|| server.sync_mode  && !flag ) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);
       } else {
@@ -79,12 +90,12 @@ const validateRequest = async (
         logger.info(`Callback for this request: ${callbackConfig.callback}`);
         trigger(context, callbackConfig, data,security);
       }
-      return res.json(ack);
+      return !flag?res.json(ack):false
     } 
   }
   else {
       schemaNack.error.path = JSON.stringify(error_list)
-      return res.json(schemaNack);
+      return !flag?res.json(schemaNack):false
     }
   }
 

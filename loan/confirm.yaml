@@ -165,12 +165,14 @@ mutual-funds-1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MUTUAL-FUNDS"
-          
-  callback: "on_confirm"
+                  - "ITEM_ID_1_MUTUAL-FUNDS"   
+  callback: 
+    - "on_confirm"
+    - "on_update"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./investment/mutual-funds/template/on_confirm.yaml"    
+    - $ref: "./investment/mutual-funds/template/on_confirm.yaml"
+    - $ref: "./investment/mutual-funds/template/on_update.yaml"
 

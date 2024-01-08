@@ -17,7 +17,7 @@ context:
   bpp_uri: '{{bpp_uri}}'
 message:
   order:
-    id: O1
+    id: MUTUAL_FUNDS_ORDERID
     provider:
       id: P1
       descriptor:

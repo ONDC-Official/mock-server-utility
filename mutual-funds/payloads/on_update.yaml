@@ -15,7 +15,7 @@ context:
   bpp_uri: '{{bpp_uri}}'
 message:
   order:
-    id: O1
+    id: MUTUAL_FUNDS_ORDERID
     provider:
       id: P1
       descriptor:
@@ -26,7 +26,7 @@ message:
         name: HDFC Midcap Opportunities Fund
         short_desc: HDFC Midcap Opportunities Fund
     items:
-      - id: I1
+      - id: ITEM_ID_1_MUTUAL-FUNDS
         descriptor:
           name: HDFC Midcap Opportunities Fund - SIP
           code: SIP

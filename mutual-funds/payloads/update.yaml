@@ -16,11 +16,11 @@ context:
 message:
   update_target: ''
   order:
-    id: O1
+    id: MUTUAL_FUNDS_ORDERID
     provider:
       id: P1
     items:
-      - id: I1
+      - id: ITEM_ID_1_MUTUAL-FUNDS
         category_ids:
           - C1
         fulfillment_ids:
