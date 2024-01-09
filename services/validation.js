@@ -54,12 +54,10 @@ const validateRequest = async (
 ) => {
   logger = log.init();
   if (isFormFound ||  await validateSchema(context)) { //if validation passes or isformtrue then onlysend response otherwise send error
-    
-    if(Array.isArray(callbackConfig.callback)){
-        let callback = callbackConfig.callback
-
-        for (let i = 0 ; i < callback.length ; i++){
-          validateRequest(context,{...callbackConfig,...{callback:callback[i]},...{payload:callbackConfig.payload[i]}},res,security,server,isFormFound,i===0?false:true)
+    //handle callbacks in case of multiple callback
+    if(callbackConfig.callbacks){
+        for (let i = 0 ; i < callbackConfig.callbacks.length ; i++){
+          validateRequest(context,callbackConfig.callbacks[i],res,security,server,isFormFound,i===0?false:true)
         }
         return
     }
