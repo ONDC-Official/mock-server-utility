@@ -78,7 +78,7 @@ const validateRequest = async (
           bapUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
         });
 
-        res.setHeader("Authorization", header);
+        if(!flag){res.setHeader("Authorization", header);}
       }
       if (callbackConfig.callback === "undefined"|| server.sync_mode  && !flag ) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);

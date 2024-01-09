@@ -40,7 +40,7 @@ message:
           id: FO4
           form_response:
             status: SUCCESS
-            submission_id: F03_SUBMISSION_ID
+            submission_id: F04_SUBMISSION_ID
         tags:
           - descriptor:
               name: Fund Information
