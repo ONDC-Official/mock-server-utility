@@ -9,12 +9,12 @@ properties:
         description: >-
           Unique id of the BAP. By default it is the fully qualified domain name
           of the BAP
-      bap_uri:
+      bpp_uri:
         type: string
         format: uri
         description: >-
-          URI of the BAP for accepting callbacks. Must have the same domain name
-          as the bap_id
+          URI of the BPP for accepting callbacks. Must have the same domain name
+          as the bpp_id
     required:
       - bap_id
-      - bap_uri
+      - bpp_uri

@@ -160,7 +160,18 @@ Response
   > Deployed URL: https://rsf-mock-service.ondc.org/push_receiver_recon
 - The receiver is expected to respond with an on_receiver_recon callback
 
-### Considerations (for mock server stubs only)
+### Example
+
+Request (push_receiver_recon)
+```json
+{
+    "context":{
+        "bpp_uri":"https://c102-115-240-127-98.ngrok-free.app",
+        "bap_id":"rsf-mock-service.ondc.org"
+    }
+}
+```
+### Points to remember (for mock server stubs only)
 
 1. The settle call expects 5 settlement objects to function properly.
 2. The receiver recon expects 5 order objects to function properly.

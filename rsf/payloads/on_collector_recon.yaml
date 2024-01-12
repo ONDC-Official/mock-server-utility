@@ -22,7 +22,7 @@ message:
         invoice_no: 2023/XYZ/12346-3
         diff_amount:
           value: '0'
-          currency: ''
+          currency: 'INR'
         recon_status: '01'
         settlement_id: LcQnCmN9HUJl9J
         transaction_id: '{{transaction_id}}'
@@ -79,7 +79,7 @@ message:
         invoice_no: 2023/XYZ/12346-20
         diff_amount:
           value: '0'
-          currency: ''
+          currency: 'INR'
         recon_status: '01'
         settlement_id: LcQnCmRuHoPSxZ
         transaction_id: '{{transaction_id}}'

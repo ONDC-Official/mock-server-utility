@@ -4,7 +4,7 @@ server:
   sync_mode: false
 security:
   verify_sign: true
-  lookup_uri: https://staging.registry.ondc.org/lookup
+  lookup_uri: https://preprod.registry.ondc.org/ondc/lookup
   generate_sign: true
   subscriber_id: mock-api-service
   ukId: 584
@@ -63,4 +63,4 @@ path:
     schema:
       $ref: ./rsf/schema/receiver_recon_dummy.yaml
     callbacks:
-      $ref: ./rsf/push_receiver_recon.yaml   
+      $ref: ./rsf/push_receiver_recon.yaml  

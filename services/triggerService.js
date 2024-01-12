@@ -10,7 +10,7 @@ var logger;
 
 const trigger = async(context, config, data,security) => {
   logger = log.init();
-  let uri = context.req_body.context.bap_uri
+  let uri = (["on"].includes(config.callback.split('_')[0])|| undefined)?context.req_body.context.bap_uri:context.req_body.context.bpp_uri
   let api = config.callback;
   let delay = config.delay;
   if(uri[uri.length-1]!="/"){ //"add / if not exists in bap uri"
