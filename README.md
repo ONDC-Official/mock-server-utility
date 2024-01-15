@@ -156,7 +156,7 @@ Response
 
 ### Mock Service for Receiver
 
-- The Receiver triggers the endpoint /push_receiver_recon to receive /receiver_recon on the bap_uri provided in the payload.
+- The Receiver triggers the endpoint /push_receiver_recon to receive /receiver_recon on the bpp_uri provided in the payload.
   > Deployed URL: https://rsf-mock-service.ondc.org/push_receiver_recon
 - The receiver is expected to respond with an on_receiver_recon callback
 
@@ -167,7 +167,7 @@ Request (push_receiver_recon)
 {
     "context":{
         "bpp_uri":"https://c102-115-240-127-98.ngrok-free.app",
-        "bap_id":"rsf-mock-service.ondc.org"
+        "bpp_id":"rsf-mock-service.ondc.org"
     }
 }
 ```

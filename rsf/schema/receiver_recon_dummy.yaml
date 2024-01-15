@@ -4,11 +4,11 @@ properties:
     description: Describes a beckn message context
     type: object
     properties:
-      bap_id:
+      bpp_id:
         type: string
         description: >-
-          Unique id of the BAP. By default it is the fully qualified domain name
-          of the BAP
+          Unique id of the bpp. By default it is the fully qualified domain name
+          of the bpp
       bpp_uri:
         type: string
         format: uri
@@ -16,5 +16,5 @@ properties:
           URI of the BPP for accepting callbacks. Must have the same domain name
           as the bpp_id
     required:
-      - bap_id
+      - bpp_id
       - bpp_uri
