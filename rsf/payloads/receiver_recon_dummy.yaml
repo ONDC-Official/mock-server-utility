@@ -3,7 +3,7 @@ context:
   ttl: P2D
   city: "*"
   action: receiver_recon
-  bap_id: abc.collectorapp.com
+  bap_id: '{{bap_id}}'
   bpp_id: rsf-mock-service.ondc.org
   domain: ONDC:NTS10
   bap_uri: https://yourcallbackurl/

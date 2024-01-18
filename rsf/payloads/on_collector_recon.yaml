@@ -2,14 +2,14 @@ context:
   ttl: P3D
   city: '*'
   action: on_collector_recon
-  bap_id: abc.collectorapp.com
+  bap_id: '{{bap_id}}'
   bpp_id: rsf-mock-service.ondc.org
   domain: '{{domain}}'
   bap_uri: '{{bap_uri}}'
   bpp_uri: '{{bpp_uri}}'
   country: IND
-  timestamp: '2023-04-11T12:44:56.399Z'
-  message_id: '{{msg_id}}'
+  timestamp: '{{timestamp}}'
+  message_id: '{{message_id}}'
   core_version: 1.0.0
   transaction_id: '{{transaction_id}}'
 message:
