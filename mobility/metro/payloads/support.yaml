@@ -1,0 +1,19 @@
+context:
+  location:
+    country:
+      code: IND
+    city:
+      code: std:011
+  domain: '{{domain}}'
+  action: support
+  version: 2.0.0
+  bap_id: api.example-bap.com
+  bap_uri: '{{bap_uri}}'
+  bpp_id: api.example-bpp.com
+  bpp_uri: '{{bpp_uri}}'
+  transaction_id: '{{transaction_id}}'
+  message_id: '{{msg_id}}'
+  timestamp: '2021-03-23T10:00:40.065Z'
+  ttl: PT30S
+message:
+  ref_id: 6f339232-2bc3-44d2-915c-30d2b053ce1d

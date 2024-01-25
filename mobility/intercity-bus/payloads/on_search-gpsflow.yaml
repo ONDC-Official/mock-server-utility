@@ -1,0 +1,39 @@
+context:
+  location:
+    country:
+      code: IND
+  domain: '{{domain}}'
+  timestamp: '2023-09-03T01:55:08.143Z'
+  bap_id: example-bap.com
+  bap_uri: '{{bap_uri}}'
+  bpp_id: api.transit-solutions.com
+  bpp_uri: '{{bpp_uri}}'
+  transaction_id: '{{transaction_id}}'
+  message_id: '{{msg_id}}'
+  version: 2.0.0
+  action: on_search
+  ttl: PT30S
+message:
+  intent:
+    fulfillment:
+      stops:
+      - type: START
+        location:
+          gps: 12.979759, 77.590427
+        time:
+          label: DATE_OF_JOURNEY
+          timestamp: '2023-09-06T00:00:00.000Z'
+      - type: END
+        location:
+          gps: 17.399832, 78.471200
+      vehicle:
+        category: BUS
+    payment:
+      tags:
+      - descriptor:
+          code: BUYER_FINDER_FEES
+        display: false
+        list:
+        - descriptor:
+            code: BUYER_FINDER_FEES_PERCENTAGE
+          value: '1'

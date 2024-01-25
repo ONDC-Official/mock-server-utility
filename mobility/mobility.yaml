@@ -1,0 +1,53 @@
+server:
+  type: BAP/BPP
+  port: 5500
+  sync_mode: true
+security:
+  verify_sign: false
+  lookup_uri: http://localhost:3000/lookup
+  generate_sign: false
+  subscriber_id: mock-api-service
+  ukId: 584
+  publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
+  privatekey: >-
+    dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  search:
+    schema:
+      $ref: ./mobility/default/schema/search.yaml
+    callbacks:
+      $ref: ./mobility/search.yaml
+  select:
+    schema:
+      $ref: ./mobility/default/schema/select.yaml
+    callbacks:
+      $ref: ./mobility/select.yaml
+  init:
+    schema:
+      $ref: ./mobility/default/schema/init.yaml
+    callbacks:
+      $ref: ./mobility/init.yaml
+  confirm:
+    schema:
+      $ref: ./mobility/default/schema/confirm.yaml
+    callbacks:
+      $ref: ./mobility/confirm.yaml
+  cancel:
+    schema:
+      $ref: ./mobility/default/schema/cancel.yaml
+    callbacks:
+      $ref: ./mobility/cancel.yaml
+  status:
+    schema:
+      $ref: ./mobility/default/schema/status.yaml
+    callbacks:
+      $ref: ./mobility/status.yaml
+  update:
+    schema:
+      $ref: ./mobility/default/schema/update.yaml
+    callbacks:
+      $ref: ./mobility/update.yaml

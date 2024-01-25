@@ -1,0 +1,75 @@
+default:
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/on_update.yaml"
+
+intercity-bus:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - ORDER_ID_1_INTERCITY
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV13"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./intercity-bus/template/on_update.yaml"
+
+metro:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - ORDER_ID_1_METRO
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV11"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./metro/template/on_update.yaml"
+
+    
