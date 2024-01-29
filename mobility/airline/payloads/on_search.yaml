@@ -523,4 +523,4 @@ message:
                     value: New Delhi
                   - descriptor:
                       code: STATIC_TERMS
-                    value: https://api.example-bpp.com/booking/terms
+                    value: https://mobility-staging.ondc.org/booking/terms
