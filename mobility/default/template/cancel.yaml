@@ -2,8 +2,8 @@ template:
     data:
       $ref: "../payloads/cancel.yaml"
     dict:
-      bpp_uri: https://fis-seller-staging.ondc.org/
-      bpp_id: fis-seller-staging.ondc.org
+      bpp_uri: https://mobility-staging.ondc.org/seller/
+      bpp_id: mobility-staging.ondc.org
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
       bap_id:
