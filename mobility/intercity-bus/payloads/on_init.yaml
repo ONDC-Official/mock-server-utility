@@ -9,7 +9,7 @@ context:
   bpp_id: api.transit-solutions.com
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
-  message_id: '{{msg_id}}'
+  message_id: '{{message_id}}'
   version: 2.0.0
   action: on_init
   ttl: PT30S
