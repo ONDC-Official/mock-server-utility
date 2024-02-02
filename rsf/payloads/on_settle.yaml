@@ -20,8 +20,8 @@ message:
           value: '790'
           currency: INR
         curr_type: INR
-        error_code: ''
-        error_message: ''
+        # error_code: ''
+        # error_message: ''
         settlement_id: '{{settlement_id1}}'
         settlement_reference_no: '{{random_uuid}}'
       - state: '01'
@@ -29,8 +29,8 @@ message:
           value: '750'
           currency: INR
         curr_type: INR
-        error_code: ''
-        error_message: ''
+        # error_code: ''
+        # error_message: ''
         settlement_id: '{{settlement_id2}}'
         settlement_reference_no: '{{random_uuid}}'
       - state: '01'
@@ -38,8 +38,8 @@ message:
           value: '950'
           currency: INR
         curr_type: INR
-        error_code: ''
-        error_message: ''
+        # error_code: ''
+        # error_message: ''
         settlement_id: '{{settlement_id3}}'
         settlement_reference_no: '{{random_uuid}}'
       - state: '01'
@@ -47,8 +47,8 @@ message:
           value: '750'
           currency: INR
         curr_type: INR
-        error_code: ''
-        error_message: ''
+        # error_code: ''
+        # error_message: ''
         settlement_id: '{{settlement_id4}}'
         settlement_reference_no: '{{random_uuid}}'
       - state: '01'
@@ -56,7 +56,7 @@ message:
           value: '750'
           currency: INR
         curr_type: INR
-        error_code: ''
-        error_message: ''
+        # error_code: ''
+        # error_message: ''
         settlement_id: '{{settlement_id5}}'
         settlement_reference_no: '{{random_uuid}}'
