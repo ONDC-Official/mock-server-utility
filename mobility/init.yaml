@@ -32,7 +32,7 @@ intercity-bus:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV13"
+                    - "ONDC:TRV12"
   callback: "on_init"
   uri:
     $ref: ""

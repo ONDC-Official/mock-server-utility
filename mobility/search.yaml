@@ -41,7 +41,7 @@ intercity-bus-station-code2:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV13"
+                    - "ONDC:TRV12"
           - operation:
               type: EQUAL
               title: Check search message code
@@ -95,7 +95,7 @@ intercity-bus-station-code1:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV13"
+                    - "ONDC:TRV12"
   callback: "on_search"
   uri:
     $ref: ""
@@ -128,7 +128,7 @@ intercity-bus-station-code3:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV13"
+                    - "ONDC:TRV12"
   callback: "on_search"
   uri:
     $ref: ""
@@ -164,7 +164,7 @@ intercity-bus-gps1:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV13"
+                    - "ONDC:TRV12"
           - operation:
               type: EQUAL
               title: Check search message code
@@ -208,7 +208,7 @@ intercity-bus-gps2:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV13"
+                    - "ONDC:TRV12"
           - operation:
               type: EQUAL
               title: Check search message code
