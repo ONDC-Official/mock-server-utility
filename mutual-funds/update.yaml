@@ -1,7 +1,0 @@
-default:
-  callback: "on_update"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./template/on_update.yaml"
