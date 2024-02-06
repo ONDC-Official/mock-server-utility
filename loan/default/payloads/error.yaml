@@ -1,0 +1,7 @@
+message:
+  ack:
+    status: NACK
+error:
+  code: '20001'
+  path: string
+  message: Given input does not match any mock input conditions

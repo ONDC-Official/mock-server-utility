@@ -4,7 +4,7 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/on_confirm.yaml"
+    $ref: "./default/template/error.yaml"
 
 personal-loan:
   condition:
@@ -36,13 +36,21 @@ invoice-based-loans:
               type: READ
               input:
                 value: "req_body.message.order.items.0.id"
-          - "item_id_1_invoice-based-loan"
-  callback: "on_confirm"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/invoice-based-loans/template/on_confirm.yaml"
+          - "CHILD_ITEM_ID_INVOICE_LOAN"
+  callbacks: 
+    - callback: "on_confirm"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/invoice-based-loans/template/on_confirm.yaml"
+    - callback: "on_update"
+      uri: 
+        ""
+      delay: 
+        500
+      payload: 
+        $ref: "./loan/invoice-based-loans/template/on_update_confirm.yaml"      
+
 
 health-based-insurance:
   condition:

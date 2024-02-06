@@ -1,19 +1,18 @@
 context:
-  domain: ONDC:FIS12
+  domain: '{{domain}}'
   location:
     country:
       code: IND
     city:
-      code: "*"
-  
-  version: 2.0.0
+      code: '{{city_code}}'
+  version: 2.1.0
   action: on_search
-  bap_id: credit-protocol.becknprotocol.io
+  bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
   ttl: PT30M
-  timestamp: '2023-05-25T05:23:03.443Z'
+  timestamp: '{{timestamp}}'
   bpp_id: fis-seller-staging.ondc.org
   bpp_uri: '{{bpp_uri}}'
 message:
@@ -32,18 +31,18 @@ message:
       categories:
       - id: '101123'
         descriptor:
-          code: PERSONAL_LOAN
-          name: Personal Loan
+          code: INVOICE_BASED_LOAN
+          name: Invoice based loan
       items:
-      - id: ITEM_ID_1_PERSONAL-LOAN
+      - id: ITEM_ID_INVOICE_LOAN
         descriptor:
-          code: PERSONAL_LOAN
-          name: Personal Loan
+          code: INVOICE_BASED_LOAN
+          name: Invoice based Loan
         category_ids:
         - '101123'
         tags:
         - descriptor:
-            code: general-info
+            code: GENERAL_INFO
             name: General Information
           list:
           - descriptor:
@@ -88,12 +87,12 @@ message:
               cur: 0
               max: 0
             headings:
-            - Personal Information
+            - Organization Information
           form:
             id: F01
             mime_type: text/html
             url: >-
-                  {{bpp_uri}}form/personal-loan/personal-info
+              {{bpp_uri}}form/invoice-loan/org-form
             resubmit: false
             multiple_sumbissions: false
           required: true
@@ -116,7 +115,7 @@ message:
           list:
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT30D
+            value: PT60M
           - descriptor:
               code: SETTLEMENT_BASIS
             value: INVOICE_RECEIPT
@@ -128,7 +127,7 @@ message:
             value: New Delhi
           - descriptor:
               code: STATIC_TERMS
-            value: https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
+            value: https://bpp.credit.becknprotocol.org/personal-banking/loans/invoice-based-loan
       tags:
       - descriptor:
           code: CONTACT_INFO
@@ -158,3 +157,24 @@ message:
             code: CUSTOMER_SUPPORT_EMAIL
             name: Customer support email
           value: customer.care@icicibank.com
+      - descriptor:
+          code: LSP_INFO
+          name: Lsp Info
+        list:
+        - descriptor:
+            code: LSP_NAME
+            name: Lsp name
+          value: ICICI_LSP
+        - descriptor:
+            code: LSP_EMAIL
+            name: Lsp email
+          value: lsp@iciciprulife.com
+        - descriptor:
+            code: LSP_CONTACT_NUMBER
+            name: Lsp contact number
+          value: 1860 266 7766
+        - descriptor:
+            code: LSP_ADDRESS
+            name: Lsp Address
+          value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound
+            841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013

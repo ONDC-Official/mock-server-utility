@@ -1,20 +1,20 @@
 context:
-  domain: ONDC:FIS12
+  domain: '{{domain}}'
   location:
     country:
       code: IND
     city:
       code: '{{city_code}}'
-  version: 2.0.0
+  version: 2.1.0
   action: on_init
   bap_uri: '{{bap_uri}}'
-  bap_id: credit-protocol.becknprotocol.io
-  bpp_id: fis-seller-staging.ondc.org
+  bap_id: '{{bap_id}}'
+  bpp_id: bpp.credit.becknprotocol.org
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
   ttl: PT10M
-  timestamp: '2023-05-25T05:23:03.443Z'
+  timestamp: '{{timestamp}}'
 message:
   order:
     provider:
@@ -27,7 +27,8 @@ message:
         short_desc: ICICI Bank Ltd
         long_desc: ICICI Bank Ltd, India.
     items:
-    - id: '{{item_id}}'
+    - id: CHILD_ITEM_ID_INVOICE_LOAN
+      parent_item_id: ITEM_ID_INVOICE_LOAN
       descriptor:
         code: INVOICE_BASED_LOAN
         name: 'Invoice Based Loan Offer: INR 2,00,000'
@@ -36,7 +37,7 @@ message:
         value: '231800'
       tags:
       - descriptor:
-          code: loan-info
+          code: LOAN_INFO
           name: Loan Information
         list:
         - descriptor:
@@ -73,6 +74,11 @@ message:
             short_desc: Delayed payments penalty
           value: 5%
         - descriptor:
+            code: OTHER_PENALTY_FEE
+            name: Other Penal Charges
+            short_desc: Other Penal Charges
+          value: 1%
+        - descriptor:
             code: TNC_LINK
             name: Terms & Conditions
             short_desc: Terms and Conditions
@@ -99,22 +105,26 @@ message:
           multiple_sumbissions: false
         required: true
     quote:
-      id: b469bb12-9f67-4898-8f39-ea7816f54289
+      id: LOAN_LEAD_ID_OR_SIMILAR
       price:
         currency: INR
         value: '231800'
       breakup:
-      - title: Principal
+      - title: PRINCIPAL
         price:
           value: '200000'
           currency: INR
-      - title: Interest
+      - title: INTEREST
         price:
           value: '30000'
           currency: INR
-      - title: Processing fee
+      - title: PROCESSING_FEE
         price:
           value: '1800'
+          currency: INR
+      - title: OTHER_CHARGES
+        price:
+          value: '0'
           currency: INR
     fulfillments:
     - customer:
@@ -133,7 +143,8 @@ message:
           code: INITIATED
           name: Loan Initiated
     payments:
-    - type: ON_ORDER
+    - id: PAYMENT_ID_INVOICE_LOAN
+      type: ON_ORDER
       status: NOT-PAID
       collected_by: BPP
       tags:

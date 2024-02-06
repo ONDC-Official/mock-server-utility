@@ -959,7 +959,7 @@ properties:
                             - PRE-FULFILLMENT
                             - ON-FULFILLMENT
                             - POST-FULFILLMENT
-                            - ON-ORDER
+                            - ON_ORDER
                         status:
                           type: string
                           enum:

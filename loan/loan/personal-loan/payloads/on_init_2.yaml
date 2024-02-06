@@ -19,7 +19,7 @@ context:
 message:
   order:
     provider:
-      id: PROVIDER_ID
+      id: '1'
       descriptor:
         images:
         - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png

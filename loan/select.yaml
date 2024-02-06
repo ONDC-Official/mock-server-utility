@@ -4,7 +4,7 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/on_select.yaml"
+    $ref: "./default/template/error.yaml"
 
 
 personal-loan-form1:
@@ -128,6 +128,7 @@ personal-loan-form3:
   delay: 300
   payload:
     $ref: "./loan/personal-loan/template/on_select_form3.yaml"
+
 #invoice based on select responses
 invoice-based-loans_on_select1:
   condition:
@@ -144,28 +145,17 @@ invoice-based-loans_on_select1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.status"
-                    - "SUCCESS"
-          
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput"
+                  - "undefined"
   callback: "on_select"
   uri:
     $ref: ""
@@ -188,18 +178,17 @@ invoice-based-loans_on_select2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
-          
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F02_SUBMISSION_ID"
   callback: "on_select"
   uri:
     $ref: ""
@@ -207,39 +196,6 @@ invoice-based-loans_on_select2:
   payload:
     $ref: "./loan/invoice-based-loans/template/on_select_2.yaml"
 
-invoice-based-loans_on_select3:
-  condition:
-      operation:
-        type: AND
-        input:
-          value:
-          - operation:
-              type: EQUAL
-              title: Check select message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"
-          
-  callback: "on_select"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/invoice-based-loans/template/on_select_3.yaml"
 
 #invoice based on select responses
 

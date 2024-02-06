@@ -4,7 +4,7 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/on_init.yaml"
+    $ref: "./default/template/error.yaml"
 
 personal-loan_1:
   condition:
@@ -152,7 +152,7 @@ invoice-based-loans_1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code
@@ -162,8 +162,17 @@ invoice-based-loans_1:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
-
+                    - "F03_SUBMISSION_ID"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
   callback: "on_init"
   uri:
     $ref: ""
@@ -186,7 +195,7 @@ invoice-based-loans_2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code
@@ -196,8 +205,17 @@ invoice-based-loans_2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"
-
+                    - "F04_SUBMISSION_ID"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
   callback: "on_init"
   uri:
     $ref: ""
@@ -220,7 +238,7 @@ invoice-based-loans_3:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code
@@ -230,8 +248,17 @@ invoice-based-loans_3:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form3_submissionid"
-
+                    - "F05_SUBMISSION_ID"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
   callback: "on_init"
   uri:
     $ref: ""
@@ -254,7 +281,7 @@ invoice-based-loans_4:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "item_id_1_invoice-based-loan"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
            - operation:
                 type: EQUAL
                 title: Check search message code
@@ -264,8 +291,17 @@ invoice-based-loans_4:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form4_submissionid"
-
+                    - "F06_SUBMISSION_ID"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
   callback: "on_init"
   uri:
     $ref: ""

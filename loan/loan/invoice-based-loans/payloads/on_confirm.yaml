@@ -1,23 +1,23 @@
 context:
-  domain: ONDC:FIS12
+  domain: '{{domain}}'
   location:
     country:
       code: IND
     city:
       code: '{{city_code}}'
-  version: 2.0.0
+  version: 2.1.0
   action: on_confirm
   bap_uri: '{{bap_uri}}'
-  bap_id: credit-protocol.becknprotocol.io
-  bpp_id: fis-seller-staging.ondc.org
+  bap_id: '{{bap_id}}'
+  bpp_id: bpp.credit.becknprotocol.org
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
   ttl: PT10M
-  timestamp: '2023-05-25T05:23:03.443Z'
+  timestamp: '{{timestamp}}'
 message:
   order:
-    id: order_id_1_invoice-based-loan
+    id: ORDER_ID_INVOICE-BASED-LOAN
     provider:
       id: '1'
       descriptor:
@@ -45,6 +45,15 @@ message:
             name: Gro contact number
           value: 1860 266 7766
         - descriptor:
+            code: GRO_DESIGNATION
+            name: Gro Designation
+          value: Nodal Grievance Redressal Officer
+        - descriptor:
+            code: GRO_ADDRESS
+            name: Gro Address
+          value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound
+            841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+        - descriptor:
             code: CUSTOMER_SUPPORT_LINK
             name: Customer support link
           value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
@@ -56,8 +65,30 @@ message:
             code: CUSTOMER_SUPPORT_EMAIL
             name: Customer support email
           value: customer.care@icicibank.com
+      - descriptor:
+          code: LSP_INFO
+          name: Lsp Info
+        list:
+        - descriptor:
+            code: LSP_NAME
+            name: Lsp name
+          value: ICICI_LSP
+        - descriptor:
+            code: LSP_EMAIL
+            name: Lsp email
+          value: lsp@iciciprulife.com
+        - descriptor:
+            code: LSP_CONTACT_NUMBER
+            name: Lsp contact number
+          value: 1860 266 7766
+        - descriptor:
+            code: LSP_ADDRESS
+            name: Lsp Address
+          value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound
+            841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
     items:
-    - id: '{{item_id}}'
+    - id: CHILD_ITEM_ID_INVOICE_LOAN
+      parent_item_id: ITEM_ID_INVOICE_LOAN
       descriptor:
         code: INVOICE_BASED_LOAN
         name: 'Invoice Based Loan Offer: INR 2,00,000'
@@ -66,7 +97,7 @@ message:
         value: '231800'
       tags:
       - descriptor:
-          code: loan-info
+          code: LOAN_INFO
           name: Loan Information
         list:
         - descriptor:
@@ -103,28 +134,37 @@ message:
             short_desc: Delayed payments penalty
           value: 5%
         - descriptor:
+            code: OTHER_PENALTY_FEE
+            name: Other Penal Charges
+            short_desc: Other Penal Charges
+          value: 1%
+        - descriptor:
             code: TNC_LINK
             name: Terms & Conditions
             short_desc: Terms and Conditions
           value: https://bpp.credit.becknprotocol.org/loan/tnc.html
         display: true
     quote:
-      id: b469bb12-9f67-4898-8f39-ea7816f54289
+      id: LOAN_LEAD_ID_OR_SIMILAR
       price:
         currency: INR
         value: '231800'
       breakup:
-      - title: Principal
+      - title: PRINCIPAL
         price:
           value: '200000'
           currency: INR
-      - title: Interest
+      - title: INTEREST
         price:
           value: '30000'
           currency: INR
-      - title: Processing fee
+      - title: PROCESSING_FEE
         price:
           value: '1800'
+          currency: INR
+      - title: OTHER_CHARGES
+        price:
+          value: '0'
           currency: INR
       ttl: PT15D
     fulfillments:
@@ -143,7 +183,8 @@ message:
         descriptor:
           code: SANCTIONED
     payments:
-    - type: ON_ORDER
+    - id: PAYMENT_ID_INVOICE_LOAN
+      type: ON_ORDER
       status: NOT-PAID
       collected_by: BPP
       tags:
@@ -180,52 +221,57 @@ message:
             code: SETTLEMENT_AMOUNT
           value: '1159'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_INVOICE_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 1
+        label: INSTALLMENT
         range:
           start: '2023-06-01T00:00:00.000Z'
           end: '2023-06-30T23:59:59.999Z'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_INVOICE_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 2
+        label: INSTALLMENT
         range:
           start: '2023-07-01T00:00:00.000Z'
           end: '2023-07-31T00:23:59.999'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_INVOICE_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 3
+        label: INSTALLMENT
         range:
           start: '2023-08-01T00:00:00.000Z'
           end: '2023-08-31T00:23:59.999'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_INVOICE_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 4
+        label: INSTALLMENT
         range:
           start: '2023-09-01T00:00:00.000Z'
           end: '2023-09-30T00:23:59.999Z'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_INVOICE_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 5
+        label: INSTALLMENT
         range:
           start: '2023-10-01T00:00:00.000Z'
           end: '2023-10-31T00:23:59.999'

@@ -33,10 +33,12 @@ const SUB_INSTRUCTION_FOLDERS = [
     bap_uri: "bap_uri",
     bpp_uri: "bpp_uri",
     city: "city_code",
-    message_id: "msg_id",
+    message_id: "message_id",
     country: "country",
     domain: "domain",
-    transaction_id: "transaction_id"
+    transaction_id: "transaction_id",
+    timestamp:"timestamp",
+    bap_id:"bap_id"
   };
 
   module.exports = {SUB_INSTRUCTION_FOLDERS, template_paths,allowedAttributes}

@@ -1328,7 +1328,6 @@ properties:
                                         type: string
                                       submission_id:
                                         type: string
-                                        format: uuid
                                       errors:
                                         type: array
                                         items:

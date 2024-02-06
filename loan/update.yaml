@@ -4,7 +4,7 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/on_update.yaml"
+    $ref: "./default/template/error.yaml"
 
 personal-loan1:
   condition:
@@ -53,10 +53,10 @@ invoice-based-loans1:
       input:
         value:
           - operation:
-              type: READ
+              type: READa9aaecca-10b7-4d19-b640-b047a7c62196
               input:
                 value: "req_body.message.order.id"
-          - "order_id_1_invoice-based-loan"
+          - "ORDER_ID_INVOICE-BASED-LOAN"
   callback: "on_update"
   uri:
     $ref: ""
@@ -64,24 +64,24 @@ invoice-based-loans1:
   payload:
     $ref: "./loan/invoice-based-loans/template/on_update_1.yaml"
 
-invoice-based-loans2:
-  condition:
-    operation:
-      type: EQUAL
-      title: Check update message code
-      input:
-        value:
-          - operation:
-              type: READ
-              input:
-                value: "req_body.message.order.id"
-          - "order_id_2_invoice-based-loan"
-  callback: "on_update"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/invoice-based-loans/template/on_update_2.yaml"
+# invoice-based-loans2:
+#   condition:
+#     operation:
+#       type: EQUAL
+#       title: Check update message code
+#       input:
+#         value:
+#           - operation:
+#               type: READ
+#               input:
+#                 value: "req_body.message.order.id"
+#           - "order_id_2_invoice-based-loan"
+#   callback: "on_update"
+#   uri:
+#     $ref: ""
+#   delay: 300
+#   payload:
+#     $ref: "./loan/invoice-based-loans/template/on_update_2.yaml"
 
 invoice-based-loans3:
   condition:
