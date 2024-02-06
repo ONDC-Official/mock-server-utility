@@ -4,7 +4,7 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/on_select.yaml"
+    $ref: "./default/template/error.yaml"
 
 
 intercity-bus:
