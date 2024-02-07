@@ -28,7 +28,7 @@ message:
             quantity:
               selected:
                 count: 1
-        id: I1
+        id: CHILD_ITEM_ID_I1
         xinput:
           form_response:
             status: SUCCESS

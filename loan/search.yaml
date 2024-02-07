@@ -190,7 +190,50 @@ invoice-based-loans-3:
   payload:
     $ref: "./loan/invoice-based-loans/template/on_search_3.yaml"
 
-health-based-insurance:
+health-based-insurance_1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.intent.category.descriptor.code"
+                  - HEALTH_INSURANCE
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS13"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.provider"
+                    - "undefined"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/health-insurance/template/on_search_1.yaml"    
+
+health-based-insurance_2:
   condition:
       operation:
         type: AND
@@ -221,7 +264,7 @@ health-based-insurance:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/health-insurance/template/on_search.yaml"    
+    $ref: "./insurance/health-insurance/template/on_search_2.yaml"  
 
 marine-based-insurance:
   condition:

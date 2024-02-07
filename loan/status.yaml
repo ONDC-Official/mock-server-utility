@@ -114,7 +114,7 @@ health-based-insurance:
               type: READ
               input:
                 value: "req_body.message.ref_id"
-          - "HEALTH4ee-d892-400f-bbe6-479a43b4448a"
+          - "c04a04ee-d892-400f-bbe6-479a43b4448a"
   callback: "on_status"
   uri:
     $ref: ""

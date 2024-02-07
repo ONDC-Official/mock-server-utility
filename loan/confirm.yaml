@@ -67,7 +67,7 @@ health-based-insurance:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_HEALTH-INSURANCE"
+                  - "CHILD_ITEM_ID_I1"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -77,8 +77,7 @@ health-based-insurance:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
-          
+                    - "F07_SUBMISSION_ID"
   callback: "on_confirm"
   uri:
     $ref: ""

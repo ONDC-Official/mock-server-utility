@@ -37,7 +37,7 @@ message:
         descriptor:
           name: ABC Individaul Health Insurance Policy
           short_desc: ABC Individaul Health Insurance Class A with custom addon
-        id: "ITEM_ID_1_HEALTH-INSURANCE"
+        id: "parent_item_id: ITEM_ID_1_HEALTH-INSURANCE"
         price:
           value: '1000'
         tags:
@@ -78,7 +78,7 @@ message:
         time:
           duration: P1Y
           label: TENURE
-    id: O1
+    id: ORDER_ID_1_HEALTH-INSURANCE
     payments:
       - collected_by: BPP
         params:
@@ -178,4 +178,4 @@ message:
             date of birth, and XXXX represents the first four letters of your
             name
         mime_type: application/pdf
-        url: https://abcinsurance.com/policies/O1.pdf
+        url: https://abcinsurance.com/policies/ORDER_ID_1_HEALTH-INSURANCE.pdf

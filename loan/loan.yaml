@@ -86,6 +86,13 @@ path:
   #     $ref: ./loan/default/schema/on_support.yaml
   #   callbacks:
   #     $ref: ./loan/default/on_support.yaml
+  cancel:
+    schema:
+      type: object
+
+      # $ref: ./loan/default/schema/cancel.yaml
+    callbacks:
+      $ref: ./loan/cancel.yaml
   form_personal-loan_personal-info:
     callbacks:
       $ref: ./loan/loan/personal-loan/forms/form_personal-info.yaml
