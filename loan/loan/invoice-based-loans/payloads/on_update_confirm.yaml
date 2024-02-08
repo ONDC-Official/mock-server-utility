@@ -10,7 +10,7 @@ context:
   action: on_init
   bap_uri: '{{bap_uri}}'
   bap_id: '{{bap_id}}'
-  bpp_id: bpp.credit.becknprotocol.org
+  bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
@@ -18,9 +18,9 @@ context:
   timestamp: '{{timestamp}}'
 message:
   order:
-    id: LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID
+    id: ORDER_ID_INVOICE-BASED-LOAN
     provider:
-      id: PROVIDER_ID
+      id: '1'
       descriptor:
         images:
         - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png

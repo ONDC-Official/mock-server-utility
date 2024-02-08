@@ -9,7 +9,7 @@ context:
   action: on_update
   bap_uri: '{{bap_uri}}'
   bap_id: '{{bap_id}}'
-  bpp_id: bpp.credit.becknprotocol.org
+  bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
