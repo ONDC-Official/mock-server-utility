@@ -271,7 +271,6 @@ properties:
                 - purpose_code
                 - payee_account_type
                 - settlement_id
-                - settlement_reference_no
 required:
   - context
   - message
