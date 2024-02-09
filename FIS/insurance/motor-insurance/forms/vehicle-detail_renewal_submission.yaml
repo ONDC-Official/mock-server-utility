@@ -4,4 +4,4 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "../payloads/vehicle-info_form_submission.yaml"
+    $ref: "../payloads/vehicle-detail_renewal_submission.yaml"

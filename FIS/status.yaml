@@ -134,7 +134,7 @@ motor-based-insurance:
               type: READ
               input:
                 value: "req_body.message.ref_id"
-          - "MOTOR4ee-d892-400f-bbe6-479a43b4448a"
+          - "a4db048b-d07c-40e0-9c0b-b7f006c4df74"
   callback: "on_status"
   uri:
     $ref: ""

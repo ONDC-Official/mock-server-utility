@@ -368,6 +368,16 @@ motor-based-insurance_2:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:FIS13"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.provider.items.0.xinput.form_response.submission_id"
+                    - "F01_SUBMISSION_ID"
   callback: "on_search"
   uri:
     $ref: ""
