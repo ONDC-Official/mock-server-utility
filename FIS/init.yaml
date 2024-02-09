@@ -460,7 +460,7 @@ motor-based-insurance1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
+                  - "CHILD_ITEM_CI1"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -470,7 +470,7 @@ motor-based-insurance1:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
+                    - "F05_SUBMISSION_ID"
           
   callback: "on_init"
   uri:
@@ -494,7 +494,7 @@ motor-based-insurance2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
+                  - "CHILD_ITEM_CI1"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -504,7 +504,7 @@ motor-based-insurance2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"
+                    - "F06_SUBMISSION_ID"
           
   callback: "on_init"
   uri:

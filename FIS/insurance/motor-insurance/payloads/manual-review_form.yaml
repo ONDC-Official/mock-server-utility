@@ -7,7 +7,7 @@
 <body>
     <h2>Form Redirection</h2>
     <form action="/form/manual-review/form/submission" method="POST">
-        <p>This will be redirected to a different HTML page when you submit the form.</p>
+        <p>This will be redirected to a different HTML page please click submit the form to get submission id for next call.</p>
         <button type="submit">Submit</button>
     </form>
 </body>

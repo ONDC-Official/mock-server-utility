@@ -18,7 +18,7 @@ context:
 message:
   update_target: order.fulfillments
   order:
-    id: O1
+    id: ORDER_ID_MOTOR_INSURANCE
     fulfillments:
     - customer:
         contact:

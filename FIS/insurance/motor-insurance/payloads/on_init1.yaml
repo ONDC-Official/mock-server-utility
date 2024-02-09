@@ -4,7 +4,7 @@ context:
   bap_uri: '{{bap_uri}}'
   bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
-  domain: ONDC:FIS13
+  domain: '{{domain}}'
   location:
     country:
       code: IND
@@ -31,7 +31,8 @@ message:
     items:
     - fulfillment_ids:
       - F1
-      id: '{{item_id1}}'
+      id: CHILD_ITEM_CI1
+      parent_item_id: ITEM_ID_MOTOR_INSURANCE
       category_ids:
       - C3
       - C4
@@ -45,6 +46,7 @@ message:
           size_type: xs
       price:
         value: '11531'
+        currency: INR
       time:
         duration: P1Y
         label: TENURE
@@ -58,6 +60,7 @@ message:
             count: 1
         descriptor:
           name: Consumables Cover
+          code: CONSUMABLES_COVER
       xinput:
         head:
           descriptor:
@@ -70,7 +73,7 @@ message:
           - Vehicle & Nominee Details
           - Persoanl Info
         form:
-          id: FO6
+          id: F06
           mime_type: text/html
           url: >-
               {{bpp_uri}}form/vehicle-info/form
@@ -133,20 +136,6 @@ message:
       type: PRE-ORDER
       tags:
       - descriptor:
-          code: SETTLEMENT_DETAILS
-        display: false
-        list:
-        - descriptor:
-            code: SETTLEMENT_TYPE
-          value: UPI
-      - descriptor:
-          code: BUYER_FINDER_FEES
-        display: false
-        list:
-        - descriptor:
-            code: BUYER_FINDER_FEES_PERCENTAGE
-          value: '1'
-      - descriptor:
           code: SETTLEMENT_TERMS
         display: false
         list:
@@ -184,12 +173,15 @@ message:
       breakup:
       - price:
           value: '3634'
+          currency: INR
         title: Basic OD
       - price:
           value: '7897'
+          currency: INR
         title: Basic TP
       - title: Add On
         item:
           id: A1
         price:
           value: '974'
+          currency: INR

@@ -4,7 +4,7 @@ context:
   bap_uri: '{{bap_uri}}'
   bpp_id: fis.test.bpp.io
   bpp_uri: '{{bpp_uri}}'
-  domain: ONDC:FIS13
+  domain: '{{domain}}'
   location:
     country:
       code: IND
@@ -14,16 +14,10 @@ context:
   ttl: PT24H
   version: 2.0.0
 message:
-  fulfillments:
-  - state:
-      descriptor:
-        code: INSPECTION_SUCCESSFUL
-        name: Inspection Successful
-        short_desc: Insepction for motor insurance is successful
-    id: F1
   order:
     items:
-    - id: '{{item_id1}}'
+    - id: CHILD_ITEM_CI1
+      parent_item_id: ITEM_ID_MOTOR_INSURANCE
       category_ids:
       - C3
       - C4
@@ -94,6 +88,8 @@ message:
       fulfillment_ids:
       - F1
       xinput:
+        form:
+          id: F03
         form_response:
           status: FORM_PROCESSED
           submission_id: 79850933-4e41-4c76-bbe6-c5a392481226
@@ -107,6 +103,7 @@ message:
             count: 1
         descriptor:
           name: Consumables Cover
+          code: CONSUMABLES_COVER
     provider:
       descriptor:
         long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -124,12 +121,22 @@ message:
       breakup:
       - price:
           value: '3634'
+          currency: INR
         title: Basic OD
       - price:
           value: '7897'
+          currency: INR
         title: Basic TP
       - title: Add On
         item:
           id: A1
         price:
           value: '974'
+          currency: INR
+    fulfillments:
+    - state:
+        descriptor:
+          code: INSPECTION_SUCCESSFUL
+          name: Inspection Successful
+          short_desc: Insepction for motor insurance is successful
+      id: F1

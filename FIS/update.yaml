@@ -117,7 +117,7 @@ motor-based-insurance1:
                       type: READ
                       input:
                         value: "req_body.message.order.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
+                  - "ORDER_ID_MOTOR_INSURANCE"
           - operation:
                 type: EQUAL
                 title: Check update message code

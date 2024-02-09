@@ -4,7 +4,7 @@ context:
   bap_uri: '{{bap_uri}}'
   bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
-  domain: ONDC:FIS13
+  domain: '{{domain}}'
   location:
     country:
       code: IND
@@ -34,10 +34,12 @@ message:
             count: 1
         descriptor:
           name: Consumables Cover
+          code: CONSUMABLES_COVER
       descriptor:
         name: ABC Individaul Health Insurance Policy
         short_desc: ABC Individaul Health Insurance Class A with custom addon
-      id: '{{item_id1}}'
+      id: CHILD_ITEM_CI1
+      parent_item_id: ITEM_ID_MOTOR_INSURANCE
       category_ids:
       - C3
       - C4
@@ -45,6 +47,9 @@ message:
       - C6
       price:
         value: '12505'
+        currency: INR
+      fulfillment_ids:
+      - F1
       tags:
       - descriptor:
           code: GENERAL_INFO
@@ -128,7 +133,7 @@ message:
       time:
         duration: P1Y
         label: TENURE
-    id: O1
+    id: ORDER_ID_MOTOR_INSURANCE
     payments:
     - collected_by: BPP
       params:
@@ -139,49 +144,6 @@ message:
         transaction_id: 85742a36-6636-4dcf-ae56-c47d3387d1d0
       status: PAID
       type: PRE-ORDER
-      tags:
-      - descriptor:
-          code: SETTLEMENT_DETAILS
-        display: false
-        list:
-        - descriptor:
-            code: SETTLEMENT_TYPE
-          value: UPI
-      - descriptor:
-          code: BUYER_FINDER_FEES
-        display: false
-        list:
-        - descriptor:
-            code: BUYER_FINDER_FEES_PERCENTAGE
-          value: '1'
-      - descriptor:
-          code: SETTLEMENT_TERMS
-        display: false
-        list:
-        - descriptor:
-            code: SETTLEMENT_WINDOW
-          value: PT60M
-        - descriptor:
-            code: SETTLEMENT_BASIS
-          value: Delivery
-        - descriptor:
-            code: SETTLEMENT_TYPE
-          value: upi
-        - descriptor:
-            code: MANDATORY_ARBITRATION
-          value: 'true'
-        - descriptor:
-            code: COURT_JURISDICTION
-          value: New Delhi
-        - descriptor:
-            code: DELAY_INTEREST
-          value: '2.5'
-        - descriptor:
-            code: STATIC_TERMS
-          value: https://www.icicibank.com/personal-banking/loans/personal-loan
-        - descriptor:
-            code: SETTLEMENT_AMOUNT
-          value: '12505'
     provider:
       descriptor:
         long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -200,15 +162,18 @@ message:
       breakup:
       - price:
           value: '3634'
+          currency: INR
         title: Basic OD
       - price:
           value: '7897'
+          currency: INR
         title: Basic TP
       - title: Add On
         item:
           id: A1
         price:
           value: '974'
+          currency: INR
     status: ACTIVE
     documents:
     - descriptor:

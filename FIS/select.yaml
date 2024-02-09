@@ -318,7 +318,7 @@ motor-based-insurance1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
+                  - "CHILD_ITEM_CI1"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -327,8 +327,8 @@ motor-based-insurance1:
                     - operation:
                         type: READ
                         input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1a_submissionid"
+                          value: "req_body.message.order.items.0.xinput"
+                    - "undefined"
           
   callback: "on_select"
   uri:
@@ -352,7 +352,7 @@ motor-based-insurance2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
+                  - "CHILD_ITEM_CI1"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -362,83 +362,83 @@ motor-based-insurance2:
                         type: READ
                         input:
                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1b_submissionid"
+                    - "F04_SUBMISSION_ID"
           
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/motor-insurance/template/on_select1.yaml"              
+    $ref: "./insurance/motor-insurance/template/on_select2.yaml"              
 
 
-motor-based-insurance3:
-  condition:
-      operation:
-        type: AND
-        input:
-          value:
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"
+# motor-based-insurance3:
+#   condition:
+#       operation:
+#         type: AND
+#         input:
+#           value:
+#           - operation:
+#               type: EQUAL
+#               title: Check search message code
+#               input:
+#                 value:
+#                   - operation:
+#                       type: READ
+#                       input:
+#                         value: "req_body.message.order.items.0.id"
+#                   - "CHILD_ITEM_CI1"
+#           - operation:
+#                 type: EQUAL
+#                 title: Check search message code
+#                 input:
+#                   value:
+#                     - operation:
+#                         type: READ
+#                         input:
+#                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+#                     - "form2_submissionid"
           
-  callback: "on_select"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./insurance/motor-insurance/template/on_select2.yaml"       
+#   callback: "on_select"
+#   uri:
+#     $ref: ""
+#   delay: 300
+#   payload:
+#     $ref: "./insurance/motor-insurance/template/on_select2.yaml"       
 
-motor-based-insurance4:
-  condition:
-      operation:
-        type: AND
-        input:
-          value:
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MOTOR-INSURANCE"
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form3_submissionid"
+# motor-based-insurance4:
+#   condition:
+#       operation:
+#         type: AND
+#         input:
+#           value:
+#           - operation:
+#               type: EQUAL
+#               title: Check search message code
+#               input:
+#                 value:
+#                   - operation:
+#                       type: READ
+#                       input:
+#                         value: "req_body.message.order.items.0.id"
+#                   - "CHILD_ITEM_CI1"
+#           - operation:
+#                 type: EQUAL
+#                 title: Check search message code
+#                 input:
+#                   value:
+#                     - operation:
+#                         type: READ
+#                         input:
+#                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+#                     - "form3_submissionid"
           
-  callback: "on_select"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./insurance/motor-insurance/template/on_select3.yaml"     
+#   callback: "on_select"
+#   uri:
+#     $ref: ""
+#   delay: 300
+#   payload:
+#     $ref: "./insurance/motor-insurance/template/on_select3.yaml"     
 
 
 # INVESTMENT

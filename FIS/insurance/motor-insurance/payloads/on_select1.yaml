@@ -4,21 +4,22 @@ context:
   bap_uri: '{{bap_uri}}'
   bpp_id:  '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
-  domain: ONDC:FIS13
+  domain: '{{domain}}'
   location:
     country:
       code: IND
     city:
       code: '*'
   message_id: '{{message_id}}'
-  timestamp: '2023-07-22T15:03:18.179Z'
+  timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
   ttl: PT24H
   version: 2.0.0
 message:
   order:
     items:
-    - id: '{{item_id1}}'
+    - id: CHILD_ITEM_CI1
+      parent_item_id: ITEM_ID_MOTOR_INSURANCE
       category_ids:
       - C3
       - C4
@@ -29,6 +30,7 @@ message:
         short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
       price:
         value: '11531'
+        currency: INR
       tags:
       - descriptor:
           code: GENERAL_INFO
@@ -93,16 +95,14 @@ message:
           index:
             min: 0
             cur: 0
-            max: 2
+            max: 1
           headings:
-          - Manual Review
           - PAN & DOB
           - Know your Customer
         form:
-          id: FO3
-          mime_type: application/html
-          url: >-
-             {{bpp_uri}}form/manual-review/form
+          id: F04
+          mime_type: text/html
+          url: '{{bpp_uri}}form/Pan/Dob_details'
           resubmit: false
           multiple_sumbissions: false
         required: true
@@ -116,6 +116,7 @@ message:
             count: 1
         descriptor:
           name: Consumables Cover
+          code: CONSUMABLES_COVER
     provider:
       descriptor:
         long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -133,12 +134,15 @@ message:
       breakup:
       - price:
           value: '3634'
+          currency: INR
         title: Basic OD
       - price:
           value: '7897'
+          currency: INR
         title: Basic TP
       - title: Add On
         item:
           id: A1
         price:
           value: '974'
+          currency: INR

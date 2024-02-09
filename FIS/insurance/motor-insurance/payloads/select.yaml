@@ -18,7 +18,7 @@ context:
 message:
   order:
     items:
-      - id: I1
+      - id: ITEM_ID_MOTOR_INSURANCE
         category_ids:
           - C3
           - C4

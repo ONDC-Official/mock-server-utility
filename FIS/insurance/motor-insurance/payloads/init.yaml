@@ -28,7 +28,7 @@ message:
             name: Joe Adam
         id: F1
     items:
-      - id: I1
+      - id: ITEM_ID_MOTOR_INSURANCE
         category_ids:
           - C3
           - C4

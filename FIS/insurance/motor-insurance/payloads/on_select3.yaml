@@ -106,7 +106,7 @@ message:
           - PAN & DOB
           - Know your Customer
         form:
-          id: FO4
+          id: F04
           mime_type: text/html
           url: >-
              {{bpp_uri}}form/EKYC/form

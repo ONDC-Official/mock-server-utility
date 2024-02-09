@@ -299,7 +299,50 @@ marine-based-insurance:
   payload:
     $ref: "./insurance/marine-insurance/template/on_search.yaml"  
 
-motor-based-insurance:
+motor-based-insurance_1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.intent.category.descriptor.code"
+                  - MOTOR_INSURANCE
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS13"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.provider"
+                    - "undefined"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./insurance/motor-insurance/template/on_search_1.yaml"      
+
+motor-based-insurance_2:
   condition:
       operation:
         type: AND
@@ -330,7 +373,8 @@ motor-based-insurance:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/motor-insurance/template/on_search.yaml"      
+    $ref: "./insurance/motor-insurance/template/on_search_2.yaml"      
+
 
 # Mutual Funds
 mutual-funds:
