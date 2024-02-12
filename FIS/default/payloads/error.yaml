@@ -1,3 +1,5 @@
+context:
+  transaction_id: '{{transaction_id}}'
 message:
   ack:
     status: NACK
