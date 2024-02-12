@@ -1,5 +1,6 @@
 context:
   transaction_id: '{{transaction_id}}'
+  action: 'on_{{method}}'
 message:
   ack:
     status: NACK
