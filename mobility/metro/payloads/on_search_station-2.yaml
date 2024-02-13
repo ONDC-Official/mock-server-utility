@@ -7,7 +7,7 @@ context:
   domain: '{{domain}}'
   action: on_search
   version: 2.0.0
-  bpp_id: mobility-staging.ondc.org
+  bpp_id: '{{bpp_id}}'
   bap_uri: '{{bap_uri}}'
   bap_id: api.example-bap.com
   bpp_uri: '{{bpp_uri}}'
@@ -368,7 +368,7 @@ message:
             value: New Delhi
           - descriptor:
               code: STATIC_TERMS
-            value: https://api.example-bpp.com/booking/terms
+            value: https://api.mobility-staging.ondc.org/booking/terms
       cancellation_terms:
       - external_ref:
           mimetype: text/html
