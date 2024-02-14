@@ -1,7 +1,0 @@
-default:
-  callback: "undefined"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "../payloads/manual-review_form_submission.yaml"

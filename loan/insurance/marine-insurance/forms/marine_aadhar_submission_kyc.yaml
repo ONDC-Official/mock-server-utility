@@ -1,7 +1,0 @@
-default:
-  callback: "undefined"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "../payloads/marine_aadhar_submission_kyc.yaml"

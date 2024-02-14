@@ -1,7 +1,0 @@
-default:
-  callback: "undefined"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "../form-payloads/select-form2-GetLumpsumSetupForm.yaml"
