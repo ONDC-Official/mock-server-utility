@@ -12,7 +12,7 @@ context_city:
   operation:
     type: READ
     input:
-      value: "req_body.context.location.city"
+      value: "req_body.context.location.city.code"
 transaction_id:
   operation:
     type: READ
