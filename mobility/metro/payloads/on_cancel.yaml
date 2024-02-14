@@ -3,7 +3,7 @@ context:
     country:
       code: IND
     city:
-      code: std:011
+      code: '{{city_code}}'
   domain: '{{domain}}'
   action: on_cancel
   version: 2.0.0
@@ -13,7 +13,7 @@ context:
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
-  timestamp: '2021-03-23T10:00:40.065Z'
+  timestamp: '{{timestamp}}'
   ttl: PT30S
 message:
   order:

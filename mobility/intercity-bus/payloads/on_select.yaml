@@ -3,10 +3,10 @@ context:
     country:
       code: IND
   domain: '{{domain}}'
-  timestamp: '2023-09-03T01:55:08.143Z'
-  bap_id: example-bap.com
+  timestamp: '{{timestamp}}'
+  bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
-  bpp_id: api.transit-solutions.com
+  bpp_id: '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'

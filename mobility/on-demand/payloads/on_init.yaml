@@ -7,7 +7,7 @@ context:
   domain: '{{domain}}'
   location:
     city:
-      code: std:080
+      code: '{{city_code}}'
     country:
       code: IND
   message_id: '{{message_id}}'
