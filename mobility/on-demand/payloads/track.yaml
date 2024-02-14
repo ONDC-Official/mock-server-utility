@@ -1,0 +1,19 @@
+context:
+  action: track
+  bap_id: '{{bap_id}}'
+  bap_uri: '{{bap_uri}}'
+  bpp_id: '{{bpp_id}}'
+  bpp_uri: '{{bpp_uri}}'
+  domain: '{{domain}}'
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  message_id: '{{message_id}}'
+  timestamp: '{{timestamp}}'
+  transaction_id: '{{transaction_id}}'
+  ttl: PT30S
+  version: 2.0.0
+message:
+  order_id: 22e090fc-b8b1-4437-9126-ff7a71c7845c

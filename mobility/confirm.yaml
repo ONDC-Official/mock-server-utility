@@ -8,7 +8,7 @@ default:
 
 
 
-intercity-bus:
+metro:
   condition:
       operation:
         type: AND
@@ -41,4 +41,81 @@ intercity-bus:
   payload:
     $ref: "./metro/template/on_confirm.yaml"
 
-    
+
+intercity-bus:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - ITEM_ID_1_INTERCITY
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV12"
+  callback: "on_confirm"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./intercity-bus/template/on_confirm.yaml"
+
+on-demand-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - ITEM_ID_1_ON_DEMAND
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV10"
+  callbacks: 
+    - callback: "on_confirm"
+      uri: 
+        ""
+      delay: 
+        300
+      payload: 
+        $ref: "./on-demand/template/on_confirm.yaml"
+    - callback: "on_update"
+      uri: 
+        ""
+      delay: 
+        500
+      payload: 
+        $ref: "./on-demand/template/on_update.yaml"
+
+
+

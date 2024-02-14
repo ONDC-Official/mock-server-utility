@@ -1,6 +1,6 @@
 template:
     data:
-      $ref: "../payloads/error.yaml"
+      $ref: "../payloads/support.yaml"
     dict:
       bpp_uri: https://mobility-staging.ondc.org/
       bpp_id: mobility-staging.ondc.org

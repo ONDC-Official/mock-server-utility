@@ -1,43 +1,50 @@
 context:
-  location:
-    country:
-      code: IND
-    city:
-      code: std:011
-  domain: '{{domain}}'
   action: confirm
-  version: 2.0.0
   bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   bpp_id: '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
-  transaction_id: '{{transaction_id}}'
+  domain: '{{domain}}'
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
   message_id: '{{message_id}}'
-  timestamp: '2021-03-23T10:00:40.065Z'
+  timestamp: '{{timestamp}}'
+  transaction_id: '{{transaction_id}}'
   ttl: PT30S
+  version: 2.0.0
 message:
   order:
-    id: ORDER_ID_1_METRO
-    items:
-      - id: ITEM_ID_1_METRO
-        quantity:
-          selected:
-            count: 2
-    provider:
-      id: P1
     billing:
-      name: John Doe
-      email: john.doe@example.com
-      phone: +91-9897867564
+      name: Joe Adams
+    fulfillments:
+      - customer:
+          contact:
+            phone: '9876556789'
+          person:
+            name: Joe Adams
+        id: F1
+        stops:
+          - location:
+              gps: 13.008935, 77.644408
+            type: START
+          - location:
+              gps: 12.971186, 77.586812
+            type: END
+        vehicle:
+          category: AUTO_RICKSHAW
+    items:
+      - id: ITEM_ID_1_ON_DEMAND
     payments:
-      - id: PA1
-        collected_by: BAP
-        status: PAID
-        type: PRE-ORDER
+      - collected_by: BPP
+        id: PA1
         params:
-          transaction_id: 34cc9b0b-6887-4c63-8397-2f4fcf03e50d
-          currency: INR
-          amount: '120'
+          bank_account_number: xxxxxxxxxxxxxx
+          bank_code: XXXXXXXX
+          virtual_payment_address: 9988199772@okicic
+        status: NOT-PAID
         tags:
           - descriptor:
               code: BUYER_FINDER_FEES
@@ -55,10 +62,10 @@ message:
                 value: PT60M
               - descriptor:
                   code: SETTLEMENT_BASIS
-                value: Delivery
+                value: DELIVERY
               - descriptor:
                   code: SETTLEMENT_TYPE
-                value: upi
+                value: RSF
               - descriptor:
                   code: MANDATORY_ARBITRATION
                 value: 'true'
@@ -67,10 +74,13 @@ message:
                 value: New Delhi
               - descriptor:
                   code: DELAY_INTEREST
-                value: '2.5'
+                value: '5'
               - descriptor:
                   code: STATIC_TERMS
-                value: https://www.abc.com/settlement-terms/
+                value: https://example-test-bap.com/static-terms.txt
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '59'
+                value: '1.46'
+        type: ON-FULFILLMENT
+    provider:
+      id: P1

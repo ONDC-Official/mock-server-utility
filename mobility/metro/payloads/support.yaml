@@ -7,7 +7,7 @@ context:
   domain: '{{domain}}'
   action: support
   version: 2.0.0
-  bap_id: api.example-bap.com
+  bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   bpp_id: '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'

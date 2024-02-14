@@ -1,31 +1,30 @@
 context:
+  action: search
+  bap_id: '{{bap_id}}'
+  bap_uri: '{{bap_uri}}'
+  domain: '{{domain}}'
   location:
+    city:
+      code: std:080
     country:
       code: IND
-    city:
-      code: std:011
-  domain: '{{domain}}'
-  timestamp: '2023-03-23T04:41:16.000Z'
-  bap_id: '{{bap_id}}'
-  transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
-  version: 2.0.0
-  action: search
-  bap_uri: '{{bap_uri}}'
+  timestamp: '{{timestamp}}'
+  transaction_id: '{{transaction_id}}'
   ttl: PT30S
+  version: 2.0.0
 message:
   intent:
     fulfillment:
       stops:
-        - type: START
-          location:
-            gps: 12.923608, 77.614629
-        - type: END
-          location:
-            gps: 12.934630, 77.615339
-      vehicle:
-        category: METRO
+        - location:
+            gps: 13.008935, 77.644408
+          type: START
+        - location:
+            gps: 12.971186, 77.586812
+          type: END
     payment:
+      collected_by: BPP
       tags:
         - descriptor:
             code: BUYER_FINDER_FEES
@@ -40,7 +39,10 @@ message:
           list:
             - descriptor:
                 code: DELAY_INTEREST
-              value: '2.5'
+              value: '5'
+            - descriptor:
+                code: SETTLEMENT_TYPE
+              value: RSF
             - descriptor:
                 code: STATIC_TERMS
-              value: https://api.example-bap.com/booking/terms
+              value: https://example-test-bap.com/static-terms.txt

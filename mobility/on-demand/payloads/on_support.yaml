@@ -1,0 +1,22 @@
+context:
+  action: on_support
+  bap_id: '{{bap_id}}'
+  bap_uri: '{{bap_uri}}'
+  bpp_id: '{{bpp_id}}'
+  bpp_uri: '{{bpp_uri}}'
+  domain: '{{domain}}'
+  location:
+    city:
+      code: std:080
+    country:
+      code: IND
+  message_id: '{{message_id}}'
+  timestamp: '{{timestamp}}'
+  transaction_id: '{{transaction_id}}'
+  ttl: PT30S
+  version: 2.0.0
+message:
+  support:
+    email: support@nammayatri.in
+    phone: '+918068870525'
+    url: https://support.nammayatri.com/gethelp

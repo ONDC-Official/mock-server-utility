@@ -370,3 +370,27 @@ metro-gps-1:
   payload:
     $ref: "./metro/template/on_search_gps1.yaml"
 
+
+
+on-demand-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV10"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./on-demand/template/on_search.yaml"
