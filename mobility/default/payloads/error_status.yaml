@@ -19,4 +19,4 @@ message:
 error:
   code: '20001'
   path: string
-  message: Given input does not match any mock input conditions
+  message: This call is not supported
