@@ -6,45 +6,7 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
-personal-loan-1:
-  condition:
-    operation:
-      type: EQUAL
-      title: Check status message code
-      input:
-        value:
-          - operation:
-              type: READ
-              input:
-                value: "req_body.message.order_id"
-          - "order_id_1_personal-loan"
-  callback: "on_status"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/personal-loan/template/on_status.yaml"
-
-invoice-based-loans1:
-  condition:
-    operation:
-      type: EQUAL
-      title: Check status message code
-      input:
-        value:
-          - operation:
-              type: READ
-              input:
-                value: "req_body.message.ref_id"
-          - "a9aaecca-10b7-4d19-b640-b047a7c62196"
-  callback: "on_status"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/invoice-based-loans/template/on_status_1.yaml"
-
-# invoice-based-loans2:
+# personal-loan-1:
 #   condition:
 #     operation:
 #       type: EQUAL
@@ -55,15 +17,15 @@ invoice-based-loans1:
 #               type: READ
 #               input:
 #                 value: "req_body.message.order_id"
-#           - "order_id_2_invoice-based-loan"
+#           - "order_id_1_personal-loan"
 #   callback: "on_status"
 #   uri:
 #     $ref: ""
 #   delay: 300
 #   payload:
-#     $ref: "./loan/invoice-based-loans/template/on_status_2.yaml"
+#     $ref: "./loan/personal-loan/template/on_status.yaml"
 
-# invoice-based-loans3:
+# invoice-based-loans1:
 #   condition:
 #     operation:
 #       type: EQUAL
@@ -73,74 +35,55 @@ invoice-based-loans1:
 #           - operation:
 #               type: READ
 #               input:
-#                 value: "req_body.message.order_id"
-#           - "order_id_3_invoice-based-loan"
+#                 value: "req_body.message.ref_id"
+#           - "a9aaecca-10b7-4d19-b640-b047a7c62196"
 #   callback: "on_status"
 #   uri:
 #     $ref: ""
 #   delay: 300
 #   payload:
-#     $ref: "./loan/invoice-based-loans/template/on_status_3.yaml"
+#     $ref: "./loan/invoice-based-loans/template/on_status_1.yaml"
 
-# invoice-based-loans4:
+
+
+# health-based-insurance:
 #   condition:
 #     operation:
 #       type: EQUAL
-#       title: Check status message code
+#       title: Check search message code
 #       input:
 #         value:
 #           - operation:
 #               type: READ
 #               input:
-#                 value: "req_body.message.order_id"
-#           - "order_id_4_invoice-based-loan"
+#                 value: "req_body.message.ref_id"
+#           - "c04a04ee-d892-400f-bbe6-479a43b4448a"
 #   callback: "on_status"
 #   uri:
 #     $ref: ""
 #   delay: 300
 #   payload:
-#     $ref: "./loan/invoice-based-loans/template/on_status_4.yaml"    
+#     $ref: "./insurance/health-insurance/template/on_status.yaml" 
 
 
-
-health-based-insurance:
-  condition:
-    operation:
-      type: EQUAL
-      title: Check search message code
-      input:
-        value:
-          - operation:
-              type: READ
-              input:
-                value: "req_body.message.ref_id"
-          - "c04a04ee-d892-400f-bbe6-479a43b4448a"
-  callback: "on_status"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./insurance/health-insurance/template/on_status.yaml" 
-
-
-motor-based-insurance:
-  condition:
-    operation:
-      type: EQUAL
-      title: Check search message code
-      input:
-        value:
-          - operation:
-              type: READ
-              input:
-                value: "req_body.message.ref_id"
-          - "a4db048b-d07c-40e0-9c0b-b7f006c4df74"
-  callback: "on_status"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./insurance/motor-insurance/template/on_status.yaml"                             
+# motor-based-insurance:
+#   condition:
+#     operation:
+#       type: EQUAL
+#       title: Check search message code
+#       input:
+#         value:
+#           - operation:
+#               type: READ
+#               input:
+#                 value: "req_body.message.ref_id"
+#           - "a4db048b-d07c-40e0-9c0b-b7f006c4df74"
+#   callback: "on_status"
+#   uri:
+#     $ref: ""
+#   delay: 300
+#   payload:
+#     $ref: "./insurance/motor-insurance/template/on_status.yaml"                             
 
 
 mutual-funds-1:
@@ -162,3 +105,22 @@ mutual-funds-1:
   payload:
     $ref: "./investment/mutual-funds/template/on_status.yaml"    
 
+
+not_supported:
+  condition:
+    operation:
+      type: EQUAL
+      title: Check status message code
+      input:
+        value:
+          - operation:
+              type: READ
+              input:
+                value: "req_body.message.order_id"
+          - undefined
+  callback: "on_status"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./default/template/error_status.yaml"

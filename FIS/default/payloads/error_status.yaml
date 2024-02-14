@@ -1,0 +1,22 @@
+context:
+  transaction_id: '{{transaction_id}}'
+  action: 'on_{{method}}'
+  domain: '{{domain}}'
+  timestamp: '{{timestamp}}'
+  bap_id: '{{bap_id}}'
+  bap_uri: '{{bap_uri}}'
+  bpp_id: '{{bpp_id}}'
+  bpp_uri: '{{bpp_uri}}'
+  message_id: '{{message_id}}'
+  ttl: '{{ttl}}'
+  version: '{{version}}'
+  location:
+    country:
+      code: IND
+message:
+  ack:
+    status: NACK
+error:
+  code: '20001'
+  path: string
+  message: This call is not supported
