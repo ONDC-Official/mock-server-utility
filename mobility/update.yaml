@@ -32,6 +32,16 @@ intercity-bus:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_update"
   uri:
     $ref: ""
@@ -65,6 +75,16 @@ intercity-bus:
 #                         input:
 #                           value: "req_body.context.domain"
 #                     - "ONDC:TRV11"
+          # - operation:
+          #       type: EQUAL
+          #       title: Check search message code
+          #       input:
+          #         value:
+          #           - operation:
+          #               type: READ
+          #               input:
+          #                 value: "req_body.context.version"
+          #           - 2.0.0
 #   callback: "on_update"
 #   uri:
 #     $ref: ""

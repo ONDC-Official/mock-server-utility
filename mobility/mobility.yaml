@@ -41,6 +41,12 @@ path:
       $ref: ./mobility/default/schema/cancel.yaml
     callbacks:
       $ref: ./mobility/cancel.yaml
+  track:
+    schema:
+      type: object
+      # $ref: ./mobility/default/schema/track.yaml
+    callbacks:
+      $ref: ./mobility/track.yaml
   status:
     schema:
       $ref: ./mobility/default/schema/status.yaml

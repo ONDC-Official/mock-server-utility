@@ -43,6 +43,16 @@ intercity-bus-station-code2:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
+          - operation:
               type: EQUAL
               title: Check search message code
               input:
@@ -96,6 +106,16 @@ intercity-bus-station-code1:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_search"
   uri:
     $ref: ""
@@ -129,6 +149,16 @@ intercity-bus-station-code3:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_search"
   uri:
     $ref: ""
@@ -165,6 +195,16 @@ intercity-bus-gps1:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
           - operation:
               type: EQUAL
               title: Check search message code
@@ -209,6 +249,16 @@ intercity-bus-gps2:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
           - operation:
               type: EQUAL
               title: Check search message code
@@ -266,6 +316,16 @@ metro-station-code-1:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
+          - operation:
               type: EQUAL
               title: Check search message code
               input:
@@ -319,6 +379,16 @@ metro-station-code-2:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_search"
   uri:
     $ref: ""
@@ -363,6 +433,16 @@ metro-gps-1:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_search"
   uri:
     $ref: ""
@@ -370,6 +450,103 @@ metro-gps-1:
   payload:
     $ref: "./metro/template/on_search_gps1.yaml"
 
+
+
+AIRLINE-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.fulfillment.vehicle.category"
+                    - "AIRLINE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV10"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.fulfillment.id"
+                    - undefined
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./airline/template/on_search.yaml"
+
+AIRLINE-2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.fulfillment.vehicle.category"
+                    - "AIRLINE"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV10"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./airline/template/on_search_2.yaml"
 
 
 on-demand-1:
@@ -388,6 +565,16 @@ on-demand-1:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV10"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_search"
   uri:
     $ref: ""

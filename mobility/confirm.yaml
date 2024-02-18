@@ -34,6 +34,16 @@ metro:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV11"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_confirm"
   uri:
     $ref: ""
@@ -68,6 +78,16 @@ intercity-bus:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callback: "on_confirm"
   uri:
     $ref: ""
@@ -101,6 +121,16 @@ on-demand-1:
                         input:
                           value: "req_body.context.domain"
                     - "ONDC:TRV10"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
   callbacks: 
     - callback: "on_confirm"
       uri: 
@@ -117,5 +147,57 @@ on-demand-1:
       payload: 
         $ref: "./on-demand/template/on_update.yaml"
 
+
+AIRLINE-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - ITEM_ID_AIRLINE
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:TRV10"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - 2.0.0
+  callbacks: 
+    - callback: "on_confirm"
+      uri: 
+        ""
+      delay: 
+        300
+      payload: 
+        $ref: "./airline/template/on_confirm.yaml"
+    - callback: "on_update"
+      uri: 
+        ""
+      delay: 
+        500
+      payload: 
+        $ref: "./airline/template/on_update.yaml"
 
 

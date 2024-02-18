@@ -42,7 +42,7 @@ message:
             - descriptor:
                 code: DOCTORS_NURSES
     items:
-      - id: I1
+      - id: ITEM_ID_AIRLINE
         descriptor:
           name: Non Stop
           code: NON_STOP
@@ -102,7 +102,7 @@ message:
             authorization:
               type: QR
               token: >-
-                iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgITEM_ID_AIRLINEERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
           - type: END
             location:
               descriptor:
@@ -149,7 +149,7 @@ message:
                 value: A2
               - descriptor:
                   code: ITEM_ID
-                value: I1
+                value: ITEM_ID_AIRLINE
     quote:
       price:
         value: '10727'

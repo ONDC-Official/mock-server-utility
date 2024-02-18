@@ -42,7 +42,7 @@ message:
             - descriptor:
                 code: DOCTORS_NURSES
     items:
-      - id: I1
+      - id: ITEM_ID_AIRLINE
         descriptor:
           name: Non Stop
           code: NON_STOP

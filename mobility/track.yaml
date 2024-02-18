@@ -1,5 +1,5 @@
 default:
-  callback: "on_cancel"
+  callback: "on_track"
   uri:
     $ref: ""
   delay: 300
@@ -7,7 +7,7 @@ default:
     $ref: "./default/template/error.yaml"
 
 
-AIRLINE-1:
+on-demand:
   condition:
       operation:
         type: AND
@@ -21,8 +21,8 @@ AIRLINE-1:
                   - operation:
                       type: READ
                       input:
-                        value: "req_body.message.order_id"
-                  - ITEM_ID_AIRLINE
+                        value: "req_body.message.order.items.0.id"
+                  - ITEM_ID_1_ON_DEMAND
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -43,11 +43,9 @@ AIRLINE-1:
                         input:
                           value: "req_body.context.version"
                     - 2.0.0
-  callback: "on_cancel"
+  callback: "on_track"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./airline/template/on_cancel.yaml"
-
-  
+    $ref: "./on-demand/template/on_track.yaml"
