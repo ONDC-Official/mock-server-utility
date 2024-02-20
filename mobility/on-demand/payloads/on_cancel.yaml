@@ -13,7 +13,7 @@ context:
   message_id: '{{message_id}}'
   timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
-  version: 2.0.0
+  version: 2.0.1
   ttl: PT30S
 message:
   order:

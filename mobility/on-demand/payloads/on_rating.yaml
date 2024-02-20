@@ -14,7 +14,7 @@ context:
   timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
   ttl: PT30S
-  version: 2.0.0
+  version: 2.0.1
 message:
   feedback_ack: true
   rating_ack: true

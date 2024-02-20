@@ -14,9 +14,10 @@ context:
   timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
   ttl: PT30S
-  version: 2.0.0
+  version: 2.0.1
 message:
   tracking:
     status: active
-    url: >-
-      https://api.beckn.juspay.in/dobpp/ui/driver/location/abc9f0aa-bbfd-4e91-b378-41feee12f05f
+    location:
+      gps: 28.620976, 77.046732
+      updated_at: '2023-03-23T05:41:09Z'
