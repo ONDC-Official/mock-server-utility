@@ -477,7 +477,7 @@ AIRLINE-1:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV10"
+                    - "ONDC:TRV12"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -530,7 +530,7 @@ AIRLINE-2:
                         type: READ
                         input:
                           value: "req_body.context.domain"
-                    - "ONDC:TRV10"
+                    - "ONDC:TRV12"
           - operation:
                 type: EQUAL
                 title: Check search message code
