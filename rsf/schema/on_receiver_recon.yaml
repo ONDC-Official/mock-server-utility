@@ -415,7 +415,6 @@ properties:
                   format: date-time
                   example: 2022-10-28T10:34:58.472Z
               required: 
-                - state
 
 required:
   - context
