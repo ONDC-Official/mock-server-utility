@@ -22,6 +22,7 @@ const onRequest = async (req, res) => {
     paths = props.path;
   }
   try {
+    const transaction_id = req?.body?.context?.transaction_id
     const isFormFound = req.params['0']?.match(matchText); //true if incoming request else false
     let api = req.params['0']
     if(isFormFound){
@@ -32,7 +33,7 @@ const onRequest = async (req, res) => {
       if (!await verifyHeader(req, security)){
         // Handle the case when signature is not verified
         res.status(400).json(signNack);
-        logger.error("Authorization header not verified");
+        logger.error(`Authorization header not verified transaction_id : ${transaction_id}`);
         return; // Make sure to return to exit the function
     } 
   }
@@ -48,7 +49,8 @@ const onRequest = async (req, res) => {
       };
       callbackConfig = dynamicReponse(context)
     } else {
-      logger.error("Invalid Request");
+      logger.error(`Invalid Request transaction: ${transaction_id} `);
+      logger.error(`Method called ${api}`)
       return res.json(invalidNack);
     }
     

@@ -41,7 +41,7 @@ const trigger = async(context, config, data,security) => {
           );
         })
         .catch(function (error) {
-          logger.error(error);
+          logger.error(error+` at ${uri}${api}`);      
         });
     }, delay);
   } catch (error) {
