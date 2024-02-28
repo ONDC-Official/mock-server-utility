@@ -6,13 +6,12 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
-
 intercity-bus:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -24,25 +23,25 @@ intercity-bus:
                         value: "req_body.message.order_id"
                   - ORDER_ID_1_INTERCITY
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:TRV12"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:TRV12"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.version"
-                    - 2.0.0
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - 2.0.0
   callback: "on_status"
   uri:
     $ref: ""
@@ -52,10 +51,10 @@ intercity-bus:
 
 metro:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -67,25 +66,25 @@ metro:
                         value: "req_body.message.order_id"
                   - ORDER_ID_1_METRO
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:TRV11"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:TRV11"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.version"
-                    - 2.0.0
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - 2.0.0
   callback: "on_status"
   uri:
     $ref: ""
@@ -93,13 +92,12 @@ metro:
   payload:
     $ref: "./metro/template/on_status.yaml"
 
-
 on-demand-1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -109,32 +107,30 @@ on-demand-1:
                       type: READ
                       input:
                         value: "req_body.message.order_id"
-                  - ITEM_ID_1_ON_DEMAND
+                  - ORDER_ID_ON_DEMAND
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:TRV10"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:TRV10"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.version"
-                    - 2.0.1
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - 2.0.1
   callback: "on_status"
   uri:
     $ref: ""
   delay: 300
   payload:
     $ref: "./on-demand/template/on_status.yaml"
-
-    

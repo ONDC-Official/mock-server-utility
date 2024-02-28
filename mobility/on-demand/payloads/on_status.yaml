@@ -17,7 +17,7 @@ context:
   version: 2.0.1
 message:
   order:
-    id: O1
+    id: ORDER_ID_ON_DEMAND
     cancellation_terms:
     - cancellation_fee:
         percentage: '0'
