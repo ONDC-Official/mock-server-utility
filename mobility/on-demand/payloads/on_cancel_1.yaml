@@ -1,25 +1,25 @@
 context:
   action: on_cancel
-  bap_id: '{{bap_id}}'
-  bap_uri: '{{bap_uri}}'
-  bpp_id: '{{bpp_id}}'
-  bpp_uri: '{{bpp_uri}}'
-  domain: '{{domain}}'
+  bap_id: "{{bap_id}}"
+  bap_uri: "{{bap_uri}}"
+  bpp_id: "{{bpp_id}}"
+  bpp_uri: "{{bpp_uri}}"
+  domain: "{{domain}}"
   location:
     city:
-      code: '{{city_code}}'
+      code: "{{city_code}}"
     country:
       code: IND
-  message_id: '{{message_id}}'
-  timestamp: '{{timestamp}}'
-  transaction_id: '{{transaction_id}}'
+  message_id: "{{message_id}}"
+  timestamp: "{{timestamp}}"
+  transaction_id: "{{transaction_id}}"
   version: 2.0.1
   ttl: PT30S
 message:
   order:
     cancellation_terms:
       - cancellation_fee:
-          percentage: '0'
+          percentage: "0"
         fulfillment_state:
           descriptor:
             code: RIDE_ASSIGNED
@@ -27,7 +27,7 @@ message:
       - cancellation_fee:
           amount:
             currency: INR
-            value: '30'
+            value: "30"
         fulfillment_state:
           descriptor:
             code: RIDE_ENROUTE_PICKUP
@@ -35,13 +35,13 @@ message:
       - cancellation_fee:
           amount:
             currency: INR
-            value: '50'
+            value: "50"
         fulfillment_state:
           descriptor:
             code: RIDE_ARRIVED_PICKUP
         reason_required: true
       - cancellation_fee:
-          percentage: '100'
+          percentage: "100"
         fulfillment_state:
           descriptor:
             code: RIDE_STARTED
@@ -49,12 +49,12 @@ message:
     fulfillments:
       - agent:
           contact:
-            phone: '9856798567'
+            phone: "9856798567"
           person:
             name: Jason Roy
         customer:
           contact:
-            phone: '9876556789'
+            phone: "9876556789"
           person:
             name: Joe Adams
         id: F1
@@ -63,13 +63,18 @@ message:
             code: RIDE_CONFIRMED
         stops:
           - authorization:
-              token: '234234'
+              token: "234234"
               type: OTP
             location:
               gps: 13.008935, 77.644408
+              address: Banaswadi, Bengaluru - 560043, Karnataka, India
             time:
               duration: PT2H
             type: START
+          - location:
+              gps: 12.971186, 77.586812
+              address: Sampangiram Nagar Ward, Bengaluru - 560001, Karnataka, India
+            type: END
         tags:
           - descriptor:
               code: ROUTE_INFO
@@ -83,24 +88,33 @@ message:
               - descriptor:
                   code: WAYPOINTS
                   name: Waypoints
-                value: >-
-                  [{"gps":"12.909982,
-                  77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,
-                  77.611822"}]
+                value:
+                  '[{"gps":"12.909982, 77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,
+                  77.611822"}]'
+          - descriptor:
+              code: LOCATION
+            display: false
+            list:
+              - descriptor:
+                  code: START_AREA
+                value: Banaswadi
+              - descriptor:
+                  code: END_AREA
+                value: Sampangiram Nagar
         type: DELIVERY
         vehicle:
           category: AUTO_RICKSHAW
           make: Bajaj
           model: Compact RE
           registration: KA-01-AD-9876
-    id: O1
+    id: ORDER_ID_ON_DEMAND
     items:
       - descriptor:
           code: RIDE
           name: CAB Ride
         fulfillment_ids:
           - F1
-        id: ITEM_ID_1_ON_DEMAND
+        id: I1
         location_ids:
           - L1
           - L3
@@ -108,9 +122,9 @@ message:
           - PA1
         price:
           currency: INR
-          maximum_value: '176'
-          minimum_value: '156'
-          value: '146'
+          maximum_value: "176"
+          minimum_value: "156"
+          value: "146"
         tags:
           - descriptor:
               code: FARE_POLICY
@@ -119,28 +133,31 @@ message:
             list:
               - descriptor:
                   code: MIN_FARE
-                value: '30'
+                value: "30"
               - descriptor:
                   code: MIN_FARE_DISTANCE_KM
-                value: '2'
+                value: "2"
               - descriptor:
                   code: PER_KM_CHARGE
-                value: '15'
+                value: "15"
               - descriptor:
                   code: PICKUP_CHARGE
-                value: '10'
+                value: "10"
               - descriptor:
                   code: WAITING_CHARGE_PER_MIN
-                value: '2'
+                value: "2"
               - descriptor:
                   code: NIGHT_CHARGE_MULTIPLIER
-                value: '1.5'
+                value: "1.5"
               - descriptor:
                   code: NIGHT_SHIFT_START_TIME
-                value: '22:00:00'
+                value: "22:00:00"
               - descriptor:
                   code: NIGHT_SHIFT_END_TIME
-                value: '05:00:00'
+                value: "05:00:00"
+              - descriptor:
+                  code: EXTERNAL_REF
+                value: https://example-bpp.com/prod/seller/fare-policy
           - descriptor:
               code: INFO
               name: General Information
@@ -148,10 +165,10 @@ message:
             list:
               - descriptor:
                   code: DISTANCE_TO_NEAREST_DRIVER_METER
-                value: '661'
+                value: "661"
               - descriptor:
                   code: ETA_TO_NEAREST_DRIVER_MIN
-                value: '3'
+                value: "3"
     payments:
       - collected_by: BAP
         id: PA1
@@ -162,19 +179,12 @@ message:
         status: NOT-PAID
         tags:
           - descriptor:
-              code: SETTLEMENT_DETAILS
-            display: false
-            list:
-              - descriptor:
-                  code: SETTLEMENT_TYPE
-                value: UPI
-          - descriptor:
               code: BUYER_FINDER_FEES
             display: false
             list:
               - descriptor:
                   code: BUYER_FINDER_FEES_PERCENTAGE
-                value: '1'
+                value: "1"
           - descriptor:
               code: SETTLEMENT_TERMS
             display: false
@@ -187,22 +197,22 @@ message:
                 value: Delivery
               - descriptor:
                   code: SETTLEMENT_TYPE
-                value: upi
+                value: UPI
               - descriptor:
                   code: MANDATORY_ARBITRATION
-                value: 'true'
+                value: "true"
               - descriptor:
                   code: COURT_JURISDICTION
                 value: New Delhi
               - descriptor:
                   code: DELAY_INTEREST
-                value: '2.5'
+                value: "2.5"
               - descriptor:
                   code: STATIC_TERMS
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '85'
+                value: "85"
         type: PRE-ORDER
     provider:
       id: P1
@@ -210,18 +220,18 @@ message:
       breakup:
         - price:
             currency: INR
-            value: '30'
+            value: "30"
           title: BASE_FARE
         - price:
             currency: INR
-            value: '116'
+            value: "116"
           title: DISTANCE_FARE
         - price:
             currency: INR
-            value: '10'
+            value: "10"
           title: CANCELLATION_CHARGES
       price:
         currency: INR
-        value: '156'
+        value: "156"
       ttl: P200S
     status: SOFT_CANCEL

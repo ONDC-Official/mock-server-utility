@@ -1,5 +1,5 @@
 context:
-  action: on_update
+  action: on_cancel
   bap_id: "{{bap_id}}"
   bap_uri: "{{bap_uri}}"
   bpp_id: "{{bpp_id}}"
@@ -13,8 +13,8 @@ context:
   message_id: "{{message_id}}"
   timestamp: "{{timestamp}}"
   transaction_id: "{{transaction_id}}"
-  ttl: PT30S
   version: 2.0.1
+  ttl: PT30S
 message:
   order:
     cancellation_terms:
@@ -60,11 +60,16 @@ message:
         id: F1
         state:
           descriptor:
-            code: RIDE_ENDED
+            code: RIDE_CANCELLED
         stops:
-          - location:
+          - authorization:
+              token: "234234"
+              type: OTP
+            location:
               gps: 13.008935, 77.644408
               address: Banaswadi, Bengaluru - 560043, Karnataka, India
+            time:
+              duration: PT2H
             type: START
           - location:
               gps: 12.971186, 77.586812
@@ -106,10 +111,10 @@ message:
     items:
       - descriptor:
           code: RIDE
-          name: Auto Ride
+          name: CAB Ride
         fulfillment_ids:
           - F1
-        id: ITEM_ID_1_ON_DEMAND
+        id: I1
         location_ids:
           - L1
           - L3
@@ -118,7 +123,7 @@ message:
         price:
           currency: INR
           maximum_value: "176"
-          minimum_value: "136"
+          minimum_value: "156"
           value: "146"
         tags:
           - descriptor:
@@ -150,8 +155,22 @@ message:
               - descriptor:
                   code: NIGHT_SHIFT_END_TIME
                 value: "05:00:00"
+              - descriptor:
+                  code: EXTERNAL_REF
+                value: https://example-bpp.com/prod/seller/fare-policy
+          - descriptor:
+              code: INFO
+              name: General Information
+            display: true
+            list:
+              - descriptor:
+                  code: DISTANCE_TO_NEAREST_DRIVER_METER
+                value: "661"
+              - descriptor:
+                  code: ETA_TO_NEAREST_DRIVER_MIN
+                value: "3"
     payments:
-      - collected_by: BPP
+      - collected_by: BAP
         id: PA1
         params:
           bank_account_number: xxxxxxxxxxxxxx
@@ -171,17 +190,14 @@ message:
             display: false
             list:
               - descriptor:
-                  code: DELAY_INTEREST
-                value: "5"
+                  code: SETTLEMENT_WINDOW
+                value: PT60M
+              - descriptor:
+                  code: SETTLEMENT_BASIS
+                value: Delivery
               - descriptor:
                   code: SETTLEMENT_TYPE
                 value: UPI
-              - descriptor:
-                  code: SETTLEMENT_WINDOW
-                value: PT2D
-              - descriptor:
-                  code: SETTLEMENT_BASIS
-                value: DELIVERY
               - descriptor:
                   code: MANDATORY_ARBITRATION
                 value: "true"
@@ -189,12 +205,15 @@ message:
                   code: COURT_JURISDICTION
                 value: New Delhi
               - descriptor:
+                  code: DELAY_INTEREST
+                value: "2.5"
+              - descriptor:
                   code: STATIC_TERMS
-                value: https://example-test-bpp.com/static-terms.txt
+                value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: "1.46"
-        type: ON-FULFILLMENT
+                value: "85"
+        type: PRE-ORDER
     provider:
       id: P1
     quote:
@@ -210,7 +229,5 @@ message:
       price:
         currency: INR
         value: "146"
-      ttl: PT30S
-    status: COMPLETED
-    created_at: "2023-12-10T08:03:34.294Z"
-    updated_at: "2023-12-11T03:54:28.832Z"
+      ttl: P200S
+    status: CANCELLED
