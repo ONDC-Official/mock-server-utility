@@ -4,7 +4,7 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./default/template/error.yaml"
+    $ref: "./default/template/error_status.yaml"
 
 # personal-loan-1:
 #   condition:
@@ -17,7 +17,7 @@ default:
 #               type: READ
 #               input:
 #                 value: "req_body.message.order_id"
-#           - "order_id_1_personal-loan"
+#           - "ORDER_ID_1_PERSONAL_LOAN"
 #   callback: "on_status"
 #   uri:
 #     $ref: ""

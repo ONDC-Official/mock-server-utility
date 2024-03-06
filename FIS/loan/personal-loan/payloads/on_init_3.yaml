@@ -5,17 +5,16 @@ context:
       code: IND
     city:
       code: "*"
-  
-  version: 2.0.0
-  action: on_init
+  version: 2.1.0
+  action: on_select
+  bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
-  bap_id: credit-protocol.becknprotocol.io
-  bpp_id: fis-seller-staging.ondc.org
-  bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
-  ttl: PT10M
-  timestamp: '2023-05-25T05:23:03.443Z'
+  ttl: PT30M
+  timestamp: '{{timestamp}}'
+  bpp_id: '{{bpp_id}}'
+  bpp_uri: '{{bpp_uri}}'
 message:
   order:
     provider:
@@ -27,17 +26,77 @@ message:
         name: ICICI Bank
         short_desc: ICICI Bank Ltd
         long_desc: ICICI Bank Ltd, India.
+      tags:
+      - descriptor:
+          code: CONTACT_INFO
+          name: Contact Info
+        list:
+        - descriptor:
+            code: GRO_NAME
+            name: Gro name
+          value: ICICI
+        - descriptor:
+            code: GRO_EMAIL
+            name: Gro email
+          value: lifeline@iciciprulife.com
+        - descriptor:
+            code: GRO_CONTACT_NUMBER
+            name: Gro contact number
+          value: 1860 266 7766
+        - descriptor:
+            code: GRO_DESIGNATION
+            name: Gro Designation
+          value: Nodal Grievance Redressal Officer
+        - descriptor:
+            code: GRO_ADDRESS
+            name: Gro Address
+          value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound
+            841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
+        - descriptor:
+            code: CUSTOMER_SUPPORT_LINK
+            name: Customer support link
+          value: https://buy.iciciprulife.com/buy/GrievanceRedStep.htm?execution=e1s1
+        - descriptor:
+            code: CUSTOMER_SUPPORT_CONTACT_NUMBER
+            name: Customer support contact number
+          value: 1800 1080
+        - descriptor:
+            code: CUSTOMER_SUPPORT_EMAIL
+            name: Customer support email
+          value: customer.care@icicibank.com
+      - descriptor:
+          code: LSP_INFO
+          name: Lsp Info
+        list:
+        - descriptor:
+            code: LSP_NAME
+            name: Lsp name
+          value: ICICI_LSP
+        - descriptor:
+            code: LSP_EMAIL
+            name: Lsp email
+          value: lsp@iciciprulife.com
+        - descriptor:
+            code: LSP_CONTACT_NUMBER
+            name: Lsp contact number
+          value: 1860 266 7766
+        - descriptor:
+            code: LSP_ADDRESS
+            name: Lsp Address
+          value: One Indiabulls centre, Tower 1, 18th Floor Jupiter mill compound
+            841, Senapati Bapat Marg, Elphinstone Road, Mumbai 400013
     items:
-    - id: '{{item_id1}}'
+    - id: CHILD_ITEM_ID_PERSONAL_LOAN
+      parent_item_id: ITEM_ID_PERSONAL_LOAN
       descriptor:
         code: PERSONAL_LOAN
         name: Personal Loan
       price:
         currency: INR
-        value: '231800'
+        value: '232800'
       tags:
       - descriptor:
-          code: loan-info
+          code: LOAN_INFO
           name: Loan Information
         list:
         - descriptor:
@@ -74,10 +133,43 @@ message:
             short_desc: Delayed payments penalty
           value: 5%
         - descriptor:
+            code: OTHER_PENALTY_FEE
+            name: Other Penal Charges
+            short_desc: Other Penal Charges
+          value: 1%
+        - descriptor:
+            code: ANNUAL_PERCENTAGE_RATE
+            name: Annual Percentage Rate
+            short_desc: Effective annualized interest rate in percentage computed
+              on net disbursed amount using IRR approach and reducing balance method
+          value: 5%
+        - descriptor:
+            code: REPAYMENT_FREQUENCY
+            name: Repayment Frequency
+            short_desc: Repayment Frequency by borrower
+          value: MONTHLY
+        - descriptor:
+            code: NUMBER_OF_INSTALLMENTS_OF_REPAYMENT
+            name: Number of installments of repayment
+            short_desc: Number of installments borrower has to make to payback the
+              loan
+          value: '45'
+        - descriptor:
             code: TNC_LINK
             name: Terms & Conditions
             short_desc: Terms and Conditions
-          value: https://bpp.credit.becknprotocol.org/loan/tnc.html
+          value: https://icicibank.com/loan/tnc.html
+        - descriptor:
+            code: COOL_OFF_PERIOD
+            name: cool off period
+            short_desc: "Cooling off/look-up period during which borrower shall not
+              be\tTAGS m jayega charged any penalty"
+          value: PT30D
+        - descriptor:
+            code: INSTALLMENT_AMOUNT
+            name: Installment amount
+            short_desc: Each installment amount of repayment
+          value: PT30D
         display: true
       xinput:
         head:
@@ -103,19 +195,35 @@ message:
       id: LOAN_LEAD_ID_OR_SIMILAR
       price:
         currency: INR
-        value: '231800'
+        value: '232800'
       breakup:
-      - title: Principal
+      - title: PRINCIPAL
         price:
           value: '200000'
           currency: INR
-      - title: Interest
+      - title: INTEREST
         price:
           value: '30000'
           currency: INR
-      - title: Processing fee
+      - title: PROCESSING_FEE
         price:
           value: '1800'
+          currency: INR
+      - title: OTHER_UPFRONT_CHARGES
+        price:
+          value: '0'
+          currency: INR
+      - title: INSURANCE_CHARGES
+        price:
+          value: '500'
+          currency: INR
+      - title: NET_DISBURSED_AMOUNT
+        price:
+          value: '197700'
+          currency: INR
+      - title: OTHER_CHARGES
+        price:
+          value: '0'
           currency: INR
       ttl: PT15D
     fulfillments:
@@ -129,7 +237,8 @@ message:
         descriptor:
           code: INITIATED
     payments:
-    - type: ON_ORDER
+    - id: PAYMENT_ID_PERSONAL_LOAN
+      type: ON_ORDER
       status: NOT-PAID
       collected_by: BPP
       tags:
@@ -166,52 +275,57 @@ message:
             code: SETTLEMENT_AMOUNT
           value: '1159'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 1
+        label: INSTALLMENT
         range:
           start: '2023-06-01T00:00:00.000Z'
           end: '2023-06-30T23:59:59.999Z'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 2
+        label: INSTALLMENT
         range:
           start: '2023-07-01T00:00:00.000Z'
           end: '2023-07-31T23:59:59.999Z'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 3
+        label: INSTALLMENT
         range:
           start: '2023-08-01T00:00:00.000Z'
           end: '2023-08-31T23:59:59.999Z'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 4
+        label: INSTALLMENT
         range:
           start: '2023-09-01T00:00:00.000Z'
           end: '2023-09-30T23:59:59.999Z'
     - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
       params:
         amount: '46360'
         currency: INR
       status: NOT-PAID
       time:
-        label: Installment 5
+        label: INSTALLMENT
         range:
           start: '2023-10-01T00:00:00.000Z'
           end: '2023-10-31T23:59:59.999Z'

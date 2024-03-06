@@ -6,7 +6,7 @@ context:
     city:
       code: "*"
   version: 2.1.0
-  action: on_select
+  action: on_update
   bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   transaction_id: '{{transaction_id}}'
@@ -17,8 +17,9 @@ context:
   bpp_uri: '{{bpp_uri}}'
 message:
   order:
+    id: ORDER_ID_1_PERSONAL_LOAN
     provider:
-      id: '1'
+      id: "1"
       descriptor:
         images:
         - url: https://www.icicibank.com/content/dam/icicibank/india/assets/images/header/logo.png
@@ -93,7 +94,7 @@ message:
         name: Personal Loan
       price:
         currency: INR
-        value: '441800'
+        value: '232800'
       tags:
       - descriptor:
           code: LOAN_INFO
@@ -171,37 +172,28 @@ message:
             short_desc: Each installment amount of repayment
           value: PT30D
         display: true
-      xinput:
-        head:
-          descriptor:
-            name: Customer Information
-          index:
-            min: 0
-            cur: 0
-            max: 1
-          headings:
-          - Set Loan Amount
-          - Know your Customer
-        form:
-          id: FO2
-          mime_type: text/html
-          url: '{{bpp_uri}}form/personal-loan/required-loan'
-          resubmit: false
-          multiple_sumbissions: false
-        required: true
+      - descriptor:
+          code: CONSENT_INFO
+          name: Consent Information
+        list:
+        - descriptor:
+            code: CONSENT_HANDLER
+            name: Consent Handler
+          value: d28e3a3c-1185-443a-b71e-cc1e03bb5d54
+        display: false
     quote:
       id: LOAN_LEAD_ID_OR_SIMILAR
       price:
         currency: INR
-        value: '442300'
+        value: '232800'
       breakup:
       - title: PRINCIPAL
         price:
-          value: '400000'
+          value: '200000'
           currency: INR
       - title: INTEREST
         price:
-          value: '40000'
+          value: '30000'
           currency: INR
       - title: PROCESSING_FEE
         price:
@@ -217,10 +209,137 @@ message:
           currency: INR
       - title: NET_DISBURSED_AMOUNT
         price:
-          value: '397700'
+          value: '197700'
           currency: INR
       - title: OTHER_CHARGES
         price:
           value: '0'
           currency: INR
       ttl: PT15D
+    fulfillments:
+    - customer:
+        person:
+          name: John Doe
+        contact:
+          phone: "+91-9999999999"
+          email: john.doe@example.com
+      state:
+        descriptor:
+          code: CONSENT_REQUIRED
+    payments:
+    - id: PAYMENT_ID_PERSONAL_LOAN
+      type: ON_ORDER
+      status: NOT-PAID
+      collected_by: BPP
+      tags:
+      - descriptor:
+          code: BUYER_FINDER_FEES
+        display: false
+        list:
+        - descriptor:
+            code: BUYER_FINDER_FEES_TYPE
+          value: percent-annualized
+        - descriptor:
+            code: BUYER_FINDER_FEES_PERCENTAGE
+          value: '1'
+      - descriptor:
+          code: SETTLEMENT_TERMS
+        display: false
+        list:
+        - descriptor:
+            code: SETTLEMENT_WINDOW
+          value: PT60M
+        - descriptor:
+            code: SETTLEMENT_BASIS
+          value: INVOICE_RECEIPT
+        - descriptor:
+            code: MANDATORY_ARBITRATION
+          value: 'TRUE'
+        - descriptor:
+            code: COURT_JURISDICTION
+          value: New Delhi
+        - descriptor:
+            code: STATIC_TERMS
+          value: https://bpp.credit.becknprotocol.org/personal-banking/loans/personal-loan
+        - descriptor:
+            code: SETTLEMENT_AMOUNT
+          value: '1159'
+    - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
+      params:
+        amount: '46360'
+        currency: INR
+      status: NOT-PAID
+      time:
+        label: INSTALLMENT
+        range:
+          start: '2023-06-01T00:00:00.000Z'
+          end: '2023-06-30T23:59:59.999Z'
+    - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
+      params:
+        amount: '46360'
+        currency: INR
+      status: NOT-PAID
+      time:
+        label: INSTALLMENT
+        range:
+          start: '2023-07-01T00:00:00.000Z'
+          end: '2023-07-31T23:59:59.999Z'
+    - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
+      params:
+        amount: '46360'
+        currency: INR
+      status: NOT-PAID
+      time:
+        label: INSTALLMENT
+        range:
+          start: '2023-08-01T00:00:00.000Z'
+          end: '2023-08-31T23:59:59.999Z'
+    - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
+      params:
+        amount: '46360'
+        currency: INR
+      status: NOT-PAID
+      time:
+        label: INSTALLMENT
+        range:
+          start: '2023-09-01T00:00:00.000Z'
+          end: '2023-09-30T23:59:59.999Z'
+    - type: POST_FULFILLMENT
+      id: INSTALLMENT_ID_PERSONAL_LOAN
+      params:
+        amount: '46360'
+        currency: INR
+      status: NOT-PAID
+      time:
+        label: INSTALLMENT
+        range:
+          start: '2023-10-01T00:00:00.000Z'
+          end: '2023-10-31T23:59:59.999Z'
+    cancellation_terms:
+    - fulfillment_state:
+        descriptor:
+          code: SANCTIONED
+      cancellation_fee:
+        percentage: 3%
+    - external_ref:
+        mimetype: text/html
+        url: https://icicibank.com/loan/tnc.html
+    - fulfillment_state:
+        descriptor:
+          code: DISBURSED
+      cancellation_fee:
+        percentage: 5%
+    documents:
+    - descriptor:
+        code: LOAN_AGREEMENT
+        name: Loan Agreement Document
+        short_desc: Download your Loan Agreement document here
+        long_desc: A Loan Agreement Document is a legal contract outlining terms such
+          as loan amount, interest rate, repayment schedule, and collateral, binding
+          a lender and borrower in a formal financial arrangement.
+      mime_type: application/pdf
+      url: https://lender.com/loan/loan-agreement/O1.pdf

@@ -17,13 +17,25 @@ personal-loan:
               type: READ
               input:
                 value: "req_body.message.order.items.0.id"
-          - "ITEM_ID_1_PERSONAL-LOAN"
-  callback: "on_confirm"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/personal-loan/template/on_confirm.yaml"
+          - "CHILD_ITEM_ID_PERSONAL_LOAN"
+  callbacks: 
+    - callback: "on_confirm"
+      uri: 
+        ""
+      delay: 
+        300
+      payload: 
+        $ref: "./loan/personal-loan/template/on_confirm.yaml"        
+    - callback: "on_update"
+      uri: 
+        ""
+      delay: 
+        500
+      payload: 
+        $ref: "./loan/personal-loan/template/on_update_confirm.yaml"  
+
+
+   
 
 invoice-based-loans:
   condition:

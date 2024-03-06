@@ -14,4 +14,4 @@ context:
   bpp_id: fis-seller-staging.ondc.org
   bpp_uri: '{{bpp_uri}}'
 message:
-  order_id: order_id_1_personal-loan
+  order_id: ORDER_ID_1_PERSONAL_LOAN

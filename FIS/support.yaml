@@ -17,7 +17,7 @@ personal-loan:
               type: READ
               input:
                 value: "req_body.message.support.order_id"
-          - "order_id_1_personal-loan"
+          - "ORDER_ID_1_PERSONAL_LOAN"
   callback: "on_support"
   uri:
     $ref: ""

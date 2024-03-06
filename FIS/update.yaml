@@ -17,7 +17,7 @@ personal-loan1:
               type: READ
               input:
                 value: "req_body.message.order.id"
-          - "order_id_1_personal-loan"
+          - "ORDER_ID_1_PERSONAL_LOAN"
   callback: "on_update"
   uri:
     $ref: ""
@@ -25,24 +25,24 @@ personal-loan1:
   payload:
     $ref: "./loan/personal-loan/template/on_update_1.yaml"
 
-personal-loan2:
-  condition:
-    operation:
-      type: EQUAL
-      title: Check update message code
-      input:
-        value:
-          - operation:
-              type: READ
-              input:
-                value: "req_body.message.order.id"
-          - "order_id_2_personal-loan"
-  callback: "on_update"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/personal-loan/template/on_update_2.yaml"    
+# personal-loan2:
+#   condition:
+#     operation:
+#       type: EQUAL
+#       title: Check update message code
+#       input:
+#         value:
+#           - operation:
+#               type: READ
+#               input:
+#                 value: "req_body.message.order.id"
+#           - "order_id_2_personal-loan"
+#   callback: "on_update"
+#   uri:
+#     $ref: ""
+#   delay: 300
+#   payload:
+#     $ref: "./loan/personal-loan/template/on_update_2.yaml"    
 
 
 invoice-based-loans1:

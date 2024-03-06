@@ -5,7 +5,6 @@ context:
       code: IND
     city:
       code: "*"
-  
   version: 2.1.0
   action: on_search
   bap_id: '{{bap_id}}'
@@ -77,26 +76,23 @@ message:
               short_desc: Loan Amount upto form 50,00,000
             value: '5000000'
           display: true
+        - descriptor:
+            code: CONSENT_INFO
+            name: Consent Information
+          list:
+          - descriptor:
+              code: CONSENT_HANDLER
+              name: Consent Handler
+            value: 50635a60-7d85-441a-85f4-86f734ca4e4c
+          display: false
         matched: true
         recommended: true
         xinput:
-          head:
-            descriptor:
-              name: Customer Information
-            index:
-              min: 0
-              cur: 0
-              max: 0
-            headings:
-            - Personal Information
           form:
             id: F01
-            mime_type: text/html
-            url: >-
-                  {{bpp_uri}}form/personal-loan/personal-info
-            resubmit: false
-            multiple_sumbissions: false
-          required: true
+          form_response:
+            status: PENDING
+            submission_id: F01_SUBMISSION_ID
       payments:
       - collected_by: BPP
         tags:
