@@ -9,7 +9,7 @@ context:
     country:
       code: IND
   message_id: '{{message_id}}'
-  timestamp: '2023-07-22T15:03:18.179Z'
+  timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
   ttl: PT24H
   version: 2.0.0

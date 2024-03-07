@@ -91,18 +91,19 @@ message:
       xinput:
         head:
           descriptor:
-            name: PAN & DOB
+            name: Manual Review
           index:
             min: 0
             cur: 0
-            max: 1
+            max: 2
           headings:
+          - Manual Review
           - PAN & DOB
           - Know your Customer
         form:
-          id: F04
-          mime_type: text/html
-          url: '{{bpp_uri}}form/Pan/Dob_details'
+          id: FO3
+          mime_type: application/html
+          url: '{{bpp_uri}}form/manual-review/form?payload={{stringify}}'
           resubmit: false
           multiple_sumbissions: false
         required: true
@@ -110,7 +111,7 @@ message:
       - id: A1
         price:
           currency: INR
-          value: '974'
+          value: '900'
         quantity:
           selected:
             count: 1
@@ -133,16 +134,25 @@ message:
         value: '12505'
       breakup:
       - price:
-          value: '3634'
+          value: '11531'
           currency: INR
-        title: Basic OD
+        title: BASE_PRICE
       - price:
-          value: '7897'
+          value: '50'
           currency: INR
-        title: Basic TP
-      - title: Add On
+        title: CONVIENCE_FEE
+      - price:
+          value: '30'
+          currency: INR
+        title: TAX
+      - price:
+          value: '20'
+          currency: INR
+        title: PROCESSING_FEE
+      - title: ADD_ONS
         item:
           id: A1
         price:
-          value: '974'
+          value: '900'
           currency: INR
+      ttl: PT15D

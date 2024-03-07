@@ -1,5 +1,5 @@
 context:
-  action: on_select
+  action: on_status
   bap_id:  '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   bpp_id:  '{{bpp_id}}'
@@ -88,25 +88,14 @@ message:
       time:
         duration: P1Y
         label: TENURE
+      fulfillment_ids:
+      - F1
       xinput:
-        head:
-          descriptor:
-            name: PAN & DOB
-          index:
-            min: 0
-            cur: 1
-            max: 2
-          headings:
-          - Manual Review
-          - PAN & DOB
-          - Know your Customer
         form:
-          id: F04
-          mime_type: text/html
-          url: '{{bpp_uri}}form/Pan/Dob_details'
-          resubmit: false
-          multiple_sumbissions: false
-        required: true
+          id: F03
+        form_response:
+          status: FORM_PROCESSED
+          submission_id: F03_SUBMISSION_ID
       add_ons:
       - id: A1
         price:
@@ -156,3 +145,28 @@ message:
           value: '900'
           currency: INR
       ttl: PT15D
+    payments:
+    - collected_by: BPP
+      tags:
+      - descriptor:
+          code: SETTLEMENT_TERMS
+        display: false
+        list:
+        - descriptor:
+            code: SETTLEMENT_WINDOW
+          value: PT60M
+        - descriptor:
+            code: SETTLEMENT_BASIS
+          value: Delivery
+        - descriptor:
+            code: DELAY_INTEREST
+          value: '2.5'
+        - descriptor:
+            code: MANDATORY_ARBITRATION
+          value: 'TRUE'
+        - descriptor:
+            code: COURT_JURISDICTION
+          value: New Delhi
+        - descriptor:
+            code: STATIC_TERMS
+          value: https://www.icicibank.com/personal-banking/loans/personal-loan

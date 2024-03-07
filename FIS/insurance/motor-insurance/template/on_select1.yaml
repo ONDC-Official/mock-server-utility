@@ -36,4 +36,6 @@ template:
           type: READ
           input:
             value: "req_body.message.order.items.0.id"     
-  
+      stringify:
+        operation:
+          type: STRINGIFY    

@@ -50,6 +50,10 @@ message:
           name: Transfer Insurance
           code: TRANSFER_INSURANCE
         id: C7
+      - descriptor:
+          name: Own Damage
+          code: OWN_DAMAGE
+        id: C8
       descriptor:
         long_desc: Insurance Provider Long Description
         name: Insurance Provider Name
@@ -128,7 +132,7 @@ message:
             headings:
             - Vehicle Details
           form:
-            id: F01
+            id: FO1
             mime_type: text/html
             url: '{{bpp_uri}}form/fetch/vehicle/details'
             multiple_sumbissions: false
@@ -138,7 +142,7 @@ message:
         - id: A1
           price:
             currency: INR
-            value: '974'
+            value: '900'
           quantity:
             available:
               count: 1
@@ -300,9 +304,9 @@ message:
               cur: 0
               max: 0
             headings:
-            - Vehicle Insurance Renewal
+            - Vehicle Details
           form:
-            id: F02
+            id: FO2
             mime_type: text/html
             url:  '{{bpp_uri}}form/vehicle-detail/renewal'
             multiple_sumbissions: false
@@ -312,7 +316,7 @@ message:
         - id: A1
           price:
             currency: INR
-            value: '974'
+            value: '900'
           quantity:
             available:
               count: 1

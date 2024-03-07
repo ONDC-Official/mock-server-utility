@@ -17,13 +17,9 @@ context:
   version: 2.0.0
 message:
   order:
-    fulfillments:
-    - state:
-        descriptor:
-          code: PROCESSING
-      id: F1
     items:
-    - id: '{{item_id1}}'
+    - id: CHILD_ITEM_CI1
+      parent_item_id: ITEM_ID_MOTOR_INSURANCE
       category_ids:
       - C3
       - C4
@@ -34,6 +30,7 @@ message:
         short_desc: 2-Wheeler 3rd Party Motor Insurance by ABC Insurance Provider
       price:
         value: '11531'
+        currency: INR
       tags:
       - descriptor:
           code: GENERAL_INFO
@@ -88,15 +85,13 @@ message:
         - descriptor:
             code: PREVIOUS_POLICY_END_DATE
           value: '2022-01-02'
-      fulfillment_ids:
-      - F1
       time:
         duration: P1Y
         label: TENURE
       xinput:
         head:
           descriptor:
-            name: PAN & DOB
+            name: Know your Customer
           index:
             min: 0
             cur: 2
@@ -106,7 +101,7 @@ message:
           - PAN & DOB
           - Know your Customer
         form:
-          id: F04
+          id: FO5
           mime_type: text/html
           url: >-
              {{bpp_uri}}form/EKYC/form
@@ -117,12 +112,13 @@ message:
       - id: A1
         price:
           currency: INR
-          value: '974'
+          value: '900'
         quantity:
           selected:
             count: 1
         descriptor:
           name: Consumables Cover
+          code: CONSUMABLES_COVER
     provider:
       descriptor:
         long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
@@ -139,13 +135,25 @@ message:
         value: '12505'
       breakup:
       - price:
-          value: '3634'
-        title: Basic OD
+          value: '11531'
+          currency: INR
+        title: BASE_PRICE
       - price:
-          value: '7897'
-        title: Basic TP
-      - title: Add On
+          value: '50'
+          currency: INR
+        title: CONVIENCE_FEE
+      - price:
+          value: '30'
+          currency: INR
+        title: TAX
+      - price:
+          value: '20'
+          currency: INR
+        title: PROCESSING_FEE
+      - title: ADD_ONS
         item:
           id: A1
         price:
-          value: '974'
+          value: '900'
+          currency: INR
+      ttl: PT15D

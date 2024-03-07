@@ -11,9 +11,9 @@ context:
     city:
       code: '*'
   message_id: '{{message_id}}'
-  timestamp: '2023-07-22T15:04:48.024Z'
+  timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
-  ttl: PT60M
+  ttl: PT24H
   version: 2.0.0
 message:
   order:
@@ -140,7 +140,7 @@ message:
         list:
         - descriptor:
             code: SETTLEMENT_WINDOW
-          value: PT60M
+          value: PT24H
         - descriptor:
             code: SETTLEMENT_BASIS
           value: Delivery

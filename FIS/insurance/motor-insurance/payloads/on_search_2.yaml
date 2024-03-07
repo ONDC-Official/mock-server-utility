@@ -50,6 +50,10 @@ message:
           name: Transfer Insurance
           code: TRANSFER_INSURANCE
         id: C7
+      - descriptor:
+          name: Own Damage
+          code: OWN_DAMAGE
+        id: C8
       descriptor:
         long_desc: Insurance Provider Long Description
         name: Insurance Provider Name
@@ -121,7 +125,7 @@ message:
         - id: A1
           price:
             currency: INR
-            value: '974'
+            value: '900'
           quantity:
             available:
               count: 1
@@ -220,7 +224,7 @@ message:
       - id: CHILD_ITEM_CI1
         parent_item_id: ITEM_ID_MOTOR_INSURANCE
         price:
-          value: '12505'
+          value: '11531'
           currency: INR
         category_ids:
         - C3
@@ -277,30 +281,39 @@ message:
           - descriptor:
               code: PER_DAY_CASH
             value: '50'
+          - descriptor:
+              code: BASE_PRICE
+              name: Base Price
+              short_desc: Base Price
+            value: '11531'
+          - descriptor:
+              code: CONVIENCE_FEE
+              name: Convience Fee
+              short_desc: Convience Fee
+            value: '50'
+          - descriptor:
+              code: PROCESSING_FEE
+              name: Processing Fee
+              short_desc: Processing Fee
+            value: '20'
+          - descriptor:
+              code: TAX
+              name: Tax
+              short_desc: Tax
+            value: '30'
+          - descriptor:
+              code: OFFER_VALIDITY
+              name: Offer validity
+              short_desc: Describes the offer validity
+            value: PT15D
         time:
           duration: P1Y
           label: TENURE
-        xinput:
-          head:
-            descriptor:
-              name: Manual Review
-            index:
-              min: 0
-              cur: 0
-              max: 0
-            headings:
-            - Manual Review
-          form:
-            id: F03
-            mime_type: text/html
-            url: '{{bpp_uri}}form/manual-review/form'
-            multiple_sumbissions: false
-          required: true
         add_ons:
         - id: A1
           price:
             currency: INR
-            value: '974'
+            value: '900'
           quantity:
             available:
               count: 1
@@ -456,7 +469,7 @@ message:
         - id: A1
           price:
             currency: INR
-            value: '974'
+            value: '900'
           quantity:
             available:
               count: 1
@@ -620,29 +633,39 @@ message:
           - descriptor:
               code: PER_DAY_CASH
             value: '50'
+          - descriptor:
+              code: BASE_PRICE
+              name: Base Price
+              short_desc: Base Price
+            value: '15000'
+          - descriptor:
+              code: CONVIENCE_FEE
+              name: Convience Fee
+              short_desc: Convience Fee
+            value: '50'
+          - descriptor:
+              code: PROCESSING_FEE
+              name: Processing Fee
+              short_desc: Processing Fee
+            value: '20'
+          - descriptor:
+              code: TAX
+              name: Tax
+              short_desc: Tax
+            value: '30'
+          - descriptor:
+              code: OFFER_VALIDITY
+              name: Offer validity
+              short_desc: Describes the offer validity
+            value: PT15D
         time:
           duration: P1Y
           label: TENURE
-        xinput:
-          head:
-            descriptor:
-              name: Manual Review
-            index:
-              min: 0
-              cur: 0
-              max: 0
-            headings:
-            - Manual Review
-          form:
-            id: F02
-            mime_type: text/html
-            url: '{{bpp_uri}}form/manual-review/form'
-          required: true
         add_ons:
         - id: A1
           price:
             currency: INR
-            value: '974'
+            value: '900'
           quantity:
             available:
               count: 1

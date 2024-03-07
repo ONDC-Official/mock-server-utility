@@ -11,7 +11,7 @@ context:
     city:
       code: '*'
   message_id: '{{message_id}}'
-  timestamp: '2023-07-24T05:41:32.487Z'
+  timestamp: '{{timestamp}}'
   transaction_id: '{{transaction_id}}'
   ttl: PT24H
   version: 2.0.0

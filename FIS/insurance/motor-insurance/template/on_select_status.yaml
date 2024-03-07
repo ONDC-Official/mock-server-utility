@@ -1,6 +1,6 @@
 template:
     data:
-      $ref: "../payloads/update.yaml"
+      $ref: "../payloads/on_select_status.yaml"
     dict:
       bpp_uri: https://fis-seller-staging.ondc.org/
       bpp_id: fis-seller-staging.ondc.org
@@ -31,3 +31,8 @@ template:
           type: READ
           input:
             value: "req_body.context.message_id"     
+      item_id1:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.items.0.id"     

@@ -1,7 +1,7 @@
 default:
-  callback: "undefined"
+  callback: "on_status"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "../payloads/manual-review_form_submission.yaml"
+    $ref: "../template/on_select_status.yaml"
