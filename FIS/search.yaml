@@ -6,7 +6,7 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
-
+#v 2.1.0 personal loan
 personal-loan-1:
   condition:
       operation:
@@ -43,6 +43,16 @@ personal-loan-1:
                       input:
                         value: "req_body.message.intent.provider.items"
                   - "undefined"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_search"
   uri:
     $ref: ""
@@ -96,6 +106,16 @@ personal-loan-2:
                       input:
                           value: "req_body.message.intent.provider.items.0.xinput.form_response.status"
                   - "SUCCESS"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_search"
   uri:
     $ref: ""
@@ -148,12 +168,69 @@ personal-loan-3:
                         input:
                           value: "req_body.message.intent.provider.items.0.xinput.form_response.submission_id"
                     - "F01_SUBMISSION_ID"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_search"
   uri:
     $ref: ""
   delay: 300
   payload:
     $ref: "./loan/personal-loan/template/on_search_3.yaml"
+
+#v 2.0.0 personal loan
+personal-loan:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.intent.category.descriptor.code"
+                  - PERSONAL_LOAN
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_search.yaml"
+
+
+
 
 
 invoice-based-loans-1:

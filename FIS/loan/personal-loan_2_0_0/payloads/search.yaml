@@ -1,0 +1,18 @@
+context:
+  domain: '{{domain}}'
+  location:
+    country:
+      code: IND
+  transaction_id: '{{transaction_id}}'
+  message_id: '{{message_id}}'
+  action: search
+  timestamp: '2023-05-25T05:23:03.443Z'
+  version: 2.0.0
+  bap_uri: '{{bap_uri}}'
+  bap_id: credit-protocol.becknprotocol.io
+  ttl: PT10M
+message:
+  intent:
+    category:
+      descriptor:
+        code: PERSONAL-LOAN

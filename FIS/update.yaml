@@ -6,18 +6,33 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
+#v 2.1.0
 personal-loan1:
   condition:
     operation:
-      type: EQUAL
-      title: Check update message code
-      input:
-        value:
-          - operation:
-              type: READ
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
               input:
-                value: "req_body.message.order.id"
-          - "ORDER_ID_1_PERSONAL_LOAN"
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - "ORDER_ID_1_PERSONAL_LOAN"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_update"
   uri:
     $ref: ""
@@ -25,24 +40,75 @@ personal-loan1:
   payload:
     $ref: "./loan/personal-loan/template/on_update_1.yaml"
 
-# personal-loan2:
-#   condition:
-#     operation:
-#       type: EQUAL
-#       title: Check update message code
-#       input:
-#         value:
-#           - operation:
-#               type: READ
-#               input:
-#                 value: "req_body.message.order.id"
-#           - "order_id_2_personal-loan"
-#   callback: "on_update"
-#   uri:
-#     $ref: ""
-#   delay: 300
-#   payload:
-#     $ref: "./loan/personal-loan/template/on_update_2.yaml"    
+#v 2.0.0
+personal-loan1_old:
+  condition:
+    operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - "order_id_1_personal-loan"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_update_1.yaml"
+
+
+
+
+personal-loan2_old:
+  condition:
+    operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - "order_id_2_personal-loan"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_update_2.yaml"    
 
 
 invoice-based-loans1:

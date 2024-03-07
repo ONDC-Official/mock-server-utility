@@ -6,6 +6,7 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
+#v 2.1.0
 personal-loan_1:
   condition:
       operation:
@@ -42,7 +43,16 @@ personal-loan_1:
                       input:
                         value: "req_body.message.order.items.0.xinput.form_response.status"
                   - "SUCCESS"           
- 
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_init"
   uri:
     $ref: ""
@@ -85,7 +95,17 @@ personal-loan_2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.xinput.form_response.status"
-                  - "SUCCESS"    
+                  - "SUCCESS"   
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_init"
   uri:
     $ref: ""
@@ -129,13 +149,186 @@ personal-loan_3:
                       input:
                         value: "req_body.message.order.items.0.xinput.form_response.status"
                   - "SUCCESS"           
- 
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
   callback: "on_init"
   uri:
     $ref: ""
   delay: 300
   payload:
     $ref: "./loan/personal-loan/template/on_init_3.yaml"
+
+#v 2.0.0
+personal-loan_1_old:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "SUCCESS"           
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_init_1.yaml"
+
+personal-loan_2_old:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form2_submissionid"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "SUCCESS"    
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_init_2.yaml"
+
+personal-loan_3_old:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
+           - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form3_submissionid"
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "SUCCESS"           
+           - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_init_3.yaml"
+
+
+
 
 invoice-based-loans_1:
   condition:

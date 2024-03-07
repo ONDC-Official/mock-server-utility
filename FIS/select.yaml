@@ -6,7 +6,7 @@ default:
   payload:
     $ref: "./default/template/error.yaml"
 
-
+#v 2.1.0
 personal-loan-form1:
   condition:
       operation:
@@ -86,6 +86,94 @@ personal-loan-form2:
                       input:
                         value: "req_body.context.version"
                   - "2.1.0"        
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan/template/on_select_form2.yaml"
+
+#v 2.0.0
+personal-loan-form1_2_0_0:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
+
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "form1_submissionid"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.status"
+                  - "PENDING"        
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_select_form1.yaml"
+
+personal-loan-form2_2_0_0:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form1_submissionid"
           # - operation:
           #     type: EQUAL
           #     title: Check search message code
@@ -96,46 +184,66 @@ personal-loan-form2:
           #             input:
           #               value: "req_body.message.order.items.0.xinput.form_response.status"
           #         - "APPROVED"                
-
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./loan/personal-loan/template/on_select_form2.yaml"
+    $ref: "./loan/personal-loan_2_0_0/template/on_select_form2.yaml"
 
-# personal-loan-form3:
-#   condition:
-#       operation:
-#         type: AND
-#         input:
-#           value:
-#           - operation:
-#               type: EQUAL
-#               title: Check search message code
-#               input:
-#                 value:
-#                   - operation:
-#                       type: READ
-#                       input:
-#                         value: "req_body.message.order.items.0.id"
-#                   - "CHILD_ITEM_ID_PERSONAL_LOAN"
-#           - operation:
-#                 type: EQUAL
-#                 title: Check search message code
-#                 input:
-#                   value:
-#                     - operation:
-#                         type: READ
-#                         input:
-#                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-#                     - "form2_submissionid"              
-#   callback: "on_select"
-#   uri:
-#     $ref: ""
-#   delay: 300
-#   payload:
-#     $ref: "./loan/personal-loan/template/on_select_form3.yaml"
+personal-loan-form3_2_0_0:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_1_PERSONAL-LOAN"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                    - "form2_submissionid"  
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/personal-loan_2_0_0/template/on_select_form3.yaml"
+
 
 #invoice based on select responses
 invoice-based-loans_on_select1:
