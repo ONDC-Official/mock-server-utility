@@ -93,7 +93,7 @@ message:
           id: FO3
           mime_type: application/html
           url: >-
-             {{bpp_uri}}form/personal-loan/kyc
+             {{bpp_uri}}form/personal-loan/old/kyc
           resubmit: false
           multiple_sumbissions: false
         required: true

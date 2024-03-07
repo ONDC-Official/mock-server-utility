@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="/form/personal-loan/submission/personal-info" method="post">
+    <form action="/form/personal-loan/old/submission/personal-info" method="post">
         <label for="firstName">First Name</label>
     <input type="text" id="firstName" name="firstName" required />
     <label for="lastName">Last Name</label>
