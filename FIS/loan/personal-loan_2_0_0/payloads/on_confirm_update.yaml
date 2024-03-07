@@ -10,7 +10,7 @@ context:
   bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   transaction_id: '{{transaction_id}}'
-  message_id: '{{message_id}}'
+  message_id: '{{msg_id}}'
   ttl: PT30M
   timestamp: '{{timestamp}}'
   bpp_id: '{{bpp_id}}'
