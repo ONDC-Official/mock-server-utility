@@ -5,16 +5,15 @@ context:
       code: IND
     city:
       code: "*"
-  
   version: 2.0.0
   action: on_search
-  bap_id: credit-protocol.becknprotocol.io
+  bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
   ttl: PT30M
-  timestamp: '2023-05-25T05:23:03.443Z'
-  bpp_id: fis-seller-staging.ondc.org
+  timestamp: '{{timestamp}}'
+  bpp_id: '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
 message:
   catalog:

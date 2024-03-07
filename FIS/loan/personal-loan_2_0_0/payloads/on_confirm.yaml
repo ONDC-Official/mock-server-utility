@@ -5,17 +5,16 @@ context:
       code: IND
     city:
       code: "*"
-  
   version: 2.0.0
   action: on_confirm
+  bap_id: '{{bap_id}}'
   bap_uri: '{{bap_uri}}'
-  bap_id: credit-protocol.becknprotocol.io
-  bpp_id: fis-seller-staging.ondc.org
-  bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
-  ttl: PT10M
-  timestamp: '2023-05-25T05:23:03.443Z'
+  ttl: PT30M
+  timestamp: '{{timestamp}}'
+  bpp_id: '{{bpp_id}}'
+  bpp_uri: '{{bpp_uri}}'
 message:
   order:
     id: order_id_1_personal-loan
@@ -111,6 +110,7 @@ message:
             name: Loan Sanctioned
     payments:
       - type: ON-ORDER
+        id: PAYMENT_ID_PERSONAL_LOAN
         url: https://emandate.icicibank.in
         params:
           amount: '46360'

@@ -75,15 +75,23 @@ personal-loan_old:
                       type: READ
                       input:
                         value: "req_body.context.version"
-                  - "2.0.0"
-  callback: "on_confirm"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/personal-loan_2_0_0/template/on_confirm.yaml"
+                  - "2.0.0"   
+  callbacks: 
+    - callback: "on_confirm"
+      uri: 
+        ""
+      delay: 
+        300
+      payload: 
+        $ref: "./loan/personal-loan_2_0_0/template/on_confirm.yaml"      
+    - callback: "on_update"
+      uri: 
+        ""
+      delay: 
+        500
+      payload: 
+        $ref: "./loan/personal-loan_2_0_0/template/on_confirm_update.yaml"  
 
-   
 
 invoice-based-loans:
   condition:
