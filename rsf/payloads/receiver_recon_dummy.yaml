@@ -9,7 +9,7 @@ context:
   bap_uri: https://yourcallbackurl/
   bpp_uri: https://rsf-mock-service.ondc.org/
   country: IND
-  timestamp: 'timestamp'
+  timestamp: '{{timestamp}}'
   message_id: 54bd80f2-d849-11ed-870f-acde48001122
   core_version: 1.0.0
   transaction_id: 5fbdd03c-d54d-11ed-afa1-0242ad120025
