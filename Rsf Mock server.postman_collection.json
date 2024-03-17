@@ -108,6 +108,41 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "push_receiver_recon",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Signature keyId=\"fis-buyer-staging.ondc.org|585|ed25519\",algorithm=\"ed25519\",created=\"1700119966\",expires=\"1700123566\",headers=\"(created) (expires) digest\",signature=\"I0+qT6xL28nZuhZwfJ/1lI1TudtR/m8ES4/RxxY0kn8W4JyOfnV0bYqCikVCLCpmkDti6WFLP4nH2L2YZZ2lAg==\"",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"context\":{\n        \"bap_uri\":\"https://0933-103-243-52-154.ngrok-free.app\",\n        \"bap_id\":\"rsf-mock-service.ondc.org\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://rsf-mock-service.ondc.org/push_receiver_recon",
+					"protocol": "https",
+					"host": [
+						"rsf-mock-service",
+						"ondc",
+						"org"
+					],
+					"path": [
+						"push_receiver_recon"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
