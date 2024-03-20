@@ -11,7 +11,7 @@ context:
   bap_uri: '{{bap_uri}}'
   bap_id: credit-protocol.becknprotocol.io
   ttl: PT10M
-  bpp_id: fis-seller-staging.ondc.org
+  bpp_id: fis-staging.ondc.org/ondc-seller
   bpp_uri: '{{bpp_uri}}'
 message:
   support:

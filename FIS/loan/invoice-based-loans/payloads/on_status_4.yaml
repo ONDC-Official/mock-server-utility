@@ -9,7 +9,7 @@ context:
   action: on_status
   bap_uri: '{{bap_uri}}'
   bap_id: credit-protocol.becknprotocol.io
-  bpp_id: fis-seller-staging.ondc.org
+  bpp_id: fis-staging.ondc.org/ondc-seller
   bpp_uri: '{{bpp_uri}}'
   transaction_id: '{{transaction_id}}'
   message_id: '{{message_id}}'
