@@ -1,6 +1,6 @@
 template:
     data:
-      $ref: "../payloads/on_select.yaml"
+      $ref: "../payloads/on_cancel.yaml"
     dict:
       bpp_uri: https://mobility-staging.ondc.org/seller/
       bpp_id: mobility-staging.ondc.org
