@@ -130,4 +130,4 @@ message:
           in DDMMMYYYYXXXX format where DDMMMYYYY represents your date of birth, and
           XXXX represents the first four letters of your name
       mime_type: application/pdf
-      url: https://abcinsurance.com/policies/ORDER_ID_1_HEALTH-INSURANCE.pdf
+      url: '{{bpp_uri}}health_insurance_policy_document.pdf'

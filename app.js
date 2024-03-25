@@ -3,7 +3,7 @@ const log = require("./utils/logger");
 const app = express();
 var https = require('https');
 var http = require('http');
-
+const path = require("path")
 
 const config = require("./utils/config.js");
 const router = require("./routes/route");
@@ -324,6 +324,9 @@ async function createInstructionSet(file) {
     console.log("Error in createInstructionSet()", error);
   }
 }
+
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 //After instuctionSet completion, read response here
 async function startUp(file) {
