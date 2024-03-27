@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/fetch/manual-review-submission" method="POST>
+  <form action="/ondc-seller/form/fetch/manual-review-submission" method="POST>
     <label for="dob">Teleconsultation</label>
     <input type="date" id="dob_1" name="dob" />
     <label for="time_slot">Time Slot</label>

@@ -7,7 +7,7 @@
   </head>
 
   <body>
-    <form action="/form/submission/lumpsum-setup" ondc-template="financial-services:lumpsum-set-up">
+    <form action="/ondc-seller/form/submission/lumpsum-setup" ondc-template="financial-services:lumpsum-set-up">
       <label for="registertion-id">Registration ID </label>
       <input type="text" name="registertion-id" />
       <label for="lumpsum-amount">lumpsum Amount</label>

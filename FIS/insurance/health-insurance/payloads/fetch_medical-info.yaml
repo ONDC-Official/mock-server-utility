@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/fetch/medical-info-submission" method="POST">
+  <form action="/ondc-seller/form/fetch/medical-info-submission" method="POST">
     <label for="question1">Have you or any member of your family proposed to be insured, suffered or are suffering from any disease/ailment/adverse medical condition of any kind especially Heart/Stroke/Cancer/Renal disorder/Alzheimer's disease/Parkinsons's disease?</label>
     <select name="question1" id="question1">
       <option value="yes">Yes</option>

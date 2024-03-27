@@ -23,7 +23,7 @@ Initializing Order
 </head>
 
 <body>
-    <form action="/form/fetch/buyer-info-submission" method="POST">
+    <form action="/ondc-seller/form/fetch/buyer-info-submission" method="POST">
         <label for="firstName">First Name</label>
         <input type="text" id="firstName" name="firstName" />
         <label for="lastName">Last Name</label>

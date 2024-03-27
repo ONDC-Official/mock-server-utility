@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/personal-loan/old/submission/kyc" method="POST">
+  <form action="/ondc-seller/form/personal-loan/old/submission/kyc" method="POST">
     <label for="adhrNo">Aadhaar Number </label>
     <input type="text" id="adhrNo" name="adhrNo" />
     <label for="tnc">I agree to fetch the necessary information using my Aadhaar</a></label>

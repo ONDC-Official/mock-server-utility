@@ -4,7 +4,7 @@
     <title>Descriptor Form</title>
 </head>
 <body>
-    <form action="/form/marine/additional/submission-info" method="POST">
+    <form action="/ondc-seller/form/marine/additional/submission-info" method="POST">
         <label for="INDIVIDUAL_NAME">Cndividual naompany/Ime</label>
         <input type="text" id="INDIVIDUAL_NAME" name="INDIVIDUAL_NAME"><br>
         <label for="POLICY_START_DATE">Policy start date</label>

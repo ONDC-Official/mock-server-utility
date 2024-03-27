@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/fetch/PED-submission" method="POST">
+  <form action="/ondc-seller/form/fetch/PED-submission" method="POST">
     <label for="diabetes">Diabetes</label>
     <input type="checkbox" id="diabetes" name="diabetes" />
     <label for="bloodPressure">Blood Pressure / Hypertension</label>

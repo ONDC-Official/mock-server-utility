@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/Pan/Dob/details/submission" method="POST">
+  <form action="/ondc-seller/form/Pan/Dob/details/submission" method="POST">
     <label for="dob">Date of Birth</label>
     <input type="date" id="dob" name="dob" />
     <label for="panValue">PAN Number</label>
