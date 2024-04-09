@@ -9,10 +9,10 @@ default:
 #v 2.1.0
 personal-loan-form1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -42,7 +42,7 @@ personal-loan-form1:
                       type: READ
                       input:
                         value: "req_body.context.version"
-                  - "2.1.0"        
+                  - "2.1.0"
   callback: "on_select"
   uri:
     $ref: ""
@@ -52,10 +52,10 @@ personal-loan-form1:
 
 personal-loan-form2:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -67,15 +67,15 @@ personal-loan-form2:
                         value: "req_body.message.order.items.0.id"
                   - "CHILD_ITEM_ID_PERSONAL_LOAN"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F02_SUBMISSION_ID"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F02_SUBMISSION_ID"
           - operation:
               type: EQUAL
               title: Check search message code
@@ -85,7 +85,7 @@ personal-loan-form2:
                       type: READ
                       input:
                         value: "req_body.context.version"
-                  - "2.1.0"        
+                  - "2.1.0"
   callback: "on_select"
   uri:
     $ref: ""
@@ -96,10 +96,10 @@ personal-loan-form2:
 #v 2.0.0
 personal-loan-form1_2_0_0:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -130,7 +130,7 @@ personal-loan-form1_2_0_0:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.xinput.form_response.status"
-                  - "PENDING"        
+                  - "PENDING"
           - operation:
               type: EQUAL
               title: Check search message code
@@ -150,10 +150,10 @@ personal-loan-form1_2_0_0:
 
 personal-loan-form2_2_0_0:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -165,15 +165,15 @@ personal-loan-form2_2_0_0:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_PERSONAL-LOAN"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "form1_submissionid"
           # - operation:
           #     type: EQUAL
           #     title: Check search message code
@@ -183,7 +183,7 @@ personal-loan-form2_2_0_0:
           #             type: READ
           #             input:
           #               value: "req_body.message.order.items.0.xinput.form_response.status"
-          #         - "APPROVED"                
+          #         - "APPROVED"
           - operation:
               type: EQUAL
               title: Check search message code
@@ -203,10 +203,10 @@ personal-loan-form2_2_0_0:
 
 personal-loan-form3_2_0_0:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -218,15 +218,15 @@ personal-loan-form3_2_0_0:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_PERSONAL-LOAN"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"  
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "form2_submissionid"
           - operation:
               type: EQUAL
               title: Check search message code
@@ -244,14 +244,13 @@ personal-loan-form3_2_0_0:
   payload:
     $ref: "./loan/personal-loan_2_0_0/template/on_select_form3.yaml"
 
-
 #invoice based on select responses
 invoice-based-loans_on_select1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -281,10 +280,10 @@ invoice-based-loans_on_select1:
 
 invoice-based-loans_on_select2:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -312,15 +311,14 @@ invoice-based-loans_on_select2:
   payload:
     $ref: "./loan/invoice-based-loans/template/on_select_2.yaml"
 
-
 #invoice based on select responses
 
 health-based-insurance1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -330,18 +328,8 @@ health-based-insurance1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "CHILD_ITEM_ID_I1"
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F03_SUBMISSION_ID"
-          
+                  - "CHILD_ITEM_ID_I1_HEALTH"
+
   callback: "on_select"
   uri:
     $ref: ""
@@ -349,13 +337,12 @@ health-based-insurance1:
   payload:
     $ref: "./insurance/health-insurance/template/on_select1.yaml"
 
-
 marine-based-insurance1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -367,29 +354,29 @@ marine-based-insurance1:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_MARINE-INSURANCE"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form1_submissionid"
-          
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "form1_submissionid"
+
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/marine-insurance/template/on_select1.yaml"          
+    $ref: "./insurance/marine-insurance/template/on_select1.yaml"
 
 marine-based-insurance2:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -401,30 +388,29 @@ marine-based-insurance2:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_MARINE-INSURANCE"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "form2_submissionid"
-          
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "form2_submissionid"
+
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/marine-insurance/template/on_select2.yaml"      
-
+    $ref: "./insurance/marine-insurance/template/on_select2.yaml"
 
 motor-based-insurance1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -436,29 +422,29 @@ motor-based-insurance1:
                         value: "req_body.message.order.items.0.id"
                   - "CHILD_ITEM_CI1"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput"
-                    - "undefined"
-          
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput"
+                  - "undefined"
+
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/motor-insurance/template/on_select1.yaml"          
+    $ref: "./insurance/motor-insurance/template/on_select1.yaml"
 
 motor-based-insurance2:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -470,29 +456,28 @@ motor-based-insurance2:
                         value: "req_body.message.order.items.0.id"
                   - "CHILD_ITEM_CI1"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F03_SUBMISSION_ID"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F03_SUBMISSION_ID"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/motor-insurance/template/on_select2.yaml"              
-
+    $ref: "./insurance/motor-insurance/template/on_select2.yaml"
 
 motor-based-insurance3:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -504,21 +489,21 @@ motor-based-insurance3:
                         value: "req_body.message.order.items.0.id"
                   - "CHILD_ITEM_CI1"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F04_SUBMISSION_ID"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F04_SUBMISSION_ID"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/motor-insurance/template/on_select3.yaml"     
+    $ref: "./insurance/motor-insurance/template/on_select3.yaml"
 
 # motor-based-insurance3:
 #   condition:
@@ -546,24 +531,21 @@ motor-based-insurance3:
 #                         input:
 #                           value: "req_body.message.order.items.0.xinput.form_response.submission_id"
 #                     - "form2_submissionid"
-          
+
 #   callback: "on_select"
 #   uri:
 #     $ref: ""
 #   delay: 300
 #   payload:
-#     $ref: "./insurance/motor-insurance/template/on_select2.yaml"       
-
-
-
+#     $ref: "./insurance/motor-insurance/template/on_select2.yaml"
 
 # INVESTMENT
 mutual-funds-1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -589,15 +571,14 @@ mutual-funds-1:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./investment/mutual-funds/template/on_select-1.yaml"     
-
+    $ref: "./investment/mutual-funds/template/on_select-1.yaml"
 
 mutual-funds-2:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -609,19 +590,18 @@ mutual-funds-2:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_MUTUAL-FUNDS"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F01_SUBMISSION_ID"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F01_SUBMISSION_ID"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./investment/mutual-funds/template/on_select-2.yaml"     
-
+    $ref: "./investment/mutual-funds/template/on_select-2.yaml"

@@ -1,22 +1,22 @@
 context:
   action: cancel
-  bap_id:  '{{bap_id}}'
-  bap_uri: '{{bap_uri}}'
-  bpp_id:  '{{bpp_id}}'
-  bpp_uri: '{{bpp_uri}}'
-  domain: '{{domain}}'
+  bap_id: "{{bap_id}}"
+  bap_uri: "{{bap_uri}}"
+  bpp_id: "{{bpp_id}}"
+  bpp_uri: "{{bpp_uri}}"
+  domain: "{{domain}}"
   location:
     country:
       code: IND
     city:
-      code: '*'
-  message_id: '{{message_id}}'
-  timestamp: '2023-07-24T05:43:29.513Z'
-  transaction_id: '{{transaction_id}}'
+      code: "*"
+  message_id: "{{message_id}}"
+  timestamp: "2023-07-24T05:43:29.513Z"
+  transaction_id: "{{transaction_id}}"
   ttl: PT2H
   version: 2.0.0
 message:
-  cancellation_reason_id: '5'
+  cancellation_reason_id: "5"
   descriptor:
     short_desc: User bought other policy
-  order_id: ORDER_ID_1_HEALTH-INSURANCE
+  order_id: POLICY_ID

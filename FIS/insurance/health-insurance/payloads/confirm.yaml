@@ -1,18 +1,18 @@
 context:
   action: confirm
-  bap_id:  '{{bap_id}}'
-  bap_uri: '{{bap_uri}}'
-  bpp_id:  '{{bpp_id}}'
-  bpp_uri: '{{bpp_uri}}'
-  domain: '{{domain}}'
+  bap_id: "{{bap_id}}"
+  bap_uri: "{{bap_uri}}"
+  bpp_id: "{{bpp_id}}"
+  bpp_uri: "{{bpp_uri}}"
+  domain: "{{domain}}"
   location:
     country:
       code: IND
     city:
-      code: '*'
-  message_id: '{{message_id}}'
-  timestamp: '2023-07-24T05:41:20.401Z'
-  transaction_id: '{{transaction_id}}'
+      code: "*"
+  message_id: "{{message_id}}"
+  timestamp: "2023-07-24T05:41:20.401Z"
+  transaction_id: "{{transaction_id}}"
   ttl: PT24H
   version: 2.0.0
 message:
@@ -28,7 +28,7 @@ message:
             quantity:
               selected:
                 count: 1
-        id: CHILD_ITEM_ID_I1
+        id: CHILD_ITEM_ID_I1_HEALTH
         xinput:
           form_response:
             status: SUCCESS
@@ -36,8 +36,8 @@ message:
     payments:
       - collected_by: BPP
         params:
-          amount: '1000'
-          bank_account_number: '1800002341'
+          amount: "1000"
+          bank_account_number: "1800002341"
           bank_code: SBIN0001234
           currency: INR
         status: NOT-PAID
@@ -49,7 +49,7 @@ message:
             list:
               - descriptor:
                   code: BUYER_FINDER_FEES_PERCENTAGE
-                value: '1'
+                value: "1"
           - descriptor:
               code: SETTLEMENT_TERMS
             display: false
@@ -65,39 +65,39 @@ message:
                 value: upi
               - descriptor:
                   code: MANDATORY_ARBITRATION
-                value: 'true'
+                value: "true"
               - descriptor:
                   code: COURT_JURISDICTION
                 value: New Delhi
               - descriptor:
                   code: DELAY_INTEREST
-                value: '2.5'
+                value: "2.5"
               - descriptor:
                   code: STATIC_TERMS
                 value: https://www.icicibank.com/personal-banking/loans/personal-loan
               - descriptor:
                   code: SETTLEMENT_AMOUNT
-                value: '400'
+                value: "400"
     provider:
       id: P1
     quote:
       id: Q1
       breakup:
         - price:
-            value: '900'
+            value: "900"
             currency: INR
           title: Base Price
         - price:
-            value: '50'
+            value: "50"
             currency: INR
         - price:
-            value: '40'
+            value: "40"
             currency: INR
           title: Tax
         - price:
-            value: '10'
+            value: "10"
             currency: INR
           title: Processing Fee
       price:
         currency: INR
-        value: '1000'
+        value: "1000"
