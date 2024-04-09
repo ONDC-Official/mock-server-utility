@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/personal-loan/submission/required-loan" method="post">
+  <form action="/ondc-seller/form/personal-loan/submission/required-loan" method="post">
     <label for="requestAmount">Requested Loan Amount</label>
     <input type="text" id="requestAmount" name="requestAmount" />
     <label for="requestTerm">Requested Loan Term</label>

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/personal-loan/old/submission/bank-account-mandate" method="POST">
+  <form action="/ondc-seller/form/personal-loan/old/submission/bank-account-mandate" method="POST">
     <label for="accHolderName">Account Holder Name</label>
     <input type="text" id="accHolderName" name="accHolderName" />
     <label for="acctype">Account Type</label>

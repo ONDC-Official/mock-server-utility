@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/personal-loan/old/submission/loan-agreement" method="POST">
+  <form action="/ondc-seller/form/personal-loan/old/submission/loan-agreement" method="POST">
     <label for="tnc">I have read the <a href="https://icicibank.co.in/loans/agreement.html">Loan Agreement</a></label>
     <input type="checkbox" id="tnc" name="tnc" />
     <p>An OTP has been sent to your registered mobile number, please enter </p>

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <form action="/form/marine/fetch/personal/submission-info" method="POST">
+  <form action="/ondc-seller/form/marine/fetch/personal/submission-info" method="POST">
     <label for="email">Email</label>
     <input type="text" id="email" name="email" />
     <label for="phone">Phone</label>
