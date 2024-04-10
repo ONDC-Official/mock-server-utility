@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<form action="/form/fetch/insured/personal-detali-submission" method="POST">
+<form action="/ondc-seller/form/fetch/insured/personal-detali-submission" method="POST">
 <label for="firstName">First Name</label>
 <input type="text" id="firstName_" name="firstName" />
 <label for="lastName">Last Name</label>
