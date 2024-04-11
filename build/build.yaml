@@ -3,7 +3,7 @@ info:
   title: ONDC Specification
   description: ONDC Specification
   version: 2.0.0
-security:
+security: 
   - SubscriberAuth: []
 paths:
   /search:
