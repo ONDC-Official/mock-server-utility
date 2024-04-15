@@ -517,7 +517,7 @@ health-based-insurance1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "CHILD_ITEM_ID_I1"
+                  - "CHILD_ITEM_ID_I1_HEALTH"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -550,7 +550,7 @@ health-based-insurance2:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "CHILD_ITEM_ID_I1"
+                  - "CHILD_ITEM_ID_I1_HEALTH"
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -584,7 +584,7 @@ health-based-insurance3:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "CHILD_ITEM_ID_I1"
+                  - "CHILD_ITEM_ID_I1_HEALTH"
           - operation:
                 type: EQUAL
                 title: Check search message code

@@ -1,17 +1,16 @@
 server:
   type: BAP/BPP
   port: 5500
-  sync_mode: false
+  sync_mode: true
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
-  generate_sign: true
+  generate_sign: false
   subscriber_id: fis-staging.ondc.org/ondc-seller
   ukId: 590
-  publickey: wSehOno+MMJqq9Ysw25pHKu5ig5fbHSNjT/dN0Ukt5E=
-  privatekey: >-
-    
-    
+  publickey: 9IQW6tD6SPnTwA9/kI4xpUGaY0xbHxhgfikeliJEETw=
+  privatekey:
+
 log:
   level: DEBUG
   output_type: file
@@ -95,7 +94,7 @@ path:
     callbacks:
       $ref: ./FIS/cancel.yaml
 
-#personal_loan v 2.1.0
+  #personal_loan v 2.1.0
   form_personal-loan_personal-info:
     callbacks:
       $ref: ./FIS/loan/personal-loan/forms/form_personal-info.yaml
@@ -128,13 +127,12 @@ path:
       $ref: ./FIS/loan/personal-loan/forms/form_submission_loan-agreement.yaml
   form_render:
     callbacks:
-      $ref: ./FIS/loan/personal-loan/forms/form_render.yaml    
+      $ref: ./FIS/loan/personal-loan/forms/form_render.yaml
   form_render_submission:
     callbacks:
-      $ref: ./FIS/loan/personal-loan/forms/form_render_submission.yaml        
+      $ref: ./FIS/loan/personal-loan/forms/form_render_submission.yaml
 
-
-#personal_loan 2.0.0
+  #personal_loan 2.0.0
   form_personal-loan_old_personal-info:
     callbacks:
       $ref: ./FIS/loan/personal-loan_2_0_0/forms/form_personal-info.yaml
@@ -167,14 +165,13 @@ path:
       $ref: ./FIS/loan/personal-loan_2_0_0/forms/form_submission_loan-agreement.yaml
   form_old_render:
     callbacks:
-      $ref: ./FIS/loan/personal-loan_2_0_0/forms/form_render.yaml    
+      $ref: ./FIS/loan/personal-loan_2_0_0/forms/form_render.yaml
   form_old_render_submission:
     callbacks:
-      $ref: ./FIS/loan/personal-loan_2_0_0/forms/form_render_submission.yaml    
+      $ref: ./FIS/loan/personal-loan_2_0_0/forms/form_render_submission.yaml
 
+  # invoice based
 
-# invoice based  
-  
   form_invoice-loan_org-form:
     callbacks:
       $ref: ./FIS/loan/invoice-based-loans/forms/form_invoice_Org-form.yaml
@@ -192,10 +189,10 @@ path:
       $ref: ./FIS/loan/invoice-based-loans/forms/form_individual-kyc.yaml
   form_invoice-loan_submission_individual-kyc:
     callbacks:
-      $ref: ./FIS/loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml    
+      $ref: ./FIS/loan/invoice-based-loans/forms/form_submission_individual-kyc.yaml
   form_invoice-loan_kyc-info:
     callbacks:
-      $ref: ./FIS/loan/invoice-based-loans/forms/form_kyc-info.yaml   
+      $ref: ./FIS/loan/invoice-based-loans/forms/form_kyc-info.yaml
   form_invoice-loan_submission_kyc-info:
     callbacks:
       $ref: ./FIS/loan/invoice-based-loans/forms/form_submission_kyc-info.yaml
@@ -218,8 +215,7 @@ path:
     callbacks:
       $ref: ./FIS/loan/invoice-based-loans/forms/form_init_submission-emandate.yaml
 
-
-# insurence/health-insurance      
+  # insurence/health-insurance
   form_fetch_personal-info:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_personal-info.yaml
@@ -232,30 +228,18 @@ path:
   form_fetch_family-info-submission:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_family-info-submission.yaml
-  form_fetch_PED:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_PED.yaml
-  form_fetch_PED-submission:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_PED-submission.yaml
-  form_fetch_PAN_DOB:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_PAN_DOB.yaml
-  form_fetch_PAN_DOB-submission:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_PAN_DOB-submission.yaml
   form_fetch_EKYC:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_EKYC.yaml
   form_fetch_EKYC-submission:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_EKYC-submission.yaml
-  form_fetch_buyer-info:
+  form_fetch_proposer-details:
     callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_buyer-info.yaml
-  form_fetch_buyer-info-submission:
+      $ref: ./FIS/insurance/health-insurance/forms/fetch_proposer-details.yaml
+  form_fetch_proposer-details-submission:
     callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_buyer-info-submission.yaml
+      $ref: ./FIS/insurance/health-insurance/forms/fetch_proposer-details-submission.yaml
   form_fetch_insured_personal-detali:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_insured_personal-detali.yaml
@@ -268,24 +252,14 @@ path:
   form_fetch_medical-info-submission:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_medical-info-submission.yaml
-  form_fetch_manual-review:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_manual-review.yaml
-  form_fetch_manual-review-submission:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_manual-review-submission.yaml
   form_fetch_nominee-details:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_nominee-details.yaml
   form_fetch_nominee-details-submission:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_nominee-details-submission.yaml
-  
-                                                                               
 
-
-
- # insurence/marine-insurance      
+  # insurence/marine-insurance
   form_marine_fetch_personal-info:
     callbacks:
       $ref: ./FIS/insurance/marine-insurance/forms/marine_fetch_personal-info.yaml
@@ -297,64 +271,63 @@ path:
       $ref: ./FIS/insurance/marine-insurance/forms/marine_additional-info.yaml
   form_marine_additional_submission-info:
     callbacks:
-      $ref: ./FIS/insurance/marine-insurance/forms/marine_additional_submission-info.yaml      
+      $ref: ./FIS/insurance/marine-insurance/forms/marine_additional_submission-info.yaml
   form_marine_aadhar_kyc:
     callbacks:
-      $ref: ./FIS/insurance/marine-insurance/forms/marine_aadhar_kyc.yaml    
+      $ref: ./FIS/insurance/marine-insurance/forms/marine_aadhar_kyc.yaml
   form_marine_aadhar_submission_kyc:
     callbacks:
-      $ref: ./FIS/insurance/marine-insurance/forms/marine_aadhar_submission_kyc.yaml     
+      $ref: ./FIS/insurance/marine-insurance/forms/marine_aadhar_submission_kyc.yaml
 
-
- # insurence/motor-insurance      
+  # insurence/motor-insurance
   form_fetch_vehicle_details:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/fetch_vehicle_details.yaml 
+      $ref: ./FIS/insurance/motor-insurance/forms/fetch_vehicle_details.yaml
   form_fetch_vehicle_details_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/fetch_vehicle_details_submission.yaml       
+      $ref: ./FIS/insurance/motor-insurance/forms/fetch_vehicle_details_submission.yaml
   form_vehicle-detail_renewal:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/vehicle-detail_renewal.yaml 
+      $ref: ./FIS/insurance/motor-insurance/forms/vehicle-detail_renewal.yaml
   form_vehicle-detail_renewal_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/vehicle-detail_renewal_submission.yaml        
+      $ref: ./FIS/insurance/motor-insurance/forms/vehicle-detail_renewal_submission.yaml
   form_manual-review_form:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/manual-review_form.yaml  
+      $ref: ./FIS/insurance/motor-insurance/forms/manual-review_form.yaml
   form_manual-review_form_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/manual-review_form_submission.yaml        
+      $ref: ./FIS/insurance/motor-insurance/forms/manual-review_form_submission.yaml
   form_Pan_Dob_details:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/Pan_Dob_details.yaml  
+      $ref: ./FIS/insurance/motor-insurance/forms/Pan_Dob_details.yaml
   form_Pan_Dob_details_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/Pan_Dob_details_submission.yaml       
+      $ref: ./FIS/insurance/motor-insurance/forms/Pan_Dob_details_submission.yaml
   form_EKYC_form:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/EKYC_form.yaml 
+      $ref: ./FIS/insurance/motor-insurance/forms/EKYC_form.yaml
   form_EKYC_form_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/EKYC_form_submission.yaml        
+      $ref: ./FIS/insurance/motor-insurance/forms/EKYC_form_submission.yaml
   form_vehicle-info_form:
     callbacks:
       $ref: ./FIS/insurance/motor-insurance/forms/vehicle-info_form.yaml
   form_vehicle-info_form_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/vehicle-info_form_submission.yaml        
+      $ref: ./FIS/insurance/motor-insurance/forms/vehicle-info_form_submission.yaml
   form_insured_personal_details:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/insured_personal_details.yaml       
+      $ref: ./FIS/insurance/motor-insurance/forms/insured_personal_details.yaml
   form_insured_personal_details_submission:
     callbacks:
-      $ref: ./FIS/insurance/motor-insurance/forms/insured_personal_details_submission.yaml 
+      $ref: ./FIS/insurance/motor-insurance/forms/insured_personal_details_submission.yaml
 
-# mutual funds forms
+  # mutual funds forms
   form_sip-setup: #select1-form1
     callbacks:
       $ref: ./FIS/investment/mutual-funds/forms/select-form1.yaml
-  form_submission_sip-setup: 
+  form_submission_sip-setup:
     callbacks:
       $ref: ./FIS/investment/mutual-funds/forms/select-form1-submission.yaml
   form_lumpsumpsetup: #select1-form2
