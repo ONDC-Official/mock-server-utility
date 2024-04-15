@@ -97,7 +97,16 @@ message:
         - price:
             value: "10"
             currency: INR
-          title: Processing Fee
+          title: "PROCESSING_FEE"
+
+        - title: "ADD_ONS"
+          item:
+            id: "I1"
+            add_ons:
+              - id: "A1"
+          price:
+            value: "100"
+            currency: "INR"
       price:
         currency: INR
         value: "1000"

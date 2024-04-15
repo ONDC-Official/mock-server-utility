@@ -4,4 +4,4 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "../payloads/fetch_buyer-info.yaml"
+    $ref: "../payloads/fetch_proposer-details.yaml"

@@ -83,21 +83,16 @@ message:
               max: 2
             headings:
               - Buyer Details
-              - Manual Review
               - Nominee Details
-          form:
-            id: FO6
-            mime_type: text/html
-            url: >-
-              {{bpp_uri}}form/fetch/manual-review
-            resubmit: true
-            multiple_sumbissions: false
           required: true
         add_ons:
           - id: A1
             quantity:
               selected:
                 count: 1
+            price:
+              currency: INR
+              value: "100"
             descriptor:
               name: No Claim Bonus
               code: NO_CLAIM_BONUS
@@ -168,7 +163,15 @@ message:
         - price:
             value: "10"
             currency: INR
-          title: Processing Fee
+          title: "PROCESSING_FEE"
+        - title: "ADD_ONS"
+          item:
+            id: "I1"
+            add_ons:
+              - id: "A1"
+          price:
+            value: "100"
+            currency: "INR"
       price:
         currency: INR
         value: "1000"

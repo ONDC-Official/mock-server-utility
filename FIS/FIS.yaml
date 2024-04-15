@@ -3,7 +3,7 @@ server:
   port: 5500
   sync_mode: true
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
   generate_sign: false
   subscriber_id: fis-staging.ondc.org/ondc-seller
@@ -234,12 +234,12 @@ path:
   form_fetch_EKYC-submission:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_EKYC-submission.yaml
-  form_fetch_buyer-info:
+  form_fetch_proposer-details:
     callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_buyer-info.yaml
-  form_fetch_buyer-info-submission:
+      $ref: ./FIS/insurance/health-insurance/forms/fetch_proposer-details.yaml
+  form_fetch_proposer-details-submission:
     callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_buyer-info-submission.yaml
+      $ref: ./FIS/insurance/health-insurance/forms/fetch_proposer-details-submission.yaml
   form_fetch_insured_personal-detali:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_insured_personal-detali.yaml
@@ -252,12 +252,6 @@ path:
   form_fetch_medical-info-submission:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_medical-info-submission.yaml
-  form_fetch_manual-review:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_manual-review.yaml
-  form_fetch_manual-review-submission:
-    callbacks:
-      $ref: ./FIS/insurance/health-insurance/forms/fetch_manual-review-submission.yaml
   form_fetch_nominee-details:
     callbacks:
       $ref: ./FIS/insurance/health-insurance/forms/fetch_nominee-details.yaml

@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<form action="/ondc-seller/form/fetch/medical-info-submission" method="POST">
+<form action="/ondc-seller/ondc-seller/form/fetch/proposer-details-submission" method="POST">
 <label for="firstName">First Name</label>
 <input type="text" id="firstName" name="firstName" />
 <label for="lastName">Last Name</label>
@@ -32,11 +32,9 @@
 <label for="gstin">GSTIN</label>
 <input type="text" id="gstin" name="gstin" />
 <!-- insured-details-form-data -->
-<label for="weight">Weight</label>
-<input type="text" id="weight" name="weight" />
 <label for="height">height</label>
 <input type="text" id="height" name="height" />
-<label for="relation">Relationship with Insured person</label>
+<label for="relation">Relationship with proposer</label>
 <select name="relation" id="relation">
 <option value="self">Self</option>
 <option value="spouse">Spouse</option>

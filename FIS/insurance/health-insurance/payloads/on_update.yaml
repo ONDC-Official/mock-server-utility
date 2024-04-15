@@ -34,6 +34,9 @@ message:
             quantity:
               selected:
                 count: 1
+            price:
+              currency: INR
+              value: "100"
         descriptor:
           name: ABC Individaul Health Insurance Policy
           short_desc: ABC Individaul Health Insurance Class A with custom addon
@@ -161,7 +164,15 @@ message:
         - price:
             value: "10"
             currency: INR
-          title: Processing Fee
+          title: "PROCESSING_FEE"
+        - title: "ADD_ONS"
+          item:
+            id: "I1"
+            add_ons:
+              - id: "A1"
+          price:
+            value: "100"
+            currency: "INR"
       price:
         currency: INR
         value: "1000"

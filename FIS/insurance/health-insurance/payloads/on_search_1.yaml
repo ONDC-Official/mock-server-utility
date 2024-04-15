@@ -115,6 +115,9 @@ message:
                 descriptor:
                   name: No Claim Bonus
                   code: NO_CLAIM_BONUS
+                price:
+                  currency: INR
+                  value: "100"
               - id: A2
                 quantity:
                   available:
@@ -122,6 +125,9 @@ message:
                 descriptor:
                   name: Daycare Cover
                   code: DAYCARE_COVER
+                price:
+                  currency: INR
+                  value: "100"
               - id: A3
                 quantity:
                   available:
@@ -129,6 +135,9 @@ message:
                 descriptor:
                   name: Daily Cash Allowance
                   code: DAILY_CASH_ALLOWANCE
+                price:
+                  currency: INR
+                  value: "100"
               - id: A4
                 quantity:
                   available:
@@ -136,6 +145,9 @@ message:
                 descriptor:
                   name: Domicialiary Expenses
                   code: DOMICILIARY_EXPENSES
+                price:
+                  currency: INR
+                  value: "100"
               - id: A5
                 quantity:
                   available:
@@ -143,6 +155,9 @@ message:
                 descriptor:
                   name: Health Check-ups
                   code: HEALTH_CHECK_UPS
+                price:
+                  currency: INR
+                  value: "100"
           - category_ids:
               - C2
               - C3
@@ -193,6 +208,9 @@ message:
                 descriptor:
                   name: No Claim Bonus
                   code: NO_CLAIM_BONUS
+                price:
+                  currency: INR
+                  value: "100"
               - id: C2
                 quantity:
                   available:
@@ -200,6 +218,9 @@ message:
                 descriptor:
                   name: Daycare Cover
                   code: DAYCARE_COVER
+                price:
+                  currency: INR
+                  value: "100"
               - id: C3
                 quantity:
                   available:
@@ -207,6 +228,9 @@ message:
                 descriptor:
                   name: Daily Cash Allowance
                   code: DAILY_CASH_ALLOWANCE
+                price:
+                  currency: INR
+                  value: "100"
               - id: "4"
                 quantity:
                   available:
@@ -214,6 +238,9 @@ message:
                 descriptor:
                   name: Domicialiary Expenses
                   code: DOMICILIARY_EXPENSES
+                price:
+                  currency: INR
+                  value: "100"
               - id: "5"
                 quantity:
                   available:
@@ -221,6 +248,9 @@ message:
                 descriptor:
                   name: Health Check-ups
                   code: HEALTH_CHECK_UPS
+                price:
+                  currency: INR
+                  value: "100"
             time:
               duration: P1Y
               label: TENURE

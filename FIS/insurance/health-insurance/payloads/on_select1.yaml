@@ -89,6 +89,9 @@ message:
             descriptor:
               name: No Claim Bonus
               code: NO_CLAIM_BONUS
+            price:
+              currency: INR
+              value: "100"
           - id: A2
             quantity:
               available:
@@ -96,6 +99,9 @@ message:
             descriptor:
               name: Daycare Cover
               code: DAYCARE_COVER
+            price:
+              currency: INR
+              value: "100"
           - id: A3
             quantity:
               available:
@@ -103,6 +109,9 @@ message:
             descriptor:
               name: Daily Cash Allowance
               code: DAILY_CASH_ALLOWANCE
+            price:
+              currency: INR
+              value: "100"
           - id: A4
             quantity:
               available:
@@ -110,6 +119,9 @@ message:
             descriptor:
               name: Domicialiary Expenses
               code: DOMICILIARY_EXPENSES
+            price:
+              currency: INR
+              value: "100"
           - id: A5
             quantity:
               available:
@@ -117,6 +129,9 @@ message:
             descriptor:
               name: Health Check-ups
               code: HEALTH_CHECK_UPS
+            price:
+              currency: INR
+              value: "100"
     provider:
       descriptor:
         long_desc:
@@ -146,7 +161,15 @@ message:
         - price:
             value: "10"
             currency: INR
-          title: Processing Fee
+          title: "PROCESSING_FEE"
+        - title: "ADD_ONS"
+          item:
+            id: "I1"
+            add_ons:
+              - id: "A1"
+          price:
+            value: "100"
+            currency: "INR"
       price:
         currency: INR
         value: "1000"
