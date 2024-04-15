@@ -3,12 +3,12 @@ server:
   port: 5500
   sync_mode: true
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
-  generate_sign: false
+  generate_sign: true
   subscriber_id: fis-staging.ondc.org/ondc-seller
   ukId: 590
-  publickey: 9IQW6tD6SPnTwA9/kI4xpUGaY0xbHxhgfikeliJEETw=
+  publickey: wSehOno+MMJqq9Ysw25pHKu5ig5fbHSNjT/dN0Ukt5E=
   privatekey:
 
 log:
