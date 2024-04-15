@@ -332,22 +332,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 async function startUp(file) {
   await config.loadConfig(file);
   const server = config.getServer();
-  var options = {
-    key: fs.readFileSync('./client-key.pem'),
-    cert: fs.readFileSync('./client-cert.pem')
-  };
   app.use(express.json());
   const logger = log.init();
-  // https.createServer(options, app).listen(server.port, () => {
-  //   logger.info(`This app is running on port number : ${server.port}`);
-  // });
-  
-    http.createServer( options,app).listen(server.port, () => {
+
+  app.listen(server.port, () => {
     logger.info(`This app is running on port number : ${server.port}`);
   });
-  // app.listen(server.port, () => {
-  //   logger.info(`This app is running on port number : ${server.port}`);
-  // });
   app.use(router);
 }
 
