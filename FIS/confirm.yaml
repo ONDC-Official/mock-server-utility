@@ -10,10 +10,10 @@ default:
 personal-loan:
   condition:
     operation:
-        type: AND
-        input:
-          value:
-           - operation:
+      type: AND
+      input:
+        value:
+          - operation:
               type: EQUAL
               title: Check search message code
               input:
@@ -23,7 +23,7 @@ personal-loan:
                       input:
                         value: "req_body.message.order.items.0.id"
                   - "CHILD_ITEM_ID_PERSONAL_LOAN"
-           - operation:
+          - operation:
               type: EQUAL
               title: Check search message code
               input:
@@ -33,30 +33,26 @@ personal-loan:
                       input:
                         value: "req_body.context.version"
                   - "2.1.0"
-  callbacks: 
+  callbacks:
     - callback: "on_confirm"
-      uri: 
-        ""
-      delay: 
-        300
-      payload: 
-        $ref: "./loan/personal-loan/template/on_confirm.yaml"        
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/personal-loan/template/on_confirm.yaml"
     - callback: "on_update"
-      uri: 
-        ""
-      delay: 
-        500
-      payload: 
-        $ref: "./loan/personal-loan/template/on_update_confirm.yaml"  
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/personal-loan/template/on_update_confirm.yaml"
 
 #v2.0.0
 personal-loan_old:
   condition:
     operation:
-        type: AND
-        input:
-          value:
-           - operation:
+      type: AND
+      input:
+        value:
+          - operation:
               type: EQUAL
               title: Check search message code
               input:
@@ -66,7 +62,7 @@ personal-loan_old:
                       input:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_PERSONAL-LOAN"
-           - operation:
+          - operation:
               type: EQUAL
               title: Check search message code
               input:
@@ -75,23 +71,18 @@ personal-loan_old:
                       type: READ
                       input:
                         value: "req_body.context.version"
-                  - "2.0.0"   
-  callbacks: 
+                  - "2.0.0"
+  callbacks:
     - callback: "on_confirm"
-      uri: 
-        ""
-      delay: 
-        300
-      payload: 
-        $ref: "./loan/personal-loan_2_0_0/template/on_confirm.yaml"      
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/personal-loan_2_0_0/template/on_confirm.yaml"
     - callback: "on_update"
-      uri: 
-        ""
-      delay: 
-        500
-      payload: 
-        $ref: "./loan/personal-loan_2_0_0/template/on_confirm_update.yaml"  
-
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/personal-loan_2_0_0/template/on_confirm_update.yaml"
 
 invoice-based-loans:
   condition:
@@ -105,27 +96,24 @@ invoice-based-loans:
               input:
                 value: "req_body.message.order.items.0.id"
           - "CHILD_ITEM_ID_INVOICE_LOAN"
-  callbacks: 
+  callbacks:
     - callback: "on_confirm"
       uri: ""
       delay: 300
       payload:
         $ref: "./loan/invoice-based-loans/template/on_confirm.yaml"
     - callback: "on_update"
-      uri: 
-        ""
-      delay: 
-        500
-      payload: 
-        $ref: "./loan/invoice-based-loans/template/on_update_confirm.yaml"      
-
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/invoice-based-loans/template/on_update_confirm.yaml"
 
 health-based-insurance:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -135,32 +123,30 @@ health-based-insurance:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "CHILD_ITEM_ID_I1"
+                  - "CHILD_ITEM_ID_I1_HEALTH"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F07_SUBMISSION_ID"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F07_SUBMISSION_ID"
   callback: "on_confirm"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/health-insurance/template/on_confirm.yaml"     
+    $ref: "./insurance/health-insurance/template/on_confirm.yaml"
 
-
-                       
 marine-insurance:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -172,31 +158,29 @@ marine-insurance:
                         value: "req_body.message.order.items.0.id"
                   - "ITEM_ID_1_MARINE-INSURANCE"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS13"
-          
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS13"
+
   callback: "on_confirm"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/marine-insurance/template/on_confirm.yaml"      
-
-
+    $ref: "./insurance/marine-insurance/template/on_confirm.yaml"
 
 motor-based-insurance:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -208,28 +192,28 @@ motor-based-insurance:
                         value: "req_body.message.order.items.0.id"
                   - "CHILD_ITEM_CI1"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F07_SUBMISSION_ID"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F07_SUBMISSION_ID"
   callback: "on_confirm"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./insurance/motor-insurance/template/on_confirm.yaml"    
+    $ref: "./insurance/motor-insurance/template/on_confirm.yaml"
 
 mutual-funds-1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
               type: EQUAL
               title: Check search message code
@@ -239,21 +223,15 @@ mutual-funds-1:
                       type: READ
                       input:
                         value: "req_body.message.order.items.0.id"
-                  - "ITEM_ID_1_MUTUAL-FUNDS"   
-  callbacks: 
+                  - "ITEM_ID_1_MUTUAL-FUNDS"
+  callbacks:
     - callback: "on_confirm"
-      uri: 
-        ""
-      delay: 
-        300
-      payload: 
+      uri: ""
+      delay: 300
+      payload:
         $ref: "./investment/mutual-funds/template/on_confirm.yaml"
     - callback: "on_update"
-      uri: 
-        ""
-      delay: 
-        500
-      payload: 
-        $ref: "./investment/mutual-funds/template/on_update.yaml"      
-
-
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./investment/mutual-funds/template/on_update.yaml"

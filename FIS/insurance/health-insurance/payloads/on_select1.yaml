@@ -1,151 +1,175 @@
 context:
   action: on_select
-  bap_id:  '{{bap_id}}'
-  bap_uri: '{{bap_uri}}'
-  bpp_id:  '{{bpp_id}}'
-  bpp_uri: '{{bpp_uri}}'
-  domain: '{{domain}}'
+  bap_id: "{{bap_id}}"
+  bap_uri: "{{bap_uri}}"
+  bpp_id: "{{bpp_id}}"
+  bpp_uri: "{{bpp_uri}}"
+  domain: "{{domain}}"
   location:
     country:
       code: IND
     city:
-      code: '*'
-  message_id: '{{message_id}}'
-  timestamp: '{{timestamp}}'
-  transaction_id: '{{transaction_id}}'
+      code: "*"
+  message_id: "{{message_id}}"
+  timestamp: "{{timestamp}}"
+  transaction_id: "{{transaction_id}}"
   ttl: PT24H
   version: 2.0.0
 message:
   order:
     items:
-    - category_ids:
-      - C1
-      - C3
-      descriptor:
-        name: Health Gain Plus Individual
-        short_desc: ABC Individaul Health Insurance Class A with custom addon
-      id: CHILD_ITEM_ID_I1
-      parent_item_id: ITEM_ID_1_HEALTH-INSURANCE
-      tags:
-      - descriptor:
-          name: General Information
-          code: GENERAL_INFO
-        list:
-        - descriptor:
-            code: COVERAGE_AMOUNT
-          value: '10000000'
-        - descriptor:
-            code: CO_PAYMENT
-          value: 'Yes'
-        - descriptor:
-            code: ROOM_RENT_CAP
-          value: '25000'
-        - descriptor:
-            code: RESTORATION_BENEFIT
-          value: 'No'
-        - descriptor:
-            code: CLAIM_SETTLEMENT_RATIO
-          value: '0.8'
-        - descriptor:
-            code: PRE_HOSPITALIZATION_COVERAGE_DAYS
-          value: '2'
-        - descriptor:
-            code: POST_HOSPITALIZATION_COVERAGE_DAYS
-          value: '5'
-        - descriptor:
-            code: MATERNITY_COVERAGE
-          value: 'Yes'
-        - descriptor:
-            code: INITIAL_WAITING_PERIOD
-          value: 'No'
-        - descriptor:
-            code: CASHLESS_HOSPITALS
-          value: '50'
-      time:
-        duration: P1Y
-        label: TENURE
-      xinput:
-        head:
-          descriptor:
-            name: Customer Information
-          index:
-            min: 0
-            cur: 0
-            max: 0
-          headings:
-          - EKYC
-        form:
-          id: F04
-          mime_type: text/html
-          url: '{{bpp_uri}}form/fetch/EKYC'
-          resubmit: true
-          multiple_sumbissions: false
-        required: true
-      add_ons:
-      - id: A1
-        quantity:
-          selected:
-            count: 1
+      - category_ids:
+          - C1
+          - C3
         descriptor:
-          name: No Claim Bonus
-          code: NO_CLAIM_BONUS
-      - id: A2
-        quantity:
-          available:
-            count: 1
-        descriptor:
-          name: Daycare Cover
-          code: DAYCARE_COVER
-      - id: A3
-        quantity:
-          available:
-            count: 1
-        descriptor:
-          name: Daily Cash Allowance
-          code: DAILY_CASH_ALLOWANCE
-      - id: A4
-        quantity:
-          available:
-            count: 1
-        descriptor:
-          name: Domicialiary Expenses
-          code: DOMICILIARY_EXPENSES
-      - id: A5
-        quantity:
-          available:
-            count: 1
-        descriptor:
-          name: Health Check-ups
-          code: HEALTH_CHECK_UPS
+          name: Health Gain Plus Individual
+          short_desc: ABC Individaul Health Insurance Class A with custom addon
+        id: CHILD_ITEM_ID_I1_HEALTH
+        parent_item_id: ITEM_ID_1_HEALTH-INSURANCE
+        tags:
+          - descriptor:
+              name: General Information
+              code: GENERAL_INFO
+            list:
+              - descriptor:
+                  code: COVERAGE_AMOUNT
+                value: "10000000"
+              - descriptor:
+                  code: CO_PAYMENT
+                value: "Yes"
+              - descriptor:
+                  code: ROOM_RENT_CAP
+                value: "25000"
+              - descriptor:
+                  code: RESTORATION_BENEFIT
+                value: "No"
+              - descriptor:
+                  code: CLAIM_SETTLEMENT_RATIO
+                value: "0.8"
+              - descriptor:
+                  code: PRE_HOSPITALIZATION_COVERAGE_DAYS
+                value: "2"
+              - descriptor:
+                  code: POST_HOSPITALIZATION_COVERAGE_DAYS
+                value: "5"
+              - descriptor:
+                  code: MATERNITY_COVERAGE
+                value: "Yes"
+              - descriptor:
+                  code: INITIAL_WAITING_PERIOD
+                value: "No"
+              - descriptor:
+                  code: CASHLESS_HOSPITALS
+                value: "50"
+        time:
+          duration: P1Y
+          label: TENURE
+        xinput:
+          head:
+            descriptor:
+              name: Customer Information
+            index:
+              min: 0
+              cur: 0
+              max: 0
+            headings:
+              - EKYC
+          form:
+            id: F04
+            mime_type: text/html
+            url: "{{bpp_uri}}form/fetch/EKYC"
+            resubmit: true
+            multiple_sumbissions: false
+          required: true
+        add_ons:
+          - id: A1
+            quantity:
+              selected:
+                count: 1
+            descriptor:
+              name: No Claim Bonus
+              code: NO_CLAIM_BONUS
+            price:
+              currency: INR
+              value: "100"
+          - id: A2
+            quantity:
+              available:
+                count: 1
+            descriptor:
+              name: Daycare Cover
+              code: DAYCARE_COVER
+            price:
+              currency: INR
+              value: "100"
+          - id: A3
+            quantity:
+              available:
+                count: 1
+            descriptor:
+              name: Daily Cash Allowance
+              code: DAILY_CASH_ALLOWANCE
+            price:
+              currency: INR
+              value: "100"
+          - id: A4
+            quantity:
+              available:
+                count: 1
+            descriptor:
+              name: Domicialiary Expenses
+              code: DOMICILIARY_EXPENSES
+            price:
+              currency: INR
+              value: "100"
+          - id: A5
+            quantity:
+              available:
+                count: 1
+            descriptor:
+              name: Health Check-ups
+              code: HEALTH_CHECK_UPS
+            price:
+              currency: INR
+              value: "100"
     provider:
       descriptor:
-        long_desc: ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
+        long_desc:
+          ABC Insurance Ltd. Deals in multiple Insurance Services like Health,
           Motor, Marine etc
         name: ABC Insurance Ltd.
-        short_desc: 'ABC Insurance Ltd. India '
+        short_desc: "ABC Insurance Ltd. India "
         images:
-        - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
-          size_type: xs
+          - url: https://www.abcinsurance.com/content/dam/abc/india/assets/images/header/logo.png
+            size_type: xs
       id: P1
     quote:
-      id: Q1
+      id: PROPOSAL_ID
       breakup:
-      - price:
-          value: '900'
-          currency: INR
-        title: Base Price
-      - price:
-          value: '50'
-          currency: INR
-        title: Convience Fee
-      - price:
-          value: '40'
-          currency: INR
-        title: Tax
-      - price:
-          value: '10'
-          currency: INR
-        title: Processing Fee
+        - price:
+            value: "900"
+            currency: INR
+          title: Base Price
+        - price:
+            value: "50"
+            currency: INR
+          title: Convience Fee
+        - price:
+            value: "40"
+            currency: INR
+          title: Tax
+        - price:
+            value: "10"
+            currency: INR
+          title: "PROCESSING_FEE"
+        - title: "ADD_ONS"
+          item:
+            id: "I1"
+            add_ons:
+              - id: "A1"
+          price:
+            value: "100"
+            currency: "INR"
       price:
         currency: INR
-        value: '1000'
+        value: "1000"

@@ -1,19 +1,19 @@
 context:
   action: status
-  bap_id:  '{{bap_id}}'
-  bap_uri: '{{bap_uri}}'
-  bpp_id:  '{{bpp_id}}'
-  bpp_uri: '{{bpp_uri}}'
-  domain: '{{domain}}'
+  bap_id: "{{bap_id}}"
+  bap_uri: "{{bap_uri}}"
+  bpp_id: "{{bpp_id}}"
+  bpp_uri: "{{bpp_uri}}"
+  domain: "{{domain}}"
   location:
     country:
       code: IND
     city:
-      code: '*'
-  message_id: '{{message_id}}'
-  timestamp: '2023-07-24T05:41:47.097Z'
-  transaction_id: '{{transaction_id}}'
+      code: "*"
+  message_id: "{{message_id}}"
+  timestamp: "2023-07-24T05:41:47.097Z"
+  transaction_id: "{{transaction_id}}"
   ttl: PT10M
   version: 2.0.0
 message:
-  order_id: ORDER_ID_1_HEALTH-INSURANCE
+  order_id: POLICY_ID
