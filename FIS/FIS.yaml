@@ -3,7 +3,7 @@ server:
   port: 5500
   sync_mode: true
 security:
-  verify_sign: false
+  verify_sign: true
   lookup_uri: https://staging.registry.ondc.org/lookup
   generate_sign: true
   subscriber_id: fis-staging.ondc.org/ondc-seller
