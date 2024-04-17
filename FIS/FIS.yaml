@@ -1,7 +1,7 @@
 server:
   type: BAP/BPP
   port: 5500
-  sync_mode: true
+  sync_mode: false
 security:
   verify_sign: true
   lookup_uri: https://staging.registry.ondc.org/lookup
