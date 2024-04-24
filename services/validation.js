@@ -33,12 +33,13 @@ const validateSchema = async (context) => {
       logger.error(JSON.stringify(formatted_error(error_list)));
       logger.error("Schema validation : FAIL");
       logger.error(context?.req_body?.context?.transaction_id)
-      return false;
+      return {status:false,error_list:error.message}
     } else {
       logger.info("Schema validation : SUCCESS");
-      return true;
+      return {status:true,error_list:[]}
     }
   } catch (error) {
+    return {status:false,error_list:error.message}
         logger.error(error);
   }
 };
@@ -52,7 +53,9 @@ const validateRequest = async (
   isFormFound
 ) => {
   logger = log.init();
-  if (isFormFound ||  await validateSchema(context)) {
+    const {status,error_list} = await validateSchema(context)
+  if (isFormFound ||  status) {
+    
     //triggering the subsequent request
     payloadConfig = callbackConfig?.payload;
     if (payloadConfig != null) {
