@@ -26,6 +26,9 @@ message:
           short_desc: ABC Individaul Health Insurance Class A with custom addon
         id: CHILD_ITEM_ID_I1_HEALTH
         parent_item_id: ITEM_ID_1_HEALTH-INSURANCE
+        price:
+          currency: INR
+          value: '900'
         tags:
           - descriptor:
               name: General Information

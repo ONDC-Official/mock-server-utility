@@ -8,7 +8,7 @@
 </head>
 
 <body>
-<form action="/ondc-seller/ondc-seller/form/fetch/proposer-details-submission" method="POST">
+<form action="/ondc-seller/form/fetch/proposer-details-submission" method="POST">
 <label for="firstName">First Name</label>
 <input type="text" id="firstName" name="firstName" />
 <label for="lastName">Last Name</label>
