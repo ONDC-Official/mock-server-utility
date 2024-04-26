@@ -415,6 +415,17 @@ properties:
                   format: date-time
                   example: 2022-10-28T10:34:58.472Z
               required: 
+                - id
+                - message
+                - invoice_no
+                - settlement_id
+                - transaction_id
+                - receiver_app_id
+                - collector_app_id
+                - order_recon_status
+                - settlement_reference_no
+                - counterparty_diff_amount
+                - counterparty_recon_status
 
 required:
   - context

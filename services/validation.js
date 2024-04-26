@@ -33,7 +33,7 @@ const validateSchema = async (context) => {
       logger.error(JSON.stringify(formatted_error(error_list)));
       logger.error("Schema validation : FAIL");
       logger.error(context?.req_body?.context?.transaction_id)
-      return {status:false,error_list:error.message}
+      return {status:false,error_list:error_list}
     } else {
       logger.info("Schema validation : SUCCESS");
       return {status:true,error_list:[]}
