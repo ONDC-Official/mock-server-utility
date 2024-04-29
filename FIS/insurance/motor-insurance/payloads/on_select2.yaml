@@ -103,7 +103,7 @@ message:
         form:
           id: F04
           mime_type: text/html
-          url: '{{bpp_uri}}form/Pan/Dob_details'
+          url: '{{form_url}}form/Pan/Dob_details'
           resubmit: false
           multiple_sumbissions: false
         required: true

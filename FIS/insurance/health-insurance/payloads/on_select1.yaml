@@ -80,7 +80,7 @@ message:
           form:
             id: F04
             mime_type: text/html
-            url: "{{bpp_uri}}form/fetch/EKYC"
+            url: "{{form_url}}form/fetch/EKYC"
             resubmit: true
             multiple_sumbissions: false
           required: true

@@ -48,7 +48,7 @@ message:
         form:
           id: FO2
           mime_type: application/html
-          url: '{{bpp_uri}}form/get-payment-info?payload={{stringify}}'
+          url: '{{form_url}}form/get-payment-info?payload={{stringify}}'
           resubmit: false
           multiple_sumbissions: false
         required: true

@@ -134,7 +134,7 @@ message:
           form:
             id: FO1
             mime_type: text/html
-            url: '{{bpp_uri}}form/fetch/vehicle/details'
+            url: '{{form_url}}form/fetch/vehicle/details'
             multiple_sumbissions: false
             resubmit: false
           required: true
@@ -308,7 +308,7 @@ message:
           form:
             id: FO2
             mime_type: text/html
-            url:  '{{bpp_uri}}form/vehicle-detail/renewal'
+            url:  '{{form_url}}form/vehicle-detail/renewal'
             multiple_sumbissions: false
             resubmit: false
           required: true

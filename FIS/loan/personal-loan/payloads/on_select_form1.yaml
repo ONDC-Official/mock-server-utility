@@ -185,7 +185,7 @@ message:
         form:
           id: FO2
           mime_type: text/html
-          url: '{{bpp_uri}}form/personal-loan/required-loan'
+          url: '{{form_url}}form/personal-loan/required-loan'
           resubmit: false
           multiple_sumbissions: false
         required: true

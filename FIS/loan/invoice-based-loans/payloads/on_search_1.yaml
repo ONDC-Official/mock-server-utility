@@ -92,7 +92,7 @@ message:
             id: F01
             mime_type: text/html
             url: >-
-              {{bpp_uri}}form/invoice-loan/org-form
+              {{form_url}}form/invoice-loan/org-form
             resubmit: false
             multiple_sumbissions: false
           required: true

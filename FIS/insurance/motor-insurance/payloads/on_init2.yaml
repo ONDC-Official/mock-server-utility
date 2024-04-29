@@ -75,7 +75,7 @@ message:
         form:
           id: F07
           mime_type: text/html
-          url: '{{bpp_uri}}form/insured/personal_details'
+          url: '{{form_url}}form/insured/personal_details'
           resubmit: false
           multiple_sumbissions: false
         required: true

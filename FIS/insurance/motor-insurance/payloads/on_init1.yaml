@@ -76,7 +76,7 @@ message:
           id: F06
           mime_type: text/html
           url: >-
-              {{bpp_uri}}form/vehicle-info/form
+              {{form_url}}form/vehicle-info/form
           resubmit: false
           multiple_sumbissions: false
         required: true

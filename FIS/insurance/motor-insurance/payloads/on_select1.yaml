@@ -103,7 +103,7 @@ message:
         form:
           id: FO3
           mime_type: application/html
-          url: '{{bpp_uri}}form/manual-review/form?payload={{stringify}}'
+          url: '{{form_url}}form/manual-review/form?payload={{stringify}}'
           resubmit: false
           multiple_sumbissions: false
         required: true

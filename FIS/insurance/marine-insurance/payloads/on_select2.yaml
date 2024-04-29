@@ -72,7 +72,7 @@ message:
             id: F03
             mime_type: text/html
             url: >-
-             {{bpp_uri}}form/marine/aadhar_kyc
+             {{form_url}}form/marine/aadhar_kyc
             resubmit: true
             multiple_sumbissions: false
           required: true

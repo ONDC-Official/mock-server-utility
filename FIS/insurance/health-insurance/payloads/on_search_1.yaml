@@ -103,7 +103,7 @@ message:
                 id: F01
                 mime_type: text/html
                 url: >-
-                  {{bpp_uri}}form/fetch/personal-info
+                  {{form_url}}form/fetch/personal-info
                 resubmit: true
                 multiple_sumbissions: false
               required: true
@@ -268,7 +268,7 @@ message:
                 id: FO2
                 mime_type: text/html
                 url: >-
-                  {{bpp_uri}}form/fetch/family-info
+                  {{form_url}}form/fetch/family-info
                 resubmit: true
                 multiple_sumbissions: false
               required: true

@@ -94,7 +94,7 @@ message:
           id: F05
           mime_type: application/html
           url: >-
-                     {{bpp_uri}}form/old/render
+                     {{form_url}}form/old/render
           resubmit: false
           multiple_sumbissions: false
         required: true

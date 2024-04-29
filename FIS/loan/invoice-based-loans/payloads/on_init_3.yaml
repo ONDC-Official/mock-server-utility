@@ -100,7 +100,7 @@ message:
         form:
           id: F06
           mime_type: application/html
-          url: '{{bpp_uri}}form/invoice-loan/emandate'
+          url: '{{form_url}}form/invoice-loan/emandate'
           resubmit: false
           multiple_sumbissions: false
         required: true

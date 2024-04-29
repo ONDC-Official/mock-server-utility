@@ -94,7 +94,7 @@ message:
           id: F06
           mime_type: application/html
           url: >-
-               {{bpp_uri}}form/personal-loan/old/loan-agreement
+               {{form_url}}form/personal-loan/old/loan-agreement
           resubmit: false
           multiple_sumbissions: false
         required: true

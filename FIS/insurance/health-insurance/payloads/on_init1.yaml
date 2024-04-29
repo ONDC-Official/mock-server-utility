@@ -87,7 +87,7 @@ message:
           form:
             id: FO5
             mime_type: text/html
-            url: "{{bpp_uri}}form/fetch/proposer-details"
+            url: "{{form_url}}form/fetch/proposer-details"
             resubmit: true
             multiple_sumbissions: false
           required: true

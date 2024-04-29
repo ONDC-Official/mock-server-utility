@@ -81,7 +81,7 @@ message:
                 id: F01
                 mime_type: text/html
                 url: >-
-                 {{bpp_uri}}form/marine/fetch/personal-info
+                 {{form_url}}form/marine/fetch/personal-info
                 resubmit: false
                 multiple_sumbissions: false
               required: true

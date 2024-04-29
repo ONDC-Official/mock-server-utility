@@ -72,7 +72,7 @@ message:
             id: F03
             mime_type: text/html
             url: >-
-             {{bpp_uri}}form/marine/additional-info
+             {{form_url}}form/marine/additional-info
             resubmit: true
             multiple_sumbissions: false
           required: true

@@ -100,7 +100,7 @@ message:
         form:
           id: F07
           mime_type: text/html
-          url: '{{bpp_uri}}form/invoice-loan/loan-agreements'
+          url: '{{form_url}}form/invoice-loan/loan-agreements'
           resubmit: false
           multiple_sumbissions: false
         required: true

@@ -87,7 +87,7 @@ message:
           form:
             id: FO7
             mime_type: text/html
-            url: "{{bpp_uri}}form/fetch/nominee-details"
+            url: "{{form_url}}form/fetch/nominee-details"
             resubmit: true
             multiple_sumbissions: false
           required: true

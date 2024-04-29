@@ -48,7 +48,7 @@ message:
         form:
           id: FO1
           mime_type: text/html
-          url: '{{bpp_uri}}form/sip-setup'
+          url: '{{form_url}}form/sip-setup'
           resubmit: false
           multiple_sumbissions: false
         required: true

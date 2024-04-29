@@ -160,7 +160,7 @@ message:
             id: F02
             mime_type: text/html
             url: >-
-              {{bpp_uri}}form/invoice-loan/loan-amount
+              {{form_url}}form/invoice-loan/loan-amount
             resubmit: false
             multiple_sumbissions: false
           required: true

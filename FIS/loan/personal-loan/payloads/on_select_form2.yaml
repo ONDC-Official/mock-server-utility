@@ -185,7 +185,7 @@ message:
         form:
           id: FO3
           mime_type: application/html
-          url: '{{bpp_uri}}form/personal-loan/kyc'
+          url: '{{form_url}}form/personal-loan/kyc'
           resubmit: false
           multiple_sumbissions: false
         required: true

@@ -48,7 +48,7 @@ message:
           form:
             id: FO4
             mime_type: application/html
-            url: '{{bpp_uri}}form/fund-agreement?payload={{stringify}}'
+            url: '{{form_url}}form/fund-agreement?payload={{stringify}}'
             resubmit: false
             multiple_sumbissions: false
           required: true

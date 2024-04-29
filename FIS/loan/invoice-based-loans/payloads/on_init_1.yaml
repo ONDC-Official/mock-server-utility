@@ -100,7 +100,7 @@ message:
         form:
           id: F04
           mime_type: application/html
-          url: '{{bpp_uri}}form/invoice-loan/kyc-info'
+          url: '{{form_url}}form/invoice-loan/kyc-info'
 
           resubmit: false
           multiple_sumbissions: false

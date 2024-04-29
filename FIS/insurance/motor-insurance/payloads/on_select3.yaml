@@ -104,7 +104,7 @@ message:
           id: FO5
           mime_type: text/html
           url: >-
-             {{bpp_uri}}form/EKYC/form
+             {{form_url}}form/EKYC/form
           resubmit: false
           multiple_sumbissions: false
         required: true
