@@ -29,7 +29,8 @@ message:
           - id: F1
             type: TRIP
             stops:
-              - type: START
+              - type: 
+                id: S5
                 location:
                   descriptor:
                     name: Bangalore
@@ -48,6 +49,7 @@ message:
                     code: std:080-pincode:560103
                   gps: 12.930839, 77.677941
               - type: END
+                id: S6
                 location:
                   descriptor:
                     name: Hyderabad

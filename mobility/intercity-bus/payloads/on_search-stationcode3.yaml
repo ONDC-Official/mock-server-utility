@@ -74,6 +74,7 @@ message:
         type: TRIP
         stops:
         - type: START
+          id: S5
           location:
             descriptor:
               name: Bangalore
@@ -99,6 +100,7 @@ message:
             label: DATE_TIME
             timestamp: '2023-09-06T06:45:00.000Z'
         - type: END
+          id: S6
           location:
             descriptor:
               name: Hyderabad

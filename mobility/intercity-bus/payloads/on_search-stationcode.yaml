@@ -18,12 +18,14 @@ message:
     fulfillment:
       stops:
       - type: START
+        id: S5
         location:
           gps: 12.979759, 77.590427
         time:
           label: DATE_OF_JOURNEY
           timestamp: '2023-09-06T00:00:00.000Z'
       - type: END
+        id: S6
         location:
           gps: 17.399832, 78.471200
       vehicle:
