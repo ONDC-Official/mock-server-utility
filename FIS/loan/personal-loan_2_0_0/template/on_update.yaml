@@ -4,6 +4,8 @@ template:
     dict:
       bpp_uri: https://fis-staging.ondc.org/ondc-seller/
       bpp_id: fis-staging.ondc.org/ondc-seller
+      form_url: 
+        $ref: "../../../config_values.yaml#/form_url"
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
       bap_id:
