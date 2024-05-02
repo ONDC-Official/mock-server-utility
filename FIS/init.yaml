@@ -569,40 +569,6 @@ health-based-insurance2:
     $ref: "./insurance/health-insurance/template/on_init2.yaml"     
 
 
-health-based-insurance3:
-  condition:
-      operation:
-        type: AND
-        input:
-          value:
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.items.0.id"
-                  - "CHILD_ITEM_ID_I1_HEALTH"
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form_response.submission_id"
-                    - "F06_SUBMISSION_ID"
-  callback: "on_init"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./insurance/health-insurance/template/on_init3.yaml"     
-
-
 marine-based-insurance:
   condition:
       operation:
