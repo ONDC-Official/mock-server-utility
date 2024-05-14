@@ -332,7 +332,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 async function startUp(file) {
   await config.loadConfig(file);
   const server = config.getServer();
-  app.use(express.json());
+  app.use(express.json({ limit: '20mb' }));
+
   const logger = log.init();
 
   app.listen(server.port, () => {
