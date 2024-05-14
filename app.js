@@ -329,11 +329,12 @@ async function createInstructionSet(file) {
 async function startUp(file) {
   await config.loadConfig(file);
   const server = config.getServer();
+  app.use(express.json({ limit: '20mb' }));
 
-  app.use(express.json());
+
   const logger = log.init();
 
-    app.listen(server.port, () => {
+  app.listen(server.port, () => {
     logger.info(`This app is running on port number : ${server.port}`);
   });
 
