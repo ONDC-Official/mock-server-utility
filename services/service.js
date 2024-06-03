@@ -29,7 +29,7 @@ const onRequest = async (req, res) => {
       api = req.params['0'].replace(/\//g, '_');
     }
     req.rawBody = req.body
-    req.body = req.body.toString('utf-8')
+    req.body = JSON.parse(req.body.toString('utf-8'))
     logger.info(`Received ${req.url} api request`);
     if (security.verify_sign && !isFormFound) {
       if (!await verifyHeader(req, security)){
