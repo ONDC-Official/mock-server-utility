@@ -6,7 +6,7 @@ const ajv = new Ajv({
 });
 const {
   createAuthorizationHeader,
-  isSignatureValid,
+  isHeaderValid,
 } = require("ondc-crypto-sdk-nodejs");
 const { buildTemplate,getPublicKey } = require("../utils/utils");
 const { trigger } = require("./triggerService");
@@ -99,9 +99,9 @@ const verifyHeader = async (req, security) => {
   // logger.info(`Public key retrieved from registry : ${public_key}`);
   // const public_key = security.publickey;
   //Validate the request source against the registry
-  const isValidSource = await isSignatureValid({
+  const isValidSource = await isHeaderValid({
     header: headers.authorization, // The Authorisation header sent by other network participants
-    body: req.body,
+    body: req.rawBody,
     publicKey: public_key,
   });
   if (!isValidSource) {
