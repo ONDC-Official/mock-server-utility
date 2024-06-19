@@ -66,10 +66,10 @@ const validateRequest = async (
       if (security.generate_sign) {
         //create response header
         const header = await createAuthorizationHeader({
-          message: data,
+          body: data,
           privateKey: security.privatekey,
-          bapId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
-          bapUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
+          subscriberId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
+          subscriberUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
         });
 
         res.setHeader("Authorization", header);
