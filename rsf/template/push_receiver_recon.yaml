@@ -2,14 +2,15 @@ template:
     data:
       $ref: "../payloads/receiver_recon_dummy.yaml"
     dict:
-      bpp_uri: https://rsf-mock-service.ondc.org/
-      bpp_id: rsf-mock-service.ondc.org
+      bpp_uri:
+        $ref: "../operations/req_body.yaml#/bpp_uri"
+      bpp_id: 
+        $ref: "../operations/req_body.yaml#/bpp_id"
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
-      bap_id:
-        $ref: "../operations/req_body.yaml#/bap_id"
-      bap_uri:
-        $ref: "../operations/req_body.yaml#/bap_uri"
+      bap_id: rsf-mock-service.ondc.org
+        # $ref: "../operations/req_body.yaml#/bap_id"
+      bap_uri: https://rsf-mock-service.ondc.org/
       txn_id:
         $ref: "../operations/req_body.yaml#/transaction_id"
       msg_id:
@@ -30,5 +31,30 @@ template:
         operation:
           type: READ
           input:
-            value: "req_body.context.message_id"     
+            value: "req_body.context.message_id"   
+      recon_status_01:  
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.orderbook.orders.0.recon_status"     
+      recon_status_02:  
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.orderbook.orders.1.recon_status"     
+      recon_status_03:  
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.orderbook.orders.2.recon_status"     
+      recon_status_04:  
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.orderbook.orders.3.recon_status"     
+      recon_status_05:  
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.orderbook.orders.4.recon_status"     
   

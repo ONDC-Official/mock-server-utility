@@ -25,8 +25,8 @@ const trigger = async(context, config, data,security) => {
           Authorization:await createAuthorizationHeader({
             message: data,
             privateKey: security.privatekey,
-            bapId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
-            bapUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
+            subscriberId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
+            subscriberUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
           })
         }
     }

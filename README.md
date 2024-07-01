@@ -162,12 +162,37 @@ Response
 
 ### Example
 
+context and recon_status values will be copied from your input payload into the callback payload.
+
 Request (push_receiver_recon)
 ```json
 {
-    "context":{
-        "bpp_uri":"https://c102-115-240-127-98.ngrok-free.app",
-        "bpp_id":"rsf-mock-service.ondc.org"
+    "context": {
+        "bpp_uri": "https://rsf-mock-service.ondc.org/",
+        "bpp_id": "rsf-mock-service.ondc.org",
+        "message_id": "54b6a08e-d849-11ed-870f-acde48001122",
+        "transaction_id": "5fbdd03c-d54d-11ed-afa1-0242ad120025"
+    },
+    "message": {
+        "orderbook": {
+            "orders": [
+                {
+                    "recon_status": "01"
+                },
+                 {
+                    "recon_status": "02"
+                },
+                 {
+                    "recon_status": "03"
+                },
+                 {
+                    "recon_status": "02"
+                },
+                 {
+                    "recon_status": "01"
+                }
+            ]
+        }
     }
 }
 ```

@@ -8,6 +8,16 @@ bap_uri:
     type: READ
     input:
       value: "req_body.context.bap_uri"
+bpp_id:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.bpp_id"
+bpp_uri:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.bpp_uri"
 context_city:
   operation:
     type: READ
