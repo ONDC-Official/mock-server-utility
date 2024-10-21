@@ -1,0 +1,191 @@
+default:
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/on_search.yaml"
+
+#v 2.3.0 WORKING_CAPITAL_LOAN
+# personal-loan-1:
+WORKING_CAPITAL_LOAN:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.intent.category.descriptor.code"
+                  - WORKING_CAPITAL_LOAN
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
+          # - operation:
+          #     type: EQUAL
+          #     title: Check search message code
+          #     input:
+          #       value:
+          #         - operation:
+          #             type: READ
+          #             input:
+          #               value: "req_body.message.intent.provider.items"
+          #         - "undefined"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.3.0"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./Working-Captial-Loan/template/on_search.yaml"
+
+
+WORKING_CAPITAL_LOAN1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.intent.category.descriptor.code"
+                  - WORKING_CAPITAL_LOAN
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.provider.items.0.xinput.form_response.submission_id"
+                    - "form_submission_id_gst_bank_statement_F01"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                          value: "req_body.message.intent.provider.items.0.xinput.form_response.status"
+                  - "SUCCESS"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.3.0"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+      $ref: "./Working-Capital-Loan/template/on_search_2.yaml"
+    
+
+WORKING_CAPITAL_LOAN2:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.intent.category.descriptor.code"
+                  - WORKING_CAPITAL_LOAN
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.intent.provider.items.0.xinput.form_response.submission_id"
+                    - "form_submission_id_business_financial_F02"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                          value: "req_body.message.intent.provider.items.0.xinput.form_response.status"
+                  - "SUCCESS"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.3.0"
+  callback: "on_search"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+      $ref: "./Working-Capital-Loan/template/on_search_2.yaml"
+        

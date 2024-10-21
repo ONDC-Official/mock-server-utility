@@ -1,0 +1,73 @@
+server:
+  type: BAP/BPP
+  port: 5500
+  sync_mode: true
+security:
+  verify_sign: false
+  lookup_uri: http://localhost:3000/lookup
+  generate_sign: true
+  subscriber_id: mock-api-service
+  ukId: 584
+  publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
+  privatekey: >-
+    dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  confirm:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/confirm.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/confirm.yaml
+  init:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/init.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/init.yaml
+  on_confirm:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/on_confirm.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/on_confirm.yaml
+  on_init:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/on_init.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/on_init.yaml
+  on_search:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/on_search.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/on_search.yaml
+  on_select:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/on_select.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/on_select.yaml
+  on_status:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/on_status.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/on_status.yaml
+  on_update:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/on_update.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/on_update.yaml
+  search:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/search.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/search.yaml
+  select:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/select.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/select.yaml
+  update:
+    schema:
+      $ref: ./Working-Capital-Loan/schema/update.yaml
+    callbacks:
+      $ref: ./Working-Capital-Loan/update.yaml

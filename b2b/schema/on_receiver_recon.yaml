@@ -1,0 +1,427 @@
+type: object
+properties:
+  context:
+    description: Describes a beckn message context
+    type: object
+    properties:
+      domain:
+        description: Describes the domain of an object
+        type: string
+        enum:
+          - ONDC:NTS10
+      country:
+        type: string
+        description: Country code as per ISO 3166-1 and ISO 3166-2 format
+      city:
+        type: string
+        description: City code
+      action:
+        type: string
+        description: >-
+          Defines the Beckn API call. Any actions other than the enumerated
+          actions are not supported by Beckn Protocol
+      core_version:
+        type: string
+        description: Version of Beckn core API specification being used
+      bap_id:
+        type: string
+        description: >-
+          Unique id of the BAP. By default it is the fully qualified domain name
+          of the BAP
+      bap_uri:
+        type: string
+        format: uri
+        description: >-
+          URI of the BAP for accepting callbacks. Must have the same domain name
+          as the bap_id
+      bpp_id:
+        type: string
+        description: >-
+          Unique id of the BPP. By default it is the fully qualified domain name
+          of the BPP
+      bpp_uri:
+        type: string
+        format: uri
+        description: URI of the BPP. Must have the same domain name as the bap_id
+      transaction_id:
+        type: string
+        description: >-
+          This is a unique value which persists across all API calls from search
+          through confirm
+      message_id:
+        type: string
+        description: >-
+          This is a unique value which persists during a request / callback
+          cycle
+      timestamp:
+        type: string
+        format: date-time
+        description: Time of request generation in RFC3339 format
+      key:
+        type: string
+        description: The encryption public key of the sender
+      ttl:
+        type: string
+        description: >-
+          The duration in ISO8601 format after timestamp for which this message
+          holds valid
+    required:
+      - domain
+      - action
+      - country
+      - city
+      - core_version
+      - transaction_id
+      - message_id
+      - bap_id
+      - bap_uri
+      - timestamp
+  message:
+    type: object
+    properties:
+      orderbook:
+        description: Describes the payment and settlement contract for an order
+        type: object
+        properties:
+          orders:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: string
+                  description: Order id
+                  example: K106403902112759
+                invoice_no:
+                  type: string
+                  description: Invoice Number of the Order
+                  example: 2022/XYZ/12345-2
+                collector_app_id:
+                  type: string
+                  example: abc.collectorapp.com
+                receiver_app_id:
+                  type: string
+                  example: abc.receiverapp.com
+                receiver_app_uri:
+                  type: string
+                  example: https://abc.receiverapp.com
+                state:
+                  type: string
+                  description: Order state
+                  example: Delivered
+                provider:
+                  description: Provider for Order
+                  type: object
+                  properties:
+                    name: &ref_3
+                      description: Describes the description of a real-world object.
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        code:
+                          type: string
+                        symbol:
+                          type: string
+                        short_desc:
+                          type: string
+                        long_desc:
+                          type: string
+                        images:
+                          type: array
+                          items:
+                            description: >-
+                              Image of an object. <br/><br/> A url based image
+                              will look like
+                              <br/><br/>```uri:http://path/to/image```
+                              <br/><br/> An image can also be sent as a data
+                              string. For example : <br/><br/>
+                              ```data:js87y34ilhriuho84r3i4```
+                            type: string
+                        audio:
+                          type: string
+                          format: uri
+                        3d_render:
+                          type: string
+                          format: uri
+                    address:
+                      type: string
+                  required:
+                    - name
+                    - address
+                payment:
+                  description: Describes a payment
+                  type: object
+                  properties:
+                    uri:
+                      type: string
+                      description: >-
+                        A payment uri to be called by the BAP. If empty, then
+                        the payment is to be done offline. The details of
+                        payment should be present in the params object. If
+                        ```tl_method``` = http/get, then the payment details
+                        will be sent as url params. Two url param values,
+                        ```$transaction_id``` and ```$amount``` are mandatory.
+                        And example url would be :
+                        https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234
+                      format: uri
+                    tl_method:
+                      type: string
+                      enum:
+                        - http/get
+                        - http/post
+                    params:
+                      type: object
+                      properties:
+                        transaction_id:
+                          type: string
+                          description: >-
+                            This value will be placed in the the $transaction_id
+                            url param in case of http/get and in the requestBody
+                            http/post requests
+                        transaction_status:
+                          type: string
+                        amount:
+                          description: Describes a decimal value
+                          type: string
+                          pattern: '[+-]?([0-9]*[.])?[0-9]+'
+                        currency:
+                          type: string
+                      additionalProperties:
+                        type: string
+                      required:
+                        - currency
+                    type:
+                      type: string
+                      enum:
+                        - ON-ORDER
+                        - PRE-FULFILLMENT
+                        - ON-FULFILLMENT
+                        - POST-FULFILLMENT
+                    status:
+                      type: string
+                      enum:
+                        - PAID
+                        - NOT-PAID
+                    time:
+                      description: >-
+                        Describes time in its various forms. It can be a single
+                        point in time; duration; or a structured timetable of
+                        operations
+                      type: object
+                      properties:
+                        label:
+                          type: string
+                        timestamp:
+                          type: string
+                          format: date-time
+                        duration: &ref_0
+                          description: Describes duration as per ISO8601 format
+                          type: string
+                        range:
+                          type: object
+                          properties:
+                            start:
+                              type: string
+                              format: date-time
+                            end:
+                              type: string
+                              format: date-time
+                        days:
+                          type: string
+                          description: comma separated values representing days of the week
+                        schedule:
+                          description: Describes a schedule
+                          type: object
+                          properties:
+                            frequency: *ref_0
+                            holidays:
+                              type: array
+                              items:
+                                type: string
+                                format: date-time
+                            times:
+                              type: array
+                              items:
+                                type: string
+                                format: date-time
+                withholding_tax_gst: &ref_2
+                  description: Describes the price of an item. Allows for domain extension.
+                  type: object
+                  properties:
+                    currency:
+                      type: string
+                    value: &ref_1
+                      description: Describes a decimal value
+                      type: string
+                      pattern: '[+-]?([0-9]*[.])?[0-9]+'
+                    estimated_value: *ref_1
+                    computed_value: *ref_1
+                    listed_value: *ref_1
+                    offered_value: *ref_1
+                    minimum_value: *ref_1
+                    maximum_value: *ref_1
+                withholding_tax_tds: *ref_2
+                deduction_by_collector: *ref_2
+                order_recon_status:
+                  type: string
+                  enum:
+                    - '01'
+                    - '02'
+                    - '03'
+                payerdetails:
+                  description: Payer details
+                  type: object
+                  properties:
+                    payer_name:
+                      type: string
+                      description: Payer name
+                      example: Example1 company Pvt. Ltd
+                    payer_address:
+                      type: string
+                    payer_account_no:
+                      type: string
+                      description: >-
+                        Debit Account Number of the client, used when client
+                        maintains multiple debit accounts with bank
+                      example: 509424924294248
+                    payer_bank_code:
+                      type: string
+                      description: Bank Code of Payee e.g. IFSC code
+                      example: “HDFC0000000”
+                    payer_virtual_payment_address:
+                      type: string
+                      pattern: ^([a-zA-Z0-9]{2,10})@([a-zA-Z0-9]{2,10})
+                      example: 80abc@abctMh2h
+                  required:
+                    - payer_name
+                    - payer_address
+                    - payer_account_no
+                    - payer_bank_code
+                settlement_reason_code:
+                  type: string
+                  description: Reason code for settlement
+                  enum:
+                    - '01'
+                    - '02'
+                    - '03'
+                    - '04'
+                    - '05'
+                correction:
+                  description: >-
+                    Correction, which will be added to OrderBook after dispute
+                    resolution
+                  type: object
+                  properties:
+                    issue_initiator_ref:
+                      type: string
+                      description: CRM ID or Ticket Number of Grievance or Issue Initiator
+                      example: 1243242GQT$
+                    issue_responder_ref:
+                      type: string
+                      description: >-
+                        CRM ID or Ticket Number No. of Grievance or Issue
+                        Responder
+                      example: 122424HGYG98
+                    issue_type:
+                      type: string
+                      description: Type of Issue
+                      enum:
+                        - '01'
+                        - '02'
+                        - '03'
+                    issue_subtype:
+                      type: string
+                      description: Subtype of Issue
+                      enum:
+                        - '01'
+                        - '02'
+                        - '03'
+                        - '04'
+                        - '05'
+                    order_id:
+                      type: string
+                      description: Original Order ID
+                      example: K106403902112759
+                    order_amount: *ref_2
+                    order_correction_amount: *ref_2
+                    order_state:
+                      type: string
+                      description: Order State
+                      example: Delivered
+                    previous_settled_amount: *ref_2
+                    settlement_id:
+                      type: string
+                      description: Unique identifier for each settlement
+                      example: '121313'
+                    settlement_reference_no:
+                      type: string
+                      description: Reference number, in case of successful settlement
+                      example: '3718683618631'
+                    prev_settlement_reference_no:
+                      type: array
+                      description: >-
+                        Array of all previous UTR references against which
+                        Correction settlement for this order was done
+                      example:
+                        - 1234ABCD
+                        - 2345qwer
+                      items:
+                        type: string
+                    recon_status:
+                      type: string
+                      enum:
+                        - '01'
+                        - '02'
+                        - '03'
+                        - '04'
+                    diff_amount: *ref_2
+                    message: *ref_3
+                transaction_id:
+                  type: string
+                  description: Unique identifier for transaction
+                  example: 6baa811a-6cbe-4ad3-94e9-cbf96aaff343
+                settlement_id:
+                  type: string
+                  description: Unique identifier for each settlement
+                  example: '121313'
+                settlement_reference_no:
+                  type: string
+                  description: Reference number, in case of successful settlement
+                  example: '3718683618631'
+                recon_status:
+                  type: string
+                  enum:
+                    - '01'
+                    - '02'
+                    - '03'
+                    - '04'
+                diff_amount: *ref_2
+                counterparty_recon_status:
+                  type: string
+                  enum:
+                    - '01'
+                    - '02'
+                    - '03'
+                    - '04'
+                counterparty_diff_amount: *ref_2
+                message: *ref_3
+                created_at:
+                  type: string
+                  format: date-time
+                  example: 2022-10-28T10:34:58.472Z
+                updated_at:
+                  type: string
+                  format: date-time
+                  example: 2022-10-28T10:34:58.472Z
+required:
+  - context
+  - message.orderbook.orders.id
+  - message.orderbook.orders.invoice_no
+  - message.orderbook.orders.collector_app_id
+  - message.orderbook.orders.receiver_app_id
+  - message.orderbook.orders.transaction_id
+  - message.orderbook.orders.settlement_id
+  - message.orderbook.orders.settlement_reference_no
+  - message.orderbook.orders.recon_status
+  - message.orderbook.orders.order_recon_status

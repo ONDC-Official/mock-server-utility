@@ -1,0 +1,44 @@
+context:
+  domain: '{{domain}}'
+  location:
+    country:
+      code: IND
+    city:
+      code: "*"
+  transaction_id: '{{transaction_id}}'
+  message_id: '{{msg_id}}'
+  action: search
+  timestamp: 2023-05-25T05:23:03.443Z
+  version: 2.3.0
+  bap_uri: '{{bap_uri}}'
+  bap_id: bap.credit.becknprotocol.io
+  ttl: PT10M
+  bpp_id: bpp.credit.becknprotocol.org
+  bpp_uri: '{{bpp_uri}}'
+message:
+  intent:
+    category:
+      descriptor:
+        code: WORKING_CAPITAL_LOAN
+    provider:
+      id: PROVIDER_ID
+      fulfillments:
+        - customer:
+            person:
+              name: John Doe
+              dob: 1998-09-12
+              gender: Male
+              creds:
+                - id: BXU87Y252U
+                  type: PAN
+            contact:
+              email: john.doe@gmail.com
+              phone: "7888888888"
+      items:
+        - id: ITEM_ID_WORKING_CAPITAL_LOAN
+          xinput:
+            form:
+              id: <form_business_financial_F02>
+            form_response:
+              status: SUCCESS
+              submission_id: form_submission_id_business_financial_F02
