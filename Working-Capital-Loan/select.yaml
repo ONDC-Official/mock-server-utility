@@ -1,10 +1,10 @@
 default:
-  callback: "on_select"
+  callback: "on_select_1"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./template/on_select.yaml"
+    $ref: "./template/on_select_1.yaml"
 
 WORKING_CAPITAL_LOAN:
   condition:
@@ -47,9 +47,9 @@ WORKING_CAPITAL_LOAN:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./loan/personal-loan/template/on_select.yaml"
+    $ref: "./template/on_select_1.yaml"
 
-personal-loan-form2:
+WORKING_CAPITAL_LOAN1:
   condition:
     operation:
       type: AND
@@ -84,16 +84,15 @@ personal-loan-form2:
                       type: READ
                       input:
                         value: "req_body.context.version"
-                  - "2.1.0"
+                  - "2.3.0"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./loan/personal-loan/template/on_select_form2.yaml"
+    $ref: "./template/on_select_2.yaml"
 
-#v 2.0.0
-personal-loan-form1_2_0_0:
+WORKING_CAPITAL_LOAN2:
   condition:
     operation:
       type: AND
@@ -139,10 +138,10 @@ personal-loan-form1_2_0_0:
                       type: READ
                       input:
                         value: "req_body.context.version"
-                  - "2.0.0"
+                  - "2.3.0"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./loan/personal-loan_2_0_0/template/on_select_form1.yaml"
+    $ref: "./template/on_select_3.yaml"

@@ -59,7 +59,7 @@ WORKING_CAPITAL_LOAN:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./Working-Captial-Loan/template/on_search.yaml"
+    $ref: "./template/on_search.yaml"
 
 
 WORKING_CAPITAL_LOAN1:
@@ -123,7 +123,7 @@ WORKING_CAPITAL_LOAN1:
     $ref: ""
   delay: 300
   payload:
-      $ref: "./Working-Capital-Loan/template/on_search_2.yaml"
+      $ref: "./template/on_search_1.yaml"
     
 
 WORKING_CAPITAL_LOAN2:
@@ -187,5 +187,5 @@ WORKING_CAPITAL_LOAN2:
     $ref: ""
   delay: 300
   payload:
-      $ref: "./Working-Capital-Loan/template/on_search_2.yaml"
+      $ref: "./template/on_search_2.yaml"
         

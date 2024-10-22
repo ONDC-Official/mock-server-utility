@@ -1,0 +1,4 @@
+[2024-10-22T04:40:13.080Z] [[32minfo[39m]: Received /search api request
+[2024-10-22T04:40:13.087Z] [[32minfo[39m]: Validating search request
+[2024-10-22T04:40:13.088Z] [[32minfo[39m]: Inside schema validation service for search api
+[2024-10-22T04:40:13.090Z] [[32minfo[39m]: Schema validation : SUCCESS

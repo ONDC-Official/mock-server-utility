@@ -1,6 +1,6 @@
 template:
     data:
-      $ref: "../payloads/on_select.yaml"
+      $ref: "../payloads/on_select_1.yaml"
     dict:
       bpp_uri: https://rsf-mock-service.ondc.org/
       bpp_id: rsf-mock-service.ondc.org
