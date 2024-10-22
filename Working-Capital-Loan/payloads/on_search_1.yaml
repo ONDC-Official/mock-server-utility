@@ -61,6 +61,7 @@ message:
                 resubmit: false
                 multiple_sumbissions: false
               required: true
+              #to add the forms rupal
         tags:
           - descriptor:
               code: CONTACT_INFO

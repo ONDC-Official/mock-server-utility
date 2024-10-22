@@ -71,3 +71,9 @@ path:
       $ref: ./Working-Capital-Loan/schema/update.yaml
     callbacks:
       $ref: ./Working-Capital-Loan/update.yaml
+
+#forms
+  form_account_info:
+    schema:
+    callbacks:
+      $ref: ./Working-Capital-Loan/forms/acount_info_form.yaml

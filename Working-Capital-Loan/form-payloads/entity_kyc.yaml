@@ -4,41 +4,45 @@
 <title>Business KYC Documents</title>
 </head>
 <body>
-<form action="/form/submission/business_kyc" method="post" enctype="multipart/form-data">
+        <script>
+        function handlesubmit(){
+            alert("submission id is ")}
+    </script>
+<form >
 
 <label for="company_pan">Company PAN Card</label>
-<input type="file" id="company_pan" name="company_pan" accept=".jpeg, .pdf, .png" required><br>
+<input type="file" id="company_pan" name="company_pan" accept=".jpeg, .pdf, .png" ><br>
 
 <label for="company_deed">Partnership/Company Deed</label>
-<input type="file" id="company_deed" name="company_deed" accept=".pdf" required><br>
+<input type="file" id="company_deed" name="company_deed" accept=".pdf" ><br>
 
 <label for="gst_certificate">GST Certificate</label>
-<input type="file" id="gst_certificate" name="gst_certificate" accept=".pdf, .jpeg, .png" required><br>
+<input type="file" id="gst_certificate" name="gst_certificate" accept=".pdf, .jpeg, .png" ><br>
 
 <label for="utility_bill">Latest Utility Bill (Residence & Office)</label>
-<input type="file" id="utility_bill" name="utility_bill" accept=".pdf, .jpeg, .png" required><br>
+<input type="file" id="utility_bill" name="utility_bill" accept=".pdf, .jpeg, .png" ><br>
 
 <label for="business_proof">Business Proof - Shop & Establishment Registration Certificate or Business License/Udyam</label>
-<input type="file" id="business_proof" name="business_proof" accept=".pdf, .jpeg, .png" required><br>
+<input type="file" id="business_proof" name="business_proof" accept=".pdf, .jpeg, .png" ><br>
 
 <label for="memorandum_association">Memorandum of Association</label>
-<input type="file" id="memorandum_association" name="memorandum_association" accept=".pdf" required><br>
+<input type="file" id="memorandum_association" name="memorandum_association" accept=".pdf" ><br>
 
 <label for="articles_association">Articles of Association</label>
-<input type="file" id="articles_association" name="articles_association" accept=".pdf" required><br>
+<input type="file" id="articles_association" name="articles_association" accept=".pdf" ><br>
 
 <label for="board_resolution">Board Resolution / Partnership Authority Letter</label>
-<input type="file" id="board_resolution" name="board_resolution" accept=".pdf" required><br>
+<input type="file" id="board_resolution" name="board_resolution" accept=".pdf" ><br>
 
 <label for="application_form">Application Form</label>
-<input type="file" id="application_form" name="application_form" accept=".pdf, .jpeg, .png" required><br>
+<input type="file" id="application_form" name="application_form" accept=".pdf, .jpeg, .png" ><br>
 
 <label for="karta_authority_letter">Karta Authority Letter</label>
-<input type="file" id="karta_authority_letter" name="karta_authority_letter" accept=".pdf" required><br>
+<input type="file" id="karta_authority_letter" name="karta_authority_letter" accept=".pdf" ><br>
 
-<input required type="hidden" id="form_id" name="form_id" value="FO1"><br>
+<input  type="hidden" id="form_id" name="form_id" value="FO1"><br>
 
-<input type="submit" value="Submit"><br>
+<input onclick="handlesubmit()" type="submit" value="Submit"><br>
 </form>
 </body>
 </html>
