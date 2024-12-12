@@ -2,7 +2,7 @@ context:
   domain: ONDC:RET10
   location:
     country:
-      code: IND
+      code: IND-3a
     city:
       code: "*"
   action: on_issue

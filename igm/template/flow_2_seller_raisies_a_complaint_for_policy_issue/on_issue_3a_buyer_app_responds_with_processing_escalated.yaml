@@ -1,6 +1,6 @@
 template:
   data:
-    $ref: "../../payloads/flow_2_seller_raises_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_processing_escalated.yaml"
+    $ref: "../../payloads/flow_2_seller_raises_a_complaint_for_policy_issue/on_issue_3a_buyer_app_responds_with_processing_escalated.yaml"
   dict:
     context:
       domain: ONDC:RET10

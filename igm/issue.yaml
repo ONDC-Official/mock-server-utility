@@ -7,7 +7,7 @@ default:
     $ref: "./template/default.yaml"
 
 
-flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY: #1
+flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY: # flow2 - 1
   condition:
       operation:
         type: AND
@@ -59,7 +59,7 @@ flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY: #1
 
 
 
-flow_2_SELLER_APP_ESCALATED_ISSUE:
+flow_2_SELLER_APP_ESCALATED_ISSUE: #flow2 - 3
   condition:
       operation:
         type: AND
@@ -100,12 +100,12 @@ flow_2_SELLER_APP_ESCALATED_ISSUE:
       uri: ""
       delay: 300
       payload:
-        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_processing_escalated.yaml"
+        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_3a_buyer_app_responds_with_processing_escalated.yaml"
     - callback: "on_issue"
       uri: ""
       delay: 500
       payload:
-        # $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_proposed_solution.yaml"
+        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_3b_buyer_app_responds_with_proposed_solution.yaml"
 
 
 flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:
@@ -143,7 +143,7 @@ flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:
 
 
 
-flow_2_ISSUE_SELLER_APP_ACCEPTS_THE_RESOLUTION: #2
+flow_2_ISSUE_SELLER_APP_ACCEPTS_THE_RESOLUTION: #flow 2 - 2
   condition:
       operation:
         type: AND
