@@ -355,7 +355,7 @@ properties:
                     detailed documentation on the Tags and Tag Groups schema go
                     to
                     https://github.com/beckn/protocol-specifications/discussions/316
-                  type: object
+                  type: array
                   properties:
                     display:
                       description: >-

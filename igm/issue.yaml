@@ -93,6 +93,16 @@ flow_2_SELLER_APP_ESCALATED_ISSUE: #flow2 - 3
                     - operation:
                         type: READ
                         input:
+                          value: "req_body.message.issue.last_action_id"
+                    - "A6"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
                           value: "req_body.message.issue.id"
                     - "ISSUE-2"
   callbacks:
@@ -108,22 +118,13 @@ flow_2_SELLER_APP_ESCALATED_ISSUE: #flow2 - 3
         $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_3b_buyer_app_responds_with_proposed_solution.yaml"
 
 
-flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:
+flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED: #flow2 - 4
   condition:
       operation:
         type: AND
         input:
           value:
-          - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.issue.actions.3.description.code"
-                    - "CLOSED"
+          
           - operation:
                 type: EQUAL
                 title: Check search message code
@@ -134,12 +135,22 @@ flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:
                         input:
                           value: "req_body.message.issue.id"
                     - "ISSUE-2"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.last_action_id"
+                    - "A9"
   callback: "on_issue"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: ""
+    $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_4a_buyer_app_provide_resolution.yaml"
 
 
 
@@ -185,3 +196,28 @@ flow_2_ISSUE_SELLER_APP_ACCEPTS_THE_RESOLUTION: #flow 2 - 2
   delay: 300
   payload:
     $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_2a_buyer_app_provides_resolution.yaml"
+
+
+flow_2_last_call_no_response: #flow2 - 5
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-2"
+  callback: "on_issue"
+  uri:
+    $ref: ""
+  delay: 300
+  payload: 
+    template: 
+      data: "JOURNEY COMPLETED"
