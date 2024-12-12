@@ -4,10 +4,10 @@ default:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_provides_resolution.yaml"
+    $ref: "./template/default.yaml"
 
 
-flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY:
+flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY: #1
   condition:
       operation:
         type: AND
@@ -33,6 +33,16 @@ flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY:
                         input:
                           value: "req_body.message.issue.actions"
                     - 1
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-2"
   callbacks:
     - callback: "on_issue"
       uri: ""
@@ -44,6 +54,8 @@ flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY:
       delay: 500
       payload:
         $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_1b_buyer_app_responds_with_proposed_solution.yaml"
+
+
 
 
 
@@ -73,7 +85,16 @@ flow_2_SELLER_APP_ESCALATED_ISSUE:
                         input:
                           value: "req_body.message.issue.actions.5.description.code"
                     - "ESCALATED"
-
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-2"
   callbacks:
     - callback: "on_issue"
       uri: ""
@@ -103,7 +124,16 @@ flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:
                         input:
                           value: "req_body.message.issue.actions.3.description.code"
                     - "CLOSED"
-
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-2"
   callback: "on_issue"
   uri:
     $ref: ""
@@ -112,7 +142,8 @@ flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:
     $ref: ""
 
 
-flow_2_ISSUE_SELLER_APP_ACCEPTS_THE_RESOLUTION:
+
+flow_2_ISSUE_SELLER_APP_ACCEPTS_THE_RESOLUTION: #2
   condition:
       operation:
         type: AND
@@ -138,12 +169,19 @@ flow_2_ISSUE_SELLER_APP_ACCEPTS_THE_RESOLUTION:
                         input:
                           value: "req_body.message.issue.resolutions.0.descriptor.code"
                     - "NOW-VISIBLE"
-
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-2"
   callback: "on_issue"
   uri:
     $ref: ""
   delay: 300
   payload:
-    $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_provides_resolution.yaml"
-
-
+    $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_2a_buyer_app_provides_resolution.yaml"

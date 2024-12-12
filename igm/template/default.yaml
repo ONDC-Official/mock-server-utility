@@ -1,0 +1,106 @@
+template:
+  data:
+    $ref: "../payloads/flow_2_seller_raises_a_complaint_for_policy_issue/issue_seller_raise_complaint.yaml"
+  dict:
+    bap_id:
+      $ref: "../operations/req_body.yaml#/bap_id"
+    bap_uri:
+      $ref: "../operations/req_body.yaml#/bap_uri"
+    context_city:
+      $ref: "../operations/req_body.yaml#/context_city"
+    context_country:
+      $ref: "../operations/req_body.yaml#/context_country"
+    context_domain:
+      $ref: "../operations/req_body.yaml#/context_domain"
+    context_transaction_id:
+      $ref: "../operations/req_body.yaml#/context_transaction_id"
+    txn_id:
+      $ref: "../operations/req_body.yaml#/transaction_id"
+    msg_id:
+      operation:
+        type: GENERATE_UUID
+        input:
+          value: "req_body.context.message_id"
+    timestamp:
+      operation:
+        type: GENERATE_TIMESTAMP
+    issue_id:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.id"
+    issue_status:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.status"
+    issue_level:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.level"
+    created_at:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.created_at"
+    updated_at:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.updated_at"
+    expected_response_time:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.expected_response_time.duration"
+    expected_resolution_time:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.expected_resolution_time.duration"
+    refs:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.refs"
+    actors:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.actors"
+    source_id:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.source_id"
+    complainant_id:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.complainant_id"
+    description_code:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.description.code"
+    description_short_desc:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.description.short_desc"
+    description_images:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.description.images"
+    last_action_id:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.last_action_id"
+    actions:
+      operation:
+        type: READ
+        input:
+          value: "req_body.message.issue.actions"
