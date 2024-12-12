@@ -38,12 +38,12 @@ flow_2_SELLER_APP_RAISES_THE_COMPLAINT_FOR_POLICY_CATEGORY:
       uri: ""
       delay: 300
       payload:
-        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_processing.yaml"
+        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_1a_buyer_app_responds_with_processing.yaml"
     - callback: "on_issue"
       uri: ""
       delay: 500
       payload:
-        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_proposed_solution.yaml"
+        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_1b_buyer_app_responds_with_proposed_solution.yaml"
 
 
 
@@ -84,7 +84,7 @@ flow_2_SELLER_APP_ESCALATED_ISSUE:
       uri: ""
       delay: 500
       payload:
-        $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_proposed_solution.yaml"
+        # $ref: "./template/flow_2_seller_raisies_a_complaint_for_policy_issue/on_issue_buyer_app_responds_with_proposed_solution.yaml"
 
 
 flow_2_CHECK_IF_DESCRIPTION_CODE_IS_CLOSED:

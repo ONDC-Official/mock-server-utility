@@ -82,3 +82,19 @@
 [2024-12-12T07:18:10.963Z] [[31merror[39m]: {"errors":[{"message":"must be object","details":"/message/issue/actions/10/tags"}],"status":"fail"}
 [2024-12-12T07:18:10.963Z] [[31merror[39m]: Schema validation : FAIL
 [2024-12-12T07:18:10.963Z] [[31merror[39m]: T1
+[2024-12-12T12:25:12.122Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-12T12:25:37.303Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-12T12:25:39.188Z] [[32minfo[39m]: Received /issue api request
+[2024-12-12T12:25:39.195Z] [[32minfo[39m]: Validating issue request
+[2024-12-12T12:25:39.195Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-12T12:25:39.280Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-12T12:25:39.280Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-12T12:25:39.280Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-12T12:25:39.281Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-12T12:25:39.281Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-12T12:25:39.287Z] [[32minfo[39m]: Callback for this request: on_issue
+[2024-12-12T12:25:39.287Z] [[32minfo[39m]: Inside trigger service
+[2024-12-12T12:25:39.289Z] [[32minfo[39m]: Callback for this request: on_issue
+[2024-12-12T12:25:39.289Z] [[32minfo[39m]: Inside trigger service
+[2024-12-12T12:25:39.827Z] [[31merror[39m]: Request failed with status code 404
+[2024-12-12T12:25:39.911Z] [[31merror[39m]: Request failed with status code 404
