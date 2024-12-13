@@ -1,0 +1,602 @@
+type: object
+properties:
+  context:
+    description: Describes a beckn message context
+    type: object
+    properties:
+      domain:
+        type: string
+      country:
+        type: string
+      city:
+        type: string
+      location:
+        type: object
+        properties:
+          city:
+            type: object
+            properties:
+              code:
+                type: string
+                description: defines code for city
+          country:
+            type: object
+            properties:
+              code:
+                type: string
+                description: defines code for city
+      action:
+        type: string
+        description: >-
+          Defines the Beckn API call. Any actions other than the enumerated
+          actions are not supported by Beckn Protocol
+      core_version:
+        type: string
+        description: Version of Beckn core API specification being used
+      version:
+        type: string
+        description: Version of Beckn core API specification being used
+      bap_id:
+        type: string
+        description: >-
+          Unique id of the BAP. By default it is the fully qualified domain name
+          of the BAP
+      bap_uri:
+        type: string
+        format: uri
+        description: >-
+          URI of the BAP for accepting callbacks. Must have the same domain name
+          as the bap_id
+      bpp_id:
+        type: string
+        description: >-
+          Unique id of the BPP. By default it is the fully qualified domain name
+          of the BPP
+      bpp_uri:
+        type: string
+        format: uri
+        description: URI of the BPP. Must have the same domain name as the bap_id
+      transaction_id:
+        type: string
+        description: >-
+          This is a unique value which persists across all API calls from search
+          through confirm
+      message_id:
+        type: string
+        description: >-
+          This is a unique value which persists during a request / callback
+          cycle
+      timestamp:
+        type: string
+        format: date-time
+        description: Time of request generation in RFC3339 format
+      key:
+        type: string
+        description: The encryption public key of the sender
+      ttl:
+        type: string
+        description: >-
+          The duration in ISO8601 format after timestamp for which this message
+          holds valid
+    required:
+      - domain
+      - action
+      - transaction_id
+      - message_id
+      - bap_id
+      - bap_uri
+      - timestamp
+  message:
+    type: object
+    properties:
+      issue:
+        description: >
+          *  Describes the Issue/complaint raised for a particular order,
+          transaction or fulfillment or item for which an issue is faced by the
+          buyer.
+
+          * It also describes the Issue/complaint raised by the network
+          participants to its conuter party or casacaded counterparty apps as
+          and when applicable
+
+          * Describes the issue when it is escalated as a Grievance or a Dispute
+
+          *  supplementary Information  Describes and details evidence of the
+          information about the issue . When the complainant or respondent seeks
+          an issue update the addtional information about the update are
+          populated as part of the supplementary information. 
+            the supplementary information section , details information including but not limited to any of the following or more: 
+              * comments from the complaintant/ respondent for seeking more information about the issue
+              * comments from the complaintant/ respondent providing the update on the issue with more information on the issue 
+              * Picutres providing further information about the issue
+              * documents attachment/links providing further information about the issue etc
+        type: object
+        properties:
+          id:
+            description: >
+              * Network issue identifier is an unique number assigned to any
+              complaint by the interfacing application at the source.
+
+
+              * **During the life cycle of a complaint, this number will not
+              change and will be communicated to counterparty application.**
+
+
+              * Any subsequent issues created with the interfacing,counterpary
+              or casacaded counter party apps are responsible for providing the
+              correalted and relevant network-issue-id which helps all this
+              inteacting systems to traverse back to the main issue.
+            type: string
+          issue_id:
+            description: Reference to a complaint for which a status is raised.
+            type: string
+          expected_response_time: &ref_1
+            description: >-
+              Describes time in its various forms. It can be a single point in
+              time; duration; or a structured timetable of operations
+            type: object
+            properties:
+              label:
+                type: string
+              timestamp:
+                type: string
+                format: date-time
+              duration: &ref_0
+                description: Describes duration as per ISO8601 format
+                type: string
+              range:
+                type: object
+                properties:
+                  start:
+                    type: string
+                    format: date-time
+                  end:
+                    type: string
+                    format: date-time
+              days:
+                type: string
+                description: comma separated values representing days of the week
+              schedule:
+                description: >-
+                  Describes schedule as a repeating time period used to describe
+                  a regularly recurring event. At a minimum a schedule will
+                  specify frequency which describes the interval between
+                  occurrences of the event. Additional information can be
+                  provided to specify the schedule more precisely. This includes
+                  identifying the timestamps(s) of when the event will take
+                  place. Schedules may also have holidays to exclude a specific
+                  day from the schedule.<br>This has properties like frequency,
+                  holidays, times
+                type: object
+                properties:
+                  frequency: *ref_0
+                  holidays:
+                    type: array
+                    items:
+                      type: string
+                      format: date-time
+                  times:
+                    type: array
+                    items:
+                      type: string
+                      format: date-time
+          expected_resolution_time: *ref_1
+          status:
+            description: |
+              ### Statues
+                1. Open : indicating that the issue is opened and further action is yet to be taken on the issue
+                2. Closed : indicating that the issue is closed and no further action/update/info/resolution action/status change are expected/accepted on this issue. 
+            type: string
+            enum:
+              - OPEN
+              - PROCESSING
+              - RESOLVED
+              - CLOSED
+          level:
+            description: indicating the issue and grievance level
+            type: string
+            enum:
+              - ISSUE
+              - GRIEVANCE
+          created_at:
+            description: timestamp for the creation of the issue
+            type: string
+            format: date-time
+          updated_at:
+            description: timestamp for the capturing the time an issue was last updated
+            type: string
+            format: date-time
+          source_id:
+            description: Describesabout the source id
+            type: string
+          complainant_id:
+            description: Describe about the complainant_id
+            type: string
+          respondent_ids:
+            description: Describes about the respondent_id
+            type: array
+            items:
+              type: string
+          resolver_ids:
+            description: Describes about the respondent_id
+            type: array
+            items:
+              type: string
+          last_action_id:
+            description: Describes the last action id
+            type: string
+          actions:
+            description: state the description of the action
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  description: Describes id of the action
+                  type: string
+                ref_id:
+                  description: Describes the reference id
+                  type: string
+                ref_type:
+                  description: Describes the refence type
+                  type: string
+                descriptor:
+                  allOf:
+                    - &ref_2
+                      description: Physical description of something.
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                        code:
+                          type: string
+                        short_desc:
+                          type: string
+                        long_desc:
+                          type: string
+                        additional_desc:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                            content_type:
+                              type: string
+                              enum:
+                                - text/plain
+                                - text/html
+                                - application/json
+                        media:
+                          type: array
+                          items:
+                            description: This object contains a url to a media file.
+                            type: object
+                            properties:
+                              mimetype:
+                                description: >-
+                                  indicates the nature and format of the
+                                  document, file, or assortment of bytes. MIME
+                                  types are defined and standardized in IETF's
+                                  RFC 6838
+                                type: string
+                              url:
+                                description: The URL of the file
+                                type: string
+                                format: uri
+                              signature:
+                                description: >-
+                                  The digital signature of the file signed by
+                                  the sender
+                                type: string
+                              dsa:
+                                description: The signing algorithm used by the sender
+                                type: string
+                              time: *ref_1
+                        images:
+                          type: array
+                          items: &ref_3
+                            description: Describes an image
+                            type: object
+                            properties:
+                              url:
+                                description: >-
+                                  URL to the image. This can be a data url or an
+                                  remote url
+                                type: string
+                                format: uri
+                              size_type:
+                                description: >-
+                                  The size of the image. The network policy can
+                                  define the default dimensions of each type
+                                type: string
+                                enum:
+                                  - xs
+                                  - sm
+                                  - md
+                                  - lg
+                                  - xl
+                                  - custom
+                              width:
+                                description: Width of the image in pixels
+                                type: string
+                              height:
+                                description: Height of the image in pixels
+                                type: string
+                    - type: object
+                      properties:
+                        code:
+                          type: string
+                          enum:
+                            - OPEN
+                            - PROCESSING
+                            - CLOSED
+                            - CASCADED
+                            - INFO_REQUESTED
+                            - INFO_PROCESSING
+                            - INFO_PROVIDED
+                            - INFO_NOT_AVAILABLE
+                            - RESOLUTION_PROPOSED
+                            - RESOLUTION_FORWARDED
+                            - RESOLUTION_PROCESSING
+                            - RESOLUTION_ACCEPTED
+                            - RESOLUTION_REJECTED
+                            - RESOLVED
+                updated_at:
+                  description: >-
+                    timestamp for the capturing the time an issue status was
+                    last updated
+                  type: string
+                  format: date-time
+                action_by:
+                  description: Describes the action_by
+                  type: string
+                tags: &ref_4
+                  description: >-
+                    A collection of tag objects with group level attributes. For
+                    detailed documentation on the Tags and Tag Groups schema go
+                    to
+                    https://github.com/beckn/protocol-specifications/discussions/316
+                  type: object
+                  properties:
+                    display:
+                      description: >-
+                        Indicates the display properties of the tag group. If
+                        display is set to false, then the group will not be
+                        displayed. If it is set to true, it should be displayed.
+                        However, group-level display properties can be overriden
+                        by individual tag-level display property. As this schema
+                        is purely for catalog display purposes, it is not
+                        recommended to send this value during search.
+                      type: boolean
+                      default: true
+                    descriptor:
+                      description: >-
+                        Description of the TagGroup, can be used to store
+                        detailed information.
+                      allOf:
+                        - *ref_2
+                    list:
+                      description: >-
+                        An array of Tag objects listed under this group. This
+                        property can be set by BAPs during search to narrow the
+                        `search` and achieve more relevant results. When
+                        received during `on_search`, BAPs must render this list
+                        under the heading described by the `name` property of
+                        this schema.
+                      type: array
+                      items:
+                        description: >-
+                          Describes a tag. This is used to contain extended
+                          metadata. This object can be added as a property to
+                          any schema to describe extended attributes. For BAPs,
+                          tags can be sent during search to optimize and filter
+                          search results. BPPs can use tags to index their
+                          catalog to allow better search functionality. Tags are
+                          sent by the BPP as part of the catalog response in the
+                          `on_search` callback. Tags are also meant for display
+                          purposes. Upon receiving a tag, BAPs are meant to
+                          render them as name-value pairs. This is particularly
+                          useful when rendering tabular information about a
+                          product or service.
+                        type: object
+                        properties:
+                          descriptor:
+                            description: >-
+                              Description of the Tag, can be used to store
+                              detailed information.
+                            allOf:
+                              - *ref_2
+                          value:
+                            description: >-
+                              The value of the tag. This set by the BPP and
+                              rendered as-is by the BAP.
+                            type: string
+                          display:
+                            description: >-
+                              This value indicates if the tag is intended for
+                              display purposes. If set to `true`, then this tag
+                              must be displayed. If it is set to `false`, it
+                              should not be displayed. This value can override
+                              the group display value.
+                            type: boolean
+          descriptor: *ref_2
+          actors:
+            description: state the description of the actor that are involve
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  description: Describes id of the actors that are thier
+                  type: string
+                type:
+                  description: Describes the type of actor
+                  type: string
+                info:
+                  description: Describes the information about actor
+                  type: object
+                  properties:
+                    person:
+                      description: Describes a person as any individual
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          description: Describes the identity of the person
+                        url:
+                          description: Profile url of the person
+                          type: string
+                          format: uri
+                        name:
+                          description: the name of the person
+                          type: string
+                        image: *ref_3
+                        age:
+                          description: Age of the person
+                          allOf:
+                            - *ref_0
+                        dob:
+                          description: Date of birth of the person
+                          type: string
+                          format: date
+                        gender:
+                          type: string
+                          description: >-
+                            Gender of something, typically a Person, but
+                            possibly also fictional characters, animals, etc.
+                            While Male and Female may be used, text strings are
+                            also acceptable for people who do not identify as a
+                            binary gender.Allowed values for this field can be
+                            published in the network policy
+                        creds:
+                          type: array
+                          items:
+                            description: >-
+                              Describes a credential of an entity - Person or
+                              Organization
+                            type: object
+                            properties:
+                              id:
+                                type: string
+                              type:
+                                type: string
+                                default: VerifiableCredential
+                              url:
+                                description: URL of the credential
+                                type: string
+                                format: uri
+                        languages:
+                          type: array
+                          items:
+                            description: Describes a language known to the person.
+                            type: object
+                            properties:
+                              code:
+                                type: string
+                              name:
+                                type: string
+                        skills:
+                          type: array
+                          items:
+                            description: Describes a skill of the person.
+                            type: object
+                            properties:
+                              code:
+                                type: string
+                              name:
+                                type: string
+                        tags:
+                          type: array
+                          items: *ref_4
+                    contact:
+                      type: object
+                      properties:
+                        phone:
+                          type: string
+                        email:
+                          type: string
+                    org:
+                      type: object
+          resolutions:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  description: Describes id of the action
+                  type: string
+                ref_id:
+                  description: Describes the reference id
+                  type: string
+                ref_type:
+                  description: Describes the refence type
+                  type: string
+                descriptor:
+                  allOf:
+                    - *ref_2
+                    - type: object
+                      properties:
+                        code:
+                          type: string
+                          enum:
+                            - REFUND
+                            - REPLACEMENT
+                            - CBIL_CORRECTION
+                            - ENACH_CANCEL
+                updated_at:
+                  description: >-
+                    timestamp for the capturing the time an issue status was
+                    last updated
+                  type: string
+                  format: date-time
+                proposed_by:
+                  description: Describes the action_by
+                  type: string
+                tags: *ref_4
+          refs:
+            description: state the reference of the oreference
+            type: array
+            items:
+              type: object
+              properties:
+                ref_id:
+                  description: tells abot ref id
+                  type: string
+                ref_type:
+                  description: tells abot ref type
+                  type: string
+                  enum:
+                    - ORDER
+                    - ITEM
+                    - FULFILMENT
+                    - TRANSACTION_ID
+                    - MESSAGE_ID
+                    - PROVIDER
+                    - ISSUE
+                    - ACTION
+                    - PAYMENT
+                    - CONSUMER
+                    - AGENT
+                tags:
+                  description: tells abot ref details
+                  type: array
+                  items: *ref_4
+          tags:
+            type: array
+            items: *ref_4
+    required:
+      - issue
+  error:
+    description: Describes an error object
+    type: object
+    properties:
+      type:
+        type: string
+        enum:
+          - CONTEXT-ERROR
+          - CORE-ERROR
+          - DOMAIN-ERROR
+          - POLICY-ERROR
+          - JSON-SCHEMA-ERROR
+required:
+  - context
+  - message

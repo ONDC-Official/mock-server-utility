@@ -1,0 +1,12 @@
+[2024-12-06T05:38:26.948Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-06T05:38:39.443Z] [[32minfo[39m]: Received / api request
+[2024-12-06T05:38:39.462Z] [[31merror[39m]: Authorization header not verified transaction_id : undefined
+[2024-12-06T05:39:32.688Z] [[32minfo[39m]: Received /api api request
+[2024-12-06T05:39:32.695Z] [[31merror[39m]: Authorization header not verified transaction_id : undefined
+[2024-12-06T05:39:35.325Z] [[32minfo[39m]: Received /api api request
+[2024-12-06T05:39:35.332Z] [[31merror[39m]: Authorization header not verified transaction_id : undefined
+[2024-12-06T09:48:47.757Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-06T09:48:56.280Z] [[31merror[39m]: ERROR!! "[object Object]" is not valid JSON
+[2024-12-06T09:52:09.616Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-06T09:52:09.717Z] [[32minfo[39m]: Received / api request
+[2024-12-06T09:52:09.744Z] [[31merror[39m]: Authorization header not verified transaction_id : undefined

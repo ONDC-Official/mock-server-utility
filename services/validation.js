@@ -6,7 +6,7 @@ const ajv = new Ajv({
 });
 const {
   createAuthorizationHeader,
-  isHeaderValid,
+  isSignatureValid,
 } = require("ondc-crypto-sdk-nodejs");
 const { buildTemplate,getPublicKey } = require("../utils/utils");
 const { trigger } = require("./triggerService");
@@ -33,14 +33,13 @@ const validateSchema = async (context) => {
       logger.error(JSON.stringify(formatted_error(error_list)));
       logger.error("Schema validation : FAIL");
       logger.error(context?.req_body?.context?.transaction_id)
-      return {status:false,error_list:error_list}
+      return false;
     } else {
       logger.info("Schema validation : SUCCESS");
-      return {status:true,error_list:[]}
+      return true;
     }
   } catch (error) {
-    return {status:false,error_list:error.message}
-        logger.error(error);
+    logger.error(error);
   }
 };
 
@@ -50,12 +49,19 @@ const validateRequest = async (
   res,
   security,
   server,
-  isFormFound
+  isFormFound,
+  flag //true for not sending responses
 ) => {
   logger = log.init();
-    const {status,error_list} = await validateSchema(context)
-  if (isFormFound ||  status) {
-    
+  if (isFormFound ||  await validateSchema(context)) { //if validation passes or isformtrue then onlysend response otherwise send error
+    //handle callbacks in case of multiple callback
+    if(callbackConfig.callbacks){
+        for (let i = 0 ; i < callbackConfig.callbacks.length ; i++){
+          validateRequest(context,callbackConfig.callbacks[i],res,security,server,isFormFound,i===0?false:true)
+        }
+        return
+    }
+
     //triggering the subsequent request
     payloadConfig = callbackConfig?.payload;
     if (payloadConfig != null) {
@@ -66,15 +72,15 @@ const validateRequest = async (
       if (security.generate_sign) {
         //create response header
         const header = await createAuthorizationHeader({
-          body: data,
+          message: data,
           privateKey: security.privatekey,
-          subscriberId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
-          subscriberUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
+          bapId: security.subscriber_id, // Subscriber ID that you get after registering to ONDC Network
+          bapUniqueKeyId: security.ukId, // Unique Key Id or uKid that you get after registering to ONDC Network
         });
 
-        res.setHeader("Authorization", header);
+        if(!flag){res.setHeader("Authorization", header);}
       }
-      if (callbackConfig.callback === "undefined"|| server.sync_mode) {
+      if (callbackConfig.callback === "undefined"|| server.sync_mode  && !flag ) {
         return isFormFound ? res.send(payloadConfig) : res.json(data);
         // return res.json(data);
       } else {
@@ -82,12 +88,12 @@ const validateRequest = async (
         logger.info(`Callback for this request: ${callbackConfig.callback}`);
         trigger(context, callbackConfig, data,security);
       }
-      return res.json(ack);
+      return !flag?res.json(ack):false
     } 
   }
   else {
       schemaNack.error.path = JSON.stringify(error_list)
-      return res.json(schemaNack);
+      return !flag?res.json(schemaNack):false
     }
   }
 
@@ -99,9 +105,9 @@ const verifyHeader = async (req, security) => {
   // logger.info(`Public key retrieved from registry : ${public_key}`);
   // const public_key = security.publickey;
   //Validate the request source against the registry
-  const isValidSource = await isHeaderValid({
+  const isValidSource = await isSignatureValid({
     header: headers.authorization, // The Authorisation header sent by other network participants
-    body: req.rawBody,
+    body: req.body,
     publicKey: public_key,
   });
   if (!isValidSource) {

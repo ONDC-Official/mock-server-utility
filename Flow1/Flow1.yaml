@@ -1,0 +1,38 @@
+server:
+  type: BAP/BPP
+  port: 5500
+  sync_mode: true
+security:
+  verify_sign: false
+  lookup_uri: http://localhost:3000/lookup
+  generate_sign: true
+  subscriber_id: mock-api-service
+  ukId: 584
+  publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
+  privatekey: >-
+    dYo7zgyKYYoGQiVa45qfTQ94ic0bXPjN5KiUMVX0NBHlEX8JJN3kKSyHvEo0T++v0iXCtX0tPVk9HxEN46laOw==
+log:
+  level: DEBUG
+  output_type: file
+  out_file: log_file.log
+path:
+  issue:
+    schema:
+      $ref: ./Flow1/schema/issue.yaml
+    callbacks:
+      $ref: ./Flow1/issue.yaml
+  on_issue:
+    schema:
+      $ref: ./Flow1/schema/on_issue.yaml
+    callbacks:
+      $ref: ./Flow1/on_issue.yaml
+  issue_status:
+    schema:
+      $ref: ./Flow1/schema/issue_status.yaml
+    callbacks:
+      $ref: ./Flow1/issue_status.yaml
+  on_issue_status:
+    schema:
+      $ref: ./Flow1/schema/on_issue_status.yaml
+    callbacks:
+      $ref: ./Flow1/on_issue_status.yaml

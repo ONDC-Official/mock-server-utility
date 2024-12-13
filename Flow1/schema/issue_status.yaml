@@ -1,0 +1,101 @@
+type: object
+properties:
+  context:
+    description: Describes a beckn message context
+    type: object
+    properties:
+      domain:
+        type: string
+      country:
+        type: string
+      city:
+        type: string
+      location:
+        type: object
+        properties:
+          city:
+            type: object
+            properties:
+              code:
+                type: string
+                description: defines code for city
+          country:
+            type: object
+            properties:
+              code:
+                type: string
+                description: defines code for city
+      action:
+        type: string
+        description: >-
+          Defines the Beckn API call. Any actions other than the enumerated
+          actions are not supported by Beckn Protocol
+      core_version:
+        type: string
+        description: Version of Beckn core API specification being used
+      version:
+        type: string
+        description: Version of Beckn core API specification being used
+      bap_id:
+        type: string
+        description: >-
+          Unique id of the BAP. By default it is the fully qualified domain name
+          of the BAP
+      bap_uri:
+        type: string
+        format: uri
+        description: >-
+          URI of the BAP for accepting callbacks. Must have the same domain name
+          as the bap_id
+      bpp_id:
+        type: string
+        description: >-
+          Unique id of the BPP. By default it is the fully qualified domain name
+          of the BPP
+      bpp_uri:
+        type: string
+        format: uri
+        description: URI of the BPP. Must have the same domain name as the bap_id
+      transaction_id:
+        type: string
+        description: >-
+          This is a unique value which persists across all API calls from search
+          through confirm
+      message_id:
+        type: string
+        description: >-
+          This is a unique value which persists during a request / callback
+          cycle
+      timestamp:
+        type: string
+        format: date-time
+        description: Time of request generation in RFC3339 format
+      key:
+        type: string
+        description: The encryption public key of the sender
+      ttl:
+        type: string
+        description: >-
+          The duration in ISO8601 format after timestamp for which this message
+          holds valid
+    required:
+      - domain
+      - action
+      - transaction_id
+      - message_id
+      - bap_id
+      - bap_uri
+      - timestamp
+  message:
+    type: object
+    properties:
+      issue_id:
+        description: >-
+          Network issue identifier is a unique number assigned to a complaint by
+          the interfacing application
+        type: string
+    required:
+      - issue_id
+required:
+  - context
+  - message

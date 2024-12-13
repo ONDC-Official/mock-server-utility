@@ -1,0 +1,45 @@
+[2024-12-10T06:48:25.525Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T06:50:56.090Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T06:50:56.094Z] [[31merror[39m]: ERROR!! Cannot read properties of undefined (reading 'length')
+[2024-12-10T07:00:21.530Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T07:00:25.689Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:00:25.691Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:00:25.694Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:00:26.205Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-10T07:02:35.126Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:02:35.130Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:02:35.132Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:02:35.135Z] [[31merror[39m]: {"errors":[{"message":"must match format \"date-time\"","details":"/message/issue/created_at"},{"message":"must match format \"date-time\"","details":"/message/issue/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/0/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/1/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/2/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/3/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/4/updated_at"}],"status":"fail"}
+[2024-12-10T07:02:35.140Z] [[31merror[39m]: Schema validation : FAIL
+[2024-12-10T07:02:35.142Z] [[31merror[39m]: T1
+[2024-12-10T07:03:28.244Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:03:28.246Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:03:28.248Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:03:28.251Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-10T07:07:43.952Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T07:07:47.402Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:07:47.404Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:07:47.406Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:07:47.911Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-10T07:16:53.398Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T07:17:15.028Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:17:15.031Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:17:15.033Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:17:15.959Z] [[31merror[39m]: {"errors":[{"message":"must match format \"date-time\"","details":"/message/issue/created_at"},{"message":"must match format \"date-time\"","details":"/message/issue/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/0/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/1/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/2/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/3/updated_at"},{"message":"must match format \"date-time\"","details":"/message/issue/actions/4/updated_at"}],"status":"fail"}
+[2024-12-10T07:17:15.964Z] [[31merror[39m]: Schema validation : FAIL
+[2024-12-10T07:17:15.966Z] [[31merror[39m]: T1
+[2024-12-10T07:18:32.733Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T07:18:36.451Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:18:36.455Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:18:36.463Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:18:36.470Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-10T07:30:47.567Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T07:31:25.177Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:31:25.180Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:31:25.182Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:31:25.195Z] [[32minfo[39m]: Schema validation : SUCCESS
+[2024-12-10T07:32:33.473Z] [[32minfo[39m]: This app is running on port number : 5500
+[2024-12-10T07:32:39.547Z] [[32minfo[39m]: Received /issue api request
+[2024-12-10T07:32:39.549Z] [[32minfo[39m]: Validating issue request
+[2024-12-10T07:32:39.553Z] [[32minfo[39m]: Inside schema validation service for issue api
+[2024-12-10T07:32:39.560Z] [[32minfo[39m]: Schema validation : SUCCESS

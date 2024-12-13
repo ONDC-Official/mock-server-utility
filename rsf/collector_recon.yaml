@@ -1,7 +1,0 @@
-default:
-  callback: "on_collector_recon"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./template/on_collector_recon.yaml"

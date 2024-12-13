@@ -5,13 +5,13 @@ template:
       bpp_uri: https://rsf-mock-service.ondc.org/
       bpp_id: rsf-mock-service.ondc.org
       city_code: 
-        $ref: "../operations/req_body.yaml#/context_city"
+        $ref: "../../operations/req_body.yaml#/context_city"
       bap_id:
-        $ref: "../operations/req_body.yaml#/bap_id"
+        $ref: "../../operations/req_body.yaml#/bap_id"
       bap_uri:
-        $ref: "../operations/req_body.yaml#/bap_uri"
+        $ref: "../../operations/req_body.yaml#/bap_uri"
       txn_id:
-        $ref: "../operations/req_body.yaml#/transaction_id"
+        $ref: "../../operations/req_body.yaml#/transaction_id"
       msg_id:
         operation:
           type: GENERATE_UUID
@@ -21,11 +21,11 @@ template:
         operation:
           type: GENERATE_TIMESTAMP
       country: 
-        $ref: "../operations/req_body.yaml#/context_country"
+        $ref: "../../operations/req_body.yaml#/context_country"
       domain: 
-        $ref: "../operations/req_body.yaml#/context_domain"
+        $ref: "../../operations/req_body.yaml#/context_domain"
       transaction_id: 
-        $ref: "../operations/req_body.yaml#/context_transaction_id"
+        $ref: "../../operations/req_body.yaml#/context_transaction_id"
       message_id:
         operation:
           type: READ
