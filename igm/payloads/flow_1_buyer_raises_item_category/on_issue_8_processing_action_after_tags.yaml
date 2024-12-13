@@ -2,7 +2,7 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND-flow1-3a
     city:
       code: '*'
   action: on_issue
@@ -21,7 +21,7 @@ message:
     action: APPENDED
   issue:
     id: ISSUE-1
-    status: RESOLVED
+    status: PROCESSING
     level: ISSUE
     created_at: '2023-01-15T10:00:00.469Z'
     updated_at: '2023-01-15T10:00:00.469Z'
@@ -80,8 +80,6 @@ message:
     complainant_id: NP1
     respondent_ids:
     - NP2
-    resolver_ids:
-    - NP2
     description:
       code: ITM004
       short_desc: Issue with product quality
@@ -92,7 +90,7 @@ message:
       images:
       - http://buyerapp.com/addtional-details/img1.png
       - http://buyerapp.com/addtional-details/img2.png
-    last_action_id: A11
+    last_action_id: A8
     actions:
     - id: A1
       description:
@@ -177,72 +175,3 @@ message:
       action_by: NP2
       actor_details:
         name: Sam Manuel
-    - id: A9
-      ref_id: R_PARENT
-      ref_type: RESOLUTIONS
-      description:
-        code: RESOLUTION_PROPOSED
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    - id: A10
-      ref_id: R2
-      ref_type: RESOLUTIONS
-      description:
-        code: RESOLUTION_ACCEPTED
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A11
-      ref_id: R2
-      ref_type: RESOLUTIONS
-      description:
-        code: RESOLVED
-        name: REPLACEMENT
-        short_desc: Providing replacement
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    resolutions:
-    - id: R_PARENT
-      descriptor:
-        code: PARENT
-        short_desc: PROVIDING RESOLUTION OPTIONS. PLEASE SELECT ONE
-      updated_at: '2024-08-14T09:57:58.841Z'
-      proposed_by: NP2
-    - id: R1
-      ref_id: R_PARENT
-      ref_type: PARENT
-      descriptor:
-        code: REFUND
-        short_desc: Providing refund for the item
-      updated_at: '2024-08-14T09:57:58.841Z'
-      proposed_by: NP2
-      tags:
-      - descriptor:
-          code: RESOLUTION_DETAILS
-        list:
-        - descriptor:
-            code: ITEM
-          value: I1
-        - descriptor:
-            code: REFUND_AMOUNT
-          value: '200'
-    - id: R2
-      ref_id: R_PARENT
-      ref_type: PARENT
-      descriptor:
-        code: REPLACEMENT
-        short_desc: Providing replacement of the item
-      updated_at: '2024-08-14T09:57:58.841Z'
-      proposed_by: NP2
-      tags:
-      - descriptor:
-          code: RESOLUTION_DETAILS
-        list:
-        - descriptor:
-            code: ITEM
-          value: I1

@@ -2,10 +2,10 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND-1a-flow1
     city:
       code: '*'
-  action: issue
+  action: on_issue
   core_version: 2.0.0
   bap_id: buyerapp.com
   bap_uri: '{{bap_uri}}'
@@ -32,8 +32,6 @@ message:
     refs:
     - ref_id: O1
       ref_type: ORDER
-    - ref_id: T1
-      ref_type: TRANSACTION
     - ref_id: P1
       ref_type: PROVIDER
     - ref_id: F1
@@ -47,7 +45,7 @@ message:
         - descriptor:
             code: quantity.selected.count
           value: '2'
-    actors:
+    actor_info:
     - id: CUST1
       type: CONSUMER
       info:
@@ -92,7 +90,7 @@ message:
       images:
       - http://buyerapp.com/addtional-details/img1.png
       - http://buyerapp.com/addtional-details/img2.png
-    last_action_id: A7
+    last_action_id: A2
     actions:
     - id: A1
       description:
@@ -106,66 +104,7 @@ message:
       description:
         code: PROCESSING
         short_desc: Complaint created
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    - id: A3_1
-      description:
-        code: INFO_REQUESTED
-        name: INFO001
-        short_desc: Please provide product image
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A3_2
-      description:
-        code: INFO_REQUESTED
-        name: INFO002
-        short_desc: Please provide invoice
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A4
-      ref_id: A3_1
-      description:
-        code: INFO_PROVIDED
-        short_desc: Responded with images
-        images:
-        - http://buyerapp.com/addtional-details/img3.png
-        - http://buyerapp.com/addtional-details/img4.png
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A5
-      description:
-        code: PROCESSING
-        short_desc: Complaint created
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A6
-      ref_id: A3_2
-      description:
-        code: INFO_REQUESTED
-        name: INFO002
-        short_desc: Please provide invoice
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    - id: A7
-      ref_id: A6
-      description:
-        code: INFO_PROVIDED
-        short_desc: Provided invoice
-        media:
-        - url: https://buyerapp.com/resources/invoiceord1.pdf
-      updated_at: '2023-01-15T10:00:00.469Z'
+      updated_at: '2023-01-15T10:00:10.469Z'
       action_by: NP1
       actor_details:
         name: Sam Manuel

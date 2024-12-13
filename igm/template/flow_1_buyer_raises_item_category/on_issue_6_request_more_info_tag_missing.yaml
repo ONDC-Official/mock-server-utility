@@ -1,6 +1,6 @@
 template:
   data:
-    $ref: "../payloads/flow_1_buyer_raises_item_category/on_issue_processing_action.yaml"
+    $ref: "../../payloads/flow_1_buyer_raises_item_category/on_issue_6_request_more_info_tag_missing.yaml"
   dict:
     bpp_uri: https://igm-mock-service.ondc.org/
     bpp_id: igm-mock-service.ondc.org

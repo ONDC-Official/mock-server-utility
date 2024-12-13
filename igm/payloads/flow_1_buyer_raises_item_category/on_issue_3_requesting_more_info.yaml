@@ -2,7 +2,7 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND-flow1-1b
     city:
       code: '*'
   action: on_issue

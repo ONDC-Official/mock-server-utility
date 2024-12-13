@@ -221,3 +221,184 @@ flow_2_last_call_no_response: #flow2 - 5
   payload: 
     template: 
       data: "JOURNEY COMPLETED"
+
+
+#----------- flow 1 starts here ----------------
+
+
+flow_1_buyer_raises_item_category_issue_2:
+  callbacks:
+    - callback: "on_issue"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./template/flow_1_buyer_raises_item_category/on_issue_5_processing_more_info.yaml"
+    - callback: "on_issue"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./template/flow_1_buyer_raises_item_category/on_issue_6_request_more_info_tag_missing.yaml"
+  condition:
+    operation:
+      type: AND
+      title: Checks if properties are present
+      input:
+        value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.last_action_id"
+                    - "A5"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-1"
+
+flow_1_buyer_raises_item_category_issue_3:
+  callbacks:
+    - callback: "on_issue"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./template/flow_1_buyer_raises_item_category/on_issue_8_processing_action_after_tags.yaml"
+    - callback: "on_issue"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./template/flow_1_buyer_raises_item_category/on_issue_9_seller_provides_resolution_options.yaml"
+  condition:
+    operation:
+      type: AND
+      title: Checks if properties are present
+      input:
+        value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.last_action_id"
+                    - "A7"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-1"
+
+flow_1_buyer_raises_item_category_issue_4:
+  callback: "on_issue"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./template/flow_1_buyer_raises_item_category/on_issue_11_seller_app_sends_resolution_object.yaml"
+  condition:
+    operation:
+      type: AND
+      title: Checks if properties are present
+      input:
+        value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.last_action_id"
+                    - "A10"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-1"
+
+flow_1_buyer_raises_item_category_issue_5:
+  callback: "on_issue"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    template:
+      data: "JOURNEY COMPLETED"
+  condition:
+    operation:
+      type: AND
+      title: Checks if properties are present
+      input:
+        value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.last_action_id"
+                    - "A12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-1"
+
+
+flow_1_buyer_raises_item_category_issue_1:
+  callbacks:
+    - callback: "on_issue"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./template/flow_1_buyer_raises_item_category/on_issue_2_processing_action.yaml"
+    - callback: "on_issue"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./template/flow_1_buyer_raises_item_category/on_issue_3_requesting_more_info.yaml"
+  condition:
+    operation:
+      type: AND
+      title: Checks if properties are present
+      input:
+        value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.issue.id"
+                    - "ISSUE-1"

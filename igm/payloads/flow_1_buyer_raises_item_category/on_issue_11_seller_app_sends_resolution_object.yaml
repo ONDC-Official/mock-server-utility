@@ -2,10 +2,10 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND-flow1-4a
     city:
       code: '*'
-  action: issue
+  action: on_issue
   core_version: 2.0.0
   bap_id: buyerapp.com
   bap_uri: '{{bap_uri}}'
@@ -17,11 +17,11 @@ context:
   ttl: PT30S
 message:
   upated_target:
-  - path: "issue.actions[?(@.id==â\x80\x99A12â\x80\x99)]"
+  - path: issue.actions
     action: APPENDED
   issue:
     id: ISSUE-1
-    status: CLOSED
+    status: RESOLVED
     level: ISSUE
     created_at: '2023-01-15T10:00:00.469Z'
     updated_at: '2023-01-15T10:00:00.469Z'
@@ -32,8 +32,6 @@ message:
     refs:
     - ref_id: O1
       ref_type: ORDER
-    - ref_id: T1
-      ref_type: TRANSACTION
     - ref_id: P1
       ref_type: PROVIDER
     - ref_id: F1
@@ -94,7 +92,7 @@ message:
       images:
       - http://buyerapp.com/addtional-details/img1.png
       - http://buyerapp.com/addtional-details/img2.png
-    last_action_id: A12
+    last_action_id: A11
     actions:
     - id: A1
       description:
@@ -208,21 +206,6 @@ message:
       action_by: NP2
       actor_details:
         name: Sam Manuel
-    - id: A12
-      description:
-        code: CLOSED
-        short_desc: Closing the complaint
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-      tags:
-      - descriptor:
-          code: CLOSURE_DETAILS
-        list:
-        - descriptor:
-            code: RATING
-          value: THUMBS_UP
     resolutions:
     - id: R_PARENT
       descriptor:

@@ -2,10 +2,10 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND-2a-flow1
     city:
       code: '*'
-  action: issue
+  action: on_issue
   core_version: 2.0.0
   bap_id: buyerapp.com
   bap_uri: '{{bap_uri}}'
@@ -32,8 +32,6 @@ message:
     refs:
     - ref_id: O1
       ref_type: ORDER
-    - ref_id: T1
-      ref_type: TRANSACTION
     - ref_id: P1
       ref_type: PROVIDER
     - ref_id: F1
@@ -92,7 +90,7 @@ message:
       images:
       - http://buyerapp.com/addtional-details/img1.png
       - http://buyerapp.com/addtional-details/img2.png
-    last_action_id: A10
+    last_action_id: A6
     actions:
     - id: A1
       description:
@@ -116,7 +114,7 @@ message:
         name: INFO001
         short_desc: Please provide product image
       updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
+      action_by: NP2
       actor_details:
         name: Sam Manuel
     - id: A3_2
@@ -125,17 +123,15 @@ message:
         name: INFO002
         short_desc: Please provide invoice
       updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
+      action_by: NP2
       actor_details:
         name: Sam Manuel
     - id: A4
       ref_id: A3_1
       description:
         code: INFO_PROVIDED
-        short_desc: Responded with images
-        images:
-        - http://buyerapp.com/addtional-details/img3.png
-        - http://buyerapp.com/addtional-details/img4.png
+        short_desc: Info provided from buyer app
+        images: ''
       updated_at: '2023-01-15T10:00:00.469Z'
       action_by: NP1
       actor_details:
@@ -143,95 +139,8 @@ message:
     - id: A5
       description:
         code: PROCESSING
-        short_desc: Complaint created
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A6
-      ref_id: A3_2
-      description:
-        code: INFO_REQUESTED
-        name: INFO002
-        short_desc: Please provide invoice
+        short_desc: Seller app processing the info
       updated_at: '2023-01-15T10:00:00.469Z'
       action_by: NP2
       actor_details:
         name: Sam Manuel
-    - id: A7
-      ref_id: A6
-      description:
-        code: INFO_PROVIDED
-        short_desc: Provided invoice
-        media:
-        - url: https://buyerapp.com/resources/invoiceord1.pdf
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A8
-      description:
-        code: PROCESSING
-        short_desc: Processing the complaint information
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    - id: A9
-      ref_id: R_PARENT
-      ref_type: RESOLUTIONS
-      description:
-        code: RESOLUTION_PROPOSED
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    - id: A10
-      ref_id: R2
-      ref_type: RESOLUTIONS
-      description:
-        code: RESOLUTION_ACCEPTED
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    resolutions:
-    - id: R_PARENT
-      descriptor:
-        code: PARENT
-        short_desc: PROVIDING RESOLUTION OPTIONS. PLEASE SELECT ONE
-      updated_at: '2024-08-14T09:57:58.841Z'
-      proposed_by: NP2
-    - id: R1
-      ref_id: R_PARENT
-      ref_type: PARENT
-      descriptor:
-        code: REFUND
-        short_desc: Providing refund for the item
-      updated_at: '2024-08-14T09:57:58.841Z'
-      proposed_by: NP2
-      tags:
-      - descriptor:
-          code: RESOLUTION_DETAILS
-        list:
-        - descriptor:
-            code: ITEM
-          value: I1
-        - descriptor:
-            code: REFUND_AMOUNT
-          value: '200'
-    - id: R2
-      ref_id: R_PARENT
-      ref_type: PARENT
-      descriptor:
-        code: REPLACEMENT
-        short_desc: Providing replacement of the item
-      updated_at: '2024-08-14T09:57:58.841Z'
-      proposed_by: NP2
-      tags:
-      - descriptor:
-          code: RESOLUTION_DETAILS
-        list:
-        - descriptor:
-            code: ITEM
-          value: I1

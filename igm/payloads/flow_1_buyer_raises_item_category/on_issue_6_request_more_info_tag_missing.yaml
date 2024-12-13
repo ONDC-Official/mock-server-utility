@@ -2,7 +2,7 @@ context:
   domain: '{{domain}}'
   location:
     country:
-      code: IND
+      code: IND-2b-flow1
     city:
       code: '*'
   action: on_issue
@@ -90,7 +90,7 @@ message:
       images:
       - http://buyerapp.com/addtional-details/img1.png
       - http://buyerapp.com/addtional-details/img2.png
-    last_action_id: A8
+    last_action_id: A6
     actions:
     - id: A1
       description:
@@ -143,7 +143,7 @@ message:
         code: PROCESSING
         short_desc: Complaint created
       updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
+      action_by: NP2
       actor_details:
         name: Sam Manuel
     - id: A6
@@ -152,25 +152,6 @@ message:
         code: INFO_REQUESTED
         name: INFO002
         short_desc: Please provide invoice
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP2
-      actor_details:
-        name: Sam Manuel
-    - id: A7
-      ref_id: A6
-      description:
-        code: INFO_PROVIDED
-        short_desc: Provided invoice
-        media:
-        - url: https://buyerapp.com/resources/invoiceord1.pdf
-      updated_at: '2023-01-15T10:00:00.469Z'
-      action_by: NP1
-      actor_details:
-        name: Sam Manuel
-    - id: A8
-      description:
-        code: PROCESSING
-        short_desc: Processing the complaint information
       updated_at: '2023-01-15T10:00:00.469Z'
       action_by: NP2
       actor_details:
