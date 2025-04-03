@@ -1,11 +1,11 @@
 server:
   type: BAP/BPP
-  port: 5500
+  port: 5505
   sync_mode: false
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
-  generate_sign: true
+  generate_sign: false
   subscriber_id: mobility-staging.ondc.org
   ukId: UK-MOBILITY
   publickey: 5RF/CSTd5Cksh7xKNE/vr9IlwrV9LT1ZPR8RDeOpWjs=
