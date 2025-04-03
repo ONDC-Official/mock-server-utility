@@ -1,13 +1,13 @@
-services:
-  mock-server:
-    container_name: mock-server
-    restart: always
-    build: .
-    ports:
-      - 5500:5500
-    networks:
-      - mock_network
+version: "3.8"
 
-networks:
-  mock_network:
-    name: mock_network
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ${CONTAINER_NAME:-mock-server-utility}
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    env_file:
+      - .env
+    restart: always
