@@ -35,10 +35,10 @@ const trigger = async(context, config, data,security) => {
 
     setTimeout(() => {
       axios
-        .post(`${uri+api}`, data,header)
+        .post(`${uri}`, data,header)
         .then((response) => {
           logger.info(
-            `Triggered ${api} response at ${uri}${api}`
+            `Triggered ${api} response at ${uri}`
           );
         })
         .catch(function (error) {
