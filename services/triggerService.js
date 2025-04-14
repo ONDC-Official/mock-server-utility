@@ -10,7 +10,7 @@ var logger;
 
 const trigger = async(context, config, data,security) => {
   logger = log.init();
-	let uri = 'http://localhost:5500/createPayload' // enable this for protocol server integration
+	let uri = process.env.response_uri // enable this for protocol server integration
   // let uri = context.req_body.context.bap_uri // enable this for normal mock server flow
   let api = config.callback;
   let delay = config.delay;
@@ -38,7 +38,7 @@ const trigger = async(context, config, data,security) => {
         .post(`${uri}`, data,header)
         .then((response) => {
           logger.info(
-            `Triggered ${api} response at ${uri}${api}`
+            `Triggered ${api} response at ${uri}`
           );
         })
         .catch(function (error) {

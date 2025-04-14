@@ -1,11 +1,11 @@
 server:
   type: BAP/BPP
-  port: 5500
+  port: 5501
   sync_mode: false
 security:
-  verify_sign: true
+  verify_sign: false
   lookup_uri: https://staging.registry.ondc.org/lookup
-  generate_sign: true
+  generate_sign: false
   subscriber_id: fis-staging.ondc.org/ondc-seller
   ukId: 590
   publickey: wSehOno+MMJqq9Ysw25pHKu5ig5fbHSNjT/dN0Ukt5E=
