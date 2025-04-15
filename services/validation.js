@@ -27,7 +27,8 @@ const validateSchema = async (context) => {
   );
   try {
     const validate = ajv.compile(context.apiConfig.schema);
-    const valid = validate(context.req_body);
+    // const valid = validate(context.req_body); // disabled validation since protocol server is validating schema
+    const valid = true
     if (!valid) {
       let error_list = validate.errors;
       logger.error(JSON.stringify(formatted_error(error_list)));
