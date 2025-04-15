@@ -10,7 +10,8 @@ var logger;
 
 const trigger = async(context, config, data,security) => {
   logger = log.init();
-  let uri = context.req_body.context.bap_uri
+	let uri = process.env.response_uri // enable this for protocol server integration
+  // let uri = context.req_body.context.bap_uri // enable this for normal mock server flow
   let api = config.callback;
   let delay = config.delay;
   if(uri[uri.length-1]!="/"){ //"add / if not exists in bap uri"
@@ -34,10 +35,10 @@ const trigger = async(context, config, data,security) => {
 
     setTimeout(() => {
       axios
-        .post(`${uri+api}`, data,header)
+        .post(`${uri}`, data,header)
         .then((response) => {
           logger.info(
-            `Triggered ${api} response at ${uri}${api}`
+            `Triggered ${api} response at ${uri}`
           );
         })
         .catch(function (error) {
