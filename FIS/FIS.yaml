@@ -52,7 +52,8 @@ path:
   #     $ref: ./FIS/default/on_init.yaml
   confirm:
     schema:
-      $ref: ./FIS/default/schema/confirm.yaml
+      type: object
+      # $ref: ./FIS/default/schema/confirm.yaml
     callbacks:
       $ref: ./FIS/confirm.yaml
   # on_confirm:
@@ -386,3 +387,26 @@ path:
   form_life-insurance_nomed_submission_ekyc-dtls:
     callbacks:
       $ref: ./FIS/insurance/life-insurance/forms/nomed/form_submission_ekyc-dtls.yaml
+
+#purchase finance 2.2.0
+  form_merchant_product_purchase-finance:
+    callbacks:
+      $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_search_form_1.yaml
+
+  form_personal-info_purchase-finance:
+    callbacks:
+      $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_search_form_2.yaml
+
+  form_on-select-1_purchase-finance:
+    callbacks:
+      $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_select_form_1.yaml
+  form_on-select-2_purchase-finance:
+    callbacks:
+      $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_select_form_2.yaml
+
+  form_on-init-1_purchase-finance:
+    callbacks:
+      $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_init_form_1.yaml
+  form_on-init-2_purchase-finance:
+    callbacks:
+      $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_init_form_2.yaml

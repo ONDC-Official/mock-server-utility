@@ -236,3 +236,53 @@ mutual-funds-1:
   delay: 300
   payload:
     $ref: "./investment/mutual-funds/template/on_update.yaml"    
+
+
+## purchase finance
+purchase-finance-2.2.0-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - "2.2.0"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.id"
+                    - "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID"
+  callbacks:
+    - callback: "on_update"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/2.2.0/purchase-finance/template/on_update_1.yaml"
+    - callback: "on_update"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/2.2.0/purchase-finance/template/on_update_2.yaml"

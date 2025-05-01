@@ -1,0 +1,36 @@
+template:
+    data:
+      $ref: "../payloads/on_select_3.yaml"
+    dict:
+      bpp_uri: https://fis-seller-staging.ondc.org/
+      bpp_id: fis-seller-staging.ondc.org
+      city_code: 
+        $ref: "../operations/req_body.yaml#/context_city"
+      bap_id:
+        $ref: "../operations/req_body.yaml#/bap_id"
+      bap_uri:
+        $ref: "../operations/req_body.yaml#/bap_uri"
+      txn_id:
+        $ref: "../operations/req_body.yaml#/transaction_id"
+      msg_id:
+        operation:
+          type: GENERATE_UUID
+          input:
+            value: "req_body.context.message_id"
+      timestamp:
+        operation:
+          type: GENERATE_TIMESTAMP
+      country: 
+        $ref: "../operations/req_body.yaml#/context_country"
+      domain: 
+        $ref: "../operations/req_body.yaml#/context_domain"
+      transaction_id: 
+        $ref: "../operations/req_body.yaml#/context_transaction_id"
+      message_id:
+        operation:
+          type: READ
+          input:
+            value: "req_body.context.message_id"     
+      form_url: 
+        $ref: "../../../../config_values.yaml#/form_url"  
+  

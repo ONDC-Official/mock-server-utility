@@ -310,17 +310,17 @@ gift_card_seller:
                       input:
                         value: "req_body.message.order.fulfillments.0.type"
                   - "BPP_ONLINE_EMAIL_SMS"
-callbacks:
-  - callback: "on_confirm"
-    uri: ""
-    delay: 300
-    payload:
-      $ref: "./FIS10/gift-card/template/on_confirm_seller.yaml"
-  - callback: "on_status"
-    uri: ""
-    delay: 500
-    payload:
-      $ref: "./FIS10/gift-card/template/on_status_seller.yaml"
+  callbacks:
+    - callback: "on_confirm"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./FIS10/gift-card/template/on_confirm_seller.yaml"
+    - callback: "on_status"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./FIS10/gift-card/template/on_status_seller.yaml"
 
 gift_card_buyer:
   condition:
@@ -387,3 +387,47 @@ gift_card_physical:
       delay: 500
       payload:
         $ref: "./FIS10/gift-card/template/on_status_physical.yaml"
+
+##purchase finance
+purchase-finance-2.2.0-1:
+  condition:
+      operation:
+        type: AND
+        input:
+          value:
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.domain"
+                    - "ONDC:FIS12"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - "2.2.0"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.message.order.items.0.id"
+                    - "ITEM_ID_ELECTRONICS"
+  callback: "on_init"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/2.2.0/purchase-finance/template/on_confirm.yaml"

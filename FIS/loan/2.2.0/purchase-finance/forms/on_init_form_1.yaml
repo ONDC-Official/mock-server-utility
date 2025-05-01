@@ -1,0 +1,60 @@
+default:
+  callback: "undefined"
+  uri:
+    $ref: ""
+  delay: 300
+  payload: |
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Redirect Page Message</title>
+      <style>
+        #successMessage {
+          display: none;
+        }
+      </style>
+    </head>
+
+    <body>
+
+      <h1>This will be redirected to different HTML page</h1>
+
+      <form id="redirectPageForm">
+        <input type="hidden" id="formId" name="formId" value="FO5">
+        <input type="submit" value="Submit">
+      </form>
+
+      <div id="successMessage">
+        <h1>Submission Successful</h1>
+        <p id="submissionIdDisplay"></p>
+        <p>Use this submission id to initiate the next request.</p>
+      </div>
+
+      <script>
+        const form = document.getElementById('redirectPageForm');
+        const successMessage = document.getElementById('successMessage');
+        const submissionIdDisplay = document.getElementById('submissionIdDisplay');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent actual submission
+
+          // Generate a fake Submission ID
+          const submissionId = `FO5_SUBMISSION_ID`;
+
+          // Hide the form
+          form.style.display = 'none';
+
+          // Show the success message
+          successMessage.style.display = 'block';
+
+          // Display the Submission ID
+          submissionIdDisplay.textContent = `Your Submission ID is: ${submissionId}`;
+        });
+      </script>
+
+    </body>
+
+    </html>
