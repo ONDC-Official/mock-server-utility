@@ -232,23 +232,6 @@ message:
         - descriptor:
             code: BRAND_EMAIL
           value: contact@giftcard.com
-    offers:
-    - id: DISCA300
-      item_ids:
-      - GC1
-    - id: FREEBIE123
-      item_ids:
-      - GC2
-      tags:
-      - descriptor:
-          code: BENEFIT
-        list:
-        - descriptor:
-            code: ITEM_ID
-          value: SAMPLE_GC
-        - descriptor:
-            code: ITEM_COUNT
-          value: '1'
     quote:
       price:
         currency: INR
@@ -348,3 +331,20 @@ message:
           currency: INR
           value: '0'
       ttl: P1D
+    offers:
+    - id: DISCA300
+      item_ids:
+      - GC1
+    - id: FREEBIE123
+      item_ids:
+      - GC2
+      tags:
+      - descriptor:
+          code: BENEFIT
+        list:
+        - descriptor:
+            code: ITEM_ID
+          value: SAMPLE_GC
+        - descriptor:
+            code: ITEM_COUNT
+          value: '1'

@@ -19,14 +19,6 @@ message:
     fulfillments:
       - id: TYPE1
         type: BPP_ONLINE_EMAIL_SMS
-      - id: TYPE2
-        type: BPP_ONLINE_EMAIL
-      - id: TYPE3
-        type: BPP_ONLINE_SMS
-      - id: TYPE4
-        type: BPP_OFFLINE
-      - id: TYPE5
-        type: BAP
     descriptor:
       name: Gift card store
       symbol: https://giftcard.com/images/1-image
@@ -51,15 +43,6 @@ message:
           - id: C1
             descriptor:
               code: CARD
-          - id: C2
-            descriptor:
-              code: PROMO
-          - id: C3
-            descriptor:
-              code: E_PAY
-          - id: C4
-            descriptor:
-              code: E_RUPI
         items:
           - id: BaseCard1
             descriptor:

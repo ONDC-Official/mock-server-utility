@@ -33,22 +33,317 @@ message:
       - F1
       - F2
       - F3
+      time:
+        label: VALIDITY
+        duration: P1M
+        timestamp: '2024-05-31T10:00:00.000Z'
       tags:
+      - descriptor:
+          code: ITEM_DETAILS
+        list:
+        - descriptor:
+            code: OCCASION
+          value: BIRTHDAY
+        - descriptor:
+            code: USABILITY
+          value: ONLINE
+        - descriptor:
+            code: EXPIRY_PERIOD
+          value: P1Y
+        - descriptor:
+            code: TERMS_CONDITION
+          value: https://giftcard.com/giftcards/tncs
+        - descriptor:
+            code: REDEMPTION_INSTRUCTION
+          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
         - descriptor:
-            code: Enabled
+            code: ENABLED
           value: 'TRUE'
         - descriptor:
             code: RECEIVER_NAME
-          value: Test name
         - descriptor:
             code: MESSAGE
-          value: Happy Birthday to you!!
         - descriptor:
             code: PREVIEW_IMAGE
-          value: https://giftcard.com/images/prev-image
+      - descriptor:
+          code: BRAND_DETAILS
+        list:
+        - descriptor:
+            code: BRAND_NAME
+          value: name of brand free text
+        - descriptor:
+            code: BRAND_PHONE
+          value: '9900112299'
+        - descriptor:
+            code: BRAND_EMAIL
+          value: contact@giftcard.com
+    - id: GC2
+      price:
+        currency: INR
+        value: '2000'
+        offered_value: '2000'
+      quantity:
+        selected:
+          count: 1
+      fulfillment_ids:
+      - F1
+      - F2
+      - F3
+      time:
+        label: VALIDITY
+        duration: P1M
+        timestamp: '2024-05-31T10:00:00.000Z'
+      tags:
+      - descriptor:
+          code: ITEM_DETAILS
+        list:
+        - descriptor:
+            code: USABILITY
+          value: ONLINE
+        - descriptor:
+            code: EXPIRY_PERIOD
+          value: P1Y
+        - descriptor:
+            code: TERMS_CONDITION
+          value: https://giftcard.com/giftcards/tncs
+        - descriptor:
+            code: REDEMPTION_INSTRUCTION
+          value: Instructions on how gift card can be redeemed
+      - descriptor:
+          code: CUSTOMIZATION
+        list:
+        - descriptor:
+            code: ENABLED
+          value: 'TRUE'
+        - descriptor:
+            code: RECEIVER_NAME
+        - descriptor:
+            code: MESSAGE
+        - descriptor:
+            code: PREVIEW_IMAGE
+      - descriptor:
+          code: BRAND_DETAILS
+        list:
+        - descriptor:
+            code: BRAND_NAME
+          value: name of brand free text
+        - descriptor:
+            code: BRAND_PHONE
+          value: '9900112299'
+        - descriptor:
+            code: BRAND_EMAIL
+          value: contact@giftcard.com
+    - id: GC5
+      price:
+        currency: INR
+        value: '1400'
+        offered_value: '1500'
+      fulfillment_ids:
+      - F1
+      - F2
+      - F3
+      time:
+        label: VALIDITY
+        duration: P1M
+        timestamp: '2024-05-31T10:00:00.000Z'
+      tags:
+      - descriptor:
+          code: ITEM_DETAILS
+        list:
+        - descriptor:
+            code: OCCASION
+          value: DIWALI
+        - descriptor:
+            code: USABILITY
+          value: ONLINE
+        - descriptor:
+            code: EXPIRY_PERIOD
+          value: P1Y
+        - descriptor:
+            code: TERMS_CONDITION
+          value: https://giftcard.com/giftcards/tncs
+        - descriptor:
+            code: REDEMPTION_INSTRUCTION
+          value: Instructions on how gift card can be redeemed
+      - descriptor:
+          code: CUSTOMIZATION
+        list:
+        - descriptor:
+            code: ENABLED
+          value: 'FALSE'
+      - descriptor:
+          code: BRAND_DETAILS
+        list:
+        - descriptor:
+            code: BRAND_NAME
+          value: name of brand free text
+    - id: SAMPLE_GC
+      price:
+        currency: INR
+        value: '200'
+        offered_value: '200'
+      fulfillment_ids:
+      - F1
+      - F2
+      - F3
+      time:
+        label: VALIDITY
+        duration: P1M
+        timestamp: '2024-05-31T10:00:00.000Z'
+      tags:
+      - descriptor:
+          code: ITEM_DETAILS
+        list:
+        - descriptor:
+            code: USABILITY
+          value: ONLINE
+        - descriptor:
+            code: EXPIRY_PERIOD
+          value: P1Y
+        - descriptor:
+            code: TERMS_CONDITION
+          value: https://giftcard.com/giftcards/tncs
+        - descriptor:
+            code: REDEMPTION_INSTRUCTION
+          value: Instructions on how gift card can be redeemed
+      - descriptor:
+          code: CUSTOMIZATION
+        list:
+        - descriptor:
+            code: ENABLED
+          value: 'FALSE'
+      - descriptor:
+          code: BRAND_DETAILS
+        list:
+        - descriptor:
+            code: BRAND_NAME
+          value: name of brand free text
+        - descriptor:
+            code: BRAND_PHONE
+          value: '9900112299'
+        - descriptor:
+            code: BRAND_EMAIL
+          value: contact@giftcard.com
+    quote:
+      price:
+        currency: INR
+        value: '5600'
+      breakup:
+      - item:
+          id: GC1
+          quantity:
+            selected:
+              count: 3
+          price:
+            currency: INR
+            value: '1500'
+            offered_value: '1500'
+        title: ITEM
+        price:
+          currency: INR
+          value: '4500'
+      - item:
+          id: GC1
+        title: TAX
+        price:
+          currency: INR
+          value: '0'
+      - item:
+          id: GC1
+        title: CONVENIENCE_FEE
+        price:
+          currency: INR
+          value: '0'
+      - item:
+          id: GC1
+        title: OFFER
+        price:
+          currency: INR
+          value: "-300"
+      - item:
+          id: GC2
+          quantity:
+            selected:
+              count: 1
+          price:
+            currency: INR
+            value: '2000'
+            offered_value: '2000'
+        title: ITEM
+        price:
+          currency: INR
+          value: '2000'
+      - item:
+          id: GC2
+        title: TAX
+        price:
+          currency: INR
+          value: '0'
+      - item:
+          id: GC2
+        title: CONVENIENCE_FEE
+        price:
+          currency: INR
+          value: '0'
+      - item:
+          id: SAMPLE_GC
+        title: ITEM
+        price:
+          currency: INR
+          value: '200'
+      - item:
+          id: SAMPLE_GC
+        title: OFFER
+        price:
+          currency: INR
+          value: "-200"
+      - item:
+          id: GC5
+          quantity:
+            selected:
+              count: 1
+          price:
+            currency: INR
+            value: '1400'
+            offered_value: '1500'
+        title: ITEM
+        price:
+          currency: INR
+          value: '1400'
+      - item:
+          id: GC5
+        title: TAX
+        price:
+          currency: INR
+          value: '0'
+      - item:
+          id: GC5
+        title: CONVENIENCE_FEE
+        price:
+          currency: INR
+          value: '0'
+      ttl: P1D
+    offers:
+    - id: DISCA300
+      item_ids:
+      - GC1
+    - id: FREEBIE123
+      item_ids:
+      - GC2
+      tags:
+      - descriptor:
+          code: BENEFIT
+        list:
+        - descriptor:
+            code: ITEM_ID
+          value: SAMPLE_GC
+        - descriptor:
+            code: ITEM_COUNT
+          value: '1'
+
     fulfillments:
     - id: F1
       state:
@@ -103,63 +398,9 @@ message:
         code: KA
       email: test@test.com
       phone: '9999888877'
-    offers:
-    - id: DISCA300
-      item_ids:
-      - GC1
-    - id: FREEBIE123
-      item_ids:
-      - GC2
-      tags:
-      - descriptor:
-          code: BENEFIT
-        list:
-        - descriptor:
-            code: ITEM_ID
-          value: SAMPLE_GC
-        - descriptor:
-            code: ITEM_COUNT
-          value: '1'
-    quote:
-      price:
-        currency: INR
-        value: '4200'
-      breakup:
-      - item:
-          id: GC1
-          quantity:
-            selected:
-              count: 3
-          price:
-            currency: INR
-            value: '1500'
-            offered_value: '1500'
-        title: ITEM
-        price:
-          currency: INR
-          value: '4500'
-      - item:
-          id: GC1
-        title: TAX
-        price:
-          currency: INR
-          value: '0'
-      - item:
-          id: GC1
-        title: CONVENIENCE_FEE
-        price:
-          currency: INR
-          value: '0'
-      - item:
-          id: DISCA100
-        title: OFFER
-        price:
-          currency: INR
-          value: "-300"
-      ttl: P1D
     payments:
     - type: ON-ORDER
-      collected_by: BPP
+      collected_by: BAP
       url: https://sellerpaymentgateway.com/123456
       id: PMTTXN1
       params:
