@@ -95,6 +95,7 @@ async function healthController(req, res) {
       dependencyServices
     );
     const textResponse = JsonResponseToText(healthResponse);
+    res.setHeader('Content-Type', 'text/plain');
     res.status(healthResponse.statusCode).send(textResponse);
   } catch (error) {
     res.status(500).json({
