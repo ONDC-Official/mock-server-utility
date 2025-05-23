@@ -407,7 +407,7 @@ message:
       phone: '9999888877'
     payments:
     - type: ON-ORDER
-      collected_by: BAP
+      collected_by: BPP
       url: https://sellerpaymentgateway.com/123456
       id: PMTTXN1
       params:
@@ -449,5 +449,5 @@ message:
         - descriptor:
             code: BRANCH_NAME
           value: ICICI Indiranagar
-    created_at: '2023-01-15T10:00:00.469Z'
-    updated_at: '2023-01-15T10:00:00.469Z'
+    created_at: '{{timestamp}}'
+    updated_at: '{{timestamp}}'

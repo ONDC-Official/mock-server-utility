@@ -21,6 +21,10 @@ function __getOperation(context, op){
             return new ReadOperation(context)
         case "GENERATE_TIMESTAMP":
             return new GenerateTmpstmpOperation(context)
+        case "GENERATE_START_DATE": // current - 6 hours 
+            return new GenerateTmpstmpOperation(context)
+        case "GENERATE_END_DATE": // current + 6 hours
+            return new GenerateTmpstmpOperation(context)
         case "EQUAL":
             return new EqualOperation(context)
         case "AND": case "OR" :

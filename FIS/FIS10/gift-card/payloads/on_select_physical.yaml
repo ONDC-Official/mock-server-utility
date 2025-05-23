@@ -66,7 +66,7 @@ message:
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS
@@ -127,7 +127,7 @@ message:
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS
@@ -180,7 +180,7 @@ message:
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS
@@ -224,7 +224,7 @@ message:
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS

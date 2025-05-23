@@ -391,7 +391,7 @@ message:
 
     payments:
     - type: ON-ORDER
-      collected_by: BAP
+      collected_by: BPP
       url: https://sellerpaymentgateway.com/123456
       status: NOT-PAID
       tags:

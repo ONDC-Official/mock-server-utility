@@ -30,9 +30,22 @@ class GenerateUuidOperation extends Operator{
 }
 
 class GenerateTmpstmpOperation extends Operator{
-
     __process() {
         this.output = new Output(new Date().toISOString());
+        return this;
+    }
+} 
+
+class Generate_Start_DateTimeStmp extends Operator{
+    __process() {
+        this.output = new Output(new Date(Date.now() - 6 * 60 * 60 * 1000).toISOString());
+        return this;
+    }
+} 
+
+class Generate_End_DateTimeStmp extends Operator{
+    __process() {
+        this.output = new Output(new Date(Date.now() + 6 * 60 * 60 * 1000).toISOString());
         return this;
     }
 } 
