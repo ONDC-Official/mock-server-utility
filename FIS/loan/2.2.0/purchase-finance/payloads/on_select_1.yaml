@@ -13,7 +13,7 @@ context:
   bap_uri: '{{bap_uri}}'
   bap_id: '{{bap_id}}'
   ttl: PT10M
-  bpp_id: bpp.purchase-finance.becknprotoco.org
+  bpp_id: '{{bpp_id}}'
   bpp_uri: '{{bpp_uri}}'
 message:
   order:

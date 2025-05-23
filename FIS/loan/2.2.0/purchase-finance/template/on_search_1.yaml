@@ -2,8 +2,10 @@ template:
     data:
       $ref: "../payloads/on_search_1.yaml"
     dict:
-      bpp_uri: https://fis-seller-staging.ondc.org/
-      bpp_id: fis-seller-staging.ondc.org
+      bpp_uri: 
+        $ref: "../../../../config_values.yaml#/bpp_uri"
+      bpp_id: 
+        $ref: "../../../../config_values.yaml#/bpp_id"
       city_code: 
         $ref: "../operations/req_body.yaml#/context_city"
       bap_id:
