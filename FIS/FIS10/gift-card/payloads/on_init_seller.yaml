@@ -93,10 +93,13 @@ message:
           value: 'TRUE'
         - descriptor:
             code: RECEIVER_NAME
+          value: Test name
         - descriptor:
             code: MESSAGE
+          value: Happy Birthday to you!!
         - descriptor:
             code: PREVIEW_IMAGE
+          value: https://giftcard.com/images/prev-image
     - id: GC5
       price:
         currency: INR

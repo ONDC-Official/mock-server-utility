@@ -39,4 +39,13 @@ template:
           type: READ
           input:
             value: "req_body.context.message_id"     
-  
+      created_at:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.created_at"
+      updated_at:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.updated_at"

@@ -33,29 +33,7 @@ message:
       - F1
       - F2
       - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: OCCASION
-          value: BIRTHDAY
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
@@ -64,22 +42,13 @@ message:
           value: 'TRUE'
         - descriptor:
             code: RECEIVER_NAME
+          value: Test name
         - descriptor:
             code: MESSAGE
+          value: Happy Birthday to you!!
         - descriptor:
             code: PREVIEW_IMAGE
-      - descriptor:
-          code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
-        - descriptor:
-            code: BRAND_PHONE
-          value: '9900112299'
-        - descriptor:
-            code: BRAND_EMAIL
-          value: contact@giftcard.com
+          value: https://giftcard.com/images/prev-image
     - id: GC2
       price:
         currency: INR
@@ -92,26 +61,7 @@ message:
       - F1
       - F2
       - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
@@ -120,22 +70,13 @@ message:
           value: 'TRUE'
         - descriptor:
             code: RECEIVER_NAME
+          value: Test name
         - descriptor:
             code: MESSAGE
+          value: Happy Birthday to you!!
         - descriptor:
             code: PREVIEW_IMAGE
-      - descriptor:
-          code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
-        - descriptor:
-            code: BRAND_PHONE
-          value: '9900112299'
-        - descriptor:
-            code: BRAND_EMAIL
-          value: contact@giftcard.com
+          value: https://giftcard.com/images/prev-image
     - id: GC5
       price:
         currency: INR
@@ -145,41 +86,13 @@ message:
       - F1
       - F2
       - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: OCCASION
-          value: DIWALI
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
         - descriptor:
             code: ENABLED
           value: 'FALSE'
-      - descriptor:
-          code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
     - id: SAMPLE_GC
       price:
         currency: INR
@@ -189,44 +102,14 @@ message:
       - F1
       - F2
       - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
         - descriptor:
             code: ENABLED
           value: 'FALSE'
-      - descriptor:
-          code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
-        - descriptor:
-            code: BRAND_PHONE
-          value: '9900112299'
-        - descriptor:
-            code: BRAND_EMAIL
-          value: contact@giftcard.com
+    
     quote:
       price:
         currency: INR
@@ -439,5 +322,5 @@ message:
         - descriptor:
             code: BRANCH_NAME
           value: ICICI Indiranagar
-    created_at: '{{timestamp}}'
-    updated_at: '{{timestamp}}'
+    created_at: '{{created_at}}'
+    updated_at: '{{updated_at}}'
