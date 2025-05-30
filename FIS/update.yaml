@@ -286,3 +286,249 @@ purchase-finance-2.2.0-1:
       delay: 500
       payload:
         $ref: "./loan/2.2.0/purchase-finance/template/on_update_2.yaml"
+
+
+# invoice based loans 2.1.0
+invoice-based-loans-2.1.0-1: # on_update with confirm
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.update_target"
+                  - "fulfillment"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_1.yaml"
+
+invoice-based-loans-2.1.0-2:
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.id"
+                  - "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID-2"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.update_target"
+                  - "fulfillment"
+  callback: "on_update"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_2.yaml"
+
+# invoice based loans loan forclosure
+invoice-based-loans_loan-forclosure-2.1.0-1:
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.payments.0.time.label"
+                  - "FORECLOSURE"
+  callbacks:
+    - callback: "on_update"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_1_loan_foreclosure.yaml"
+    - callback: "on_update"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_2_loan_foreclosure.yaml"
+
+# invoice based loans missed emi payments
+invoice-based-loans_missed-emi-payments-2.1.0-1:
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.payments.0.time.label"
+                  - "MISSED_EMI_PAYMENT"
+  callbacks:
+    - callback: "on_update"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_1_missed_emi.yaml"
+    - callback: "on_update"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_2_missed_emi.yaml"
+
+# # invoice based loans pre part payments
+invoice-based-loans_pre-part-payment-2.1.0-1:
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.1.0"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.payments.0.time.label"
+                  - "PRE_PART_PAYMENT"
+  callbacks:
+    - callback: "on_update"
+      uri: ""
+      delay: 300
+      payload:
+        $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_1_pre_part_payment.yaml"
+    - callback: "on_update"
+      uri: ""
+      delay: 500
+      payload:
+        $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_2_pre_part_payment.yaml"
+
