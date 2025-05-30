@@ -20,7 +20,7 @@ message:
       id: P1
     fulfillments:
     - id: F1
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
       stops:
       - contact:
           phone: '9999888867'
@@ -28,7 +28,7 @@ message:
         person:
           name: Receiver Name 1
     - id: F2
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
       stops:
       - contact:
           phone: '9999888868'
@@ -36,13 +36,37 @@ message:
         person:
           name: Receiver Name 2
     - id: F3
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
       stops:
       - contact:
           phone: '9999888869'
           email: receiver3@test.com
         person:
           name: Receiver Name 3
+    - id: F4
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888870'
+          email: receiver4@test.com
+        person:
+          name: Receiver Name 4
+    - id: F5
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888871'
+          email: receiver5@test.com
+        person:
+          name: Receiver Name 5
+    - id: F6
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888872'
+          email: receiver6@test.com
+        person:
+          name: Receiver Name 6
     items:
     - id: GC1
       price:

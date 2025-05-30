@@ -43,6 +43,30 @@ message:
           email: receiver3@test.com
         person:
           name: Receiver Name 3
+    - id: F4
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888870'
+          email: receiver4@test.com
+        person:
+          name: Receiver Name 4
+    - id: F5
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888871'
+          email: receiver5@test.com
+        person:
+          name: Receiver Name 5
+    - id: F6
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888872'
+          email: receiver6@test.com
+        person:
+          name: Receiver Name 6
     items:
     - id: GC1
       price:
@@ -81,9 +105,7 @@ message:
         selected:
           count: 1
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F4
       tags:
       - descriptor:
           code: CUSTOMIZATION
@@ -106,9 +128,7 @@ message:
         value: '1400'
         offered_value: '1500'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F5
       tags:
       - descriptor:
           code: CUSTOMIZATION
@@ -124,9 +144,7 @@ message:
         value: '200'
         offered_value: '200'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F6
       tags:
       - descriptor:
           code: CUSTOMIZATION

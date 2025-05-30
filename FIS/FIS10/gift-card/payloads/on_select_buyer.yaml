@@ -20,11 +20,17 @@ message:
       id: P1
     fulfillments:
     - id: F1
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
     - id: F2
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
     - id: F3
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
+    - id: F4
+      type: BPP_ONLINE_EMAIL_SMS
+    - id: F5
+      type: BPP_ONLINE_EMAIL_SMS
+    - id: F6
+      type: BPP_ONLINE_EMAIL_SMS
     items:
     - id: GC1
       price:
@@ -94,9 +100,7 @@ message:
         selected:
           count: 1
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F4
       time:
         label: VALIDITY
         duration: P1M
@@ -147,9 +151,7 @@ message:
         value: '1400'
         offered_value: '1500'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F5
       time:
         label: VALIDITY
         duration: P1M
@@ -191,9 +193,7 @@ message:
         value: '200'
         offered_value: '200'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F6
       time:
         label: VALIDITY
         duration: P1M
