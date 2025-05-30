@@ -1,0 +1,55 @@
+default:
+  callback: "undefined"
+  uri:
+    $ref: ""
+  delay: 300
+  payload: |
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Update Required Loan Value</title>
+      <style>
+        #successMessage {
+          display: none;
+        }
+      </style>
+    </head>
+
+    <body>
+      <form id="loanAmountForm">
+        <label for="requestAmount">Requested Loan Amount</label>
+        <input type="number" id="requestAmount" name="requestAmount" required />
+
+        <input type="hidden" id="formId" name="formId" value="FO2" />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <div id="successMessage">
+        <h1>This will be redirected to different HTML page</h1>
+        <h1>Submission Successful</h1>
+        <p id="submissionIdDisplay"></p>
+        <p>Use this submission ID to initiate the next request.</p>
+      </div>
+
+      <script>
+        const form = document.getElementById('loanAmountForm');
+        const successMessage = document.getElementById('successMessage');
+        const submissionIdDisplay = document.getElementById('submissionIdDisplay');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent actual submission
+
+          // Generate a fake Submission ID
+          const submissionId = `FO2_SUBMISSION_ID`;
+
+          form.style.display = 'none';
+          successMessage.style.display = 'block';
+          submissionIdDisplay.textContent = `Your Submission ID is: ${submissionId}`;
+        });
+      </script>
+    </body>
+
+    </html>

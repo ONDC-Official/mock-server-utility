@@ -1,0 +1,27 @@
+template:
+  data:
+    $ref: "../payloads/on_select_1.yaml"
+  dict:
+    version: 2.1.0
+    bap_id: 
+      $ref: "../operations/req_body.yaml#/bap_id"
+    bap_uri: 
+      $ref: "../operations/req_body.yaml#/bap_uri"
+    bpp_uri: 
+      $ref: "../../../../config_values.yaml#/bpp_uri"
+    bpp_id: 
+      $ref: "../../../../config_values.yaml#/bpp_id"
+    city_code:
+      $ref: "../operations/req_body.yaml#/city_code"
+    country:
+      $ref: "../operations/req_body.yaml#/country"
+    domain:
+      $ref: "../operations/req_body.yaml#/domain"
+    transaction_id: 
+      $ref: "../operations/req_body.yaml#/transaction_id"
+    message_id: 
+      $ref: "../operations/req_body.yaml#/message_id"
+    action: confirm
+    timestamp:
+        operation:
+          type: GENERATE_TIMESTAMP

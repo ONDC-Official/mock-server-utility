@@ -1,0 +1,89 @@
+default:
+  callback: "undefined"
+  uri:
+    $ref: ""
+  delay: 300
+  payload: |
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Organizational/Entity Info</title>
+      <style>
+        #successMessage {
+          display: none;
+        }
+      </style>
+    </head>
+
+    <body>
+      <form id="orgInfoForm" enctype="multipart/form-data">
+        <label for="udyamNumber">UDYAM Number</label>
+        <input type="text" id="udyamNumber" name="udyamNumber" />
+
+        <label for="mobNo">Contact Number</label>
+        <input type="text" id="mobNo" name="mobNo" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="Email" />
+
+        <label for="gstinProfile">GSTIN Profile</label>
+        <input id="gstinProfile" name="gstinProfile" type="file" />
+
+        <label for="gstr1">GSTR1</label>
+        <input id="gstr1" name="gstr1" type="file" />
+
+        <label for="gstr2A">GSTR2A</label>
+        <input id="gstr2A" name="gstr2A" type="file" />
+
+        <label for="gstr3B">GSTR3B</label>
+        <input id="gstr3B" name="gstr3B" type="file" />
+
+        <label for="aa_id">Account Aggregator ID</label>
+        <input type="text" id="aa_id" name="aa_id" />
+
+        <label for="bureauConsent">Bureau Consent</label>
+        <input type="checkbox" id="bureauConsent" name="bureauConsent" required />
+
+        <label for="tnc">
+          <input type="checkbox" id="tnc" name="tnc" required />
+          I have read the <a href="https://icicibank.co.in/loans/tnc.html" target="_blank">Terms and Conditions</a>
+        </label>
+
+        <input type="hidden" id="formId" name="formId" value="FO1" />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <div id="successMessage">
+        <h1>This will be redirected to different HTML page</h1>
+        <h1>Submission Successful</h1>
+        <p id="submissionIdDisplay"></p>
+        <p>Use this submission ID to initiate the next request.</p>
+      </div>
+
+      <script>
+        const form = document.getElementById('orgInfoForm');
+        const successMessage = document.getElementById('successMessage');
+        const submissionIdDisplay = document.getElementById('submissionIdDisplay');
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Stop real submission
+
+          // Generate a fake Submission ID
+          const submissionId = `FO1_SUBMISSION_ID`;
+
+          // Hide the form
+          form.style.display = 'none';
+
+          // Show the success message
+          successMessage.style.display = 'block';
+
+          // Display the Submission ID
+          submissionIdDisplay.textContent = `Your Submission ID is: ${submissionId}`;
+        });
+      </script>
+    </body>
+
+    </html>
