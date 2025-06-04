@@ -1,7 +1,7 @@
 services:
   app:
     image: ${IMAGE_NAME}
-    container_name: ${container_name}
+    container_name: ${CONTAINER_NAME}
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
     env_file:
