@@ -1,9 +1,7 @@
-version: "3.8"
-
 services:
   app:
-    image: 577638354424.dkr.ecr.ap-south-1.amazonaws.com/fis-mock_server_utility
-    container_name: fis-mock-server-utility
+    image: ${IMAGE_NAME}
+    container_name: ${container_name}
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
     env_file:
