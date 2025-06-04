@@ -1,7 +1,9 @@
+version: '3.8'
+
 services:
   app:
-    image: ${IMAGE_NAME}
-    container_name: ${CONTAINER_NAME}
+    image: 577638354424.dkr.ecr.ap-south-1.amazonaws.com/fis-mock_server_utility:latest  # Will be dynamically updated by Jenkins
+    container_name: ${CONTAINER_NAME:-mock-server-utility}
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
     env_file:
