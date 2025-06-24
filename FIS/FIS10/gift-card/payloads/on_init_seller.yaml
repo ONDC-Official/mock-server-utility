@@ -6,7 +6,7 @@ context:
     country:
       code: IND
   action: on_init
-  version: 2.0.0
+  version: 2.1.0
   bap_id: "{{bap_id}}"
   bap_uri: '{{bap_uri}}'
   bpp_id: "{{bpp_id}}"
@@ -43,6 +43,30 @@ message:
           email: receiver3@test.com
         person:
           name: Receiver Name 3
+    - id: F4
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888870'
+          email: receiver4@test.com
+        person:
+          name: Receiver Name 4
+    - id: F5
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888871'
+          email: receiver5@test.com
+        person:
+          name: Receiver Name 5
+    - id: F6
+      type: BPP_ONLINE_EMAIL_SMS
+      stops:
+      - contact:
+          phone: '9999888872'
+          email: receiver6@test.com
+        person:
+          name: Receiver Name 6
     items:
     - id: GC1
       price:
@@ -56,29 +80,7 @@ message:
       - F1
       - F2
       - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: OCCASION
-          value: BIRTHDAY
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
@@ -87,22 +89,13 @@ message:
           value: 'TRUE'
         - descriptor:
             code: RECEIVER_NAME
+          value: Test name
         - descriptor:
             code: MESSAGE
+          value: Happy Birthday to you!!
         - descriptor:
             code: PREVIEW_IMAGE
-      - descriptor:
-          code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
-        - descriptor:
-            code: BRAND_PHONE
-          value: '9900112299'
-        - descriptor:
-            code: BRAND_EMAIL
-          value: contact@giftcard.com
+          value: https://giftcard.com/images/prev-image
     - id: GC2
       price:
         currency: INR
@@ -112,29 +105,8 @@ message:
         selected:
           count: 1
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+      - F4
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
@@ -143,54 +115,21 @@ message:
           value: 'TRUE'
         - descriptor:
             code: RECEIVER_NAME
+          value: Test name
         - descriptor:
             code: MESSAGE
+          value: Happy Birthday to you!!
         - descriptor:
             code: PREVIEW_IMAGE
-      - descriptor:
-          code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
-        - descriptor:
-            code: BRAND_PHONE
-          value: '9900112299'
-        - descriptor:
-            code: BRAND_EMAIL
-          value: contact@giftcard.com
+          value: https://giftcard.com/images/prev-image
     - id: GC5
       price:
         currency: INR
         value: '1400'
         offered_value: '1500'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+      - F5
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: OCCASION
-          value: DIWALI
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
@@ -199,57 +138,49 @@ message:
           value: 'FALSE'
       - descriptor:
           code: BRAND_DETAILS
-        list:
-        - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
     - id: SAMPLE_GC
       price:
         currency: INR
         value: '200'
         offered_value: '200'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
-      time:
-        label: VALIDITY
-        duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+      - F6
       tags:
-      - descriptor:
-          code: ITEM_DETAILS
-        list:
-        - descriptor:
-            code: USABILITY
-          value: ONLINE
-        - descriptor:
-            code: EXPIRY_PERIOD
-          value: P1Y
-        - descriptor:
-            code: TERMS_CONDITION
-          value: https://giftcard.com/giftcards/tncs
-        - descriptor:
-            code: REDEMPTION_INSTRUCTION
-          value: Instructions on how gift card can be redeemed
       - descriptor:
           code: CUSTOMIZATION
         list:
         - descriptor:
             code: ENABLED
           value: 'FALSE'
+    
+    billing:
+      name: 'House #'
+      address: B005 Aspire Heights
+      city:
+        name: Bangalore
+        code: BAN
+      state:
+        name: Karnataka
+        code: KA
+      email: test@test.com
+      phone: '9999888877'
+    offers:
+    - id: DISCA300
+      item_ids:
+      - GC1
+    - id: FREEBIE123
+      item_ids:
+      - GC2
+      tags:
       - descriptor:
-          code: BRAND_DETAILS
+          code: BENEFIT
         list:
         - descriptor:
-            code: BRAND_NAME
-          value: name of brand free text
+            code: ITEM_ID
+          value: SAMPLE_GC
         - descriptor:
-            code: BRAND_PHONE
-          value: '9900112299'
-        - descriptor:
-            code: BRAND_EMAIL
-          value: contact@giftcard.com
+            code: ITEM_COUNT
+          value: '1'
     quote:
       price:
         currency: INR
@@ -349,38 +280,9 @@ message:
           currency: INR
           value: '0'
       ttl: P1D
-    offers:
-    - id: DISCA300
-      item_ids:
-      - GC1
-    - id: FREEBIE123
-      item_ids:
-      - GC2
-      tags:
-      - descriptor:
-          code: BENEFIT
-        list:
-        - descriptor:
-            code: ITEM_ID
-          value: SAMPLE_GC
-        - descriptor:
-            code: ITEM_COUNT
-          value: '1'
-
-    billing:
-      name: 'House #'
-      address: B005 Aspire Heights
-      city:
-        name: Bangalore
-        code: BAN
-      state:
-        name: Karnataka
-        code: KA
-      email: test@test.com
-      phone: '9999888877'
     payments:
     - type: ON-ORDER
-      collected_by: BAP
+      collected_by: BPP
       url: https://sellerpaymentgateway.com/123456
       status: NOT-PAID
       tags:

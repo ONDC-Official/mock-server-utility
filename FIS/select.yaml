@@ -271,6 +271,16 @@ invoice-based-loans_on_select1:
                       input:
                         value: "req_body.message.order.items.0.xinput"
                   - "undefined"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
   callback: "on_select"
   uri:
     $ref: ""
@@ -304,6 +314,16 @@ invoice-based-loans_on_select2:
                       input:
                         value: "req_body.message.order.items.0.xinput.form_response.submission_id"
                   - "F02_SUBMISSION_ID"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.0.0"
   callback: "on_select"
   uri:
     $ref: ""
@@ -651,8 +671,6 @@ life-insurance-no-medical:
   payload:
     $ref: "./insurance/life-insurance/template/template-nomedical/on_select.yaml"
 
-
-
 #v 2.0.0 gift card
 gift_card_seller:
   condition:
@@ -661,15 +679,15 @@ gift_card_seller:
       input:
         value:
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS10"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS10"
           - operation:
               type: EQUAL
               title: Check parent item ID
@@ -694,15 +712,15 @@ gift_card_buyer:
       input:
         value:
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS10"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS10"
           - operation:
               type: EQUAL
               title: Check parent item ID
@@ -727,15 +745,15 @@ gift_card_physical:
       input:
         value:
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS10"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS10"
   callback: "on_select"
   uri:
     $ref: ""
@@ -746,50 +764,50 @@ gift_card_physical:
 ##purchase finance 2.2.0
 purchase-finance-2.2.0-1:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS12"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.version"
-                    - "2.2.0"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.2.0"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form.id"
-                    - "undefined"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form.id"
+                  - "undefined"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.id"
-                    - "ITEM_ID_ELECTRONICS"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_ELECTRONICS"
   callback: "on_select"
   uri:
     $ref: ""
@@ -797,53 +815,52 @@ purchase-finance-2.2.0-1:
   payload:
     $ref: "./loan/2.2.0/purchase-finance/template/on_select_1.yaml"
 
-
 purchase-finance-2.2.0-2:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS12"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.version"
-                    - "2.2.0"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.2.0"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form.id"
-                    - "F03"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form.id"
+                  - "F03"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.id"
-                    - "ITEM_ID_ELECTRONICS"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_ELECTRONICS"
   callback: "on_select"
   uri:
     $ref: ""
@@ -853,53 +870,121 @@ purchase-finance-2.2.0-2:
 
 purchase-finance-2.2.0-3:
   condition:
-      operation:
-        type: AND
-        input:
-          value:
+    operation:
+      type: AND
+      input:
+        value:
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.domain"
-                    - "ONDC:FIS12"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.domain"
+                  - "ONDC:FIS12"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.context.version"
-                    - "2.2.0"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.context.version"
+                  - "2.2.0"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.xinput.form.id"
-                    - "F04"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form.id"
+                  - "F04"
           - operation:
-                type: EQUAL
-                title: Check search message code
-                input:
-                  value:
-                    - operation:
-                        type: READ
-                        input:
-                          value: "req_body.message.order.items.0.id"
-                    - "ITEM_ID_ELECTRONICS"
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "ITEM_ID_ELECTRONICS"
   callback: "on_select"
   uri:
     $ref: ""
   delay: 300
   payload:
     $ref: "./loan/2.2.0/purchase-finance/template/on_select_3.yaml"
+
+# invoice loan 2.1.0
+invoice-based-loans_on_select-2.1.0-1:
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput"
+                  - "undefined"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/2.1.0/invoice-based-loans/template/on_select_1.yaml"
+
+invoice-based-loans_on_select-2.1.0-2:
+  condition:
+    operation:
+      type: AND
+      input:
+        value:
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.id"
+                  - "CHILD_ITEM_ID_INVOICE_LOAN"
+          - operation:
+              type: EQUAL
+              title: Check search message code
+              input:
+                value:
+                  - operation:
+                      type: READ
+                      input:
+                        value: "req_body.message.order.items.0.xinput.form_response.submission_id"
+                  - "F02_SUBMISSION_ID"
+  callback: "on_select"
+  uri:
+    $ref: ""
+  delay: 300
+  payload:
+    $ref: "./loan/2.1.0/invoice-based-loans/template/on_select_2.yaml"
+

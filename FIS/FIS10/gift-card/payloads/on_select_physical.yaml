@@ -6,7 +6,7 @@ context:
     country:
       code: IND
   action: on_select
-  version: 2.0.0
+  version: 2.1.0
   bap_id: "{{bap_id}}"
   bap_uri: '{{bap_uri}}'
   bpp_id: "{{bpp_id}}"
@@ -43,11 +43,17 @@ message:
             unit: KM
     fulfillments:
     - id: F1
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
     - id: F2
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
     - id: F3
-      type: BAP
+      type: BPP_ONLINE_EMAIL_SMS
+    - id: F4
+      type: BPP_ONLINE_EMAIL_SMS
+    - id: F5
+      type: BPP_ONLINE_EMAIL_SMS
+    - id: F6
+      type: BPP_ONLINE_EMAIL_SMS
     items:
     - id: GC1
       price:
@@ -66,7 +72,7 @@ message:
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS
@@ -121,13 +127,11 @@ message:
         selected:
           count: 1
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F4
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS
@@ -174,13 +178,11 @@ message:
         value: '1400'
         offered_value: '1500'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F5
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS
@@ -218,13 +220,11 @@ message:
         value: '200'
         offered_value: '200'
       fulfillment_ids:
-      - F1
-      - F2
-      - F3
+      - F6
       time:
         label: VALIDITY
         duration: P1M
-        timestamp: '2024-05-31T10:00:00.000Z'
+        timestamp: '{{timestamp}}'
       tags:
       - descriptor:
           code: ITEM_DETAILS

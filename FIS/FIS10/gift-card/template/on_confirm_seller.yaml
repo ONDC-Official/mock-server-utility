@@ -22,6 +22,12 @@ template:
       timestamp:
         operation:
           type: GENERATE_TIMESTAMP
+      GENERATE_START_DATE:
+        operation:
+          type: GENERATE_START_DATE
+      GENERATE_END_DATE:
+        operation:
+          type: GENERATE_END_DATE
       country: 
         $ref: "../operations/req_body.yaml#/context_country"
       domain: 
@@ -33,4 +39,14 @@ template:
           type: READ
           input:
             value: "req_body.context.message_id"     
+      created_at:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.created_at"
+      updated_at:
+        operation:
+          type: READ
+          input:
+            value: "req_body.message.order.updated_at"
   

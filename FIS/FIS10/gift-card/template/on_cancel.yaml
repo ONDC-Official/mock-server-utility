@@ -22,6 +22,13 @@ template:
       timestamp:
         operation:
           type: GENERATE_TIMESTAMP
+      GENERATE_START_DATE:
+        operation:
+          type: GENERATE_START_DATE
+      GENERATE_END_DATE:
+        operation:
+          type: GENERATE_END_DATE
+
       country: 
         $ref: "../operations/req_body.yaml#/context_country"
       domain: 

@@ -6,7 +6,7 @@ context:
     country:
       code: IND
   action: on_status
-  version: 2.0.0
+  version: 2.1.0
   bap_id: "{{bap_id}}"
   bap_uri: '{{bap_uri}}'
   bpp_id: "{{bpp_id}}"
@@ -400,7 +400,7 @@ message:
       phone: '9999888877'
     payments:
     - type: ON-ORDER
-      collected_by: BAP
+      collected_by: BPP
       url: https://sellerpaymentgateway.com/123456
       id: PMTTXN1
       params:

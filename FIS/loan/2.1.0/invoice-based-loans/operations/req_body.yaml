@@ -1,0 +1,35 @@
+bap_id:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.bap_id"
+bap_uri:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.bap_uri"
+city_code:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.location.city.code"
+country:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.location.country.code"
+domain:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.domain"
+transaction_id:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.transaction_id"
+message_id:
+  operation:
+    type: READ
+    input:
+      value: "req_body.context.message_id"           
