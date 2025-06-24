@@ -288,59 +288,6 @@ purchase-finance-2.2.0-1:
         $ref: "./loan/2.2.0/purchase-finance/template/on_update_2.yaml"
 
 
-# invoice based loans 2.1.0
-invoice-based-loans-2.1.0-1: # on_update with confirm
-  condition:
-    operation:
-      type: AND
-      input:
-        value:
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.context.domain"
-                  - "ONDC:FIS12"
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.context.version"
-                  - "2.1.0"
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.order.id"
-                  - "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID"
-          - operation:
-              type: EQUAL
-              title: Check search message code
-              input:
-                value:
-                  - operation:
-                      type: READ
-                      input:
-                        value: "req_body.message.update_target"
-                  - "fulfillment"
-  callback: "on_update"
-  uri:
-    $ref: ""
-  delay: 300
-  payload:
-    $ref: "./loan/2.1.0/invoice-based-loans/template/on_update_1.yaml"
 
 invoice-based-loans-2.1.0-2:
   condition:
@@ -367,7 +314,7 @@ invoice-based-loans-2.1.0-2:
                       type: READ
                       input:
                         value: "req_body.message.order.id"
-                  - "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID-2"
+                  - "LOAN_LEAD_ID_OR_SIMILAR_ORDER_ID"
           - operation:
               type: EQUAL
               title: Check search message code

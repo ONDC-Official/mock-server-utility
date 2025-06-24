@@ -20,7 +20,10 @@ template:
     transaction_id: 
       $ref: "../operations/req_body.yaml#/transaction_id"
     message_id: 
-      $ref: "../operations/req_body.yaml#/message_id"
+        operation:
+          type: GENERATE_UUID
+          input:
+            value: "req_body.context.message_id"
     action: confirm
     timestamp:
         operation:

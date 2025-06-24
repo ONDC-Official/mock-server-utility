@@ -267,6 +267,16 @@ invoice-based-loans-1:
                     - operation:
                         type: READ
                         input:
+                          value: "req_body.context.version"
+                    - "2.0.0"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
                           value: "req_body.message.intent.provider"
                     - "undefined"
   callback: "on_search"
@@ -323,6 +333,16 @@ invoice-based-loans-2:
                         input:
                           value: "req_body.message.intent.provider.items.0.xinput.form_response.submission_id"
                     - "F01_SUBMISSION_ID"
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - "2.0.0"
   callback: "on_search"
   uri:
     $ref: ""
@@ -346,6 +366,16 @@ invoice-based-loans-3:
                       input:
                         value: "req_body.message.intent.category.descriptor.code"
                   - INVOICE_BASED_LOAN
+          - operation:
+                type: EQUAL
+                title: Check search message code
+                input:
+                  value:
+                    - operation:
+                        type: READ
+                        input:
+                          value: "req_body.context.version"
+                    - "2.0.0"
           - operation:
                 type: EQUAL
                 title: Check search message code

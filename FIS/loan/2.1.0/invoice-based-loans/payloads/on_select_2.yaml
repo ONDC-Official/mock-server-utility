@@ -15,6 +15,7 @@ context:
   message_id: '{{message_id}}'
   timestamp: '{{timestamp}}'
   ttl: P30M
+
 message:
   order:
     provider:
@@ -193,7 +194,7 @@ message:
         form:
           id: F03
           mime_type: application/html
-          url: https://499f-115-245-207-90.ngrok-free.app/form/individual/kyc/invoice-based-loans
+          url: https://bpp.credit.becknprotocol.org/individual-kyc/xinput/formid/F03
           resubmit: false
           multiple_sumbissions: false
         required: true
