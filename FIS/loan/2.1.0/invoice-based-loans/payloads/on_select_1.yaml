@@ -193,7 +193,7 @@ message:
         form:
           id: F02
           mime_type: text/html
-          url: https://bpp.credit.becknprotocol.org/individual-kyc/xinput/formid/F02
+          url: '{{form_url}}form/update-loan-value/invoice-based-loans'
           resubmit: false
           multiple_sumbissions: false
         required: true
