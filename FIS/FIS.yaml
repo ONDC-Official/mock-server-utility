@@ -410,3 +410,42 @@ path:
   form_on-init-2_purchase-finance:
     callbacks:
       $ref: ./FIS/loan/2.2.0/purchase-finance/forms/on_init_form_2.yaml
+
+#invoice based loans
+  form_entity-info_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_entity_info.yaml
+  form_update-loan-value_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_update_loan_value.yaml
+  form_individual-kyc_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_individual_kyc_redirect.yaml
+  form_entity-kyc_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_entity_kyc_redirect.yaml
+  form_account-details_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_account_details.yaml
+  form_e-mandate-redirect_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_e-mandate_redirect.yaml
+  form_loan-agreement_invoice-based-loans:
+    schema:
+      type: object
+    callbacks:
+      $ref: ./FIS/loan/2.1.0/invoice-based-loans/forms/form_loan_agreement_redirect.yaml
+
+      

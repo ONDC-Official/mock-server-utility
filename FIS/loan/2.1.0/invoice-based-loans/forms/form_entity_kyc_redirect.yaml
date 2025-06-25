@@ -11,10 +11,35 @@ default:
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Entity KYC Redirect</title>
+      <style>
+        body {
+          font-family: Arial, sans-serif;
+          padding: 20px;
+        }
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        #submissionId {
+          margin-top: 20px;
+          font-weight: bold;
+          color: blue;
+        }
+      </style>
     </head>
 
     <body>
       <p>Entity KYC Redirect: This will be redirected to a different HTML page shortly.</p>
+      <button onclick="showSubmissionId()">Show Submission ID</button>
+      <div id="submissionId"></div>
+
+      <script>
+        function showSubmissionId() {
+          const submissionId = "FO4_SUBMISSION_ID"; // Replace with dynamic value if needed
+          document.getElementById("submissionId").innerText = "Submission ID: " + submissionId;
+        }
+      </script>
     </body>
 
     </html>

@@ -91,7 +91,7 @@ message:
           form:
             id: F01
             mime_type: text/html
-            url: https://bpp.credit.becknprotocol.org/xinput/formid/F01
+            url: "{{form_url}}form/entity-info/invoice-based-loans"
             resubmit: false
             multiple_sumbissions: false
           required: true

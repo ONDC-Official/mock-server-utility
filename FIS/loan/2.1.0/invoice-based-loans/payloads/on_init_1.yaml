@@ -146,7 +146,7 @@ message:
         form:
           id: F04
           mime_type: application/html
-          url: https://bpp.credit.becknprotocol.org/xinput/formid/F04
+          url: '{{form_url}}form/entity-kyc/invoice-based-loans'
           resubmit: false
           multiple_sumbissions: false
         required: true

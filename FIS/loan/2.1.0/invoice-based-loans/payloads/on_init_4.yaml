@@ -146,7 +146,7 @@ message:
         form:
           id: F07
           mime_type: application/html
-          url: https://6vs8xnx5i7.icicibank.co.in/loan-agreement/xinput/formid/F07
+          url: '{{form_url}}form/loan-agreement/invoice-based-loans'
           resubmit: false
           multiple_sumbissions: false
         required: true

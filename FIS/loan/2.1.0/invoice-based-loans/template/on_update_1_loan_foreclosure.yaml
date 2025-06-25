@@ -3,6 +3,8 @@ template:
     $ref: "../payloads/on_update_1_loan_foreclosure.yaml"
   dict:
     version: 2.1.0
+    form_url: 
+      $ref: "../../../../config_values.yaml#/form_url"
     bap_id: 
       $ref: "../operations/req_body.yaml#/bap_id"
     bap_uri: 

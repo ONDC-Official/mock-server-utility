@@ -49,7 +49,7 @@ default:
           event.preventDefault(); // Prevent actual submission
           
           // Generate a fake Submission ID
-          const submissionId = `FO4_SUBMISSION_ID`;
+          const submissionId = `FO5_SUBMISSION_ID`;
 
           // Hide the form
           form.style.display = 'none';

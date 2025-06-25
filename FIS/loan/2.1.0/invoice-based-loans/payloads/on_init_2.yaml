@@ -146,7 +146,7 @@ message:
         form:
           id: F05
           mime_type: text/html
-          url: https://6vs8xnx5i7.icicibank.co.in/account-details/xinput/formid/F05
+          url: '{{form_url}}form/account-details/invoice-based-loans'
           resubmit: false
           multiple_sumbissions: false
         required: true
