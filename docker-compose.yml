@@ -1,10 +1,7 @@
 version: "3.8"
-
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: 577638354424.dkr.ecr.ap-south-1.amazonaws.com/staging/trv-mock-server-utility:latest
     container_name: ${CONTAINER_NAME:-mock-server-utility}
     ports:
       - "${PORT:-3000}:${PORT:-3000}"
